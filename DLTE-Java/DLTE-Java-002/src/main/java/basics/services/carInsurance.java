@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class carInsurance {
     public static void main(String[] args)
     {
+        //Intialization
         String borrowerName="", borrowerPan="", borrowerAddress="", borrowerEmail="", borrowerIncomeType="",mobileNumber,aadhaar;
         Scanner scanner=new Scanner(System.in);
 
@@ -62,6 +63,7 @@ public class carInsurance {
         System.out.println("Dear "+borrowerName+" Thanks for showing interest on taking car loan in MyBank your application has submitted and further details will be mailed to you "+borrowerEmail+" or SMS to "+mobileNumber);
     }
 
+    //Validation Funtion
     static boolean validate(String x,Pattern pattern){
         Matcher matcher = pattern.matcher(x);
         return matcher.matches();

@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Transactions {
     public static void main(String[] args) {
+        //Intialization
         int dCount = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter 1st balance");
         long temp = sc.nextLong();
+        //Logic
         for(int i=1;i<10;i++) {
             System.out.println("Enter " + (i + 1) + " balance");
             long temp2 = sc.nextLong();

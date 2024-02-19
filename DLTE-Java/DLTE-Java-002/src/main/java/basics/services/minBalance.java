@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class minBalance {
     public static void main(String[] args) {
+        //Intialization
         long balance[] = new long[20];
         Scanner sc = new Scanner(System.in);
         for(int i=0;i<20;i++){
@@ -16,6 +17,8 @@ public class minBalance {
             System.out.println(i);
         }
     }
+
+    //Penalty
     static void penalty(long bal[]){
         for(int i=0;i<20;i++){
             if(bal[i]<=10000){

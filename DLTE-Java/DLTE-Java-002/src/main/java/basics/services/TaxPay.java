@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class TaxPay {
     public static void main(String[] args) {
+        //Intialization
         long salary;
         System.out.println("Enter Salary");
         salary=new Scanner(System.in).nextLong();
         int op=salgroup(salary);
+        //Tax Calculation
         switch(op){
             case 1:System.out.println("Your Are exempt from any tax on both regime ");break;
             case 2: System.out.println("Old Regime: "+(salary*0.05)+"New Regime: "+(salary*0.05)); break;
@@ -17,9 +19,8 @@ public class TaxPay {
             case 6:System.out.println("Old Regime: "+(salary*0.30)+"New Regime: "+(salary*0.25)); break;
             case 7: System.out.println("Old Regime: "+(salary*0.30)+"New Regime: "+(salary*0.30)); break;
         }
-
-
     }
+    //Salary Group
     static int salgroup(long salary){
         if (salary>=0 && salary<250000) return 1;
         else if (salary>=250000 && salary<500000) return 2;
