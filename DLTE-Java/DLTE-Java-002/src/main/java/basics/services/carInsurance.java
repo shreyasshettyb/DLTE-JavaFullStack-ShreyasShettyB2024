@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class carInsurance {
     public static void main(String[] args)
     {
-        //Intialization
+        //Initialization
         String borrowerName="", borrowerPan="", borrowerAddress="", borrowerEmail="", borrowerIncomeType="",mobileNumber,aadhaar;
         Scanner scanner=new Scanner(System.in);
 
@@ -41,17 +41,14 @@ public class carInsurance {
         scanner.next();
         borrowerIncomeType= scanner.nextLine();
         System.out.println("Mention the mobile number ");
-//        scanner.next();
         mobileNumber=scanner.nextLine();
         pattern = Pattern.compile("^\\d{10}$");
         matcher = pattern.matcher(mobileNumber);
         while (!validate(mobileNumber, pattern)){
             System.out.println("!Invalid Mobile Number.Retype Mobile Number ");
-//            scanner.next();
             mobileNumber=scanner.nextLine();
         }
         System.out.println("Enter the Email address");
-//        scanner.next();
         borrowerEmail= scanner.next();
         pattern = Pattern.compile("[A-Za-z0-9]+@[A-Za-z]+\\.[]A-Za-z]{2,}");
         matcher = pattern.matcher(borrowerEmail);

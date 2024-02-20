@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Transactions {
     public static void main(String[] args) {
-        //Intialization
+        //Initialization
         int dCount = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter 1st balance");

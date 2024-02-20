@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class TaxPay {
     public static void main(String[] args) {
-        //Intialization
+        //Initialization
         long salary;
         System.out.println("Enter Salary");
         salary=new Scanner(System.in).nextLong();
         int op=salgroup(salary);
+
         //Tax Calculation
         switch(op){
             case 1:System.out.println("Your Are exempt from any tax on both regime ");break;

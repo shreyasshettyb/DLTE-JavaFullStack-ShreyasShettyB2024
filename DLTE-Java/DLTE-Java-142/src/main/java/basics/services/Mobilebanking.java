@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class Mobilebanking {
     public static void main(String[] args) {
+        //Initialization
         Scanner sc = new Scanner(System.in);
         String name="",email="";
         long phone,bankAcc;
         int mpin;
         int attempts=0;
         int op=0;
+        //Logic
         System.out.println("Welcome to My Bank Internet Banking");
         while (true){
             System.out.println("Enter Option\n1.Sign In\n2.Sign Up");

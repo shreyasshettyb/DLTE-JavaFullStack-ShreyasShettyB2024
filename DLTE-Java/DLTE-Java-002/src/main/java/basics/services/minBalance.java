@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class minBalance {
     public static void main(String[] args) {
-        //Intialization
+        //Initialization
         long balance[] = new long[20];
         Scanner sc = new Scanner(System.in);
         for(int i=0;i<20;i++){

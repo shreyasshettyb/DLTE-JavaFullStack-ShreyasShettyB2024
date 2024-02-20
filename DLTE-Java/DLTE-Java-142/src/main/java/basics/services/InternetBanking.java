@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class InternetBanking {
     public static void main(String[] args) {
+        //Initialization
         Scanner sc = new Scanner(System.in);
         String name="",email="",password="";
         long phone,bankAcc;
         int attempts=0;
         int op=0;
+        //Logic
         System.out.println("Welcome to My Bank Internet Banking");
         while (true){
             System.out.println("Enter Option\n1.Sign In\n2.Sign Up");

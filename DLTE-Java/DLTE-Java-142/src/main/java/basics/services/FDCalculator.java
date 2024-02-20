@@ -6,14 +6,16 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class FDCal
+public class FDCalculator
 {
     public static void main( String[] args )
     {
+        //Initialization
         Scanner sc = new Scanner(System.in);
         int years;
         long principal;
         double interest;
+        //Logic
         System.out.println("Hello,Welcome to Fd Calculator");
         System.out.println("Enter Principal Amount");
         principal=sc.nextLong();

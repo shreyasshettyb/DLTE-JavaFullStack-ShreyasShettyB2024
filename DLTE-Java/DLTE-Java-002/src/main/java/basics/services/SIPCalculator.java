@@ -2,7 +2,7 @@ package basics.services;
 
 import java.util.Scanner;
 
-public class SIPCal {
+public class SIPCalculator {
     public static void main(String[] args) {
         //Intailization
         long investAmt;

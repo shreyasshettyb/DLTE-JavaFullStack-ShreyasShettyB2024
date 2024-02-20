@@ -2,7 +2,7 @@ package basics.services;
 
 public class InsuranceProvider {
     public static void main(String[] args) {
-        //Intialization
+        //Initialization
         String max[] = {"health", "life"};
         String acko[] = {"health", "life", "car", "bike"};
         String star[] = {"health"};
