@@ -1,5 +1,7 @@
 package basics.oops;
 
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
