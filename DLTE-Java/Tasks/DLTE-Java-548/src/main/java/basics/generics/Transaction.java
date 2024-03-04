@@ -2,41 +2,31 @@ package basics.generics;
 
 public class Transaction {
     private String dateOfTransaction;
-    private   amountInTransaction;
-    private String to;
+    private  double amountInTransaction;
+    private String transactionTo;
     private String remarks;
 
-    public Transaction(String dateOfTransaction, Integer amountInTransaction, String transactionTo, String transactionRemarks) {
-        this.transactionDate = transactionDate;
-        this.transactionAmount = transactionAmount;
+    public Transaction(String dateOfTransaction, Integer amountInTransaction, String transactionTo, String remarks) {
+        this.dateOfTransaction = dateOfTransaction;
+        this.amountInTransaction = amountInTransaction;
         this.transactionTo = transactionTo;
-        this.transactionRemarks = transactionRemarks;
+        this.remarks = remarks;
     }
 
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionDate='" + transactionDate + '\'' +
-                ", transactionAmount=" + transactionAmount +
-                ", transactionTo='" + transactionTo + '\'' +
-                ", transactionRemarks='" + transactionRemarks + '\'' +
-                '}';
+    public String getDateOfTransaction() {
+        return dateOfTransaction;
     }
 
-    public String getTransactionDate() {
-        return transactionDate;
+    public void setDateOfTransaction(String dateOfTransaction) {
+        this.dateOfTransaction = dateOfTransaction;
     }
 
-    public void setTransactionDate(String transactionDate) {
-        this.transactionDate = transactionDate;
+    public double getAmountInTransaction() {
+        return amountInTransaction;
     }
 
-    public Integer getTransactionAmount() {
-        return transactionAmount;
-    }
-
-    public void setTransactionAmount(Integer transactionAmount) {
-        this.transactionAmount = transactionAmount;
+    public void setAmountInTransaction(double amountInTransaction) {
+        this.amountInTransaction = amountInTransaction;
     }
 
     public String getTransactionTo() {
@@ -47,11 +37,21 @@ public class Transaction {
         this.transactionTo = transactionTo;
     }
 
-    public String getTransactionRemarks() {
-        return transactionRemarks;
+    public String getRemarks() {
+        return remarks;
     }
 
-    public void setTransactionRemarks(String transactionRemarks) {
-        this.transactionRemarks = transactionRemarks;
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "dateOfTransaction='" + dateOfTransaction + '\'' +
+                ", amountInTransaction=" + amountInTransaction +
+                ", transactionTo='" + transactionTo + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }

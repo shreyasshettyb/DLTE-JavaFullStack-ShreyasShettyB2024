@@ -3,95 +3,73 @@ package basics.generics;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.lang.System.exit;
 
 public class TransactionAnalysis {
-    private List<Transaction> transactions;
-    public TransactionAnalysis(){
-        this.transactions=new ArrayList<>();
-    }
-    public void addTransaction(Transaction transaction){
-        transactions.add(transaction);
-    }
-    public List<Transaction> filterByDateRange(String startDate, String endDate){
-        return transactions.stream().filter(transaction->transaction.getTransactionDate().compareTo(startDate)>=0&&transaction.getTransactionDate().compareTo(endDate)<=0).collect(Collectors.toList());
-    }
-    public Transaction findMinimumAmountTransaction(){
-        return transactions.stream().min(Comparator.comparing(Transaction::getTransactionAmount)).orElse(null);
-    }
-    public Transaction findMaximumAmountTransaction(){
-        return transactions.stream().max(Comparator.comparing(Transaction::getTransactionAmount)).orElse(null);
-    }
-    public List<Transaction> sortTransaction(Comparator<Transaction> comparator){
-        return transactions.stream().sorted(comparator).collect(Collectors.toList());
-    }
-
+    static List<Transaction> transactions = new ArrayList<>();
     public static void main(String[] args) {
-        TransactionAnalysis analyser=new TransactionAnalysis();
-        analyser.addTransaction(new Transaction("2024-12-11",1000,"Aru","Family"));
-        analyser.addTransaction( new Transaction("2024-11-08",2000,"Divija","Education"));
-        analyser.addTransaction(new Transaction("2024-08-06",1500,"Akshira","Emergency"));
-        analyser.addTransaction(new Transaction("2024-05-06",1200,"Eeksha","Bills"));
-        analyser.addTransaction(new Transaction("2024-12-01",9000,"Avinash","Bills"));
+        transactions.add(new Transaction("2024/05/11",5153,"Varun","Loan"));
+        transactions.add( new Transaction("2024/01/08",2351530,"Prashanth","Education"));
+        transactions.add(new Transaction("2024/08/16",653210,"Elory","Loan"));
+        transactions.add(new Transaction("2024/05/26",52624,"Rakesh","Education"));
         Scanner scanner=new Scanner(System.in);
-        int choice;
-        do{
+        int option;
+        while(true){
 
             System.out.println("---------Welcome to transaction Section---------");
-            System.out.println("1.Filter transaction by the range of Dates");
-            System.out.println("2.Find Transaction with least Amount");
-            System.out.println("3.Find Transaction with Maximum Amount");
+            System.out.println("1.Filter Transaction By The Range of Dates");
+            System.out.println("2.Find Transaction With Least Amount");
+            System.out.println("3.Find Transaction With Maximum Amount");
             System.out.println("4.Sort the Transaction");
             System.out.println("5.Exit");
-            System.out.println("Enter Your Choice :");
-            choice=scanner.nextInt();
+            System.out.println("Enter Your Choice");
+            option=scanner.nextInt();
             scanner.nextLine();
-            switch (choice){
+            switch (option){
                 case 1:
-                    System.out.println("Enter the start date for filtering(YYYY-MM-DD)");
+                    System.out.println("Enter the start date");
                     String startDate=scanner.nextLine();
-                    System.out.println("Enter the end date for filtering(YYYY-MM-DD)");
+                    System.out.println("Enter the end date");
                     String endDate=scanner.nextLine();
-                    List<Transaction> filterTransaction=analyser.filterByDateRange(startDate,endDate);
+                    List<Transaction> filterTransaction=transactions.stream().filter(transaction->transaction.getDateOfTransaction().compareTo(startDate)>=0&&transaction.getDateOfTransaction().compareTo(endDate)<=0).collect(Collectors.toList());
                     System.out.println("Filtered Transaction:");
                     filterTransaction.forEach(System.out::println);
                     break;
-                case 2: Transaction minTransaction=analyser.findMinimumAmountTransaction();
-                    System.out.println("Minimum amount Transaction: "+minTransaction);break;
-                case 3:Transaction maxTransaction=analyser.findMaximumAmountTransaction();
-                    System.out.println("Maximum amount Transaction: "+maxTransaction);break;
+                case 2: Transaction minTransaction=transactions.stream().min(Comparator.comparing(Transaction::getAmountInTransaction)).orElse(null);
+                    System.out.println("Minimum amount "+minTransaction);break;
+                case 3:Transaction maxTransaction=transactions.stream().max(Comparator.comparing(Transaction::getAmountInTransaction)).orElse(null);
+                    System.out.println("Maximum amount "+maxTransaction);break;
                 case 4:
-                    System.out.println("Enter the property to sort(date,amount,to,remarks):");
+                    System.out.println("Enter the property to sort");
                     String property=scanner.nextLine();
-                    System.out.println("Enter the order(asc/des):");
-                    String sortOrder=scanner.nextLine();
+                    System.out.println("Enter the order");
+                    String sort=scanner.nextLine();
                     Comparator<Transaction> comparator=null;
                     switch (property){
-                        case "date": case "Date":comparator=Comparator.comparing(Transaction::getTransactionDate);
+                        case "date": case "Date":comparator=Comparator.comparing(Transaction::getDateOfTransaction);
                             break;
-                        case "Amount":case "amount" : comparator=Comparator.comparing(Transaction::getTransactionAmount);
+                        case "Amount":case "amount" : comparator=Comparator.comparing(Transaction::getAmountInTransaction);
                             break;
                         case "to": case "To":comparator=Comparator.comparing(Transaction::getTransactionTo);
                             break;
-                        case "Remarks": case "remarks":comparator=Comparator.comparing(Transaction::getTransactionRemarks);
+                        case "Remarks": case "remarks":comparator=Comparator.comparing(Transaction::getRemarks);
                             break;
-                        default:System.out.println("Invalid property specified for sorting.");
+                        default:System.out.println("Invalid property");
                             break;
                     }
                     if(comparator!=null){
-                        if(sortOrder.equalsIgnoreCase("desc")){
+                        if(!sort.equalsIgnoreCase("asce")){
                             comparator=comparator.reversed();
                         }
-                        List<Transaction> sortTransaction=analyser.sortTransaction(comparator);
-                        System.out.println("Sorted Transaction:");
+                        List<Transaction> sortTransaction=transactions.stream().sorted(comparator).collect(Collectors.toList());
+                        System.out.println("Sorted Transaction are");
                         sortTransaction.forEach(System.out::println);
                     }
                     break;
-                case 5:exit(0);
+                case 5:
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid option");
             }
 
-        }while (choice!=5);
+        }
     }
 }
