@@ -1,12 +1,15 @@
 package app.mobilebanking.middleware;
 
 import app.mobilebanking.entity.Account;
+import app.mobilebanking.exceptions.WithdrawException;
 import app.mobilebanking.remotes.UserRepository;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +19,7 @@ public class UserFileRepository implements UserRepository {
     private String filePath;
     private ResourceBundle resourceBundle=ResourceBundle.getBundle("accounts");
     private Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    Scanner scanner = new Scanner(System.in);
     private List<Account> accountList=new ArrayList<>();
     public UserFileRepository(String url){
         filePath=url;
@@ -65,7 +69,7 @@ public class UserFileRepository implements UserRepository {
     @Override
     public List<Account> findALL() {
         readFromFile();
-        logger.log(Level.INFO,resourceBundle.getString("card.everything"));
+        logger.log(Level.INFO,resourceBundle.getString("list.everything"));
         return accountList;
     }
 
@@ -73,18 +77,32 @@ public class UserFileRepository implements UserRepository {
     public boolean verifyPassword(String username, String password) {
         readFromFile();
         Account account = accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
-        if(account == null){
-            logger.log(Level.WARNING,resourceBundle.getString("username.not.found"));
-            System.out.println(resourceBundle.getString("Username not found"));
-            return false;
+        try {
+            if (account == null) {
+                logger.log(Level.WARNING, resourceBundle.getString("username.not.found"));
+                System.out.println(resourceBundle.getString("Username not found"));
+                return false;
+            } else if (!account.getPassword().equals(password)) {
+                logger.log(Level.WARNING, resourceBundle.getString("password.not.matched"));
+                System.out.println(resourceBundle.getString("password.not.matched"));
+                throw new WithdrawException();
+            } else
+                return true;
+        }catch(WithdrawException withdrawException){
+            for(int attempts=2;attempts<=3;){
+                System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts+1)+" attempts left");
+                System.out.println(withdrawException);
+                String pin=scanner.next();
+                if(account.getPassword().equals(pin)){
+                    System.out.println(resourceBundle.getString("accounts.login.success"));
+                    return true;
+                }else{
+                    //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
+                    attempts++;
+                }if(attempts>3) System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+            }
         }
-        else if(!account.getPassword().equals(password)){
-            logger.log(Level.WARNING,resourceBundle.getString("password.not.matched"));
-            System.out.println(resourceBundle.getString("password.not.matched"));
-            return false;
-        }
-        else
-            return true;
+        return false;
     }
 
     @Override
@@ -94,7 +112,6 @@ public class UserFileRepository implements UserRepository {
             Account account = accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
             if(account.getBalance()-withdrawAmount<0){
                 logger.log(Level.WARNING,resourceBundle.getString("no.money"));
-
             }
             else {
                 account.setBalance(account.getBalance()-withdrawAmount);

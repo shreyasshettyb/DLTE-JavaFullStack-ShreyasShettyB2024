@@ -22,7 +22,7 @@ public class App {
         //storageTarget=new DatabaseTarget();
         services=new AccountService(storageTarget);
         //services.callAddTransactions();
-        //System.out.println( services.callFinaAll().toString());
+        System.out.println( services.callFinaAll().toString());
         System.out.println(resourceBundle.getString("app.greet"));
         System.out.println(resourceBundle.getString("app.login.menu"));
         option = scanner.nextInt();
@@ -32,7 +32,6 @@ public class App {
             System.out.println("Enter Password");
             password = scanner.next();
             if(services.callVerifyPassword(username,password)){
-                System.out.println(resourceBundle.getString("login.Successful"));
             while (true) {
                 System.out.println(resourceBundle.getString("app.dashboard.menu"));
                 option = scanner.nextInt();
