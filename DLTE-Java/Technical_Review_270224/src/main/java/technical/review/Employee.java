@@ -12,6 +12,26 @@ public class Employee {
         this.communication = communication;
     }
 
+    public Employee() {
+
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public Address getPermanentAddress() {
+        return permanentAddress;
+    }
+
+    public Address getTemporaryAddress() {
+        return temporaryAddress;
+    }
+
+    public Communication getCommunication() {
+        return communication;
+    }
+
     public void setName(Name name) {
         this.name = name;
     }

@@ -1,49 +1,58 @@
 package technical.review;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EmployeeDetails {
+    private static ArrayList<Employee> employeeArrayList = new ArrayList<>();
+    static Validation validation = new Validation();
+    static int count = 0;
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int count = 0;
-        try {
-            System.out.println("Enter Number of Employees");
-            count = scanner.nextInt();
-        }catch (Exception e){
-            System.out.println("Enter Number, Retry");
-            main(args);
+        while (true) {
+            System.out.println("-------------------- Welcome to Employee Dashboard --------------------");
+            System.out.println("Enter You choice\n1.Add Employee Details\n2.View Employee Details");
+            int option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                   do{ System.out.println("Enter Employee " + (count + 1) + " Details :");
+                   Employee employee = new Employee();
+                    collectEmployeeName(employee);
+                    collectEmployeeAddress(employee);
+                    collectEmployeeCommunication(employee);
+                    employeeArrayList.add(employee);
+                    count++;
+                       System.out.println("Do you want to add another employee?");
+                   }while(scanner.next().equalsIgnoreCase("yes"));
+                       break;
+                case 2:
+                    displayEmployeeDetails(employeeArrayList);
+                    break;
+
+            }
+
         }
-        Employee[] employee = new Employee[count];
-        System.out.println("Enter Employee Details :");
-        for(int index = 0; index < employee.length; index++) {
-            System.out.println("Enter Employee " + (index + 1) + " Details :");
-            employee[index] = new Employee(null,null,null,null);
-            collectEmployeeName(employee[index]);
-            collectEmployeeAddress(employee[index]);
-            collectEmployeeCommunication(employee[index]);
-        }
-            displayEmployeeDetails(employee);
-        scanner.close();
+
     }
 
     static void collectEmployeeName(Employee employee) {
-        Validation validation = new Validation();
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter Employee First Name");
+        scanner.nextLine();
         String firstName = scanner.nextLine();
-        System.out.println(firstName+"Enter Employee Middle Name");
+        System.out.println("Enter Employee Middle Name");
         String middleName = scanner.nextLine();
         System.out.println("Enter Employee Last Name");
         String lastName = scanner.nextLine();
-        validation.validateName(firstName,middleName,lastName,employee);
-        //employee.setName(new Name(firstName, middleName, lastName));
+        validation.validateName(firstName, middleName, lastName, employee);
+        employee.setName(new Name(firstName, middleName, lastName));
 
     }
 
 
     static void collectEmployeeAddress(Employee employee) {
-        Validation validation = new Validation();
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Employee Permanent Address");
         System.out.println("Enter Employee  House Name");
         String permanentHouseName = scanner.nextLine();
@@ -54,11 +63,14 @@ public class EmployeeDetails {
         System.out.println("Enter Employee State");
         String permanentState = scanner.nextLine();
         System.out.println("Enter Employee Pincode");
-        Integer permanentPincode = scanner.nextInt();
-        //validation.validateAddress(permanentHouseName,permanentStreetName,permanentCity,permanentState,permanentPincode,employee);
+        Integer permanentPincode;
         try {
-            employee.setPermanentAddress(new Address(permanentHouseName, permanentStreetName, permanentCity, permanentState, permanentPincode));
-        }catch (Exception e){}
+             permanentPincode = scanner.nextInt();
+        }catch (InputMismatchException exception){
+            System.out.println("Re-Enter your Permanent Pincode");
+            permanentPincode = scanner.nextInt();
+        }
+        validation.validateAddress(permanentHouseName,permanentStreetName,permanentCity,permanentState,permanentPincode,employee,0);
         System.out.println("Enter Employee Temporary Address");
         System.out.println("Enter Employee House Name");
         scanner.nextLine();
@@ -71,29 +83,33 @@ public class EmployeeDetails {
         String temporaryState = scanner.nextLine();
         System.out.println("Enter Employee Pincode");
         Integer temporaryPincode = scanner.nextInt();
-        //validation.validateAddress(temporaryHouseName,temporaryStreetName,temporaryCity,temporaryState,temporaryPincode,employee);
-        try {
-            employee.setTemporaryAddress(new Address(temporaryHouseName,temporaryStreetName,temporaryCity,temporaryState,temporaryPincode));
-        }catch (Exception e){}
-        //scanner.close();
+        validation.validateAddress(temporaryHouseName,temporaryStreetName,temporaryCity,temporaryState,temporaryPincode,employee,1);
     }
+
     static void collectEmployeeCommunication(Employee employee) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Employee Phone");
-        Long phone = scanner.nextLong();
+        Long phone;
+       try {
+           phone = scanner.nextLong();
+       }catch (Exception exception){
+           System.out.println("Re-Enter your Employee Phone");
+           phone = scanner.nextLong();
+       }
         System.out.println("Enter Employee Email ");
         String email = scanner.next();
-        employee.setCommunication(new Communication(phone,email));
-
-//        scanner.close();
+        validation.validateCommunication(phone,email,employee);
     }
 
     //Employee Details Are Displayed
-    static void displayEmployeeDetails(Employee[] employee){
+    static void displayEmployeeDetails(ArrayList<Employee> employee) {
 //        System.out.println("Employee Details Are");
-        for(Employee each:employee){
-            System.out.println("Employee  Details Are");
-            System.out.println(each);
+        int temp=0;
+        for (Employee each : employee) {
+            System.out.println("Employee "+each.getName().getFirstName()+" Details Are");
+            System.out.println("First Name: "+each.getName().getFirstName()+"\nMiddle Name: "+each.getName().getMiddleName()+"\nLast Name: "+each.getName().getLastName());
+            System.out.println("Permanent Address: \n"+each.getPermanentAddress());
+            System.out.println("Temporary Address: \n"+each.getTemporaryAddress());
+            System.out.println("Phone: "+each.getCommunication().getPhone()+"\nEmail: "+each.getCommunication().getEmail());
         }
     }
 }

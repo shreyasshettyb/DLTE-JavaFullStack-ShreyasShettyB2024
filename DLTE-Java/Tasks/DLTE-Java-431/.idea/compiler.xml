@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DLTE-Java-431" />
+        <module name="Tasl#431" />
+        <module name="Task#431" />
       </profile>
     </annotationProcessing>
   </component>

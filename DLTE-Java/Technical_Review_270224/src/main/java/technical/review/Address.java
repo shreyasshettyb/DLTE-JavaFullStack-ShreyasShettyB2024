@@ -37,10 +37,10 @@ public class Address {
 
     @Override
     public String toString() {
-        return "\nHouse Name= " + houseName +
-                "\nStreetName= " + streetName +
-                "\nCity= " + city +
-                "\nState= " + state +
-                "\nPincode=" + pincode;
+        return "House Name: " + houseName +
+                "\nStreetName: " + streetName +
+                "\nCity: " + city +
+                "\nState: " + state +
+                "\nPincode: " + pincode;
     }
 }

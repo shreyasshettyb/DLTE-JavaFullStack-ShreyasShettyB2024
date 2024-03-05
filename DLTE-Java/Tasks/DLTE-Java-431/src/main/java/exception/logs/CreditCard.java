@@ -1,4 +1,4 @@
-package basics.exceptions;
+package exception.logs;
 
 import java.util.Date;
 
@@ -9,6 +9,19 @@ public class CreditCard {
     private Integer creditCardCvv;
     private Integer creditCardLimit;
     private Date dateOfBillGeneration;
+    private Date dateOfBillPayment;
+    private Integer creditCardPin;
+
+    public CreditCard(Long creditCardNumber, String creditCardHolder, Date creditCardExpiry, Integer creditCardCvv, Integer creditCardLimit, Date dateOfBillGeneration, Date dateOfBillPayment, Integer creditCardPin) {
+        this.creditCardNumber = creditCardNumber;
+        this.creditCardHolder = creditCardHolder;
+        this.creditCardExpiry = creditCardExpiry;
+        this.creditCardCvv = creditCardCvv;
+        this.creditCardLimit = creditCardLimit;
+        this.dateOfBillGeneration = dateOfBillGeneration;
+        this.dateOfBillPayment = dateOfBillPayment;
+        this.creditCardPin = creditCardPin;
+    }
 
     public Long getCreditCardNumber() {
         return creditCardNumber;
@@ -74,18 +87,17 @@ public class CreditCard {
         this.creditCardPin = creditCardPin;
     }
 
-    private Date dateOfBillPayment;
-
-    public CreditCard(Long creditCardNumber, String creditCardHolder, Date creditCardExpiry, Integer creditCardCvv, Integer creditCardLimit, Date dateOfBillGeneration, Date dateOfBillPayment, Integer creditCardPin) {
-        this.creditCardNumber = creditCardNumber;
-        this.creditCardHolder = creditCardHolder;
-        this.creditCardExpiry = creditCardExpiry;
-        this.creditCardCvv = creditCardCvv;
-        this.creditCardLimit = creditCardLimit;
-        this.dateOfBillGeneration = dateOfBillGeneration;
-        this.dateOfBillPayment = dateOfBillPayment;
-        this.creditCardPin = creditCardPin;
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "creditCardNumber=" + creditCardNumber +
+                ", creditCardHolder='" + creditCardHolder + '\'' +
+                ", creditCardExpiry=" + creditCardExpiry +
+                ", creditCardCvv=" + creditCardCvv +
+                ", creditCardLimit=" + creditCardLimit +
+                ", dateOfBillGeneration=" + dateOfBillGeneration +
+                ", dateOfBillPayment=" + dateOfBillPayment +
+                ", creditCardPin=" + creditCardPin +
+                '}';
     }
-
-    private Integer creditCardPin;
 }

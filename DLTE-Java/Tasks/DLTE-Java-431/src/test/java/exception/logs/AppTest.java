@@ -1,4 +1,4 @@
-package basics.exceptions;
+package exception.logs;
 
 import static org.junit.Assert.assertTrue;
 
