@@ -5,6 +5,7 @@ import app.mobilebanking.middleware.FileStorageTarget;
 import app.mobilebanking.remotes.StorageTarget;
 import app.mobilebanking.services.AccountService;
 
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -30,8 +31,9 @@ public class App {
             username = scanner.next();
             System.out.println("Enter Password");
             password = scanner.next();
-            if(services.callVerifyPassword(username,password))
-            while (true){
+            if(services.callVerifyPassword(username,password)){
+                System.out.println(resourceBundle.getString("login.Successful"));
+            while (true) {
                 System.out.println(resourceBundle.getString("app.dashboard.menu"));
                 option = scanner.nextInt();
                 switch (option) {
@@ -41,18 +43,30 @@ public class App {
                     case 5:
                     case 6:
                         System.out.println(resourceBundle.getString("app.page.under.development"));
-                            break;
-                    case 3:double amount;
-                        System.out.println("Enter Amount to be Withdrawn");
-                        amount = scanner.nextDouble();
+                        break;
+                    case 3:
+                        double amount = 0;
+                         boolean validate=false;
+                         do {
+
+                             try {
+                                 System.out.println("Enter Amount to be Withdrawn");
+                                 amount = scanner.nextDouble();
+                                 validate = true;
+                             } catch (InputMismatchException inputMismatchException) {
+                                 System.out.println(resourceBundle.getString("Enter.number"));
+                                 scanner.nextLine();
+                             }
+                         }while (!validate);
                         System.out.println("Enter Password");
                         password = scanner.next();
-                        services.callWithdraw(username,password,amount);
+                        services.callWithdraw(username, password, amount);
                         break;
                     default:
                         System.out.println("Thank You");
                         System.exit(0);
                 }
+            }
             }
         }
         else{
