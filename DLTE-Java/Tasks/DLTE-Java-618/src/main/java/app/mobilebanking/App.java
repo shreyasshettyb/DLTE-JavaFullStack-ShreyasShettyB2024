@@ -22,7 +22,7 @@ public class App {
         //storageTarget=new DatabaseTarget();
         services=new AccountService(storageTarget);
         //services.callAddTransactions();
-        System.out.println( services.callFinaAll().toString());
+        //System.out.println( services.callFinaAll().toString());
         System.out.println(resourceBundle.getString("app.greet"));
         System.out.println(resourceBundle.getString("app.login.menu"));
         option = scanner.nextInt();

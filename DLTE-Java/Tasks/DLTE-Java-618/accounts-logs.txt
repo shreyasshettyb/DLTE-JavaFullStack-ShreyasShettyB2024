@@ -76,3 +76,7 @@ Mar 05, 2024 10:00:20 AM app.mobilebanking.middleware.UserFileRepository verifyP
 WARNING: Password is Incorrect
 Mar 05, 2024 10:00:48 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
 WARNING: Password is Incorrect
+Mar 05, 2024 10:09:34 AM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:10:52 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
