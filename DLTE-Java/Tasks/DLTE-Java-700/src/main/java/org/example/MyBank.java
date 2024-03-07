@@ -5,7 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public interface MyBank{
-    void filter(String beforeDate,String afterDate) throws IOException, ClassNotFoundException, ParseException;
+    void filter(Date beforeDate, Date afterDate) ;
 }

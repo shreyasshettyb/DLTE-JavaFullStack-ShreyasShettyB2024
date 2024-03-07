@@ -3,7 +3,6 @@ package app.mobilebanking.middleware;
 import app.mobilebanking.entity.Account;
 import app.mobilebanking.exceptions.WithdrawException;
 import app.mobilebanking.remotes.UserRepository;
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -81,7 +80,8 @@ public class UserFileRepository implements UserRepository {
             if (account == null) {
                 System.out.println(resourceBundle.getString("username.not.found"));
                 logger.log(Level.WARNING, resourceBundle.getString("username.not.found"));
-                return false;
+//                return false;
+                throw new WithdrawException();
             } else if (!account.getPassword().equals(password)) {
                 logger.log(Level.WARNING, resourceBundle.getString("password.not.matched"));
                 System.out.println(resourceBundle.getString("password.not.matched"));
@@ -93,8 +93,12 @@ public class UserFileRepository implements UserRepository {
                 System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts+1)+" attempts left");
                 logger.log(Level.WARNING,resourceBundle.getString("accounts.login.fail"));
                 System.out.println(withdrawException);
-                String pin=scanner.next();
-                if(account.getPassword().equals(pin)){
+                System.out.println("Enter Your Username");
+                String user = scanner.next();
+                System.out.println("Enter Password");
+                String pin = scanner.next();
+                account =accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
+                if(account!=null && account.getUsername().equals(user) && account.getPassword().equals(pin)){
                     System.out.println(resourceBundle.getString("accounts.login.success"));
                     logger.log(Level.INFO,resourceBundle.getString("accounts.login.success"));
                     return true;

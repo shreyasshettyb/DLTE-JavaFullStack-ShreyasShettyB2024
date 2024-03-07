@@ -5,7 +5,7 @@ import java.util.Date;
 public class Loan {
     private Long loanNumber;
     private Double loanAmount;
-    private String loanDate;
+    private Date loanDate;
     private String loanStatus,borrowerName;
     private Long borrowerContact;
 
@@ -35,11 +35,11 @@ public class Loan {
         this.loanAmount = loanAmount;
     }
 
-    public String getLoanDate() {
+    public Date getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanDate(String loanDate) {
+    public void setLoanDate(Date loanDate) {
         this.loanDate = loanDate;
     }
 
@@ -67,7 +67,7 @@ public class Loan {
         this.borrowerContact = borrowerContact;
     }
 
-    public Loan(Long loanNumber, Double loanAmount, String loanDate, String loanStatus, String borrowerName, Long borrowerContact) {
+    public Loan(Long loanNumber, Double loanAmount, Date loanDate, String loanStatus, String borrowerName, Long borrowerContact) {
         this.loanNumber = loanNumber;
         this.loanAmount = loanAmount;
         this.loanDate = loanDate;
