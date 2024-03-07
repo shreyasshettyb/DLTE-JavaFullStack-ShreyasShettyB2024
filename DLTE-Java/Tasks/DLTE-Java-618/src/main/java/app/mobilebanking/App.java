@@ -8,6 +8,8 @@ import app.mobilebanking.services.AccountService;
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class App {
 
@@ -15,23 +17,27 @@ public class App {
     private static AccountService services;
     private static Scanner scanner = new Scanner(System.in);
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application") ;
+    private static  Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public static void main(String[] args) {
         int option=0;
-        String username,password;
+        String username=null,password;
         storageTarget=new FileStorageTarget();
         //storageTarget=new DatabaseTarget();
         services=new AccountService(storageTarget);
         //services.callAddTransactions();
-        System.out.println( services.callFinaAll().toString());
+       // System.out.println( services.callFinaAll().toString());
         System.out.println(resourceBundle.getString("app.greet"));
         System.out.println(resourceBundle.getString("app.login.menu"));
         option = scanner.nextInt();
         if(option==1){
+            boolean validate=false;
             System.out.println("Enter Your Username");
             username = scanner.next();
             System.out.println("Enter Password");
             password = scanner.next();
             if(services.callVerifyPassword(username,password)){
+                logger.log(Level.INFO,resourceBundle.getString("login.Successful")+":"+username);
+                System.out.println(resourceBundle.getString("login.Successful"));
             while (true) {
                 System.out.println(resourceBundle.getString("app.dashboard.menu"));
                 option = scanner.nextInt();
@@ -45,11 +51,10 @@ public class App {
                         break;
                     case 3:
                         double amount = 0;
-                         boolean validate=false;
                          do {
 
                              try {
-                                 System.out.println("Enter Amount to be Withdrawn");
+                                 System.out.println(resourceBundle.getString("Amount.withdraw"));
                                  amount = scanner.nextDouble();
                                  validate = true;
                              } catch (InputMismatchException inputMismatchException) {
@@ -57,12 +62,12 @@ public class App {
                                  scanner.nextLine();
                              }
                          }while (!validate);
-                        System.out.println("Enter Password");
+                        System.out.println(resourceBundle.getString("Enter.Password"));
                         password = scanner.next();
                         services.callWithdraw(username, password, amount);
                         break;
                     default:
-                        System.out.println("Thank You");
+                        System.out.println(resourceBundle.getString("Thank.you"));
                         System.exit(0);
                 }
             }
