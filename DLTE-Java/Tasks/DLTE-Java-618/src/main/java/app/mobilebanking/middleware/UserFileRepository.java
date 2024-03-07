@@ -79,8 +79,8 @@ public class UserFileRepository implements UserRepository {
         Account account = accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
         try {
             if (account == null) {
+                System.out.println(resourceBundle.getString("username.not.found"));
                 logger.log(Level.WARNING, resourceBundle.getString("username.not.found"));
-                System.out.println(resourceBundle.getString("Username not found"));
                 return false;
             } else if (!account.getPassword().equals(password)) {
                 logger.log(Level.WARNING, resourceBundle.getString("password.not.matched"));
@@ -91,15 +91,20 @@ public class UserFileRepository implements UserRepository {
         }catch(WithdrawException withdrawException){
             for(int attempts=2;attempts<=3;){
                 System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts+1)+" attempts left");
+                logger.log(Level.WARNING,resourceBundle.getString("accounts.login.fail"));
                 System.out.println(withdrawException);
                 String pin=scanner.next();
                 if(account.getPassword().equals(pin)){
                     System.out.println(resourceBundle.getString("accounts.login.success"));
+                    logger.log(Level.INFO,resourceBundle.getString("accounts.login.success"));
                     return true;
                 }else{
                     //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
                     attempts++;
-                }if(attempts>3) System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+                }if(attempts>3) {
+                    System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+                    logger.log(Level.WARNING,resourceBundle.getString("accounts.no.more.attempts"));
+                }
             }
         }
         return false;
@@ -116,13 +121,14 @@ public class UserFileRepository implements UserRepository {
             else {
                 account.setBalance(account.getBalance()-withdrawAmount);
                 writeIntoFile();
-                System.out.println("Your remaining balance is "+balance(username));
+                System.out.println(resourceBundle.getString("remaining.balance")+balance(username));
                 return;
             }
 
         }
         else{
             logger.log(Level.WARNING,resourceBundle.getString("password.incorrect"));
+            System.out.println(resourceBundle.getString("password.incorrect"));
         }
     }
 
