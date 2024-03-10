@@ -2,6 +2,9 @@ package app.mobilebanking.entity;
 
 import java.io.Serializable;
 
+/**
+ * Declaring all the variables required for account in mobile Banking
+ */
 public class Account implements Serializable {
     private long accountNumber;
     private long customerId;

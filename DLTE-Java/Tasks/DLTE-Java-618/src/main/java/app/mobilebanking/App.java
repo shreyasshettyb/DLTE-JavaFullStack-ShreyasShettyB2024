@@ -1,5 +1,6 @@
 package app.mobilebanking;
 
+
 import app.mobilebanking.entity.Account;
 import app.mobilebanking.middleware.FileStorageTarget;
 import app.mobilebanking.remotes.StorageTarget;
@@ -11,11 +12,18 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Start point of the application execution
+ * Here First user need to login with his correct credentials if the credentials is not correct then user has 2 more chances to enter the credentials after that account get blocked.
+ * Next user will redirect to the menu page where user will get the options available in the system.There is needs to click on required options and performs required action.
+ */
+
 public class App {
 
     private static StorageTarget storageTarget;
     private static AccountService services;
     private static Scanner scanner = new Scanner(System.in);
+    // Adding the resource bundle and loggers
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application") ;
     private static  Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     public static void main(String[] args) {
@@ -31,14 +39,16 @@ public class App {
         option = scanner.nextInt();
         if(option==1){
             boolean validate=false;
-            System.out.println("Enter Your Username");
+            System.out.println(resourceBundle.getString("user.name"));
             username = scanner.next();
-            System.out.println("Enter Password");
+            System.out.println(resourceBundle.getString("Enter.Password"));
             password = scanner.next();
+            // Verifying the entered username, password if it is true it proceeds with further steps
             if(services.callVerifyPassword(username,password)){
                 logger.log(Level.INFO,resourceBundle.getString("login.Successful")+":"+username);
                 System.out.println(resourceBundle.getString("login.Successful"));
             while (true) {
+                // Displaying the Dashboard
                 System.out.println(resourceBundle.getString("app.dashboard.menu"));
                 option = scanner.nextInt();
                 switch (option) {
@@ -54,14 +64,18 @@ public class App {
                          do {
 
                              try {
+                                 // Entering the withdraw amount
                                  System.out.println(resourceBundle.getString("Amount.withdraw"));
                                  amount = scanner.nextDouble();
                                  validate = true;
-                             } catch (InputMismatchException inputMismatchException) {
+                             }
+                             // checking for input format
+                             catch (InputMismatchException inputMismatchException) {
                                  System.out.println(resourceBundle.getString("Enter.number"));
                                  scanner.nextLine();
                              }
                          }while (!validate);
+                         // entering the password
                         System.out.println(resourceBundle.getString("Enter.Password"));
                         password = scanner.next();
                         services.callWithdraw(username, password, amount);
