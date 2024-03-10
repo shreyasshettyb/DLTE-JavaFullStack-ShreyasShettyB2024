@@ -1,9 +1,7 @@
-package task.collection;
+package org.example;
 
-import java.io.Serializable;
-import java.util.Date;
 
-public class Loan implements Serializable {
+public class Loan  {
     private Long loanNumber;
     private Double loanAmount;
     private Integer loanDate;

@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="DLTE-Java-518" />
-        <module name="DLTE-Java-581" />
+        <module name="DLTE-Java-627" />
       </profile>
     </annotationProcessing>
   </component>

@@ -1,6 +1,5 @@
-package task.collection;
+package org.example;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ public class App implements MyBank {
     private ArrayList<Loan> loanList = new ArrayList<>();
     private static int option;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         App app = new App();
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -37,7 +36,7 @@ public class App implements MyBank {
     }
 
     @Override
-    public void addLoans() throws IOException {
+    public void addLoans(){
 
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < numberLoans; i++) {
@@ -54,41 +53,40 @@ public class App implements MyBank {
             System.out.println("Enter Borrower Contact");
             borrowerContact = scanner.nextLong();
             loanList.add(new Loan(loanNumber, loanAmount, loanDate, loanStatus, borrowerName, borrowerContact));
-            writeLoans();
         }
         System.out.println("Loans inserted Successfully");
 
     }
 
-    private void writeLoans() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("loans.txt");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(loanList);
-    }
 
     @Override
-    public void checkLoans() {
+    public String checkLoans() {
         try {
             for (Loan each : loanList) {
                 if (each.getLoanStatus().equalsIgnoreCase("open")) {
                     System.out.println(each.toString());
+                    return each.toString();
                 }
             }
+
         } catch (Exception e) {
-            return;
+            return "";
         }
+        return "";
     }
 
     @Override
-    public void checkClosedLoans() {
+    public String checkClosedLoans() {
         try {
             for (Loan each : loanList) {
                 if (each.getLoanStatus().equalsIgnoreCase("closed")) {
                     System.out.println(each.toString());
+                    return each.toString();
                 }
             }
         } catch (Exception e) {
-            return;
+            return "";
         }
+        return "";
     }
 }

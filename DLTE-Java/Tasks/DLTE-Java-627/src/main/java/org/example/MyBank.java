@@ -1,11 +1,11 @@
-package task.collection;
+package org.example;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public interface MyBank{
     ArrayList<Loan> loanList = new ArrayList<>();
-    void addLoans() throws IOException;
-    void checkLoans();
-    void checkClosedLoans();
+    void addLoans();
+    String checkLoans();
+    String checkClosedLoans();
 }
