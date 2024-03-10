@@ -1,4 +1,8 @@
 package app.mobilebanking.middleware;
+/**
+ * Here we implements all the operations that declared in interface UserRepository
+ * Here we added methods reading from file and writing into file
+ */
 
 import app.mobilebanking.entity.Account;
 import app.mobilebanking.exceptions.WithdrawException;
@@ -20,6 +24,7 @@ public class UserFileRepository implements UserRepository {
     private Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     Scanner scanner = new Scanner(System.in);
     private List<Account> accountList=new ArrayList<>();
+    // Creating a file to store logs
     public UserFileRepository(String url){
         filePath=url;
         try{
@@ -30,7 +35,7 @@ public class UserFileRepository implements UserRepository {
         }
         catch (IOException ioException){}
     }
-
+   // writing into the file
     private void writeIntoFile(){
         try{
             FileOutputStream fileOutputStream=new FileOutputStream(filePath);
@@ -43,7 +48,7 @@ public class UserFileRepository implements UserRepository {
         }
         catch (IOException ioException){}
     }
-
+   // reading from the file
     private void readFromFile(){
         try{
             FileInputStream fileInputStream=new FileInputStream(filePath);
@@ -56,7 +61,7 @@ public class UserFileRepository implements UserRepository {
         }
         catch (IOException | ClassNotFoundException ioException){}
     }
-
+    // adding new Transaction to file
     public void addTransactions(){
         readFromFile();
         accountList.add(new Account(123458613,46545,"varun@gmail.com","varun",46531.0,"varun12","varun123"));
@@ -65,13 +70,14 @@ public class UserFileRepository implements UserRepository {
         accountList.add(new Account(856341556,52025,"shreyas@gmail.com","shreyas",859652.0,"shreyas12","shreyas123"));
         writeIntoFile();
     }
+    // listing all Transaction available in files
     @Override
     public List<Account> findALL() {
         readFromFile();
         logger.log(Level.INFO,resourceBundle.getString("list.everything"));
         return accountList;
     }
-
+    // username and password verification implementation
     @Override
     public boolean verifyPassword(String username, String password) {
         readFromFile();
@@ -113,7 +119,7 @@ public class UserFileRepository implements UserRepository {
         }
         return false;
     }
-
+    // Method for withdrawal of money
     @Override
     public void withdraw(String username,String password,double withdrawAmount) {
         readFromFile();
@@ -135,7 +141,7 @@ public class UserFileRepository implements UserRepository {
             System.out.println(resourceBundle.getString("password.incorrect"));
         }
     }
-
+    //Filtering to get only balance from transaction object
     @Override
     public double balance(String username) {
         readFromFile();

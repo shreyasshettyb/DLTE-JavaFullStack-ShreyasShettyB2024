@@ -6,6 +6,9 @@ import app.mobilebanking.remotes.UserRepository;
 
 import java.util.List;
 
+/**
+ * Function call for the methods in userRepository
+ */
 public class AccountService {
     UserRepository userRepository;
 
