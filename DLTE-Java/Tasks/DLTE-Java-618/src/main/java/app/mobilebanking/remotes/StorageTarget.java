@@ -1,10 +1,11 @@
 package app.mobilebanking.remotes;
 
-import app.mobilebanking.middleware.UserFileRepository;
+
+import org.example.remotes.UserRepository;
 
 /**
  * Here is the interface on which data store we are working (file or database)
  */
 public interface StorageTarget {
-    UserFileRepository getUserRepository();
+    UserRepository getUserRepository();
 }

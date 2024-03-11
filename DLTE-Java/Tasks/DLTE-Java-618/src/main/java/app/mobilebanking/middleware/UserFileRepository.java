@@ -6,7 +6,7 @@ package app.mobilebanking.middleware;
 
 import app.mobilebanking.entity.Account;
 import app.mobilebanking.exceptions.WithdrawException;
-import app.mobilebanking.remotes.UserRepository;
+import org.example.remotes.UserRepository;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -71,12 +71,10 @@ public class UserFileRepository implements UserRepository {
         writeIntoFile();
     }
     // listing all Transaction available in files
-    @Override
-    public List<Account> findALL() {
-        readFromFile();
-        logger.log(Level.INFO,resourceBundle.getString("list.everything"));
-        return accountList;
-    }
+//    @Override
+//    public List<Account> findALL() {
+//        return  null;
+//    }
     // username and password verification implementation
     @Override
     public boolean verifyPassword(String username, String password) {

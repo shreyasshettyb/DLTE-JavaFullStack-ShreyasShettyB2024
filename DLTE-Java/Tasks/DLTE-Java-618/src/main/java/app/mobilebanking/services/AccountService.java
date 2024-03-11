@@ -1,8 +1,8 @@
 package app.mobilebanking.services;
 
-import app.mobilebanking.entity.Account;
-import app.mobilebanking.remotes.StorageTarget;
-import app.mobilebanking.remotes.UserRepository;
+import org.example.entity.Account;
+import org.example.remotes.StorageTarget;
+import org.example.remotes.UserRepository;
 
 import java.util.List;
 
@@ -39,13 +39,13 @@ public class AccountService {
             return;
         }
     }
-    public List<Account> callFinaAll(){
-        try{
-            return userRepository.findALL();
-        }
-        catch (Exception e){
-            return null;
-        }
-    }
+//    public List<Account> callFinaAll(){
+//        try{
+//            return userRepository.findALL();
+//        }
+//        catch (Exception e){
+//            return null;
+//        }
+//    }
 
 }

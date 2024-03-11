@@ -1,10 +1,14 @@
 package app.mobilebanking;
 
 
-import app.mobilebanking.entity.Account;
+
+
 import app.mobilebanking.middleware.FileStorageTarget;
-import app.mobilebanking.remotes.StorageTarget;
-import app.mobilebanking.services.AccountService;
+//import app.mobilebanking.services.AccountService;
+import org.example.entity.Account;
+import org.example.middleware.DatabaseTarget;
+import org.example.remotes.StorageTarget;
+import org.example.services.AccountService;
 
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
@@ -29,11 +33,14 @@ public class App {
     public static void main(String[] args) {
         int option=0;
         String username=null,password;
-        storageTarget=new FileStorageTarget();
-        //storageTarget=new DatabaseTarget();
+//        storageTarget=new FileStorageTarget();
+        storageTarget= new DatabaseTarget();
         services=new AccountService(storageTarget);
-        //services.callAddTransactions();
-        //System.out.println( services.callFinaAll().toString());
+        services.callAddTransactions(new Account(535456345, 49665, "arundhathi@gmail.com", "arundhathi", 1531534.0, "arundhathi51", "=arundathi123"));
+        services.callAddTransactions(new Account(683231531, 41555, "ekshan@gmail.com", "eksha", 3521.0, "eksha25", "eksha365"));
+        services.callAddTransactions(new Account(856341556, 52025, "shreyas@gmail.com", "shreyas", 859652.0, "shreyas12", "shreyas123"));
+
+//        System.out.println( services.callFinaAll().toString());
         System.out.println(resourceBundle.getString("app.greet"));
         System.out.println(resourceBundle.getString("app.login.menu"));
         option = scanner.nextInt();
@@ -62,7 +69,6 @@ public class App {
                     case 3:
                         double amount = 0;
                          do {
-
                              try {
                                  // Entering the withdraw amount
                                  System.out.println(resourceBundle.getString("Amount.withdraw"));
