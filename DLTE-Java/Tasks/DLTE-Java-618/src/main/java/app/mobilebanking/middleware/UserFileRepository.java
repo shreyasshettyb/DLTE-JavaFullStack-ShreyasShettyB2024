@@ -62,6 +62,7 @@ public class UserFileRepository implements UserRepository {
         catch (IOException | ClassNotFoundException ioException){}
     }
     // adding new Transaction to file
+
     public void addTransactions(){
         readFromFile();
         accountList.add(new Account(123458613,46545,"varun@gmail.com","varun",46531.0,"varun12","varun123"));
@@ -146,4 +147,11 @@ public class UserFileRepository implements UserRepository {
         Account account = accountList.stream().filter(each ->each.getUsername().equals(username)).findFirst().orElse(null);
         return account.getBalance();
     }
+
+    @Override
+    public void addTransactions(org.example.entity.Account account) {
+
+    }
+
+
 }

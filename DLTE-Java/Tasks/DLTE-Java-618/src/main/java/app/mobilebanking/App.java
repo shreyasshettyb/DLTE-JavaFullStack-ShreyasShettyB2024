@@ -33,10 +33,10 @@ public class App {
     public static void main(String[] args) {
         int option=0;
         String username=null,password;
-//        storageTarget=new FileStorageTarget();
-        storageTarget= new DatabaseTarget();
+        storageTarget=new FileStorageTarget();
+//        storageTarget= new DatabaseTarget();
         services=new AccountService(storageTarget);
-        services.callAddTransactions(new Account(535456345, 49665, "arundhathi@gmail.com", "arundhathi", 1531534.0, "arundhathi51", "=arundathi123"));
+        services.callAddTransactions(new Account(535456345, 49665, "arundhathi@gmail.com", "arundhathi", 1531534.0, "arundhathi51", "arundathi123"));
         services.callAddTransactions(new Account(683231531, 41555, "ekshan@gmail.com", "eksha", 3521.0, "eksha25", "eksha365"));
         services.callAddTransactions(new Account(856341556, 52025, "shreyas@gmail.com", "shreyas", 859652.0, "shreyas12", "shreyas123"));
 

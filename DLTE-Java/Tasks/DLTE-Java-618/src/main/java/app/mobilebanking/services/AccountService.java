@@ -31,14 +31,14 @@ public class AccountService {
             return;
         }
     }
-    public void callAddTransactions(){
-        try {
-            userRepository.addTransactions();
-        }
-        catch (Exception e){
-            return;
-        }
-    }
+//    public void callAddTransactions(){
+//        try {
+//            userRepository.addTransactions();
+//        }
+//        catch (Exception e){
+//            return;
+//        }
+//    }
 //    public List<Account> callFinaAll(){
 //        try{
 //            return userRepository.findALL();

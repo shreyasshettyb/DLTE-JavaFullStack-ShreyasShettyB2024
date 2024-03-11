@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,7 @@ import java.util.logging.SimpleFormatter;
 public class UserDatabaseRepository implements UserRepository {
     private Connection connection;
     private List<Account> accountList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
 
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -78,8 +80,40 @@ public class UserDatabaseRepository implements UserRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (WithdrawException withdrawException) {
+            for (int attempts = 2; attempts <= 3; ) {
+                System.out.println(resourceBundle.getString("accounts.login.fail") + " Only " + (3 - attempts + 1) + " attempts left");
+                logger.log(Level.WARNING, resourceBundle.getString("accounts.login.fail"));
+                System.out.println(withdrawException);
+                System.out.println("Enter Your Username");
+                String user = scanner.next();
+                System.out.println("Enter Password");
+                String pin = scanner.next();
+                String query = "select username,password from my_bank where username=? and password=?";
+                try {
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, username);
+                    preparedStatement.setString(2, password);
+                    resultSet = preparedStatement.executeQuery();
+
+                    if (resultSet.next()) {
+                        System.out.println(resourceBundle.getString("accounts.login.success"));
+                        logger.log(Level.INFO, resourceBundle.getString("accounts.login.success"));
+                        return true;
+                    } else {
+                        //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
+                        attempts++;
+                    }
+                    if (attempts > 3) {
+                        System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+                        logger.log(Level.WARNING, resourceBundle.getString("accounts.no.more.attempts"));
+                    }
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return false; // temp
+        return false;
     }
 
     @Override
@@ -105,7 +139,7 @@ public class UserDatabaseRepository implements UserRepository {
 
                 }
             }
-            System.out.println("Balance is="+balance(username));
+            System.out.println("Balance is=" + balance(username));
         } catch (SQLException e) {
             e.printStackTrace();
         }
