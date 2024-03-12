@@ -1,3 +1,4 @@
 employee\middleware\entity\Personal.class
-employee\middleware\remote\Operations.class
 employee\middleware\entity\Address.class
+employee\middleware\validation\Validation.class
+employee\middleware\remote\Operations.class

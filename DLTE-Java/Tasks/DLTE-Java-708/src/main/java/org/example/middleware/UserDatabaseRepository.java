@@ -6,6 +6,7 @@ import org.example.remotes.UserRepository;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +26,8 @@ public class UserDatabaseRepository implements UserRepository {
 
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
+
+    static long transactionID = 10000000L;
 
     public UserDatabaseRepository(Connection connection) {
         try {
@@ -108,7 +111,7 @@ public class UserDatabaseRepository implements UserRepository {
                         System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
                         logger.log(Level.WARNING, resourceBundle.getString("accounts.no.more.attempts"));
                     }
-                }catch (SQLException e) {
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
@@ -133,7 +136,19 @@ public class UserDatabaseRepository implements UserRepository {
                         preparedStatement = connection.prepareStatement(query1);
                         preparedStatement.setDouble(1, currentBalance - withdrawAmount);
                         preparedStatement.setString(2, username);
-
+                        preparedStatement.executeUpdate();
+                        String query2 = "insert into transactions values(?,?,?,?,?)";
+                        String query3 = "SELECT MAX(transaction_id) FROM transactions";
+                        preparedStatement = connection.prepareStatement(query3);
+                        resultSet=preparedStatement.executeQuery();
+                        if (resultSet.next())
+                        transactionID = resultSet.getLong(1);
+                        preparedStatement = connection.prepareStatement(query2);
+                        preparedStatement.setLong(1, (transactionID+1));
+                        preparedStatement.setDate(2, Date.valueOf(LocalDate.now()));
+                        preparedStatement.setString(3, username);
+                        preparedStatement.setDouble(4, withdrawAmount);
+                        preparedStatement.setDouble(5,(currentBalance - withdrawAmount));
                         preparedStatement.executeUpdate();
                     }
 
@@ -164,7 +179,7 @@ public class UserDatabaseRepository implements UserRepository {
     @Override
     public void addTransactions(Account account) {
         try {
-            String query = new String();
+            String query;
             query = "insert into my_bank values(?,?,?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(query);
 
@@ -189,4 +204,5 @@ public class UserDatabaseRepository implements UserRepository {
         }
 
     }
+
 }
