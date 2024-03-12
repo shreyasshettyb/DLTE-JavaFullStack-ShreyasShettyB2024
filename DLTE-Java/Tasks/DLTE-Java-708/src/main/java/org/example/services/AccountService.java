@@ -1,9 +1,11 @@
 package org.example.services;
 
 import org.example.entity.Account;
+import org.example.entity.Transaction;
 import org.example.remotes.StorageTarget;
 import org.example.remotes.UserRepository;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -39,13 +41,30 @@ public class AccountService {
             return;
         }
     }
-//    public List<Account> callFinaAll(){
-//        try{
-//            return userRepository.findALL();
-//        }
-//        catch (Exception e){
-//            return null;
-//        }
-//    }
+    public List<Transaction> callFindAll(){
+        try{
+            return userRepository.findALL();
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+    public List<Transaction> callFindAllUser(String user){
+        try{
+            return userRepository.findAllUser(user);
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+    public List<Transaction> callFindAllDate(Date date, String user){
+        try{
+            return userRepository.findAllByDate(date,user);
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
 
 }

@@ -5,14 +5,11 @@ import java.util.Date;
 public class Transaction {
     private Date date;
     private long transactionID;
-    private long accountNumber;
+    private String user;
     private double amount;
+    private double balance;
 
-    public Transaction(Date date, long transactionID, long accountNumber, double amount) {
-        this.date = date;
-        this.transactionID = transactionID;
-        this.accountNumber = accountNumber;
-        this.amount = amount;
+    public Transaction() {
     }
 
     public Date getDate() {
@@ -31,12 +28,12 @@ public class Transaction {
         this.transactionID = transactionID;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
+    public String getUser() {
+        return user;
     }
 
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public double getAmount() {
@@ -47,13 +44,30 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public Transaction(Date date, long transactionID, String user, double amount, double balance) {
+        this.date = date;
+        this.transactionID = transactionID;
+        this.user = user;
+        this.amount = amount;
+        this.balance = balance;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
                 "date=" + date +
                 ", transactionID=" + transactionID +
-                ", accountNumber=" + accountNumber +
+                ", user='" + user + '\'' +
                 ", amount=" + amount +
+                ", balance=" + balance +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package org.example.middleware;
 
 import org.example.entity.Account;
+import org.example.entity.Transaction;
 import org.example.exceptions.WithdrawException;
 import org.example.remotes.UserRepository;
 
@@ -41,32 +42,56 @@ public class UserDatabaseRepository implements UserRepository {
         }
     }
 
-//    @Override
-//    public List<Account> findALL() {
-//        try{
-//            String query="select * from my_bank";
-//            preparedStatement=connection.prepareStatement(query);
-//            resultSet = preparedStatement.executeQuery();
-//            accountList=new ArrayList<>();
-//            Account account = null;
-//            while(resultSet.next()){
-//                account=new Account();
-//                account.setAccountNumber(resultSet.getLong(1));
-//                account.setCustomerId(resultSet.getLong(2));
-//                account.setEmail(resultSet.getString(3));
-//                account.setName(resultSet.getString(4));
-//                account.setBalance(resultSet.getDouble(5));
-//                account.setUsername(resultSet.getString(6));
-//                account.setPassword(resultSet.getString(7));
-//                accountList.add(account);
-//            }
-//        }
-//        catch (SQLException sqlException){
-//            System.out.println(sqlException);
-//        }
-//        return accountList;
-//    }
+    public List<Transaction> findALL() {
+        ArrayList<Transaction> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions";
+            preparedStatement=connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                transactionArrayList.add(new Transaction(resultSet.getDate(2),resultSet.getLong(1),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
+    }
 
+    public List<Transaction> findAllUser(String user) {
+        ArrayList<Transaction> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions where transaction_username=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,user);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                transactionArrayList.add(new Transaction(resultSet.getDate(2),resultSet.getLong(1),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
+    }
+
+    public List<Transaction> findAllByDate(Date date,String user) {
+        ArrayList<Transaction> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions where transaction_username=? and transaction_date=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,user);
+            preparedStatement.setDate(2,date);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                transactionArrayList.add(new Transaction(resultSet.getDate(2),resultSet.getLong(1),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
+    }
     @Override
     public boolean verifyPassword(String username, String password) {
         try {
@@ -204,5 +229,7 @@ public class UserDatabaseRepository implements UserRepository {
         }
 
     }
+
+
 
 }
