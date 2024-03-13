@@ -1,9 +1,14 @@
 package employee.console;
 
+import employee.databasehandler.DataBaseRepository;
 import employee.filehandler.FileRepository;
 import employee.middleware.entity.Address;
 import employee.middleware.entity.Personal;
+//
+
+//import employee.middleware.remote.Operations;
 import employee.middleware.validation.Validation;
+import employee.remote.Operations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,21 +26,29 @@ public class App {
     private static ArrayList<Personal> personalArrayList = new ArrayList<>();
     private static ArrayList<Address> permanentAddressList = new ArrayList<>();
     private static ArrayList<Address> temporaryAddressList = new ArrayList<>();
-    private static FileRepository fileRepository;
+    //    private static FileRepository fileRepository;
+    private static Operations operations;
+//    private static DataBaseRepository dataBaseRepository;
     private static Validation validation = new Validation();
     static Logger logger = LoggerFactory.getLogger(App.class);
 
+    //    static {
+//        try {
+//            fileRepository = new FileRepository();
+//            dataBaseRepository = new DataBaseRepository();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     static {
-        try {
-            fileRepository = new FileRepository();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        dataBaseRepository = new DataBaseRepository();
     }
 
     static int count = 0;
     private static Long employeeID;
     static Scanner scanner = new Scanner(System.in);
+    static Personal personal;
+    static Address permanentAddress,temporaryAddress;
 
     public static void main(String[] args) {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
@@ -50,9 +63,11 @@ public class App {
                         collectEmployeeName();
                         collectEmployeeAddress();
                         count++;
+                        operations.create(personal, permanentAddress, temporaryAddress);
                         System.out.println("Do you want to add another employee?");
                     } while (scanner.next().equalsIgnoreCase("yes"));
-                    fileRepository.create(personalArrayList, permanentAddressList, temporaryAddressList);
+//                    fileRepository.create(personalArrayList, permanentAddressList, temporaryAddressList);
+//                    operations.create(personalArrayList, permanentAddressList, temporaryAddressList);
                     break;
                 case '2':
                     displayEmployeeDetails();
@@ -61,7 +76,7 @@ public class App {
                 case '3':
                     System.out.println("Enter Pincode ");
                     Integer pincode = scanner.nextInt();
-                    displayEmployeeDetails( pincode);
+                    displayEmployeeDetails(pincode);
                     logger.info("Displayed Employee Details With Pincode as filter");
                     break;
                 default:
@@ -167,11 +182,15 @@ public class App {
 
     //Employee Details Are Displayed
     static void displayEmployeeDetails() {
-        logger.info("Displayed Employee Details");
+//        logger.info("Displayed Employee Details");
         System.out.println("Employee Details Are");
-        personalArrayList = (ArrayList<Personal>) fileRepository.read()[0];
-        permanentAddressList = (ArrayList<Address>) fileRepository.read()[1];
-        temporaryAddressList = (ArrayList<Address>) fileRepository.read()[2];
+//        personalArrayList = (ArrayList<Personal>) fileRepository.read()[0];
+//        permanentAddressList = (ArrayList<Address>) fileRepository.read()[1];
+//        temporaryAddressList = (ArrayList<Address>) fileRepository.read()[2];
+
+        personalArrayList = (ArrayList<Personal>) operations.read()[0];
+        permanentAddressList = (ArrayList<Address>) operations.read()[1];
+        temporaryAddressList = (ArrayList<Address>) operations.read()[2];
         int size = personalArrayList.size();
         for (int index = 0; index < size; index++) {
             System.out.println(personalArrayList.get(index).toString());
@@ -181,21 +200,27 @@ public class App {
     }
 
     static void displayEmployeeDetails(Integer pincode) {
-        logger.info("Displayed Employee Details Based On Pincode");
+//        logger.info("Displayed Employee Details Based On Pincode");
         System.out.println("Employee Details Are");
-        personalArrayList = (ArrayList<Personal>) fileRepository.read()[0];
-        permanentAddressList = (ArrayList<Address>) fileRepository.read()[1];
-        permanentAddressList = (ArrayList<Address>) permanentAddressList.stream().filter(each ->each.getPincode().equals(pincode)).collect(Collectors.toList());
-        temporaryAddressList = (ArrayList<Address>) fileRepository.read()[2];
+//        personalArrayList = (ArrayList<Personal>) fileRepository.read()[0];
+//        permanentAddressList = (ArrayList<Address>) fileRepository.read()[1];
+//        permanentAddressList = (ArrayList<Address>) permanentAddressList.stream().filter(each ->each.getPincode().equals(pincode)).collect(Collectors.toList());
+//        temporaryAddressList = (ArrayList<Address>) fileRepository.read()[2];
+
+        personalArrayList = (ArrayList<Personal>) operations.read()[0];
+        permanentAddressList = (ArrayList<Address>) operations.read()[1];
+        temporaryAddressList = (ArrayList<Address>) operations.read()[2];
+
+        permanentAddressList = (ArrayList<Address>) permanentAddressList.stream().filter(each -> each.getPincode().equals(pincode)).collect(Collectors.toList());
         int size = permanentAddressList.size();
-        if(size==0){
+        if (size == 0) {
             System.out.println("No Employees were found for the given pincode");
             logger.info("Empty filtered list");
             return;
         }
-        for(Personal personal:personalArrayList){
-            for (Address address:permanentAddressList){
-                if(personal.getEmployeeID().equals(address.getEmployeeID())){
+        for (Personal personal : personalArrayList) {
+            for (Address address : permanentAddressList) {
+                if (personal.getEmployeeID().equals(address.getEmployeeID())) {
                     System.out.println(personal.toString());
                     System.out.println(address.toString());
                 }

@@ -1,1 +1,31 @@
 13:37:03.710 [31m[main][0;39m WARN  employee.console.App - [31mInvalid employeeID[0;39m 
+06:32:21.531 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Personals Details from File[0;39m 
+06:32:21.548 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Permanent Address from File[0;39m 
+06:32:21.562 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Temporary Address from File[0;39m 
+06:32:21.571 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mAdded Personals Details into File[0;39m 
+06:32:21.578 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Personals Details from File[0;39m 
+06:32:21.578 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Permanent Address from File[0;39m 
+06:32:21.594 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Temporary Address from File[0;39m 
+06:32:21.599 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mAdded Permanent Addresses into File[0;39m 
+06:32:21.599 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Personals Details from File[0;39m 
+06:32:21.610 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Permanent Address from File[0;39m 
+06:32:21.610 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mRead Temporary Address from File[0;39m 
+06:32:21.610 [34m[main][0;39m INFO  employee.filehandler.FileRepository - [34mAdded Temporary Addresses into File[0;39m 
+06:37:06.262 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+06:49:50.222 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+06:49:50.274 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+06:54:32.413 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+06:54:32.426 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:12:28.444 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:12:28.637 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:14:56.559 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:14:56.574 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:18:59.899 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:18:59.995 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:20:10.983 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+07:20:10.983 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+10:36:26.476 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+10:36:26.546 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+11:00:41.577 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+11:00:41.624 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
+11:31:44.074 [31m[main][0;39m WARN  e.middleware.validation.Validation - [31mInvalid Phone Format[0;39m 
