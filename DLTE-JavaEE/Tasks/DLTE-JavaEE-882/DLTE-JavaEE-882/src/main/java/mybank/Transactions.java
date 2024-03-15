@@ -9,7 +9,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -25,7 +25,7 @@ public class Transactions {
 
     @WebResult(name = "GroupOfTransaction")
     public GroupOfTransactions findAllByUserDate( String username, String date){
-        groupOfTransactions.setTransactionsList(service.callFindAll());
+        groupOfTransactions.setTransactionsList(service.callFindAllDate(Date.valueOf(date),username));
         return  groupOfTransactions;
     }
 
