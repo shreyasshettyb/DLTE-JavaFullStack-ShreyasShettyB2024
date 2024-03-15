@@ -229,7 +229,34 @@ public class UserDatabaseRepository implements UserRepository {
         }
 
     }
-
+    public Account findUserByUsername(String username) {
+        Account account=null;
+        try {
+            String query="Select account_number,customer_id,email,name,balance from my_bank where username=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()){
+                System.out.print("Hello "+username+"! Your account details are:\nAccount Number:"+resultSet.getLong(1));
+                System.out.print("\nCustomer ID:"+resultSet.getLong(2)+"\nEmail ID:"+resultSet.getString(3));
+                System.out.print("\nName:"+resultSet.getString(4)+"\nBank Balance:"+resultSet.getDouble(5));
+                account = new Account();
+                account.setAccountNumber(resultSet.getLong(1));
+                account.setCustomerId(resultSet.getLong(2));
+                account.setEmail(resultSet.getString(3));
+                account.setName(resultSet.getString(4));
+                account.setBalance(resultSet.getDouble(5));
+            }else{
+                throw new WithdrawException();
+            }
+        }catch (WithdrawException e){
+            System.out.println(resourceBundle.getString("username.not.found")+" "+username);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return account;
+    }
 
 
 }

@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.entity.Account;
 import org.example.entity.Transaction;
+import org.example.middleware.UserDatabaseRepository;
 import org.example.remotes.StorageTarget;
 import org.example.remotes.UserRepository;
 
@@ -62,6 +63,14 @@ public class AccountService {
             return userRepository.findAllByDate(date,user);
         }
         catch (Exception e){
+            return null;
+        }
+    }
+
+    public Account callFindUserByUsername(String username){
+        try {
+            return userRepository.findUserByUsername(username);
+        }catch (Exception e){
             return null;
         }
     }
