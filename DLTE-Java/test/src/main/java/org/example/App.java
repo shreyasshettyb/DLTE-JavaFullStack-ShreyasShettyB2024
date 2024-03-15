@@ -10,8 +10,7 @@ public class App
 
     public static void main(String[] args )
     {
-//        Logger logger = LoggerFactory.getLogger(App.class);
-//        logger.info("This is the info");
+
 
     }
 }

@@ -33,8 +33,8 @@ public class MyCardServer extends UnicastRemoteObject implements MyCardFunctions
     public List<String> fetchOverLimit() throws RemoteException {
         List<Transaction> cards = services.callFindUserByUsername("shreyasa").stream().filter(each->each.()>=each.getAmount()*0.800).collect(Collectors.toList());;
         List<String> returned=new ArrayList<>();,""
-        for(CreditCard creditCard:cards){
-            returned.add(creditCard.getCardHolder());
+        for(Account creditCard:cards){
+            returned.add(creditCard.getCard.j67 older());
         }
         return returned;
     }

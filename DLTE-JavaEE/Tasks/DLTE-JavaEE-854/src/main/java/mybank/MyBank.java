@@ -37,7 +37,12 @@ public class MyBank extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        resp.setContentType("application/json");
+        Gson gson=new Gson();
+        Account account=gson.fromJson(req.getReader(),Account.class);
+        service.callAddTransactions(account);
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.getWriter().println("Account added successfully");
     }
 
     @Override
