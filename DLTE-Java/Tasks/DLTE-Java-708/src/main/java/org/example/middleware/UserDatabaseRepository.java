@@ -10,9 +10,11 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+//import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
+//import java.util.logging.Level;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -22,7 +24,8 @@ public class UserDatabaseRepository implements UserRepository {
     private List<Account> accountList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
+   // private ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
+    private ResourceBundle resourceBundle=ResourceBundle.getBundle("accounts");
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     private PreparedStatement preparedStatement;
@@ -92,6 +95,39 @@ public class UserDatabaseRepository implements UserRepository {
         }
         return transactionArrayList;
     }
+
+    @Override
+    public Account findUserByUsername(String username) {
+
+            Account account=null;
+            try {
+                String query="Select account_number,customer_id,email,name,balance from my_bank where username=?";
+                preparedStatement=connection.prepareStatement(query);
+                preparedStatement.setString(1,username);
+                resultSet=preparedStatement.executeQuery();
+                if(resultSet.next()){
+                    System.out.print("Hello "+username+"! Your account details are:\nAccount Number:"+resultSet.getLong(1));
+                    System.out.print("\nCustomer ID:"+resultSet.getLong(2)+"\nEmail ID:"+resultSet.getString(3));
+                    System.out.print("\nName:"+resultSet.getString(4)+"\nBank Balance:"+resultSet.getDouble(5));
+                    account = new Account();
+                    account.setAccountNumber(resultSet.getLong(1));
+                    account.setCustomerId(resultSet.getLong(2));
+                    account.setEmail(resultSet.getString(3));
+                    account.setName(resultSet.getString(4));
+                    account.setBalance(resultSet.getDouble(5));
+                }else{
+                    throw new WithdrawException();
+                }
+            }catch (WithdrawException e){
+                System.out.println(resourceBundle.getString("username.not.found")+" "+username);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return account;
+
+    }
+
     @Override
     public boolean verifyPassword(String username, String password) {
         try {
@@ -105,31 +141,32 @@ public class UserDatabaseRepository implements UserRepository {
                     throw new WithdrawException();
                 else
                     return true;
+            }else{
+                throw new WithdrawException();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (WithdrawException withdrawException) {
-            for (int attempts = 2; attempts <= 3; ) {
-                System.out.println(resourceBundle.getString("accounts.login.fail") + " Only " + (3 - attempts + 1) + " attempts left");
+            for (int attempts = 2; attempts <= 3; ) { System.out.println(resourceBundle.getString("accounts.login.fail") + " Only " + (3 - attempts + 1) + " attempts left");
                 logger.log(Level.WARNING, resourceBundle.getString("accounts.login.fail"));
                 System.out.println(withdrawException);
-                System.out.println("Enter Your Username");
+               System.out.println(resourceBundle.getString("enter.name"));
                 String user = scanner.next();
-                System.out.println("Enter Password");
+               System.out.println(resourceBundle.getString("enter.password"));
                 String pin = scanner.next();
                 String query = "select username,password from my_bank where username=? and password=?";
                 try {
                     preparedStatement = connection.prepareStatement(query);
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setString(2, password);
+                    preparedStatement.setString(1, user);
+                    preparedStatement.setString(2, pin);
                     resultSet = preparedStatement.executeQuery();
 
                     if (resultSet.next()) {
-                        System.out.println(resourceBundle.getString("accounts.login.success"));
-                        logger.log(Level.INFO, resourceBundle.getString("accounts.login.success"));
+                      //  System.out.println(resourceBundle.getString("accounts.login.success"));
+                      // logger.log(Level.INFO, resourceBundle.getString("accounts.login.success"));
                         return true;
                     } else {
-                        //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
+                        System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
                         attempts++;
                     }
                     if (attempts > 3) {
@@ -145,7 +182,7 @@ public class UserDatabaseRepository implements UserRepository {
     }
 
     @Override
-    public void withdraw(String username, String password, double withdrawAmount) {
+    public double withdraw(String username, String password, double withdrawAmount) {
         try {
             if (verifyPassword(username, password)) {
                 String query = "select balance from my_bank where username=?";
@@ -156,6 +193,7 @@ public class UserDatabaseRepository implements UserRepository {
                     Double currentBalance = resultSet.getDouble(1);
                     if (currentBalance - withdrawAmount < 0) {
                         //low balance
+                        throw new WithdrawException();
                     } else {
                         String query1 = "update my_bank set balance=? where username=?";
                         preparedStatement = connection.prepareStatement(query1);
@@ -167,7 +205,7 @@ public class UserDatabaseRepository implements UserRepository {
                         preparedStatement = connection.prepareStatement(query3);
                         resultSet=preparedStatement.executeQuery();
                         if (resultSet.next())
-                        transactionID = resultSet.getLong(1);
+                            transactionID = resultSet.getLong(1);
                         preparedStatement = connection.prepareStatement(query2);
                         preparedStatement.setLong(1, (transactionID+1));
                         preparedStatement.setDate(2, Date.valueOf(LocalDate.now()));
@@ -179,10 +217,17 @@ public class UserDatabaseRepository implements UserRepository {
 
                 }
             }
-            System.out.println("Balance is=" + balance(username));
-        } catch (SQLException e) {
+            System.out.println(resourceBundle.getString("withdraw.success"));
+            System.out.println("Balance is " + balance(username));
+
+            logger.log(Level.INFO,resourceBundle.getString("withdraw.success"));
+        }catch(WithdrawException e){
+            System.out.println(resourceBundle.getString("no.money"));
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
+        return balance(username);
     }
 
     @Override
@@ -219,44 +264,17 @@ public class UserDatabaseRepository implements UserRepository {
             int result = preparedStatement.executeUpdate();
             if (result != 0) {
                 logger.log(Level.INFO, resourceBundle.getString("record.push.ok"));
-                System.out.println(resourceBundle.getString("record.push.ok"));
+               System.out.println(resourceBundle.getString("record.push.ok"));
             } else {
                 logger.log(Level.INFO, resourceBundle.getString("record.push.fail"));
-                System.out.println(resourceBundle.getString("record.push.fail"));
+              System.out.println(resourceBundle.getString("record.push.fail"));
             }
         } catch (SQLException sqlException) {
-            System.out.println(resourceBundle.getString("card.not.ok"));
+          System.out.println(resourceBundle.getString("card.not.ok"));
         }
 
     }
-    public Account findUserByUsername(String username) {
-        Account account=null;
-        try {
-            String query="Select account_number,customer_id,email,name,balance from my_bank where username=?";
-            preparedStatement=connection.prepareStatement(query);
-            preparedStatement.setString(1,username);
-            resultSet=preparedStatement.executeQuery();
-            if(resultSet.next()){
-                System.out.print("Hello "+username+"! Your account details are:\nAccount Number:"+resultSet.getLong(1));
-                System.out.print("\nCustomer ID:"+resultSet.getLong(2)+"\nEmail ID:"+resultSet.getString(3));
-                System.out.print("\nName:"+resultSet.getString(4)+"\nBank Balance:"+resultSet.getDouble(5));
-                account = new Account();
-                account.setAccountNumber(resultSet.getLong(1));
-                account.setCustomerId(resultSet.getLong(2));
-                account.setEmail(resultSet.getString(3));
-                account.setName(resultSet.getString(4));
-                account.setBalance(resultSet.getDouble(5));
-            }else{
-                throw new WithdrawException();
-            }
-        }catch (WithdrawException e){
-            System.out.println(resourceBundle.getString("username.not.found")+" "+username);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return account;
-    }
+
 
 
 }

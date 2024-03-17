@@ -12,11 +12,11 @@ import java.util.List;
  */
 public interface UserRepository {
     boolean verifyPassword(String username, String password);
-    void withdraw(String username, String password, double withdrawAmount);
+    double withdraw(String username, String password, double withdrawAmount);
     double balance(String username);
     void addTransactions(Account account);
     List<Transaction> findALL();
     List<Transaction> findAllUser(String user);
     List<Transaction> findAllByDate(Date date, String user);
-    public Account findUserByUsername(String username);
+     Account findUserByUsername(String username);
 }
