@@ -23,13 +23,13 @@ public class App {
         return  account;
     }
 
-    @WebResult(name = "")
+    @WebResult(name = "Create")
     public void createAccount( long accountNumber,long customerId,String email,String name,double balance,String username,String password){
         service.callAddTransactions(new Account(accountNumber,customerId,email,name,balance,username,password));
 
     }
 
-    @WebResult(name = "")
+    @WebResult(name = "Double")
     public void withdraw(String username, String password, double withdrawAmount){
         service.callWithdraw(username,password,withdrawAmount);
     }
