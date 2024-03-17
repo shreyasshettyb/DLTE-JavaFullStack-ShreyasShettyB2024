@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<transactionsWrapper>
+    <transaction>
+        <amount>456.0</amount>
+        <date>12/01/2024</date>
+        <user>shreyas</user>
+    </transaction>
+    <transaction>
+        <amount>7410.0</amount>
+        <date>04/03/2024</date>
+        <user>varun</user>
+    </transaction>
+    <transaction>
+        <amount>963852.0</amount>
+        <date>17/02/2024</date>
+        <user>prashanth</user>
+    </transaction>
+</transactionsWrapper>

@@ -6,9 +6,11 @@ package app.mobilebanking.middleware;
 
 import app.mobilebanking.entity.Account;
 import app.mobilebanking.exceptions.WithdrawException;
+import org.example.entity.Transaction;
 import org.example.remotes.UserRepository;
 
 import java.io.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -151,6 +153,26 @@ public class UserFileRepository implements UserRepository {
     @Override
     public void addTransactions(org.example.entity.Account account) {
 
+    }
+
+    @Override
+    public List<Transaction> findALL() {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findAllUser(String s) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findAllByDate(Date date, String s) {
+        return null;
+    }
+
+    @Override
+    public org.example.entity.Account findUserByUsername(String s) {
+        return null;
     }
 
 
