@@ -4,7 +4,7 @@ import employee.backend.DataBaseRepository;
 import employee.backend.Operations;
 import employee.entity.Address;
 import employee.entity.Employee;
-//import employee.validation.Validation;
+import employee.validation.Validation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +17,7 @@ public class EmployeeConsole
     //    private static FileRepository fileRepository;
     private static Operations operations = new DataBaseRepository();
 //        private static DataBaseRepository dataBaseRepository = new DataBaseRepository();
-//    private static Validation validation = new Validation();
+    private static Validation validation = new Validation();
     static Logger logger = LoggerFactory.getLogger(EmployeeConsole.class);
 
     //    static {
@@ -40,23 +40,19 @@ public class EmployeeConsole
     public static void main(String[] args) {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
         while (true) {
-            operations = new DataBaseRepository();
             System.out.println(resourceBundle.getString("app.greet"));
             System.out.println(resourceBundle.getString("app.menu"));
             char option = scanner.next().charAt(0);
             switch (option) {
                 case '1':
                     do {
-                        operations = new DataBaseRepository();
                         System.out.println("Enter Employee " + (count + 1) + " Details :");
                         collectEmployeeDetails();
                         count++;
-                        operations.create(employee);
+                        validation.validateEmployee(employee);
                         System.out.println("Do you want to add another employee?");
                     } while (scanner.next().equalsIgnoreCase("yes"));
-//                    fileRepository.create(personalArrayList, permanentAddressList, temporaryAddressList);
-//                    operations.create(personalArrayList, permanentAddressList, temporaryAddressList);
-                    break;
+                     break;
                 case '2':
                     displayEmployeeDetails();
                     logger.info("Displayed Employee Details");
@@ -163,6 +159,7 @@ public class EmployeeConsole
 
     //Employee Details Are Displayed
     static void displayEmployeeDetails() {
+        operations = new DataBaseRepository();
         System.out.println("Employee Details Are");
         ArrayList<Employee> employeeList= operations.read();
 

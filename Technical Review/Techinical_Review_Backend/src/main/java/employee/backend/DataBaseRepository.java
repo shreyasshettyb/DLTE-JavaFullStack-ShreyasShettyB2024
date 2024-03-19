@@ -2,6 +2,7 @@ package employee.backend;
 
 import employee.entity.Address;
 import employee.entity.Employee;
+import employee.validation.Validation;
 import oracle.jdbc.OracleDriver;
 
 import java.sql.*;
@@ -18,6 +19,8 @@ public class DataBaseRepository implements Operations {
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
     private Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    private Validation validation = new Validation();
+
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
@@ -33,18 +36,19 @@ public class DataBaseRepository implements Operations {
 
     @Override
     public void create(Employee employee) {
-        try {
-            String query;
-            query = "insert into employee_personal values(?,?,?,?,?,?)";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, employee.getFirstName());
-            preparedStatement.setString(2, employee.getMiddleName());
-            preparedStatement.setString(3, employee.getLastName());
-            preparedStatement.setLong(4, employee.getPhone());
-            preparedStatement.setString(5, employee.getEmail());
-            preparedStatement.setLong(6, employee.getEmployeeID());
+//        if(validation.validateEmployee(employee)) {
+            try {
+                String query;
+                query = "insert into employee_personal values(?,?,?,?,?,?)";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, employee.getFirstName());
+                preparedStatement.setString(2, employee.getMiddleName());
+                preparedStatement.setString(3, employee.getLastName());
+                preparedStatement.setLong(4, employee.getPhone());
+                preparedStatement.setString(5, employee.getEmail());
+                preparedStatement.setLong(6, employee.getEmployeeID());
 
-            int result = preparedStatement.executeUpdate();
+                int result = preparedStatement.executeUpdate();
 //            if (result != 0) {
 //                logger.log(Level.INFO, resourceBundle.getString("record.push.ok"));
 //                System.out.println(resourceBundle.getString("record.push.ok"));
@@ -52,32 +56,34 @@ public class DataBaseRepository implements Operations {
 //                logger.log(Level.INFO, resourceBundle.getString("record.push.fail"));
 //                System.out.println(resourceBundle.getString("record.push.fail"));
 //            }
-            String query1;
-            query1 = "insert into PERMANENT_ADDRESS values(?,?,?,?,?,?)";
-            preparedStatement = connection.prepareStatement(query1);
-            preparedStatement.setLong(1, employee.getEmployeeID());
-            preparedStatement.setString(2, employee.getPermanentAddress().getHouseName());
-            preparedStatement.setString(3, employee.getPermanentAddress().getStreetName());
-            preparedStatement.setString(4, employee.getPermanentAddress().getCity());
-            preparedStatement.setString(5, employee.getPermanentAddress().getState());
-            preparedStatement.setInt(6, employee.getPermanentAddress().getPincode());
-            preparedStatement.executeUpdate();
+                String query1;
+                query1 = "insert into PERMANENT_ADDRESS values(?,?,?,?,?,?)";
+                preparedStatement = connection.prepareStatement(query1);
+                preparedStatement.setLong(1, employee.getEmployeeID());
+                preparedStatement.setString(2, employee.getPermanentAddress().getHouseName());
+                preparedStatement.setString(3, employee.getPermanentAddress().getStreetName());
+                preparedStatement.setString(4, employee.getPermanentAddress().getCity());
+                preparedStatement.setString(5, employee.getPermanentAddress().getState());
+                preparedStatement.setInt(6, employee.getPermanentAddress().getPincode());
+                preparedStatement.executeUpdate();
 
-            String query2;
-            query2 = "insert into TEMPORARY_ADDRESS values(?,?,?,?,?,?)";
-            preparedStatement = connection.prepareStatement(query2);
-            preparedStatement.setLong(1, employee.getTemporaryAddress().getEmployeeID());
-            preparedStatement.setString(2, employee.getTemporaryAddress().getHouseName());
-            preparedStatement.setString(3, employee.getTemporaryAddress().getStreetName());
-            preparedStatement.setString(4, employee.getTemporaryAddress().getCity());
-            preparedStatement.setString(5, employee.getTemporaryAddress().getState());
-            preparedStatement.setInt(6, employee.getTemporaryAddress().getPincode());
-            preparedStatement.executeUpdate();
-            connection.close();
-        } catch (SQLException sqlException) {
-            System.out.println(sqlException);
-        }
-
+                String query2;
+                query2 = "insert into TEMPORARY_ADDRESS values(?,?,?,?,?,?)";
+                preparedStatement = connection.prepareStatement(query2);
+                preparedStatement.setLong(1, employee.getTemporaryAddress().getEmployeeID());
+                preparedStatement.setString(2, employee.getTemporaryAddress().getHouseName());
+                preparedStatement.setString(3, employee.getTemporaryAddress().getStreetName());
+                preparedStatement.setString(4, employee.getTemporaryAddress().getCity());
+                preparedStatement.setString(5, employee.getTemporaryAddress().getState());
+                preparedStatement.setInt(6, employee.getTemporaryAddress().getPincode());
+                preparedStatement.executeUpdate();
+                connection.close();
+            } catch (SQLException sqlException) {
+                System.out.println(sqlException);
+            }
+//        }else {
+//            System.out.println("Could not Validate Date in the Backend");
+//        }
 
 
     }

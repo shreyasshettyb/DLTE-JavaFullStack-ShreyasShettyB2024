@@ -67,13 +67,11 @@ public class Address  {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "employeeID=" + employeeID +
-                ", houseName='" + houseName + '\'' +
-                ", streetName='" + streetName + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", pincode=" + pincode +
-                '}';
+        return
+                "\n houseName='" + houseName + '\'' +
+                "\n streetName='" + streetName + '\'' +
+                "\n city='" + city + '\'' +
+                "\n state='" + state + '\'' +
+                "\n pincode=" + pincode ;
     }
 }

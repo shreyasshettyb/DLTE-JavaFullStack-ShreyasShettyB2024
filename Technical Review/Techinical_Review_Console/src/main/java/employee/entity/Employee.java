@@ -84,15 +84,14 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone=" + phone +
-                ", email='" + email + '\'' +
-                ", employeeID=" + employeeID +
-                ", permanentAddress=" + permanentAddress +
-                ", temporaryAddress=" + temporaryAddress +
-                '}';
+        return
+                "\nfirstName='" + firstName + '\'' +
+                "\nmiddleName='" + middleName + '\'' +
+                "\nlastName='" + lastName + '\'' +
+                "\nphone=" + phone +
+                "\nemail='" + email + '\'' +
+                "\nemployeeID=" + employeeID +
+                "\npermanentAddress: " + permanentAddress +
+                "\ntemporaryAddress: " + temporaryAddress ;
     }
 }

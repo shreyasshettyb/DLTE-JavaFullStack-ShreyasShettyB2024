@@ -41,3 +41,11 @@
 06:20:31.192 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
 06:48:32.766 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
 06:49:00.224 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:54:16.124 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:55:27.170 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:56:29.887 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:57:04.558 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+07:17:07.052 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Phone Format[0;39m 
+07:17:18.996 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+07:26:52.763 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+07:45:36.370 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m 
