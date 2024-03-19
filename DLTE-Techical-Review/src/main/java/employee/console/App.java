@@ -28,7 +28,7 @@ public class App {
     private static ArrayList<Address> temporaryAddressList = new ArrayList<>();
     //    private static FileRepository fileRepository;
     private static Operations operations;
-//    private static DataBaseRepository dataBaseRepository;
+    private static DataBaseRepository dataBaseRepository;
     private static Validation validation = new Validation();
     static Logger logger = LoggerFactory.getLogger(App.class);
 

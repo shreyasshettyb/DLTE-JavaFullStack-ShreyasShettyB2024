@@ -20,7 +20,8 @@ import java.util.List;
 
 @WebServlet("/mybank")
 public class MyBank extends HttpServlet {
-
+   public StorageTarget storageTarget = new DatabaseTarget();
+    public AccountService service = new AccountService(storageTarget);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         StorageTarget storageTarget = new DatabaseTarget();

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Logger;
 
 
@@ -32,5 +33,15 @@ public class MyFirstServlet extends HttpServlet {
         String message = gson.toJson(EMI);
 //        resp.getWriter();
         resp.getWriter().println(message);
+    }
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("stopped");
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("stopped");
     }
 }

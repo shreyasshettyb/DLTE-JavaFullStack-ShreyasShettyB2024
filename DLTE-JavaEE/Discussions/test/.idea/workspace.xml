@@ -7,10 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba2aa878-a3c6-44b9-a9bf-26ca8fdfaff3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-618/accounts-logs.txt.lck" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../DLTE-Spring/Discussions/DLTE-Spring-IOC/DLTE-Spring-IOC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-618/accounts-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-618/accounts-logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-618/target/classes/app/mobilebanking/middleware/UserFileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-618/target/classes/app/mobilebanking/middleware/UserFileRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-708/src/main/java/org/example/middleware/UserDatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE-Java/Tasks/DLTE-Java-708/src/main/java/org/example/middleware/UserDatabaseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/MyFirstServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/MyFirstServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Servlets/MyFirstServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlets/MyFirstServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/test.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test/WEB-INF/classes/Servlets/MyFirstServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test/WEB-INF/classes/Servlets/MyFirstServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/src/main/java/servelts/MyBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/src/main/java/servelts/MyBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/DLTE-JavaEE-848.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/DLTE-JavaEE-848.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/DLTE-JavaEE-848/WEB-INF/lib/DLTE-Java-708-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/DLTE-JavaEE-848/WEB-INF/lib/DLTE-Java-708-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/classes/servelts/MyBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Tasks/DLTE-JavaEE-848/target/classes/servelts/MyBank.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +180,9 @@
       <workItem from="1710214737128" duration="1197000" />
       <workItem from="1710232830188" duration="3047000" />
       <workItem from="1710244935957" duration="809000" />
+      <workItem from="1710739493088" duration="10000" />
+      <workItem from="1710739520007" duration="2081000" />
+      <workItem from="1710775744543" duration="145000" />
     </task>
     <servers />
   </component>
@@ -185,30 +198,30 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="223" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1710139105643" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1710150075928">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1710739553439">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1710150075928" />
-    <state x="548" y="151" key="FileChooserDialogImpl" timestamp="1710242340373">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1710739553439" />
+    <state x="548" y="151" key="FileChooserDialogImpl" timestamp="1710775857197">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="548" y="151" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710242340373" />
-    <state width="501" height="208" key="GridCell.Tab.0.bottom" timestamp="1710160861609">
+    <state x="548" y="151" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710775857197" />
+    <state width="501" height="208" key="GridCell.Tab.0.bottom" timestamp="1710765651727">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="501" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710160861609" />
-    <state width="501" height="208" key="GridCell.Tab.0.center" timestamp="1710160861609">
+    <state width="501" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710765651727" />
+    <state width="501" height="208" key="GridCell.Tab.0.center" timestamp="1710765651726">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="501" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710160861609" />
-    <state width="501" height="208" key="GridCell.Tab.0.left" timestamp="1710160861609">
+    <state width="501" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710765651726" />
+    <state width="501" height="208" key="GridCell.Tab.0.left" timestamp="1710765651726">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="501" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710160861609" />
-    <state width="501" height="208" key="GridCell.Tab.0.right" timestamp="1710160861609">
+    <state width="501" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710765651726" />
+    <state width="501" height="208" key="GridCell.Tab.0.right" timestamp="1710765651726">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="501" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710160861609" />
+    <state width="501" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710765651726" />
     <state x="299" y="64" key="Maven.ArtifactSearchDialog" timestamp="1710141333499">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -217,17 +230,17 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1710239824624" />
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1710232837068">
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog" timestamp="1710775744411">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1710232837068" />
+    <state x="465" y="234" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1710775744411" />
     <state x="526" y="303" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1710141383233">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="526" y="303" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.816@0.0.1536.816" timestamp="1710141383233" />
-    <state x="209" y="0" key="new project wizard" timestamp="1710242388720">
+    <state x="209" y="0" key="new project wizard" timestamp="1710775885677">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="209" y="0" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710242388720" />
+    <state x="209" y="0" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710775885677" />
   </component>
 </project>

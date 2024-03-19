@@ -29,3 +29,15 @@
 11:00:41.577 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
 11:00:41.624 [34m[main][0;39m INFO  employee.console.App - [34mDisplayed Employee Details[0;39m 
 11:31:44.074 [31m[main][0;39m WARN  e.middleware.validation.Validation - [31mInvalid Phone Format[0;39m 
+06:04:38.483 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:16:11.949 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:16:17.312 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:17:05.066 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:17:05.902 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:19:28.061 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:19:29.244 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:20:25.330 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:20:29.232 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:20:31.192 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:48:32.766 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
+06:49:00.224 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
