@@ -1,10 +1,11 @@
 employeebackend\exceptions\BusinessRuleException.class
 employeebackend\validation\Validation.class
-employeebackend\repository\DatabaseConnection.class
 employeebackend\entity\Address.class
 employeebackend\exceptions\ValidationException.class
+employeebackend\interfaces\Operations.class
+employeebackend\connection\DatabaseConnection.class
 employeebackend\repository\DataBaseRepository.class
-employeebackend\repository\Operations.class
+employeebackend\exceptions\NoEmployeeFoundException.class
 employeebackend\entity\Employee.class
 employeebackend\exceptions\ConnectionException.class
 employeebackend\exceptions\EmployeeExistException.class

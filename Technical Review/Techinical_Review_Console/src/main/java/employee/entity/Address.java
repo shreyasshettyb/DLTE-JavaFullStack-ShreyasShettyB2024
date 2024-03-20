@@ -71,9 +71,9 @@ public class Address {
     public String toString() {
         return
                 "\n houseName='" + houseName + '\'' +
-                "\n streetName='" + streetName + '\'' +
-                "\n city='" + city + '\'' +
-                "\n state='" + state + '\'' +
-                "\n pincode=" + pincode ;
+                        "\n streetName='" + streetName + '\'' +
+                        "\n city='" + city + '\'' +
+                        "\n state='" + state + '\'' +
+                        "\n pincode=" + pincode;
     }
 }

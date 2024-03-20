@@ -2,6 +2,9 @@ package mybank;
 
 import org.example.entity.Transaction;
 import org.example.middleware.DatabaseTarget;
+import org.example.middleware.UserDatabaseRepository;
+import org.example.remotes.StorageTarget;
+import org.example.remotes.UserRepository;
 import org.example.services.AccountService;
 
 import javax.jws.WebMethod;
@@ -19,13 +22,28 @@ import java.util.stream.Stream;
 public class Transactions {
     GroupOfTransactions groupOfTransactions = new GroupOfTransactions();
     AccountService service;
+
     public Transactions() {
         service = new AccountService(new DatabaseTarget());
     }
 
     @WebResult(name = "GroupOfTransaction")
-    public GroupOfTransactions findAllByUserDate( String username, String date){
-        groupOfTransactions.setTransactionsList(service.callFindAllDate(Date.valueOf(date),username));
+    public GroupOfTransactions findAllByUser( String username){
+        groupOfTransactions.setTransactionsList(service.callFindAllUser(username));
+        return  groupOfTransactions;
+    }
+
+
+    @WebResult(name = "GroupOfTransaction")
+    public GroupOfTransactions findAll( ){
+        groupOfTransactions.setTransactionsList(service.callFindAll());
+        return  groupOfTransactions;
+    }
+
+
+    @WebResult(name = "Create")
+    public GroupOfTransactions create( String username,double withdraw,double currentBalance){
+        service.createTransaction(username,withdraw,currentBalance);
         return  groupOfTransactions;
     }
 

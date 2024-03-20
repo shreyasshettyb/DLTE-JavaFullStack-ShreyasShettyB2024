@@ -4,8 +4,8 @@ package employee.validation;
 import employee.entity.Address;
 import employee.entity.Employee;
 import employeebackend.exceptions.ConnectionException;
+import employeebackend.interfaces.Operations;
 import employeebackend.repository.DataBaseRepository;
-import employeebackend.repository.Operations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

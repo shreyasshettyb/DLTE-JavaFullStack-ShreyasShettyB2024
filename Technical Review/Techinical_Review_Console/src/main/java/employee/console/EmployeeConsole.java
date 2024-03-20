@@ -1,14 +1,14 @@
 package employee.console;
 
-
 import employee.entity.Address;
 import employee.entity.Employee;
 import employee.validation.Validation;
 import employeebackend.exceptions.ConnectionException;
 import employeebackend.exceptions.EmployeeExistException;
+import employeebackend.exceptions.NoEmployeeFoundException;
 import employeebackend.exceptions.ValidationException;
 import employeebackend.repository.DataBaseRepository;
-import employeebackend.repository.Operations;
+import employeebackend.interfaces.Operations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,44 +47,8 @@ public class EmployeeConsole {
                             System.out.println("Enter Employee " + (count + 1) + " Details :");
                             collectEmployeeDetails();
                             count++;
-                            employee = validation.validateEmployee(employee);
-                            permanentAddress = employee.getPermanentAddress();
-                            temporaryAddress = employee.getTemporaryAddress();
-                            permanentAddressSend = new employeebackend.entity.Address();
-                            temporaryAddressSend = new employeebackend.entity.Address();
-                            permanentAddressSend.setHouseName(permanentAddress.getHouseName());
-                            permanentAddressSend.setCity(permanentAddress.getCity());
-                            permanentAddressSend.setState(permanentAddress.getState());
-                            permanentAddressSend.setStreetName(permanentAddress.getStreetName());
-                            permanentAddressSend.setEmployeeID(permanentAddress.getEmployeeID());
-                            permanentAddressSend.setPincode(permanentAddress.getPincode());
-                            temporaryAddressSend.setHouseName(temporaryAddress.getHouseName());
-                            temporaryAddressSend.setCity(temporaryAddress.getCity());
-                            temporaryAddressSend.setState(temporaryAddress.getState());
-                            temporaryAddressSend.setStreetName(temporaryAddress.getStreetName());
-                            temporaryAddressSend.setEmployeeID(temporaryAddress.getEmployeeID());
-                            temporaryAddressSend.setPincode(temporaryAddress.getPincode());
-                            employeeSend.setFirstName(employee.getFirstName());
-                            employeeSend.setMiddleName(employee.getMiddleName());
-                            employeeSend.setLastName(employee.getLastName());
-                            employeeSend.setPhone(employee.getPhone());
-                            employeeSend.setEmail(employee.getEmail());
-                            employeeSend.setEmployeeID(employee.getEmployeeID());
-                            employeeSend.setPermanentAddress(permanentAddressSend);
-                            employeeSend.setTemporaryAddress(temporaryAddressSend);
-                            try {
-                                String result = operations.create(employeeSend);
-                                logger.info(resourceBundleError.getString(result));
-                            } catch (ValidationException e) {
-                                logger.error(resourceBundleError.getString(e.getMessage()));
-                                System.out.println(resourceBundle.getString("app.error.systemFailure"));
-                                return;
-                            } catch (EmployeeExistException e) {
-                                logger.warn(e.getMessage());
-                                System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
-                                break;
-                            }
-
+//                            employee = validation.validateEmployee(employee);
+                            translateAndSend();
                             System.out.println(resourceBundle.getString("app.employee.addAnother"));
                         } while (scanner.next().equalsIgnoreCase("yes"));
                         break;
@@ -105,7 +69,7 @@ public class EmployeeConsole {
             }
         } catch (ConnectionException e) {
             System.out.println(e.getMessage() + " Contact Support");
-        }catch (SQLException e){
+        } catch (SQLException e) {
 //            logger.error(e.getMessage());
         }
     }
@@ -193,6 +157,46 @@ public class EmployeeConsole {
         employee = new Employee(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
     }
 
+    static void translateAndSend() throws SQLException {
+        permanentAddress = employee.getPermanentAddress();
+        temporaryAddress = employee.getTemporaryAddress();
+        permanentAddressSend = new employeebackend.entity.Address();
+        temporaryAddressSend = new employeebackend.entity.Address();
+        permanentAddressSend.setHouseName(permanentAddress.getHouseName());
+        permanentAddressSend.setCity(permanentAddress.getCity());
+        permanentAddressSend.setState(permanentAddress.getState());
+        permanentAddressSend.setStreetName(permanentAddress.getStreetName());
+        permanentAddressSend.setEmployeeID(permanentAddress.getEmployeeID());
+        permanentAddressSend.setPincode(permanentAddress.getPincode());
+        temporaryAddressSend.setHouseName(temporaryAddress.getHouseName());
+        temporaryAddressSend.setCity(temporaryAddress.getCity());
+        temporaryAddressSend.setState(temporaryAddress.getState());
+        temporaryAddressSend.setStreetName(temporaryAddress.getStreetName());
+        temporaryAddressSend.setEmployeeID(temporaryAddress.getEmployeeID());
+        temporaryAddressSend.setPincode(temporaryAddress.getPincode());
+        employeeSend.setFirstName(employee.getFirstName());
+        employeeSend.setMiddleName(employee.getMiddleName());
+        employeeSend.setLastName(employee.getLastName());
+        employeeSend.setPhone(employee.getPhone());
+        employeeSend.setEmail(employee.getEmail());
+        employeeSend.setEmployeeID(employee.getEmployeeID());
+        employeeSend.setPermanentAddress(permanentAddressSend);
+        employeeSend.setTemporaryAddress(temporaryAddressSend);
+        try {
+            String result = operations.create(employeeSend);
+            logger.info(resourceBundleError.getString(result));
+        } catch (ValidationException e) {
+            logger.error(resourceBundleError.getString(e.getMessage()));
+            System.out.println(resourceBundle.getString("app.error.systemFailure"));
+            employee = validation.validateEmployee(employee);
+            translateAndSend();
+
+        } catch (EmployeeExistException e) {
+            logger.warn(e.getMessage());
+            System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+
+        }
+    }
 
     //Employee Details Are Displayed
     static void displayEmployeeDetails() throws ConnectionException {
@@ -203,11 +207,14 @@ public class EmployeeConsole {
             employeeList = operations.read();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NoEmployeeFoundException e) {
+            logger.warn(e.getMessage());
+            System.out.println(e.getMessage());
         }
-        int size=employeeList.size();
+        int size = employeeList.size();
         for (int index = 0; index < size; index++) {
             employeebackend.entity.Employee employee = employeeList.get(index);
-            System.out.println("Employee "+ employee.getEmployeeID()+" Details:");
+            System.out.println("Employee " + employee.getEmployeeID() + " Details:");
             System.out.println("  First Name: " + employee.getFirstName());
             System.out.println("  Middle Name: " + employee.getMiddleName());
             System.out.println("  Last Name: " + employee.getLastName());
@@ -227,6 +234,7 @@ public class EmployeeConsole {
             }
         }
     }
+
     static public void printAddressDetails(employeebackend.entity.Address address) {
         System.out.println("    House Name: " + address.getHouseName());
         System.out.println("    Street Name: " + address.getStreetName());

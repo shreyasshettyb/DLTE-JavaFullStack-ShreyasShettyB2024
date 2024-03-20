@@ -1,6 +1,6 @@
 package employeebackend.entity;
 
-public class Address  {
+public class Address {
     private Long employeeID;
     private String houseName;
     private String streetName;

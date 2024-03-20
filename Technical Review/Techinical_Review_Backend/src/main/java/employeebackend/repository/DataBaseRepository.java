@@ -1,12 +1,14 @@
 package employeebackend.repository;
 
+import employeebackend.connection.DatabaseConnection;
 import employeebackend.entity.Address;
 import employeebackend.entity.Employee;
 import employeebackend.exceptions.ConnectionException;
 import employeebackend.exceptions.EmployeeExistException;
+import employeebackend.exceptions.NoEmployeeFoundException;
 import employeebackend.exceptions.ValidationException;
+import employeebackend.interfaces.Operations;
 import employeebackend.validation.Validation;
-import oracle.jdbc.OracleDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +29,7 @@ public class DataBaseRepository implements Operations {
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
-    public DataBaseRepository() throws  ConnectionException {
+    public DataBaseRepository() throws ConnectionException {
         try {
             connection = new DatabaseConnection().getDatabaseConnection();
         } catch (SQLException e) {
@@ -39,61 +41,61 @@ public class DataBaseRepository implements Operations {
     @Override
     public String create(Employee employee) throws ValidationException, SQLException, EmployeeExistException {
         validation.validateEmployee(employee);
-            try {
-                String query;
-                query = "insert into employee_personal values(?,?,?,?,?,?)";
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.setString(1, employee.getFirstName());
-                preparedStatement.setString(2, employee.getMiddleName());
-                preparedStatement.setString(3, employee.getLastName());
-                preparedStatement.setLong(4, employee.getPhone());
-                preparedStatement.setString(5, employee.getEmail());
-                preparedStatement.setLong(6, employee.getEmployeeID());
+        try {
+            String query;
+            query = "insert into employee_personal values(?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, employee.getFirstName());
+            preparedStatement.setString(2, employee.getMiddleName());
+            preparedStatement.setString(3, employee.getLastName());
+            preparedStatement.setLong(4, employee.getPhone());
+            preparedStatement.setString(5, employee.getEmail());
+            preparedStatement.setLong(6, employee.getEmployeeID());
 
-                int result = preparedStatement.executeUpdate();
-                if (result == 0) {
-                    logger.error("SQL-001");
-                    return "SQL-001";
-                }
-                String query1;
-                query1 = "insert into PERMANENT_ADDRESS values(?,?,?,?,?,?)";
-                preparedStatement = connection.prepareStatement(query1);
-                preparedStatement.setLong(1, employee.getEmployeeID());
-                preparedStatement.setString(2, employee.getPermanentAddress().getHouseName());
-                preparedStatement.setString(3, employee.getPermanentAddress().getStreetName());
-                preparedStatement.setString(4, employee.getPermanentAddress().getCity());
-                preparedStatement.setString(5, employee.getPermanentAddress().getState());
-                preparedStatement.setInt(6, employee.getPermanentAddress().getPincode());
-                result = preparedStatement.executeUpdate();
-                if (result == 0) {
-                    logger.error("SQL-002");
-                    return "SQL-002";
-                }
-                String query2;
-                query2 = "insert into TEMPORARY_ADDRESS values(?,?,?,?,?,?)";
-                preparedStatement = connection.prepareStatement(query2);
-                preparedStatement.setLong(1, employee.getTemporaryAddress().getEmployeeID());
-                preparedStatement.setString(2, employee.getTemporaryAddress().getHouseName());
-                preparedStatement.setString(3, employee.getTemporaryAddress().getStreetName());
-                preparedStatement.setString(4, employee.getTemporaryAddress().getCity());
-                preparedStatement.setString(5, employee.getTemporaryAddress().getState());
-                preparedStatement.setInt(6, employee.getTemporaryAddress().getPincode());
-                result = preparedStatement.executeUpdate();
-                if (result == 0) {
-                    logger.error("SQL-003");
-                    return "SQL-003";
-                }
-                connection.close();
-                return "SQL-000";
-            } catch (SQLIntegrityConstraintViolationException integrityViolation) {
-                logger.warn("EMP-001: Employee ID Already Exist");
-                throw new EmployeeExistException("EMP-001: Employee ID Already Exist");
+            int result = preparedStatement.executeUpdate();
+            if (result == 0) {
+                logger.error("SQL-001");
+                return "SQL-001";
             }
+            String query1;
+            query1 = "insert into PERMANENT_ADDRESS values(?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(query1);
+            preparedStatement.setLong(1, employee.getEmployeeID());
+            preparedStatement.setString(2, employee.getPermanentAddress().getHouseName());
+            preparedStatement.setString(3, employee.getPermanentAddress().getStreetName());
+            preparedStatement.setString(4, employee.getPermanentAddress().getCity());
+            preparedStatement.setString(5, employee.getPermanentAddress().getState());
+            preparedStatement.setInt(6, employee.getPermanentAddress().getPincode());
+            result = preparedStatement.executeUpdate();
+            if (result == 0) {
+                logger.error("SQL-002");
+                return "SQL-002";
+            }
+            String query2;
+            query2 = "insert into TEMPORARY_ADDRESS values(?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(query2);
+            preparedStatement.setLong(1, employee.getTemporaryAddress().getEmployeeID());
+            preparedStatement.setString(2, employee.getTemporaryAddress().getHouseName());
+            preparedStatement.setString(3, employee.getTemporaryAddress().getStreetName());
+            preparedStatement.setString(4, employee.getTemporaryAddress().getCity());
+            preparedStatement.setString(5, employee.getTemporaryAddress().getState());
+            preparedStatement.setInt(6, employee.getTemporaryAddress().getPincode());
+            result = preparedStatement.executeUpdate();
+            if (result == 0) {
+                logger.error("SQL-003");
+                return "SQL-003";
+            }
+            connection.close();
+            return "SQL-000";
+        } catch (SQLIntegrityConstraintViolationException integrityViolation) {
+            logger.warn("EMP-001: Employee ID Already Exist");
+            throw new EmployeeExistException("EMP-001: Employee ID Already Exist");
+        }
 
     }
 
     @Override
-    public ArrayList<Employee> read() throws SQLException {
+    public ArrayList<Employee> read() throws SQLException, NoEmployeeFoundException {
         ArrayList<Employee> list = new ArrayList<>();
         try {
             String query = "select * from employee_personal join permanent_address on employee_personal.EMPLOYEEID=permanent_address.EMPLOYEEID Join temporary_address on employee_personal.EMPLOYEEID=temporary_address.EMPLOYEEID ";
@@ -132,6 +134,9 @@ public class DataBaseRepository implements Operations {
 
                 list.add(employee);
 
+            }
+            if (list.size() == 0) {
+                throw new NoEmployeeFoundException();
             }
             connection.close();
         } catch (SQLException e) {

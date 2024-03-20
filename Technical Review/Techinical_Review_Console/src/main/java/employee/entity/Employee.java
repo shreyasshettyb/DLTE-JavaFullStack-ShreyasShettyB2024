@@ -1,11 +1,11 @@
 package employee.entity;
 
 public class Employee {
-    private String firstName,middleName,lastName;
+    private String firstName, middleName, lastName;
     private Long phone;
     private String email;
     private Long employeeID;
-    private Address permanentAddress,temporaryAddress;
+    private Address permanentAddress, temporaryAddress;
 
     public Employee(Address permanentAddress, Address temporaryAddress) {
         this.permanentAddress = permanentAddress;
@@ -101,12 +101,12 @@ public class Employee {
     public String toString() {
         return
                 "\nfirstName='" + firstName + '\'' +
-                "\nmiddleName='" + middleName + '\'' +
-                "\nlastName='" + lastName + '\'' +
-                "\nphone=" + phone +
-                "\nemail='" + email + '\'' +
-                "\nemployeeID=" + employeeID +
-                "\npermanentAddress: " + permanentAddress +
-                "\ntemporaryAddress: " + temporaryAddress ;
+                        "\nmiddleName='" + middleName + '\'' +
+                        "\nlastName='" + lastName + '\'' +
+                        "\nphone=" + phone +
+                        "\nemail='" + email + '\'' +
+                        "\nemployeeID=" + employeeID +
+                        "\npermanentAddress: " + permanentAddress +
+                        "\ntemporaryAddress: " + temporaryAddress;
     }
 }

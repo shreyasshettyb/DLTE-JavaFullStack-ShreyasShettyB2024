@@ -1,11 +1,11 @@
 package employeebackend.entity;
 
 public class Employee {
-    private String firstName,middleName,lastName;
+    private String firstName, middleName, lastName;
     private Long phone;
     private String email;
     private Long employeeID;
-    private Address permanentAddress,temporaryAddress;
+    private Address permanentAddress, temporaryAddress;
 
     public Employee(String firstName, String middleName, String lastName, Long phone, String email, Long employeeID, Address permanentAddress, Address temporaryAddress) {
         this.firstName = firstName;

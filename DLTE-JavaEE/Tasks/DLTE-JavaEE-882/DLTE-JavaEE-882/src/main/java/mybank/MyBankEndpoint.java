@@ -2,7 +2,7 @@ package mybank;
 
 import javax.xml.ws.Endpoint;
 
-public class myBankEndpoint {
+public class MyBankEndpoint {
     private static String url="http://localhost:1010/mybank";
     public static void main(String[] args) {
         Transactions transactions=new Transactions();

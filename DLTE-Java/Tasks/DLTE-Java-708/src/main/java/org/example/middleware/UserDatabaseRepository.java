@@ -275,5 +275,21 @@ public class UserDatabaseRepository implements UserRepository {
 
     }
 
+    public void createTransaction(String username, double withdrawAmount, double currentBalance) throws SQLException {
+        String query2 = "insert into transactions values(?,?,?,?,?)";
+        String query3 = "SELECT MAX(transaction_id) FROM transactions";
+        preparedStatement = connection.prepareStatement(query3);
+        resultSet=preparedStatement.executeQuery();
+        if (resultSet.next())
+            transactionID = resultSet.getLong(1);
+        preparedStatement = connection.prepareStatement(query2);
+        preparedStatement.setLong(1, (transactionID+1));
+        preparedStatement.setDate(2, Date.valueOf(LocalDate.now()));
+        preparedStatement.setString(3, username);
+        preparedStatement.setDouble(4, withdrawAmount);
+        preparedStatement.setDouble(5,(currentBalance - withdrawAmount));
+        preparedStatement.executeUpdate();
+    }
+
 
 }

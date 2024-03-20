@@ -1,4 +1,4 @@
-package employeebackend.repository;
+package employeebackend.connection;
 
 import oracle.jdbc.OracleDriver;
 
@@ -12,8 +12,8 @@ public class DatabaseConnection {
 
     public Connection getDatabaseConnection() throws SQLException {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
-            Driver driver = new OracleDriver();
-            DriverManager.registerDriver(driver);
-            return DriverManager.getConnection(resourceBundle.getString("db.url"), resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
+        Driver driver = new OracleDriver();
+        DriverManager.registerDriver(driver);
+        return DriverManager.getConnection(resourceBundle.getString("db.url"), resourceBundle.getString("db.user"), resourceBundle.getString("db.pass"));
     }
 }

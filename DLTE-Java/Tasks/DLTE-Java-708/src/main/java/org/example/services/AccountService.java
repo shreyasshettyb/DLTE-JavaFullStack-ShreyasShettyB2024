@@ -73,4 +73,12 @@ public class AccountService {
             return null;
         }
     }
+
+    public void createTransaction(String username,double withdraw,double currentBalaance){
+        try{
+            userRepository.createTransaction(username,withdraw,currentBalaance);
+        }catch (Exception e){
+
+        }
+    }
 }
