@@ -1,5 +1,10 @@
-employee\entity\Address.class
-employee\backend\DataBaseRepository.class
-employee\entity\Employee.class
-employee\backend\Operations.class
-employee\validation\Validation.class
+employeebackend\exceptions\BusinessRuleException.class
+employeebackend\validation\Validation.class
+employeebackend\repository\DatabaseConnection.class
+employeebackend\entity\Address.class
+employeebackend\exceptions\ValidationException.class
+employeebackend\repository\DataBaseRepository.class
+employeebackend\repository\Operations.class
+employeebackend\entity\Employee.class
+employeebackend\exceptions\ConnectionException.class
+employeebackend\exceptions\EmployeeExistException.class

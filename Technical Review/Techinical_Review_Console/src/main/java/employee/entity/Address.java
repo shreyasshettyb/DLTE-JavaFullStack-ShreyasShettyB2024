@@ -1,6 +1,7 @@
 package employee.entity;
 
-public class Address  {
+public class Address {
+
     private Long employeeID;
     private String houseName;
     private String streetName;
@@ -9,6 +10,7 @@ public class Address  {
     private Integer pincode;
 
     public Address(Long employeeID, String houseName, String streetName, String city, String state, Integer pincode) {
+//        super(employeeID,houseName,streetName,city,state,pincode);
         this.employeeID = employeeID;
         this.houseName = houseName;
         this.streetName = streetName;

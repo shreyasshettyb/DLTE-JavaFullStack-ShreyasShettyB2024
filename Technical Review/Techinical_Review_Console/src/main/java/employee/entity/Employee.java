@@ -7,7 +7,22 @@ public class Employee {
     private Long employeeID;
     private Address permanentAddress,temporaryAddress;
 
+    public Employee(Address permanentAddress, Address temporaryAddress) {
+        this.permanentAddress = permanentAddress;
+        this.temporaryAddress = temporaryAddress;
+    }
+
+    public Employee(String firstName, String middleName, String lastName, Long phone, String email, Long employeeID) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.employeeID = employeeID;
+    }
+
     public Employee(String firstName, String middleName, String lastName, Long phone, String email, Long employeeID, Address permanentAddress, Address temporaryAddress) {
+//        super(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
