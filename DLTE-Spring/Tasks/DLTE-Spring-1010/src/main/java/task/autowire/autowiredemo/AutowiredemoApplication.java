@@ -10,7 +10,7 @@ public class AutowiredemoApplication {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AutowiredemoApplication.class);
         applicationContext.scan("task.autowire.autowiredemo");
-//        applicationContext.refresh();
+        applicationContext.refresh();
         MyBank myBank=applicationContext.getBean(MyBank.class);
         System.out.println(myBank.callFind());
 
