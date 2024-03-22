@@ -24,7 +24,7 @@ public class TransactionController {
         try {
             return transactionService.apiAddTransaction(transaction);
         } catch (Exception exception) {
-            logger.error("Error occurred while saving transaction: " + exception.getMessage());
+            logger.error("Error occurred : " + exception.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage(), exception);
         }
     }
@@ -34,7 +34,7 @@ public class TransactionController {
         try {
             return transactionService.apiFindBySender(sender);
         } catch (Exception exception) {
-            logger.error("Error occurred while fetching transactions by sender: " + exception.getMessage());
+            logger.error("Error occurred : " + exception.getMessage());
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage(), exception);
         }
     }
@@ -44,7 +44,7 @@ public class TransactionController {
         try {
             return transactionService.apiFindByReceiver(receiver);
         } catch (Exception exception) {
-            logger.error("Error occurred while fetching transactions by receiver: " + exception.getMessage());
+            logger.error("Error occurred : " + exception.getMessage());
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage(), exception);
         }
     }
@@ -54,7 +54,7 @@ public class TransactionController {
         try {
             return transactionService.apiFindByAmount(amount);
         } catch (Exception exception) {
-            logger.error("Error occurred while fetching transactions by amount: " + exception.getMessage());
+            logger.error("Error occurred : " + exception.getMessage());
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage(), exception);
         }
     }

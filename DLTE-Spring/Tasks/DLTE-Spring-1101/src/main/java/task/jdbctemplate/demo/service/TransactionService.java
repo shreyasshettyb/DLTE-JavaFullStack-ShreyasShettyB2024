@@ -17,13 +17,12 @@ public class TransactionService {
 
     public Transaction apiAddTransaction(Transaction transaction) {
         jdbcTemplate.update("INSERT INTO transaction_new (transaction_id, amount, received_by, remarks, sent_to, transaction_date ) VALUES (?, ?, ?, ?, ?, ?)",
-                new Object[]{
-                        transaction.getTransactionId(),
-                        transaction.getAmount(),
-                        transaction.getReceivedBy(),
-                        transaction.getRemarks(),
-                        transaction.getSentTo(),
-                        transaction.getTransactionDate()});
+                transaction.getTransactionId(),
+                transaction.getAmount(),
+                transaction.getReceivedBy(),
+                transaction.getRemarks(),
+                transaction.getSentTo(),
+                transaction.getTransactionDate());
         return transaction;
     }
 
@@ -49,13 +48,13 @@ public class TransactionService {
 
         @Override
         public Transaction mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Transaction transaction=new Transaction();
+            Transaction transaction = new Transaction();
             transaction.setTransactionId(rs.getLong(1));
-            transaction.setAmount(rs.getDouble(2));
-            transaction.setReceivedBy(rs.getString(3));
-            transaction.setRemarks(rs.getString(4));
-            transaction.setSentTo(rs.getString(5));
-            transaction.setTransactionDate(rs.getDate(6));
+            transaction.setTransactionDate(rs.getDate(2));
+            transaction.setSentTo(rs.getString(3));
+            transaction.setReceivedBy(rs.getString(4));
+            transaction.setAmount(rs.getDouble(5));
+            transaction.setRemarks(rs.getString(6));
             return transaction;
         }
     }
