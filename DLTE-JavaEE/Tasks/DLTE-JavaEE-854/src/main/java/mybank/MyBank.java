@@ -2,6 +2,7 @@ package mybank;
 
 import com.google.gson.Gson;
 import org.example.entity.Account;
+import org.example.entity.Transaction;
 import org.example.middleware.DatabaseTarget;
 import org.example.remotes.StorageTarget;
 import org.example.services.AccountService;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 class Output {
     private String username;
@@ -47,11 +49,11 @@ public class MyBank extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+//        String username = req.getParameter("username");
         resp.setContentType("application/json");
-        Account account = service.callFindUserByUsername(username);
+        List<Transaction> list= service.callFindAll();
         Gson gson = new Gson();
-        String allTransaction = gson.toJson(account);
+        String allTransaction = gson.toJson(list);
         resp.getWriter().println(allTransaction);
     }
 
