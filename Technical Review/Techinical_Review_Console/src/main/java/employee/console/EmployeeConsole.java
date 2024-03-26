@@ -7,8 +7,8 @@ import employeebackend.exceptions.ConnectionException;
 import employeebackend.exceptions.EmployeeExistException;
 import employeebackend.exceptions.NoEmployeeFoundException;
 import employeebackend.exceptions.ValidationException;
-import employeebackend.repository.DataBaseRepository;
 import employeebackend.interfaces.Operations;
+import employeebackend.repository.DataBaseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,27 +29,49 @@ public class EmployeeConsole {
     static Scanner scanner = new Scanner(System.in);
     public static employeebackend.entity.Employee employeeSend = new employeebackend.entity.Employee();
     public static employeebackend.entity.Address permanentAddressSend, temporaryAddressSend;
-    public static Employee employee;
+
     public static Address permanentAddress, temporaryAddress;
     public static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     public static ResourceBundle resourceBundleError = ResourceBundle.getBundle("error");
 
-    public static void main(String[] args) {
+    // Main Function
+    public static void main(String[] args) throws EmployeeExistException {
         try {
             while (true) {
                 operations = new DataBaseRepository();
                 System.out.println(resourceBundle.getString("app.greet"));
                 System.out.println(resourceBundle.getString("app.menu"));
                 char option = scanner.next().charAt(0);
-                switch (option) {
+                switch (option) { // option based action
                     case '1':
                         do {
+                            Employee employee;
                             System.out.println("Enter Employee " + (count + 1) + " Details :");
-                            collectEmployeeDetails();
+                            employee = collectEmployeeDetails();
                             count++;
-//                            employee = validation.validateEmployee(employee);
-                            translateAndSend();
-                            System.out.println(resourceBundle.getString("app.employee.addAnother"));
+                            employee = validation.validateEmployee(employee);
+                            try {
+                                translateAndSend(employee);
+                                System.out.println(resourceBundle.getString("app.employee.addAnother"));
+                            } catch (ValidationException e) {
+                                logger.error(resourceBundleError.getString(e.getMessage()));
+                                System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                                boolean flag = false; // verify if validation as been successful in console
+                                do {
+                                    try {
+                                        employee = validation.validateEmployee(employee);
+                                        translateAndSend(employee);
+                                        flag = true;
+                                    } catch (ValidationException ex) {
+                                        logger.error(resourceBundleError.getString(e.getMessage()));
+                                        System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                                    }
+                                } while (!flag);
+                                System.out.println(resourceBundle.getString("app.employee.addAnother"));
+                            } catch (EmployeeExistException e) {
+                                logger.warn(e.getMessage());
+                                System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+                            }
                         } while (scanner.next().equalsIgnoreCase("yes"));
                         break;
                     case '2':
@@ -70,11 +92,12 @@ public class EmployeeConsole {
         } catch (ConnectionException e) {
             System.out.println(e.getMessage() + " Contact Support");
         } catch (SQLException e) {
-//            logger.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
-    static void collectEmployeeDetails() {
+    //Collect Employee Details
+    static Employee collectEmployeeDetails() {
         while (true) {
             try {
                 System.out.println(resourceBundle.getString("app.employee.enterId"));
@@ -154,10 +177,11 @@ public class EmployeeConsole {
             }
         }
         temporaryAddress = new Address(employeeID, temporaryHouseName, temporaryStreetName, temporaryCity, temporaryState, temporaryPincode);
-        employee = new Employee(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
+        return new Employee(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
     }
 
-    static void translateAndSend() throws SQLException {
+    //Translate Object into Backend Entities
+    static void translateAndSend(Employee employee) throws SQLException, ValidationException, EmployeeExistException {
         permanentAddress = employee.getPermanentAddress();
         temporaryAddress = employee.getTemporaryAddress();
         permanentAddressSend = new employeebackend.entity.Address();
@@ -182,20 +206,8 @@ public class EmployeeConsole {
         employeeSend.setEmployeeID(employee.getEmployeeID());
         employeeSend.setPermanentAddress(permanentAddressSend);
         employeeSend.setTemporaryAddress(temporaryAddressSend);
-        try {
-            String result = operations.create(employeeSend);
-            logger.info(resourceBundleError.getString(result));
-        } catch (ValidationException e) {
-            logger.error(resourceBundleError.getString(e.getMessage()));
-            System.out.println(resourceBundle.getString("app.error.systemFailure"));
-            employee = validation.validateEmployee(employee);
-            translateAndSend();
-
-        } catch (EmployeeExistException e) {
-            logger.warn(e.getMessage());
-            System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
-
-        }
+        String result = operations.create(employeeSend);
+        logger.info(resourceBundleError.getString(result));
     }
 
     //Employee Details Are Displayed
@@ -235,6 +247,7 @@ public class EmployeeConsole {
         }
     }
 
+    //Prints Address object
     static public void printAddressDetails(employeebackend.entity.Address address) {
         System.out.println("    House Name: " + address.getHouseName());
         System.out.println("    Street Name: " + address.getStreetName());
@@ -243,14 +256,17 @@ public class EmployeeConsole {
         System.out.println("    Pincode: " + address.getPincode());
     }
 
+    //Print Employee Based On Pincode
 //    static void displayEmployeeDetails(Integer pincode) {
-////        logger.info("Displayed Employee Details Based On Pincode");
+//        while (true) {
+//            logger.info("Displayed Employee Details Based On Pincode");
 //        operations = new DataBaseRepository();
 //        System.out.println("Employee Details by pincode Are");
 //        ArrayList<employeebackend.entity.Employee> employeeList = operations.read(pincode);
 //        int size = employeeList.size();
 //        for (int index = 0; index < size; index++) {
 //            System.out.println(employeeList.get(index).toString());
+//        }
 //        }
 //    }
 }

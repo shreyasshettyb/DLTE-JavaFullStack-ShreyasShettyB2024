@@ -7,6 +7,9 @@ public class Employee {
     private Long employeeID;
     private Address permanentAddress, temporaryAddress;
 
+    public Employee() {
+    }
+
     public Employee(Address permanentAddress, Address temporaryAddress) {
         this.permanentAddress = permanentAddress;
         this.temporaryAddress = temporaryAddress;
