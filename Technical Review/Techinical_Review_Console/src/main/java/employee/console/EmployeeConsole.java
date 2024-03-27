@@ -49,7 +49,7 @@ public class EmployeeConsole {
                             System.out.println("Enter Employee " + (count + 1) + " Details :");
                             employee = collectEmployeeDetails();
                             count++;
-                            employee = validation.validateEmployee(employee);
+//                            employee = validation.validateEmployee(employee);
                             try {
                                 translateAndSend(employee);
                                 System.out.println(resourceBundle.getString("app.employee.addAnother"));
@@ -81,7 +81,7 @@ public class EmployeeConsole {
                     case '3':
                         System.out.println(resourceBundle.getString("app.employee.enterPincodeFilter"));
                         Integer pincode = scanner.nextInt();
-//                    displayEmployeeDetails(pincode);
+                    displayEmployeeDetails(pincode);
                         logger.info("Displayed Employee Details With Pincode as filter");
                         break;
                     default:
@@ -153,7 +153,7 @@ public class EmployeeConsole {
                 System.out.println(resourceBundle.getString("app.validation.invalidPincode"));
             }
         }
-        permanentAddress = new Address(employeeID, permanentHouseName, permanentStreetName, permanentCity, permanentState, permanentPincode);
+        permanentAddress = new Address(employeeID, permanentHouseName, permanentStreetName, permanentCity, permanentState, permanentPincode,"permanent");
         System.out.println(resourceBundle.getString("app.employee.enterTemporaryAddress"));
         System.out.println(resourceBundle.getString("app.employee.enterHouseName"));
         scanner.nextLine();
@@ -176,7 +176,7 @@ public class EmployeeConsole {
                 System.out.println("Re-Enter your Permanent Pincode");
             }
         }
-        temporaryAddress = new Address(employeeID, temporaryHouseName, temporaryStreetName, temporaryCity, temporaryState, temporaryPincode);
+        temporaryAddress = new Address(employeeID, temporaryHouseName, temporaryStreetName, temporaryCity, temporaryState, temporaryPincode,"temporary");
         return new Employee(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
     }
 
@@ -192,12 +192,14 @@ public class EmployeeConsole {
         permanentAddressSend.setStreetName(permanentAddress.getStreetName());
         permanentAddressSend.setEmployeeID(permanentAddress.getEmployeeID());
         permanentAddressSend.setPincode(permanentAddress.getPincode());
+        permanentAddressSend.setType("permanent");
         temporaryAddressSend.setHouseName(temporaryAddress.getHouseName());
         temporaryAddressSend.setCity(temporaryAddress.getCity());
         temporaryAddressSend.setState(temporaryAddress.getState());
         temporaryAddressSend.setStreetName(temporaryAddress.getStreetName());
         temporaryAddressSend.setEmployeeID(temporaryAddress.getEmployeeID());
         temporaryAddressSend.setPincode(temporaryAddress.getPincode());
+        temporaryAddressSend.setType("temporary");
         employeeSend.setFirstName(employee.getFirstName());
         employeeSend.setMiddleName(employee.getMiddleName());
         employeeSend.setLastName(employee.getLastName());
@@ -218,10 +220,14 @@ public class EmployeeConsole {
         try {
             employeeList = operations.read();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            logger.warn(e.getMessage());
+            System.out.println(resourceBundle.getString("app.error.systemFailure"));
+            return;
         } catch (NoEmployeeFoundException e) {
             logger.warn(e.getMessage());
             System.out.println(e.getMessage());
+            return;
         }
         int size = employeeList.size();
         for (int index = 0; index < size; index++) {
@@ -256,17 +262,47 @@ public class EmployeeConsole {
         System.out.println("    Pincode: " + address.getPincode());
     }
 
-    //Print Employee Based On Pincode
-//    static void displayEmployeeDetails(Integer pincode) {
-//        while (true) {
-//            logger.info("Displayed Employee Details Based On Pincode");
-//        operations = new DataBaseRepository();
-//        System.out.println("Employee Details by pincode Are");
-//        ArrayList<employeebackend.entity.Employee> employeeList = operations.read(pincode);
-//        int size = employeeList.size();
-//        for (int index = 0; index < size; index++) {
-//            System.out.println(employeeList.get(index).toString());
+//    Print Employee Based On Pincode
+    static void displayEmployeeDetails(Integer pincode) throws ConnectionException {
+        logger.info("Displayed Employee Details Based On Pincode");
+        System.out.println("Employee Details by pincode Are");
+        operations = new DataBaseRepository();
+        ArrayList<employeebackend.entity.Employee> employeeList = null;
+        try {
+            employeeList = operations.filterByPincode(pincode);
+        } catch (SQLException e) {
+            logger.warn(e.getMessage());
+            System.out.println(resourceBundle.getString("app.error.systemFailure"));
+            return;
+        } catch (NoEmployeeFoundException e) {
+            logger.warn(e.getMessage());
+            System.out.println(e.getMessage());
+            return;
+        }
+        int size = employeeList.size();
+        for (int index = 0; index < size; index++) {
+            employeebackend.entity.Employee employee = employeeList.get(index);
+            System.out.println("Employee " + employee.getEmployeeID() + " Details:");
+            System.out.println("  First Name: " + employee.getFirstName());
+            System.out.println("  Middle Name: " + employee.getMiddleName());
+            System.out.println("  Last Name: " + employee.getLastName());
+            System.out.println("  Phone: " + employee.getPhone());
+            System.out.println("  Email: " + employee.getEmail());
+            System.out.println("  Permanent Address:");
+            if (employee.getPermanentAddress() != null) {
+                printAddressDetails(employee.getPermanentAddress());
+            } else {
+                System.out.println("  Not Available");
+            }
+            System.out.println("  Temporary Address:");
+            if (employee.getTemporaryAddress() != null) {
+                printAddressDetails(employee.getTemporaryAddress());
+            } else {
+                System.out.println("  Not Available");
+            }
+        }
+//        while (true){
+//            logger.warn("1");
 //        }
-//        }
-//    }
+    }
 }

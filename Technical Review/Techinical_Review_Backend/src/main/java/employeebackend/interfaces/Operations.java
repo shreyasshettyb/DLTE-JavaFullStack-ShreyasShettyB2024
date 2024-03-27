@@ -15,6 +15,6 @@ public interface Operations {
 
     ArrayList<Employee> read(Long employeeID);
 
-    Object filterAddress(String parameter, Object value);
+    ArrayList<Employee>filterByPincode(Integer pincode) throws SQLException,NoEmployeeFoundException;
 
 }

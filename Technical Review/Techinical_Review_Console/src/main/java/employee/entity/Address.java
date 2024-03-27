@@ -8,15 +8,19 @@ public class Address {
     private String city;
     private String state;
     private Integer pincode;
+    private String type;
 
-    public Address(Long employeeID, String houseName, String streetName, String city, String state, Integer pincode) {
-//        super(employeeID,houseName,streetName,city,state,pincode);
+    public Address() {
+    }
+
+    public Address(Long employeeID, String houseName, String streetName, String city, String state, Integer pincode, String type) {
         this.employeeID = employeeID;
         this.houseName = houseName;
         this.streetName = streetName;
         this.city = city;
         this.state = state;
         this.pincode = pincode;
+        this.type = type;
     }
 
     public Long getEmployeeID() {
@@ -67,13 +71,24 @@ public class Address {
         this.pincode = pincode;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return
-                "\n houseName='" + houseName + '\'' +
-                        "\n streetName='" + streetName + '\'' +
-                        "\n city='" + city + '\'' +
-                        "\n state='" + state + '\'' +
-                        "\n pincode=" + pincode;
+        return "Address{" +
+                "employeeID=" + employeeID +
+                ", houseName='" + houseName + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", pincode=" + pincode +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
