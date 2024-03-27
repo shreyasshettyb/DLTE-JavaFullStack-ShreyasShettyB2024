@@ -29,6 +29,7 @@ public class EmployeeSoapService {
     public String createEmployee(@WebParam(name = "Employee") Employee employee) {
         String output = "";
         try {
+            operations = new DataBaseRepository();
             output = operations.create(employee);
         } catch (ValidationException e) {
             e.printStackTrace();
@@ -45,6 +46,7 @@ public class EmployeeSoapService {
     public GroupOfEmployee readEmployee() {
         GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
         try {
+            operations = new DataBaseRepository();
             ArrayList<Employee> employees = operations.read();
             groupOfEmployee.setEmployeeArrayList(employees);
         } catch (SQLException e) {
@@ -60,6 +62,7 @@ public class EmployeeSoapService {
     public GroupOfEmployee readEmployeeByPincode(@WebParam(name = "pincode")Integer pincode) {
         GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
         try {
+            operations = new DataBaseRepository();
             ArrayList<Employee> employees = operations.filterByPincode(pincode);
             groupOfEmployee.setEmployeeArrayList(employees);
         } catch (SQLException e) {

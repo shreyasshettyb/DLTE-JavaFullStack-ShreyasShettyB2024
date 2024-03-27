@@ -66,7 +66,7 @@ public class DataBaseRepository implements Operations {
             preparedStatement.setString(4, employee.getPermanentAddress().getCity());
             preparedStatement.setString(5, employee.getPermanentAddress().getState());
             preparedStatement.setInt(6, employee.getPermanentAddress().getPincode());
-            preparedStatement.setString(7,employee.getPermanentAddress().getType());
+            preparedStatement.setString(7,"permanent");
             result = preparedStatement.executeUpdate();
             if (result == 0) {
                 logger.error("SQL-002");
@@ -75,13 +75,13 @@ public class DataBaseRepository implements Operations {
             String query2;
             query2 = "insert into EMPLOYEE_ADDRESS values(?,?,?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(query2);
-            preparedStatement.setLong(1, employee.getTemporaryAddress().getEmployeeID());
+            preparedStatement.setLong(1, employee.getEmployeeID());
             preparedStatement.setString(2, employee.getTemporaryAddress().getHouseName());
             preparedStatement.setString(3, employee.getTemporaryAddress().getStreetName());
             preparedStatement.setString(4, employee.getTemporaryAddress().getCity());
             preparedStatement.setString(5, employee.getTemporaryAddress().getState());
             preparedStatement.setInt(6, employee.getTemporaryAddress().getPincode());
-            preparedStatement.setString(7,employee.getTemporaryAddress().getType());
+            preparedStatement.setString(7,"temporary");
             result = preparedStatement.executeUpdate();
             if (result == 0) {
                 logger.error("SQL-003");
