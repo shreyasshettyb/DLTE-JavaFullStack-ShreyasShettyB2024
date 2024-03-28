@@ -1,46 +1,28 @@
 <configuration>
 
-    <!--    &lt;!&ndash; Define appenders &ndash;&gt;-->
-    <!--    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">-->
-    <!--        <encoder>-->
-    <!--            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
 
-<!--    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\log.log</file>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\logs\log_archive.%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
-<!--            <maxHistory>30</maxHistory>-->
-<!--            <max-->
-<!--        </rollingPolicy>-->
-<!--        <encoder>-->
-<!--            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>-->
-<!--        </encoder>-->
-<!--    </appender>-->
+    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\log.log</file> <!-- Define log file name and path -->
 
-<!--    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\log.log</file> &lt;!&ndash; Define log file name and path &ndash;&gt;-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\archive\log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>5KB</maxFileSize> <!-- Define the maximum file size(once the log file reaches 5 kilobytes in size, it will be rolled over to a new file.) -->
+            <totalSizeCap>6KB</totalSizeCap> <!-- Total size cap for all log files( once the total size of all log files exceeds 6KB, the oldest log files will be deleted to make room for new ones.) -->
+            <maxHistory>1</maxHistory> <!-- Keep up to 30 days of logs(up to 1 historical log files will be retained. Older log files beyond this limit will be deleted.) -->
+        </rollingPolicy>
 
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\archive\log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
-<!--            <maxFileSize>5KB</maxFileSize> &lt;!&ndash; Define the maximum file size(once the log file reaches 5 kilobytes in size, it will be rolled over to a new file.) &ndash;&gt;-->
-<!--            <totalSizeCap>6KB</totalSizeCap> &lt;!&ndash; Total size cap for all log files( once the total size of all log files exceeds 6KB, the oldest log files will be deleted to make room for new ones.) &ndash;&gt;-->
-<!--            <maxHistory>1</maxHistory> &lt;!&ndash; Keep up to 30 days of logs(up to 1 historical log files will be retained. Older log files beyond this limit will be deleted.) &ndash;&gt;-->
-<!--        </rollingPolicy>-->
-
-<!--        <encoder>-->
-<!--            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg)  %n</pattern>-->
-<!--        </encoder>-->
-<!--    </appender>-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg)  %n</pattern>
+        </encoder>
+    </appender>
 
     <appender name="myLogsArchive" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\log.log</file>
+        <file>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\archive\log.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Console\log_archive\log-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
-            <maxFileSize>5KB</maxFileSize> <!-- Define the maximum file size -->
-            <totalSizeCap>6KB</totalSizeCap> <!-- Total size cap for all log files -->
-            <maxHistory>1</maxHistory> <!-- Keep up to 30 days of logs -->
+            <maxFileSize>5KB</maxFileSize>
+            <totalSizeCap>6KB</totalSizeCap>
+            <maxHistory>1</maxHistory>
         </rollingPolicy>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
@@ -59,7 +41,7 @@
     <root level="INFO">
         <!--        <appender-ref ref="myConsole" />-->
 <!--        <appender-ref ref="ROLLING"/>-->
-<!--        <appender-ref ref="myLogs"/> &lt;!&ndash; Attach file appender &ndash;&gt;-->
+        <appender-ref ref="myLogs"/> <!-- Attach file appender -->
         <appender-ref ref="myLogsArchive"/>
     </root>
 

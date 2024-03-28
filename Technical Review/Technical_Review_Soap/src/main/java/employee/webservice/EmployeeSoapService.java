@@ -21,10 +21,6 @@ import java.util.ArrayList;
 public class EmployeeSoapService {
     private Operations operations;
 
-    public EmployeeSoapService() throws ConnectionException {
-        operations = new DataBaseRepository();
-    }
-
     @WebMethod
     public String createEmployee(@WebParam(name = "Employee") Employee employee) {
         String output = "";
