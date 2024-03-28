@@ -11,6 +11,7 @@ import task.soapxsd.soapxssd.dao.model.Transaction;
 import task.soapxsd.soapxssd.dao.service.TransactionService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,15 +23,18 @@ public class SoapPhase {
 
     private final String url = "http://transaction.service";
 
-    @PayloadRoot(namespace = url, localPart = "save")
+    @PayloadRoot(namespace = url, localPart = "addTransactionRequest")
     @ResponsePayload
     public AddTransactionResponse addTransactionResponse(@RequestPayload AddTransactionRequest addTransactionRequest) {
         AddTransactionResponse addTransactionResponse = new AddTransactionResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
         service.transaction.Transaction input = addTransactionRequest.getTransaction();
+        Date date = input.getTransactionDate().toGregorianCalendar().getTime();
         Transaction daoTransaction = new Transaction();
+        daoTransaction.setTransactionDate(date);
         BeanUtils.copyProperties(input, daoTransaction);
+
         daoTransaction = transactionService.apiAddTransaction(daoTransaction);
 
         if (daoTransaction != null) {
@@ -44,9 +48,6 @@ public class SoapPhase {
         }
 
         addTransactionResponse.setServiceStatus(serviceStatus);
-
-//        System.out.println(newTransactionResponse.getServiceStatus().toString());
-
         return addTransactionResponse;
     }
 
@@ -146,13 +147,17 @@ public class SoapPhase {
         return updateRemarksResponse;
     }
 
-    @PayloadRoot(namespace = url, localPart = "removeTransactionByDates")
+    @PayloadRoot(namespace = url, localPart = "removeTransactionByDatesRequest")
     @ResponsePayload
     public RemoveTransactionByDatesResponse removeTransactionByDatesResponse(@RequestPayload RemoveTransactionByDatesRequest removeTransactionByDatesRequest) {
+//        System.out.println("inside transaction");
         RemoveTransactionByDatesResponse removeTransactionByDatesResponse = new RemoveTransactionByDatesResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
-        String result = transactionService.apiRemoveTransactionByDates(removeTransactionByDatesRequest.getStartDate(), removeTransactionByDatesRequest.getEndDate());
+        Date startDate,endDate;
+        startDate=removeTransactionByDatesRequest.getStartDate().toGregorianCalendar().getTime();
+        endDate=removeTransactionByDatesRequest.getEndDate().toGregorianCalendar().getTime();
+        String result = transactionService.apiRemoveTransactionByDates(startDate, endDate);
         if (result.equals("success")) {
             serviceStatus.setStatus("removed");
         } else {

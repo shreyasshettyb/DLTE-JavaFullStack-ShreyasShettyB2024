@@ -9,6 +9,7 @@ import task.soapxsd.soapxssd.dao.model.Transaction;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -54,7 +55,8 @@ public class TransactionService {
             return "fail";
     }
 
-    public String apiRemoveTransactionByDates(XMLGregorianCalendar startDate, XMLGregorianCalendar endDate) {
+    public String apiRemoveTransactionByDates(Date startDate, Date endDate) {
+        System.out.println("inside transaction");
         int result =jdbcTemplate.update("DELETE FROM transaction_new WHERE transaction_date BETWEEN ? AND ?",
                 startDate, endDate);
         if(result!=0)
