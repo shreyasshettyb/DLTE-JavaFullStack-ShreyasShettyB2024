@@ -1,5 +1,6 @@
 package task.rest.demo;
 
+import org.apache.el.stream.Stream;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -24,8 +25,9 @@ public class LoanController {
     }
 
     @PostMapping("/add")
-    public void addLoan(@RequestBody Loan loan){
+    public Loan addLoan(@RequestBody Loan loan){
         loanList.add(new Loan(loan.getLoanNumber(),loan.getLoanAmount(),loan.getLoanDate(),loan.getLoanStatus(),loan.getBorrowerName(),loan.getBorrowerContact()));
+        return loan;
     }
 
 

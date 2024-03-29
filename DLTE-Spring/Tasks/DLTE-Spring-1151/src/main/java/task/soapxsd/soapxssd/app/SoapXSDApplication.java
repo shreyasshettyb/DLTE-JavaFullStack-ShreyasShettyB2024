@@ -1,9 +1,10 @@
-package task.soapxsd.soapxssd;
+package task.soapxsd.soapxssd.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+
 public class SoapXSDApplication {
 
     public static void main(String[] args) {

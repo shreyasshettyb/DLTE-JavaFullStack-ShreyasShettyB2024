@@ -1,4 +1,4 @@
-package task.soapxsd.soapxssd;
+package task.soapxsd.soapxssd.app;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
