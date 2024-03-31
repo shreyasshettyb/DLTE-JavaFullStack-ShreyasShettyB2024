@@ -8,6 +8,7 @@ import task.jdbctemplate.demo.model.Transaction;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,6 +43,24 @@ public class TransactionService {
         return jdbcTemplate.query("SELECT * FROM transaction_new WHERE amount = ?",
                 new Object[]{amount},
                 new TransactionMapper());
+    }
+    public String apiUpdateRemarks(String remarks,long transaction_id){
+        int result=jdbcTemplate.update("UPDATE transaction_new SET remarks = ? WHERE transaction_id = ?",
+                remarks, transaction_id);
+        if(result!=0)
+            return "success";
+        else
+            return "fail";
+    }
+
+    public String apiRemoveTransactionByDates(Date startDate, Date endDate) {
+//        System.out.println("inside transaction");
+        int result =jdbcTemplate.update("DELETE FROM transaction_new WHERE transaction_date BETWEEN ? AND ?",
+                startDate, endDate);
+        if(result!=0)
+            return "success";
+        else
+            return "fail";
     }
 
     public class TransactionMapper implements RowMapper<Transaction> {

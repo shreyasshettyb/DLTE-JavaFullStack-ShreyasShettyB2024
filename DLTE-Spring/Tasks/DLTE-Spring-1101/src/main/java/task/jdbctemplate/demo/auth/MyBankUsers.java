@@ -1,18 +1,22 @@
 package task.jdbctemplate.demo.auth;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class MyBankUsers implements UserDetails {
-    private String name, username, password, email;
-    private long contact, aadhaar;
+    private String name, username, password, email,address,role;
+    private long contact;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<SimpleGrantedAuthority> authorities=new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(role));
+        return authorities;
     }
 
     @Override
@@ -69,20 +73,28 @@ public class MyBankUsers implements UserDetails {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public long getContact() {
         return contact;
     }
 
     public void setContact(long contact) {
         this.contact = contact;
-    }
-
-    public long getAadhaar() {
-        return aadhaar;
-    }
-
-    public void setAadhaar(long aadhaar) {
-        this.aadhaar = aadhaar;
     }
 
     @Override
@@ -92,8 +104,9 @@ public class MyBankUsers implements UserDetails {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", role='" + role + '\'' +
                 ", contact=" + contact +
-                ", aadhaar=" + aadhaar +
                 '}';
     }
 }

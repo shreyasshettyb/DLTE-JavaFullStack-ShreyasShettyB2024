@@ -15,15 +15,15 @@ public class MyBankService implements UserDetailsService {
 
 
     public MyBankUsers signingUp(MyBankUsers myBankUsers){
-        int ack = jdbcTemplate.update("insert into mybank_users values(?,?,?,?,?,?)",new Object[]{
+        int ack = jdbcTemplate.update("insert into mybank_users_role values(?,?,?,?,?,?)",new Object[]{
                 myBankUsers.getName(),myBankUsers.getUsername(),
-                myBankUsers.getPassword(),myBankUsers.getContact(),myBankUsers.getEmail(),myBankUsers.getAadhaar()
+                myBankUsers.getPassword(),myBankUsers.getContact(),myBankUsers.getEmail(),myBankUsers.getRole()
         });
         return myBankUsers;
     }
 
     public MyBankUsers findByUsername(String username){
-        MyBankUsers myBankUsers = jdbcTemplate.queryForObject("select * from mybank_users where username=?",
+        MyBankUsers myBankUsers = jdbcTemplate.queryForObject("select * from mybank_users_role where username=?",
                 new Object[]{username},new BeanPropertyRowMapper<>(MyBankUsers.class));
         return myBankUsers;
     }
