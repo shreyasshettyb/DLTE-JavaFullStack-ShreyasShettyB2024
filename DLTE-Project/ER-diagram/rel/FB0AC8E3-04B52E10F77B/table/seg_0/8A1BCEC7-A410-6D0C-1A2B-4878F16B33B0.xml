@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A1BCEC7-A410-6D0C-1A2B-4878F16B33B0" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MYBANK_APP_LOANAVAILABLE">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_LOANAVAILABLE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LOAN_ID" id="97954BFE-8714-729D-56B5-D571C202B58C">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_LOANAVAILABLE</sourceObjSchema>
+<sourceObjName>LOAN_ID</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOAN_TYPE" id="C728BE0C-B0BA-F4FE-AE37-3B999BE3F4C2">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_LOANAVAILABLE</sourceObjSchema>
+<sourceObjName>LOAN_TYPE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOAN_NAME" id="600DE1D4-84BE-6527-6A9B-F39E5843D239">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_LOANAVAILABLE</sourceObjSchema>
+<sourceObjName>LOAN_NAME</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOAN_DESCRIPTION" id="9885FA59-D743-E44B-53D2-0EBFBB14D080">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_LOANAVAILABLE</sourceObjSchema>
+<sourceObjName>LOAN_DESCRIPTION</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOAN_ROI" id="909C392F-FC12-1C02-222C-AB8BBF036DBA">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_LOANAVAILABLE</sourceObjSchema>
+<sourceObjName>LOAN_ROI</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,15,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="79D4C3E0-4332-1624-640B-CD831C219F2B" name="MY_BANK_APP_LOANAVAIL_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MY_BANK_APP_LOANAVAIL_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97954BFE-8714-729D-56B5-D571C202B58C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0BD700E5-05C9-E6C8-FB61-82ECEC147394" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MY_BANK_APP_LOANAVAIL_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MY_BANK_APP_LOANAVAIL_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97954BFE-8714-729D-56B5-D571C202B58C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

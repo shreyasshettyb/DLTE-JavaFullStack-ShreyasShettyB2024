@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="MYBANK_APP_KYC_ID_TRG" directorySegmentName="seg_0" id="B78B1C1E-F433-B7F6-BDFA-4C7F6233C871">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_KYC_ID_TRG</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    SELECT my_bank_app_seq_kyc.NEXTVAL
+    INTO :NEW.kyc_number
+    FROM dual;
+END;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>514894CE-2B34-528F-59EE-3801CC596CB2</owner>
+<table>BCD689D3-2275-C269-F8EA-C97DE4A897E8</table>
+</TriggerOraclev10g>

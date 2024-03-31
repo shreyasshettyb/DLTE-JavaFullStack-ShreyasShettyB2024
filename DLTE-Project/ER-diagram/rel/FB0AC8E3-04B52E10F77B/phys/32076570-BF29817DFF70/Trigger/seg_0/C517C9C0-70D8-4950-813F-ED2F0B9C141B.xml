@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="MYBANK_APP_DEPOAVAIL_ID_TRG" directorySegmentName="seg_0" id="C517C9C0-70D8-4950-813F-ED2F0B9C141B">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_DEPOAVAIL_ID_TRG</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    SELECT my_bank_app_seq_depositsavail.NEXTVAL
+    INTO :NEW.deposit_id
+    FROM dual;
+END;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>514894CE-2B34-528F-59EE-3801CC596CB2</owner>
+<table>C637C695-3B50-D32F-320F-2D6D69AFD7AB</table>
+</TriggerOraclev10g>

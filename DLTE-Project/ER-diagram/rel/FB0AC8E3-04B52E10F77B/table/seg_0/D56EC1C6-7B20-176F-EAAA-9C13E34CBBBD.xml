@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D56EC1C6-7B20-176F-EAAA-9C13E34CBBBD" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MYBANK_APP_INSURANCEAVAILABLE">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_INSURANCEAVAILABLE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INSURANCE_ID" id="323A2058-A826-9212-58D4-0EC3EB7BB15D">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_INSURANCEAVAILABLE</sourceObjSchema>
+<sourceObjName>INSURANCE_ID</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_TYPE" id="D3EEBD98-F8A0-DB9C-DCAD-DC5E2B598802">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_INSURANCEAVAILABLE</sourceObjSchema>
+<sourceObjName>INSURANCE_TYPE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_NAME" id="AD668609-9ED9-6AD8-A09F-EC3939EA8F84">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_INSURANCEAVAILABLE</sourceObjSchema>
+<sourceObjName>INSURANCE_NAME</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_KEY_BENEFITS" id="54C9FE6F-E952-7642-EBB1-454F1B7F6BE2">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_INSURANCEAVAILABLE</sourceObjSchema>
+<sourceObjName>INSURANCE_KEY_BENEFITS</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSURANCE_LIFETIME" id="68B84077-90CE-A1B1-58DE-354FCFA93113">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_INSURANCEAVAILABLE</sourceObjSchema>
+<sourceObjName>INSURANCE_LIFETIME</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="65FDAB32-08FA-41B2-BB6A-5322FB0BE546" name="MY_BANK_APP_INSURANCEAVAIL_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MY_BANK_APP_INSURANCEAVAIL_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="323A2058-A826-9212-58D4-0EC3EB7BB15D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C530F4E5-E869-66CA-B032-9BDE13B71199" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MY_BANK_APP_INSURANCEAVAIL_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MY_BANK_APP_INSURANCEAVAIL_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="323A2058-A826-9212-58D4-0EC3EB7BB15D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

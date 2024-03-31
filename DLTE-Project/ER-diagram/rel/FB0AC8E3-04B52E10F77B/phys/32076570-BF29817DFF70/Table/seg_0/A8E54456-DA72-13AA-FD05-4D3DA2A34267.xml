@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MYBANK_APP_PAYEE" directorySegmentName="seg_0" id="A8E54456-DA72-13AA-FD05-4D3DA2A34267">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>81EDF0A8-B332-588C-50F2-F4D1828735A3</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CUSTOMER_ID" id="38AE89C9-6E7A-00BF-3441-43722F7E4D54">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACCOUNT_ID" id="9007DC81-9A61-7703-A422-0EB6FB85195A">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PAYEE_NAME" id="C2C3835D-F9A7-C751-E7CC-FC749F2C338B">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PAYEE_ID" id="E55CB445-9FE5-9974-459E-0544E57EE9B9">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MYBANK_APP_PAYEE_PK" id="7B2E1BC0-73E1-C243-943B-4AE649D94204">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_PAYEE_CUSTOMER" id="AB7CA7E6-DB3F-AC69-B99C-B87AEE1CA25A">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_PAYEE_ACCOUNT" id="B63F0B1A-B569-86A3-FB77-862A362FD5F4">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MYBANK_APP_PAYEE_PK" id="9CB3E111-0176-59E4-5B13-13384E8E5B4C">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<existingIndex>7B2E1BC0-73E1-C243-943B-4AE649D94204</existingIndex>
+<indexSegment>0CF82394-B09A-3D5C-8C47-4F035087757D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

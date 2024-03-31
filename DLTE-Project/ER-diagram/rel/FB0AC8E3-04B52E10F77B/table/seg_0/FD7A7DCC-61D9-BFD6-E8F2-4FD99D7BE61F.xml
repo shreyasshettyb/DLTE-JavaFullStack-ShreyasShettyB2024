@@ -1,0 +1,204 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FD7A7DCC-61D9-BFD6-E8F2-4FD99D7BE61F" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MYBANK_APP_DEBITCARD">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_DEBITCARD</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEBITCARD_NUMBER" id="A5C66080-D09D-03E3-F0A4-A9C98B00C42B">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_NUMBER</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCOUNT_ID" id="3DE2FF8D-F199-C51A-53E8-2B17A600BB14">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>ACCOUNT_ID</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9BC3ABA-351E-7BFF-89D7-717ECEBAA9BA" referredColumn="70729016-9F64-BA1E-D69D-9DBABBE06384"/>
+</associations>
+</Column>
+<Column name="CUSTOMER_ID" id="C567B1F9-BA56-5B88-97DC-8FCA5ED7AB56">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C8DFEB8D-830E-647E-0906-44C4E9D89EAF" referredColumn="28207E74-888F-9606-E426-4E19C3284674"/>
+</associations>
+</Column>
+<Column name="DEBITCARD_CVV" id="3A9A42B0-1A8E-DC4A-0AD4-D4EDCB319C7C">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_CVV</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEBITCARD_PIN" id="DBBDF470-DABC-B411-8646-A34ED12E6A2A">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_PIN</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEBITCARD_EXPIRY" id="5CF656F2-617B-98B4-74EA-5BE36DDD2E97">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_EXPIRY</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEBITCARD_STATUS" id="A4F80248-7FAD-59B0-151C-36C7C6C8589A">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_STATUS</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEBITCARD_DOMESTIC_LIMIT" id="D3B78D0E-007C-3CCC-49C2-67B4D912FF40">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_DOMESTIC_LIMIT</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,15,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEBITCARD_INTERNATIONAL_LIMIT" id="C9FE38FE-642B-930E-248E-CB208A972E06">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>MYBANK_APP_DEBITCARD</sourceObjSchema>
+<sourceObjName>DEBITCARD_INTERNATIONAL_LIMIT</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>15</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,15,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EEB2ED16-E252-D1DC-940B-F97EE07DBD5E" name="MYBANK_APP_DEBITCARD_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_DEBITCARD_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5C66080-D09D-03E3-F0A4-A9C98B00C42B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E3820DE5-E3B9-F865-8523-8FB85DA3A52C" schemaObject="3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E" name="MYBANK_APP_DEBITCARD_PK">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_DEBITCARD_PK</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5C66080-D09D-03E3-F0A4-A9C98B00C42B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="745ABB15-9454-840C-5004-CBB786B1BC43" name="FK_DEBITCARD_ACCOUNT">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DE2FF8D-F199-C51A-53E8-2B17A600BB14"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B771857B-41B8-50D0-5058-5F1760498EE2" name="FK_DEBITCARD_CUSTOMER">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C567B1F9-BA56-5B88-97DC-8FCA5ED7AB56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

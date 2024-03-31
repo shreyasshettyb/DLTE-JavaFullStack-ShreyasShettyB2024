@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0EA0B154-FF2C-3F00-D442-7DABF3846EB9" containerWithKeyObject="1522EFB9-5B2C-FD00-DC49-E62F8F378E8C" localFKIndex="BE3EE6A1-9792-AFA9-A1FA-AE87A186EDB0" name="FK_LOANAVAILED_LOANAVAILABLE">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>FK_LOANAVAILED_LOANAVAILABLE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<referredTableLongName>TEST.MYBANK_APP_LOANAVAILABLE</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>8A1BCEC7-A410-6D0C-1A2B-4878F16B33B0</referredTableID>
+<keyObject>79D4C3E0-4332-1624-640B-CD831C219F2B</keyObject>
+<referredKeyID>79D4C3E0-4332-1624-640B-CD831C219F2B</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>LOAN_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

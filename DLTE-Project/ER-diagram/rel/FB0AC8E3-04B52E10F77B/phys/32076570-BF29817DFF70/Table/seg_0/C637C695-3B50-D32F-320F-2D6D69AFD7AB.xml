@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MYBANK_APP_DEPOSITSAVAILABLE" directorySegmentName="seg_0" id="C637C695-3B50-D32F-320F-2D6D69AFD7AB">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>81EDF0A8-B332-588C-50F2-F4D1828735A3</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEPOSIT_ID" id="2B8C82D6-E123-66A0-2485-92D85BEC2209">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPOSIT_ROI" id="4B24CA3C-2E48-C0BC-24F4-57B600034DC4">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPOSIT_DESCRIPTION" id="8797FDD4-83C9-E6CC-05B9-CE21F1561F57">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPOSIT_TYPE" id="F992A54F-9B2A-FB48-39D3-17EDA98259AF">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPOSIT_NAME" id="FF063327-1FD4-DBB9-7BF0-1565943D2DF0">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MYBANK_APP_DEPOSITSAVAILAB_PK" id="D7D355ED-C64E-63EB-792A-F37502D92F36">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MYBANK_APP_DEPOSITSAVAILAB_PK" id="AEE0FE66-26E9-FC87-3F04-A4787EB61B38">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<existingIndex>D7D355ED-C64E-63EB-792A-F37502D92F36</existingIndex>
+<indexSegment>0CF82394-B09A-3D5C-8C47-4F035087757D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MYBANK_APP_DEBITCARD" directorySegmentName="seg_0" id="FD7A7DCC-61D9-BFD6-E8F2-4FD99D7BE61F">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>81EDF0A8-B332-588C-50F2-F4D1828735A3</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEBITCARD_CVV" id="3A9A42B0-1A8E-DC4A-0AD4-D4EDCB319C7C">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACCOUNT_ID" id="3DE2FF8D-F199-C51A-53E8-2B17A600BB14">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_EXPIRY" id="5CF656F2-617B-98B4-74EA-5BE36DDD2E97">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_STATUS" id="A4F80248-7FAD-59B0-151C-36C7C6C8589A">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_NUMBER" id="A5C66080-D09D-03E3-F0A4-A9C98B00C42B">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CUSTOMER_ID" id="C567B1F9-BA56-5B88-97DC-8FCA5ED7AB56">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_INTERNATIONAL_LIMIT" id="C9FE38FE-642B-930E-248E-CB208A972E06">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_DOMESTIC_LIMIT" id="D3B78D0E-007C-3CCC-49C2-67B4D912FF40">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEBITCARD_PIN" id="DBBDF470-DABC-B411-8646-A34ED12E6A2A">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MYBANK_APP_DEBITCARD_PK" id="E3820DE5-E3B9-F865-8523-8FB85DA3A52C">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<schemaObject>3AE122A9-1A1A-3CA1-853F-2F6EDC45AC5E</schemaObject>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_DEBITCARD_ACCOUNT" id="745ABB15-9454-840C-5004-CBB786B1BC43">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_DEBITCARD_CUSTOMER" id="B771857B-41B8-50D0-5058-5F1760498EE2">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MYBANK_APP_DEBITCARD_PK" id="EEB2ED16-E252-D1DC-940B-F97EE07DBD5E">
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:48 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<segment>0CF82394-B09A-3D5C-8C47-4F035087757D</segment>
+<tableSpace>C0506F4E-2829-DF4D-AA02-3CD2A04481E7</tableSpace>
+<existingIndex>E3820DE5-E3B9-F865-8523-8FB85DA3A52C</existingIndex>
+<indexSegment>0CF82394-B09A-3D5C-8C47-4F035087757D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="MYBANK_APP_INSUREGIVEN_ID_TRG" directorySegmentName="seg_0" id="D4971CFA-E7BA-FB05-6BA7-5BE378EC2AC3">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_INSUREGIVEN_ID_TRG</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    SELECT my_bank_app_seq_insurancegiven.NEXTVAL
+    INTO :NEW.insurance_availed_id
+    FROM dual;
+END;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>514894CE-2B34-528F-59EE-3801CC596CB2</owner>
+<table>76B3A3AF-6F10-26D0-BB74-8C79D2367197</table>
+</TriggerOraclev10g>

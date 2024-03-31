@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="MYBANK_APP_CUSTOMER_ID_TRG" directorySegmentName="seg_0" id="24DB6C36-20B1-17C0-77E8-78630EFE2BA5">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>MYBANK_APP_CUSTOMER_ID_TRG</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+    SELECT my_bank_app_seq_customer.NEXTVAL
+    INTO :NEW.customer_id
+    FROM dual;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>514894CE-2B34-528F-59EE-3801CC596CB2</owner>
+<table>F77ADAF4-86CB-4BA2-D9E5-D5EF61102EF4</table>
+</TriggerOraclev10g>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3A2A06B5-1F5A-B0D8-625C-AD8BEF98862C" containerWithKeyObject="F8C30A06-127B-2B95-A975-27B7C3548422" localFKIndex="14CE1881-B645-6159-9844-578ADD996697" name="FK_DEPOSGIVEN_DEPOAVAILABLE">
+<sourceConnName>DLTE-2024</sourceConnName>
+<sourceObjSchema>TEST</sourceObjSchema>
+<sourceObjName>FK_DEPOSGIVEN_DEPOAVAILABLE</sourceObjName>
+<createdBy>xxshetts</createdBy>
+<createdTime>2024-03-31 07:56:49 UTC</createdTime>
+<ownerDesignName>ER-diagram</ownerDesignName>
+<referredTableLongName>TEST.MYBANK_APP_DEPOSITSAVAILABLE</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>C637C695-3B50-D32F-320F-2D6D69AFD7AB</referredTableID>
+<keyObject>AEE0FE66-26E9-FC87-3F04-A4787EB61B38</keyObject>
+<referredKeyID>AEE0FE66-26E9-FC87-3F04-A4787EB61B38</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>DEPOSIT_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
