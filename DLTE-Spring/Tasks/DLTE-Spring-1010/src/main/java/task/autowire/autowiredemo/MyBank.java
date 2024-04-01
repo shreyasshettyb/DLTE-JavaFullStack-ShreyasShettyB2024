@@ -15,7 +15,6 @@ public class MyBank {
     @Autowired
     @Qualifier("HomeLoans")
     LoanInterface loanInterface;
-
     public List<Loan> callFind(){
         List<Loan> loanList = new ArrayList<>();
         loanList.add(new Loan(741852963L, 741852.0, new Date(2024, Calendar.MARCH,12), "personal", "rakesh", 9638527410L));

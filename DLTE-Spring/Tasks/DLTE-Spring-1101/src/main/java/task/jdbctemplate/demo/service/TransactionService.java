@@ -8,13 +8,17 @@ import task.jdbctemplate.demo.model.Transaction;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class TransactionService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    ArrayList<Integer> arrayList = new ArrayList<>();
 
     public Transaction apiAddTransaction(Transaction transaction) {
         jdbcTemplate.update("INSERT INTO transaction_new (transaction_id, amount, received_by, remarks, sent_to, transaction_date ) VALUES (?, ?, ?, ?, ?, ?)",
