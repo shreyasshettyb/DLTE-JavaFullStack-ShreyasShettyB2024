@@ -3,42 +3,37 @@ package employee.console;
 import employee.entity.Address;
 import employee.entity.Employee;
 import employee.validation.Validation;
-import employeebackend.exceptions.ConnectionException;
-import employeebackend.exceptions.EmployeeExistException;
-import employeebackend.exceptions.NoEmployeeFoundException;
-import employeebackend.exceptions.ValidationException;
-import employeebackend.interfaces.Operations;
-import employeebackend.repository.DataBaseRepository;
+import employee.webservice.EmployeeSoap;
+import employee.webservice.EmployeeSoapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.ws.soap.SOAPFaultException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-
 public class EmployeeConsole {
-    private static Operations operations;
-    private static Validation validation = new Validation();
-    static Logger logger = LoggerFactory.getLogger(EmployeeConsole.class);
-
-    static int count = 0;
-    private static Long employeeID;
-    static Scanner scanner = new Scanner(System.in);
-    public static employeebackend.entity.Employee employeeSend = new employeebackend.entity.Employee();
-    public static employeebackend.entity.Address permanentAddressSend, temporaryAddressSend;
-
+    public static employee.webservice.Employee employeeSend = new employee.webservice.Employee();
+    public static employee.webservice.Address permanentAddressSend, temporaryAddressSend;
     public static Address permanentAddress, temporaryAddress;
     public static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     public static ResourceBundle resourceBundleError = ResourceBundle.getBundle("error");
+    static Logger logger = LoggerFactory.getLogger(EmployeeConsole.class);
+    static int count = 0;
+    static Scanner scanner = new Scanner(System.in);
+    private static EmployeeSoapService employeeSoapService = new EmployeeSoapService();
+    private static EmployeeSoap operations = employeeSoapService.getEmployeeSoapPort();
+    private static Validation validation = new Validation();
+    private static Long employeeID;
 
     // Main Function
-    public static void main(String[] args) throws EmployeeExistException {
+    public static void main(String[] args) {
         try {
             while (true) {
-                operations = new DataBaseRepository();
+//                operations = new DataBaseRepository();
                 System.out.println(resourceBundle.getString("app.greet"));
                 System.out.println(resourceBundle.getString("app.menu"));
                 char option = scanner.next().charAt(0);
@@ -53,24 +48,32 @@ public class EmployeeConsole {
                             try {
                                 translateAndSend(employee);
                                 System.out.println(resourceBundle.getString("app.employee.addAnother"));
-                            } catch (ValidationException e) {
-                                logger.error(resourceBundleError.getString(e.getMessage()));
-                                System.out.println(resourceBundle.getString("app.error.systemFailure"));
-                                boolean flag = false; // verify if validation as been successful in console
-                                do {
-                                    try {
-                                        employee = validation.validateEmployee(employee);
-                                        translateAndSend(employee);
-                                        flag = true;
-                                    } catch (ValidationException ex) {
-                                        logger.error(resourceBundleError.getString(e.getMessage()));
-                                        System.out.println(resourceBundle.getString("app.error.systemFailure"));
-                                    }
-                                } while (!flag);
-                                System.out.println(resourceBundle.getString("app.employee.addAnother"));
-                            } catch (EmployeeExistException e) {
-                                logger.warn(e.getMessage());
-                                System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+                            } catch (SOAPFaultException e) {
+                                if (e.getFault().getFaultCode().equalsIgnoreCase("ValidationException")) {
+                                    logger.error(resourceBundleError.getString(e.getFault().getFaultString()));
+                                    System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                                    boolean flag = false; // verify if validation as been successful in console
+                                    do {
+                                        try {
+                                            employee = validation.validateEmployee(employee);
+                                            translateAndSend(employee);
+                                            flag = true;
+                                        } catch (SOAPFaultException ex) {
+                                            logger.error(resourceBundleError.getString(ex.getFault().getFaultString()));
+                                            System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                                        }
+                                    } while (!flag);
+
+                                    System.out.println(resourceBundle.getString("app.employee.addAnother"));
+                                } else if (e.getFault().getFaultCode().equalsIgnoreCase("EmployeeExistException")) {
+                                    logger.warn(e.getFault().getFaultString());
+                                    System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+                                }
+                                else{
+                                    logger.warn(e.getFault().getFaultString());
+                                    System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                                    break;
+                                }
                             }
                         } while (scanner.next().equalsIgnoreCase("yes"));
                         break;
@@ -81,18 +84,26 @@ public class EmployeeConsole {
                     case '3':
                         System.out.println(resourceBundle.getString("app.employee.enterPincodeFilter"));
                         Integer pincode = scanner.nextInt();
-                    displayEmployeeDetails(pincode);
+                        displayEmployeeDetails(pincode);
                         logger.info("Displayed Employee Details With Pincode as filter");
+                        break;
+                    case '4':
+                        System.out.println("Enter Employee Id");
+                        long employee_id=scanner.nextLong();
+                        displayEmployeeDetails(employee_id);
+                        logger.info("Displayed Employee details based on Id");
                         break;
                     default:
                         System.out.println(resourceBundle.getString("app.error.invalidOption"));
                         logger.warn("Invalid Option");
                 }
             }
-        } catch (ConnectionException e) {
-            System.out.println(e.getMessage() + " Contact Support");
-        } catch (SQLException e) {
-            logger.error(e.getMessage());
+        } catch (SOAPFaultException e) {
+            if (e.getFault().getFaultCode().equalsIgnoreCase("ConnectionException"))
+                System.out.println(e.getFault().getFaultString() + " Contact Support");
+            else if (e.getFault().getFaultCode().equalsIgnoreCase("SQLException")) {
+                logger.error(e.getFault().getFaultString());
+            }
         }
     }
 
@@ -153,7 +164,7 @@ public class EmployeeConsole {
                 System.out.println(resourceBundle.getString("app.validation.invalidPincode"));
             }
         }
-        permanentAddress = new Address(employeeID, permanentHouseName, permanentStreetName, permanentCity, permanentState, permanentPincode,"permanent");
+        permanentAddress = new Address(employeeID, permanentHouseName, permanentStreetName, permanentCity, permanentState, permanentPincode, "permanent");
         System.out.println(resourceBundle.getString("app.employee.enterTemporaryAddress"));
         System.out.println(resourceBundle.getString("app.employee.enterHouseName"));
         scanner.nextLine();
@@ -176,16 +187,16 @@ public class EmployeeConsole {
                 System.out.println("Re-Enter your Permanent Pincode");
             }
         }
-        temporaryAddress = new Address(employeeID, temporaryHouseName, temporaryStreetName, temporaryCity, temporaryState, temporaryPincode,"temporary");
+        temporaryAddress = new Address(employeeID, temporaryHouseName, temporaryStreetName, temporaryCity, temporaryState, temporaryPincode, "temporary");
         return new Employee(firstName, middleName, lastName, phone, email, employeeID, permanentAddress, temporaryAddress);
     }
 
     //Translate Object into Backend Entities
-    static void translateAndSend(Employee employee) throws SQLException, ValidationException, EmployeeExistException {
+    static void translateAndSend(Employee employee) {
         permanentAddress = employee.getPermanentAddress();
         temporaryAddress = employee.getTemporaryAddress();
-        permanentAddressSend = new employeebackend.entity.Address();
-        temporaryAddressSend = new employeebackend.entity.Address();
+        permanentAddressSend = new employee.webservice.Address();
+        temporaryAddressSend = new employee.webservice.Address();
         permanentAddressSend.setHouseName(permanentAddress.getHouseName());
         permanentAddressSend.setCity(permanentAddress.getCity());
         permanentAddressSend.setState(permanentAddress.getState());
@@ -208,30 +219,24 @@ public class EmployeeConsole {
         employeeSend.setEmployeeID(employee.getEmployeeID());
         employeeSend.setPermanentAddress(permanentAddressSend);
         employeeSend.setTemporaryAddress(temporaryAddressSend);
-        String result = operations.create(employeeSend);
+        logger.info(employee.getPermanentAddress().toString()+"\n"+employee.toString());
+        String result = operations.createEmployee(employeeSend);
         logger.info(resourceBundleError.getString(result));
     }
 
     //Employee Details Are Displayed
-    static void displayEmployeeDetails() throws ConnectionException {
-        operations = new DataBaseRepository();
+    static void displayEmployeeDetails()  {
+//        operations = new DataBaseRepository();
         System.out.println(resourceBundle.getString("app.employee.details"));
-        ArrayList<employeebackend.entity.Employee> employeeList = null;
+        ArrayList<employee.webservice.Employee> employeeList = null;
         try {
-            employeeList = operations.read();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            logger.warn(e.getMessage());
-            System.out.println(resourceBundle.getString("app.error.systemFailure"));
-            return;
-        } catch (NoEmployeeFoundException e) {
-            logger.warn(e.getMessage());
-            System.out.println(e.getMessage());
-            return;
+            employeeList = (ArrayList<employee.webservice.Employee>) operations.readEmployee().getEmployeeArrayList();
+        } catch (SOAPFaultException e) {
+            logger.error(resourceBundleError.getString(e.getFault().getFaultString()));
         }
         int size = employeeList.size();
         for (int index = 0; index < size; index++) {
-            employeebackend.entity.Employee employee = employeeList.get(index);
+            employee.webservice.Employee employee = employeeList.get(index);
             System.out.println("Employee " + employee.getEmployeeID() + " Details:");
             System.out.println("  First Name: " + employee.getFirstName());
             System.out.println("  Middle Name: " + employee.getMiddleName());
@@ -254,7 +259,7 @@ public class EmployeeConsole {
     }
 
     //Prints Address object
-    static public void printAddressDetails(employeebackend.entity.Address address) {
+    static public void printAddressDetails(employee.webservice.Address address) {
         System.out.println("    House Name: " + address.getHouseName());
         System.out.println("    Street Name: " + address.getStreetName());
         System.out.println("    City: " + address.getCity());
@@ -262,26 +267,20 @@ public class EmployeeConsole {
         System.out.println("    Pincode: " + address.getPincode());
     }
 
-//    Print Employee Based On Pincode
-    static void displayEmployeeDetails(Integer pincode) throws ConnectionException {
+    //    Print Employee Based On Pincode
+    static void displayEmployeeDetails(Integer pincode)  {
         logger.info("Displayed Employee Details Based On Pincode");
         System.out.println("Employee Details by pincode Are");
-        operations = new DataBaseRepository();
-        ArrayList<employeebackend.entity.Employee> employeeList = null;
+//        operations = new DataBaseRepository();
+        ArrayList<employee.webservice.Employee> employeeList = null;
         try {
-            employeeList = operations.filterByPincode(pincode);
-        } catch (SQLException e) {
-            logger.warn(e.getMessage());
-            System.out.println(resourceBundle.getString("app.error.systemFailure"));
-            return;
-        } catch (NoEmployeeFoundException e) {
-            logger.warn(e.getMessage());
-            System.out.println(e.getMessage());
-            return;
+            employeeList = (ArrayList<employee.webservice.Employee>) operations.readEmployeeByPincode(pincode).getEmployeeArrayList();
+        } catch (SOAPFaultException e) {
+            logger.error(resourceBundleError.getString(e.getFault().getFaultString()));
         }
         int size = employeeList.size();
         for (int index = 0; index < size; index++) {
-            employeebackend.entity.Employee employee = employeeList.get(index);
+            employee.webservice.Employee employee = employeeList.get(index);
             System.out.println("Employee " + employee.getEmployeeID() + " Details:");
             System.out.println("  First Name: " + employee.getFirstName());
             System.out.println("  Middle Name: " + employee.getMiddleName());
@@ -301,8 +300,35 @@ public class EmployeeConsole {
                 System.out.println("  Not Available");
             }
         }
-//        while (true){
-//            logger.warn("1");
-//        }
+
     }
+
+    static void displayEmployeeDetails(long employeeID)  {
+//        operations = new DataBaseRepository();
+        System.out.println(resourceBundle.getString("app.employee.details"));
+        employee.webservice.Employee employee= new employee.webservice.Employee();
+        try {
+            employee =  operations.getEmployee(employeeID);
+        } catch (SOAPFaultException e) {
+            logger.error(resourceBundleError.getString(e.getFault().getFaultString()));
+        }
+            System.out.println("Employee " + employee.getEmployeeID() + " Details:");
+            System.out.println("  First Name: " + employee.getFirstName());
+            System.out.println("  Middle Name: " + employee.getMiddleName());
+            System.out.println("  Last Name: " + employee.getLastName());
+            System.out.println("  Phone: " + employee.getPhone());
+            System.out.println("  Email: " + employee.getEmail());
+            System.out.println("  Permanent Address:");
+            if (employee.getPermanentAddress() != null) {
+                printAddressDetails(employee.getPermanentAddress());
+            } else {
+                System.out.println("  Not Available");
+            }
+            System.out.println("  Temporary Address:");
+            if (employee.getTemporaryAddress() != null) {
+                printAddressDetails(employee.getTemporaryAddress());
+            } else {
+                System.out.println("  Not Available");
+            }
+        }
 }

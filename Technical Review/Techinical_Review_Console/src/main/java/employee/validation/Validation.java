@@ -3,9 +3,9 @@ package employee.validation;
 
 import employee.entity.Address;
 import employee.entity.Employee;
-import employeebackend.exceptions.ConnectionException;
-import employeebackend.interfaces.Operations;
-import employeebackend.repository.DataBaseRepository;
+//import employeebackend.exceptions.ConnectionException;
+//import employeebackend.interfaces.Operations;
+//import employeebackend.repository.DataBaseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +46,6 @@ public class Validation {
             } catch (InputMismatchException exception) {
             }
         }
-        scanner.nextLine(); //
         while (!Pattern.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", employee.getEmail())) {
             logger.warn("Invalid Email Format");
             System.out.println("Re-Enter your Email address");

@@ -7,8 +7,8 @@ import javax.xml.ws.Endpoint;
 public class EmployeeEndpoint {
     private static String url="http://localhost:1234/employee";
     public static void main(String[] args) throws ConnectionException {
-        EmployeeSoapService employeeSoapService=new EmployeeSoapService();
+        EmployeeSoap employeeSoap =new EmployeeSoap();
         System.out.println("Webservice hosted @ "+url);
-        Endpoint.publish(url,employeeSoapService);
+        Endpoint.publish(url, employeeSoap);
     }
 }

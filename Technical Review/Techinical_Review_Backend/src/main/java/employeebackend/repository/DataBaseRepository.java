@@ -100,7 +100,9 @@ public class DataBaseRepository implements Operations {
     public ArrayList<Employee> read() throws SQLException, NoEmployeeFoundException {
         ArrayList<Employee> list = new ArrayList<>();
         try {
-            String query = "SELECT ep.firstname,ep.middlename,ep.lastname,ep.phone,ep.email,ep.employee_id,ea.house_name,ea.street_name,ea.city,ea.state,ea.pincode FROM employee_personal ep JOIN employee_address ea ON ep.employee_id = ea.employee_id WHERE ea.type IN ('permanent', 'temporary') ";
+            String query = "SELECT ep.firstname,ep.middlename,ep.lastname,ep.phone,ep.email,ep.employee_id,ea.house_name,ea.street_name,ea.city,ea.state,ea.pincode" +
+                    " FROM employee_personal ep JOIN employee_address ea " +
+                    "ON ep.employee_id = ea.employee_id WHERE ea.type IN ('permanent', 'temporary') ";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -160,7 +162,7 @@ public class DataBaseRepository implements Operations {
     public ArrayList<Employee>filterByPincode(Integer pincode) throws SQLException,NoEmployeeFoundException {
         ArrayList<Employee> list = new ArrayList<>();
         try {
-            String query = "select * from employee_personal join permanent_address on employee_personal.EMPLOYEEID=permanent_address.EMPLOYEEID AND permanent_address.pincode=? Join temporary_address on employee_personal.EMPLOYEEID=temporary_address.EMPLOYEEID ";
+            String query = "select * from employee_personal join permanent_address on employee_personal.EMPLOYEEID=permanent_address.EMPLOYEEID AND permanent_address.pincode=? or Join temporary_address on employee_personal.EMPLOYEEID=temporary_address.EMPLOYEEID ";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1,pincode);
             resultSet = preparedStatement.executeQuery();
