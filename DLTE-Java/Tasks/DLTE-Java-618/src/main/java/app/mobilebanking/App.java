@@ -9,6 +9,8 @@ import org.example.entity.Account;
 import org.example.middleware.DatabaseTarget;
 import org.example.remotes.StorageTarget;
 import org.example.services.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
@@ -24,6 +26,8 @@ import java.util.logging.Logger;
 
 public class App {
 
+    @Autowired
+    @Qualifier("file")
     private static StorageTarget storageTarget;
     private static AccountService services;
     private static Scanner scanner = new Scanner(System.in);
@@ -33,8 +37,8 @@ public class App {
     public static void main(String[] args) {
         int option=0;
         String username=null,password;
-//        storageTarget=new FileStorageTarget();
-        storageTarget= new DatabaseTarget();
+        storageTarget=new FileStorageTarget();
+//        storageTarget= new DatabaseTarget();
         services=new AccountService(storageTarget);
 //        services.callAddTransactions(new Account(535456345, 49665, "arundhathi@gmail.com", "arundhathi", 1531534.0, "arundhathi51", "arundathi123"));
 //        services.callAddTransactions(new Account(683231531, 41555, "ekshan@gmail.com", "eksha", 3521.0, "eksha25", "eksha365"));

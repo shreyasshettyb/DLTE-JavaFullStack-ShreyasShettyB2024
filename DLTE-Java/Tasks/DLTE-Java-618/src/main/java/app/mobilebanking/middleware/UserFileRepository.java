@@ -8,9 +8,13 @@ import app.mobilebanking.entity.Account;
 import app.mobilebanking.exceptions.WithdrawException;
 import org.example.entity.Transaction;
 import org.example.remotes.UserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -19,7 +23,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
+@Component("db")
 public class UserFileRepository implements UserRepository {
     private String filePath;
     private ResourceBundle resourceBundle=ResourceBundle.getBundle("accounts");
@@ -122,7 +126,7 @@ public class UserFileRepository implements UserRepository {
     }
     // Method for withdrawal of money
     @Override
-    public void withdraw(String username,String password,double withdrawAmount) {
+    public double withdraw(String username,String password,double withdrawAmount) {
         readFromFile();
         if(verifyPassword(username,password)){
             Account account = accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
@@ -133,7 +137,7 @@ public class UserFileRepository implements UserRepository {
                 account.setBalance(account.getBalance()-withdrawAmount);
                 writeIntoFile();
                 System.out.println(resourceBundle.getString("remaining.balance")+balance(username));
-                return;
+                return account.getBalance();
             }
 
         }
@@ -141,6 +145,7 @@ public class UserFileRepository implements UserRepository {
             logger.log(Level.WARNING,resourceBundle.getString("password.incorrect"));
             System.out.println(resourceBundle.getString("password.incorrect"));
         }
+        return 0.0;
     }
     //Filtering to get only balance from transaction object
     @Override
@@ -173,6 +178,11 @@ public class UserFileRepository implements UserRepository {
     @Override
     public org.example.entity.Account findUserByUsername(String s) {
         return null;
+    }
+
+    @Override
+    public void createTransaction(String s, double v, double v1) throws SQLException {
+
     }
 
 

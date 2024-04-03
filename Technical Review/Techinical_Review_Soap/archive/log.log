@@ -1,0 +1,4 @@
+06:56:38.439 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m 
+06:57:59.654 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m 
+06:59:22.774 [31m[pool-1-thread-1][0;39m WARN  e.validation.Validation - [31mInvalid First Name Format[0;39m 
+06:59:22.789 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mVAL-001employeebackend.exceptions.ValidationException[0;39m 

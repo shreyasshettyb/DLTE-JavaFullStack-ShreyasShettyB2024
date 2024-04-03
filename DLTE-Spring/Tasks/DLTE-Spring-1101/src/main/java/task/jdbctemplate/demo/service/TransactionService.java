@@ -17,7 +17,6 @@ import java.util.stream.Stream;
 public class TransactionService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
     ArrayList<Integer> arrayList = new ArrayList<>();
 
     public Transaction apiAddTransaction(Transaction transaction) {

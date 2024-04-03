@@ -26,16 +26,16 @@ public interface EmployeeSoap {
 
     /**
      * 
-     * @param pincode
+     * @param employeeId
      * @return
-     *     returns employee.webservice.GroupOfEmployee
+     *     returns employee.webservice.Employee
      */
     @WebMethod
-    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
-    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeResponse")
-    public GroupOfEmployee readEmployeeByPincode(
-        @WebParam(name = "pincode", partName = "pincode")
-        int pincode);
+    @WebResult(name = "Employee", partName = "Employee")
+    @Action(input = "http://webservice.employee/EmployeeSoap/getEmployeeRequest", output = "http://webservice.employee/EmployeeSoap/getEmployeeResponse")
+    public Employee getEmployee(
+        @WebParam(name = "employee_id", partName = "employee_id")
+        long employeeId);
 
     /**
      * 
@@ -62,15 +62,15 @@ public interface EmployeeSoap {
 
     /**
      * 
-     * @param employeeId
+     * @param pincode
      * @return
-     *     returns employee.webservice.Employee
+     *     returns employee.webservice.GroupOfEmployee
      */
     @WebMethod
-    @WebResult(name = "Employee", partName = "Employee")
-    @Action(input = "http://webservice.employee/EmployeeSoap/getEmployeeRequest", output = "http://webservice.employee/EmployeeSoap/getEmployeeResponse")
-    public Employee getEmployee(
-        @WebParam(name = "employee_id", partName = "employee_id")
-        long employeeId);
+    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
+    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeResponse")
+    public GroupOfEmployee readEmployeeByPincode(
+        @WebParam(name = "pincode", partName = "pincode")
+        int pincode);
 
 }

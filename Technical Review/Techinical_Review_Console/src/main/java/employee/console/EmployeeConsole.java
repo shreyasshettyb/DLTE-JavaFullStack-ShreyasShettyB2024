@@ -8,12 +8,14 @@ import employee.webservice.EmployeeSoapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.Handler;
+import javax.xml.ws.handler.HandlerResolver;
+import javax.xml.ws.handler.PortInfo;
 import javax.xml.ws.soap.SOAPFaultException;
+import javax.xml.ws.spi.http.HttpHandler;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 public class EmployeeConsole {
     public static employee.webservice.Employee employeeSend = new employee.webservice.Employee();
@@ -34,6 +36,10 @@ public class EmployeeConsole {
         try {
             while (true) {
 //                operations = new DataBaseRepository();
+                BindingProvider bindingProvider = (BindingProvider) operations;
+                List<javax.xml.ws.handler.Handler> handlerChain = bindingProvider.getBinding().getHandlerChain();
+                handlerChain.add(new SOAPHeaderPrinter());
+                bindingProvider.getBinding().setHandlerChain(handlerChain);
                 System.out.println(resourceBundle.getString("app.greet"));
                 System.out.println(resourceBundle.getString("app.menu"));
                 char option = scanner.next().charAt(0);
@@ -44,7 +50,7 @@ public class EmployeeConsole {
                             System.out.println("Enter Employee " + (count + 1) + " Details :");
                             employee = collectEmployeeDetails();
                             count++;
-//                            employee = validation.validateEmployee(employee);
+                            employee = validation.validateEmployee(employee);
                             try {
                                 translateAndSend(employee);
                                 System.out.println(resourceBundle.getString("app.employee.addAnother"));
@@ -63,7 +69,7 @@ public class EmployeeConsole {
                                             System.out.println(resourceBundle.getString("app.error.systemFailure"));
                                         }
                                     } while (!flag);
-
+                                    scanner.nextLine();
                                     System.out.println(resourceBundle.getString("app.employee.addAnother"));
                                 } else if (e.getFault().getFaultCode().equalsIgnoreCase("EmployeeExistException")) {
                                     logger.warn(e.getFault().getFaultString());
@@ -331,4 +337,6 @@ public class EmployeeConsole {
                 System.out.println("  Not Available");
             }
         }
+
+
 }

@@ -1,0 +1,41 @@
+10:29:38.459 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
+10:53:08.068 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
+
+firstName='1'
+middleName='1'
+lastName='1'
+phone=1
+email='1'
+employeeID=1
+permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
+temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m  
+22:41:29.865 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
+
+firstName='1'
+middleName='1'
+lastName='1'
+phone=1
+email='1'
+employeeID=1
+permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
+temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m  
+22:41:30.833 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mFirst Name Validation Fail[0;39m  
+22:41:30.833 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
+22:41:38.358 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
+22:41:39.723 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
+22:41:40.477 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Phone Format[0;39m  
+22:41:44.812 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Email Format[0;39m  
+22:41:44.812 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Email Format[0;39m  
+22:42:03.347 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Pincode Format[0;39m  
+22:42:06.129 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Pincode Format[0;39m  
+22:42:08.140 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=741852, type='permanent'}
+
+firstName='a'
+middleName='a'
+lastName=''
+phone=1234567890
+email='shr@sa.com'
+employeeID=1
+permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=741852, type='permanent'}
+temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=741852, type='temporary'}[0;39m  
+22:42:08.376 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mRecord Inserted[0;39m  
