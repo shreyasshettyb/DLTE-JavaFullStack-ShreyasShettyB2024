@@ -1,8 +1,6 @@
 package mybank.dao.repository.entity;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class DepositsAvailable {
    private long depositId;
    private String depositName, depositType,depositDescription;

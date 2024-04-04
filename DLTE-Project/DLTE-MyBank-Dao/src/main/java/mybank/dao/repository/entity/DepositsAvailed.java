@@ -1,10 +1,8 @@
 package mybank.dao.repository.entity;
 
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
 public class DepositsAvailed {
     private long depositAvailId,depositId,customerId;
     private double depositedAmount;

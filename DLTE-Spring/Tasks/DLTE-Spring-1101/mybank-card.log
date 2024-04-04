@@ -33,4 +33,5 @@
 [0;39m[31m2024-04-03 11:39:32,422[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
 [0;39m[31m2024-04-03 11:39:32,424[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 1 ms
 [0;39m[31m2024-04-03 14:08:17,966[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m45s313ms755µs500ns).
+[0;39m[31m2024-04-03 18:32:50,974[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m59s363ms939µs600ns).
 [0;39m

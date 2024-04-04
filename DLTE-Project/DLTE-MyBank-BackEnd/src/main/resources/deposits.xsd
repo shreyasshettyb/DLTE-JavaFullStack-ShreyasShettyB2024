@@ -1,0 +1,40 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://deposits.services"
+            xmlns:tns="http://deposits.services"
+            elementFormDefault="qualified">
+
+
+    <!--    Entity-->
+    <xsd:complexType name="deposit">
+        <xsd:sequence>
+            <xsd:element name="depositId" type="xsd:long"/>
+            <xsd:element name="depositName" type="xsd:string"/>
+            <xsd:element name="depositRoi" type="xsd:double"/>
+            <xsd:element name="depositType" type="xsd:string"/>
+            <xsd:element name="depositDescription" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--    Status-->
+    <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--    Operation-->
+
+    <!--    List All-->
+    <xsd:element name="viewAllDepositsAvailableRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="viewAllDepositsAvailableResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="deposit" type="tns:deposit" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

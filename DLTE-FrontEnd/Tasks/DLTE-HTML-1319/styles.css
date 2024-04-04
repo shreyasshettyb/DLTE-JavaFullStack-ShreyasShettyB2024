@@ -1,0 +1,17 @@
+*{
+    background-color: bisque;
+}
+.form{
+    display: flex;
+justify-content: center;
+height: 70vh;
+align-items: center;
+}
+.input-group{
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+input,textarea{
+background-color: white;
+}

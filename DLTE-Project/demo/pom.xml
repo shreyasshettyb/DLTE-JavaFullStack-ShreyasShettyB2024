@@ -8,24 +8,20 @@
         <version>2.7.10</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>mybank.dao</groupId>
-    <artifactId>repository</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
-    <name>repository</name>
-    <packaging>war</packaging>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -36,16 +32,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
     </dependencies>
 

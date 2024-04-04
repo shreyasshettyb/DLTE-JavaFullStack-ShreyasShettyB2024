@@ -2,8 +2,8 @@ package mybank.dao.repository.service;
 
 import mybank.dao.repository.MyBankRemote;
 import mybank.dao.repository.entity.DepositsAvailable;
-import mybank.dao.repository.entity.DepositsAvailed;
 import mybank.dao.repository.exception.DepositsException;
+import mybank.dao.repository.entity.DepositsAvailed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +16,7 @@ import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 @Service
-public class RepositoryMyBankRemote implements MyBankRemote {
+public class RepositoryMyBank implements MyBankRemote {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

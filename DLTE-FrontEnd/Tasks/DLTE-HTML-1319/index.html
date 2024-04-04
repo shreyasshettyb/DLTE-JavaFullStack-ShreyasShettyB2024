@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+    
+</head>
+
+<body>
+  
+    <div class="container">
+        <div class="form">
+            <form action="">
+                <h2 >Chequebook Apply Form</h2>
+                <div class="input-group">
+                <label> Account Number</label>
+                <input type="number" name="acc_number">
+                </div>
+                <div class="input-group">
+                <label>Account Holder</label>
+                <input type="text" name="acc_holder">
+                </div>
+                <div class="input-group">
+                <label>Account type</label>
+                <input type="radio" name="acc_type" value="savings">
+                <input type="radio" name="acc_type" value="current">
+                </div>
+                <div class="input-group">
+                <label>Chequebook Type</label>
+                <select>
+                    <option value="ecs">Ecs</option>
+                    <option value="non_ecs">Non Ecs</option>
+                </select>
+                </div>
+                <div class="input-group">
+                <label>Date</label>
+                <input type="date" name="date">
+                </div>
+                <div class="input-group">
+                <label>Address</label>
+                <textarea rows="3" cols="5" name="address"></textarea>
+                </div>
+                <div class="input-group">
+                <label>Signature</label>
+                <input type="file" name="sign">
+                </div>
+                <div class="input-group">
+                <label>Contact Number</label>
+                <input type="number" name="phone">
+                </div>
+                <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email">
+                </div>
+                <div class="input-group">
+                <label>Accept terms and Conditions</label>
+                <input type="checkbox" name="t&c">
+                </div>
+                <div class="btn-group">
+                    <input type="submit" value="Apply"/>
+                    <input type="reset" value="Cancel"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
