@@ -19,8 +19,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>demo</artifactId>
+            <groupId>mybank.db.dao</groupId>
+            <artifactId>dlte-mybank-dao-layer</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

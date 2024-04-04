@@ -8,10 +8,13 @@
 
 package services.deposits;
 
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
@@ -84,7 +87,7 @@ public class ServiceStatus {
 
     /**
      * Sets the value of the message property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }

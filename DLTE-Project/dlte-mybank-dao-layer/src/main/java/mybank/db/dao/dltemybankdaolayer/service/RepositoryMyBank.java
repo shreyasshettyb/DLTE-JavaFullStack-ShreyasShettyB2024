@@ -1,9 +1,9 @@
-package mybank.dao.repository.service;
+package mybank.db.dao.dltemybankdaolayer.service;
 
-import mybank.dao.repository.MyBankRemote;
-import mybank.dao.repository.entity.DepositsAvailable;
-import mybank.dao.repository.exception.DepositsException;
-import mybank.dao.repository.entity.DepositsAvailed;
+import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
+import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +21,7 @@ public class RepositoryMyBank implements MyBankRemote {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+
     @Override
     public List<DepositsAvailable> availableDeposits() throws SQLSyntaxErrorException, DepositsException {
         List<DepositsAvailable> depositsAvailableList=null;
@@ -30,7 +31,7 @@ public class RepositoryMyBank implements MyBankRemote {
         catch (DataAccessException sqlException){
             throw new SQLSyntaxErrorException();
         }
-        if(depositsAvailableList.size()==0){
+        if(depositsAvailableList.size()!=0){
             throw new DepositsException("No Deposits Are Available");
         }
         return depositsAvailableList;

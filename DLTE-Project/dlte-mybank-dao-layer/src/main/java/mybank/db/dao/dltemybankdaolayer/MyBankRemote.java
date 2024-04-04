@@ -1,8 +1,8 @@
-package mybank.dao.repository;
+package mybank.db.dao.dltemybankdaolayer;
 
-import mybank.dao.repository.entity.DepositsAvailable;
-import mybank.dao.repository.entity.DepositsAvailed;
-import mybank.dao.repository.exception.DepositsException;
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
+import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLSyntaxErrorException;
