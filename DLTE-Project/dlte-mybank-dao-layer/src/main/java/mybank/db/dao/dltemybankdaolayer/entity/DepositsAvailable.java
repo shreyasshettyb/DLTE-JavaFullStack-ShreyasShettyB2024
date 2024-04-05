@@ -1,9 +1,22 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 public class DepositsAvailable {
+    @NotNull(message = "{deposit.bean.null}")
    private long depositId;
-   private String depositName, depositType,depositDescription;
+    @NotNull(message = "{deposit.bean.null}")
+   private String depositName;
+    @NotNull(message = "{deposit.bean.null}")
+    private String depositType;
+    @NotNull(message = "{deposit.bean.null}")
+    private  String depositDescription;
+    @NotNull(message = "{deposit.bean.null}")
+    @Positive(message = "{deposit.bean.positive}")
+    @Digits(integer = 3, fraction = 2, message = "{deposit.roi}")
    private double depositRoi;
 
     public DepositsAvailable() {
@@ -28,43 +41,43 @@ public class DepositsAvailable {
                 '}';
     }
 
-    public long getDeposit_id() {
+    public long getDepositId() {
         return depositId;
     }
 
-    public void setDeposit_id(long depositId) {
+    public void setDepositId(long depositId) {
         this.depositId = depositId;
     }
 
-    public String getDeposit_name() {
+    public String getDepositName() {
         return depositName;
     }
 
-    public void setDeposit_name(String depositName) {
+    public void setDepositName(String depositName) {
         this.depositName = depositName;
     }
 
-    public String getDeposit_type() {
+    public String getDepositType() {
         return depositType;
     }
 
-    public void setDeposit_type(String depositType) {
+    public void setDepositType(String depositType) {
         this.depositType = depositType;
     }
 
-    public String getDeposit_description() {
+    public String getDepositDescription() {
         return depositDescription;
     }
 
-    public void setDeposit_description(String depositDescription) {
+    public void setDepositDescription(String depositDescription) {
         this.depositDescription = depositDescription;
     }
 
-    public double getDeposit_roi() {
+    public double getDepositRoi() {
         return depositRoi;
     }
 
-    public void setDeposit_roi(double depositRoi) {
+    public void setDepositRoi(double depositRoi) {
         this.depositRoi = depositRoi;
     }
 }

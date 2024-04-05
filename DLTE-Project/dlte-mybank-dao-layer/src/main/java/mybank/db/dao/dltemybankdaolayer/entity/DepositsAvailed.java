@@ -1,12 +1,30 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
+
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 public class DepositsAvailed {
-    private long depositAvailId,depositId,customerId;
-    private double depositedAmount;
-    private int depositedDuration;
+    @NotNull
+    private Long depositAvailId;
+
+    @NotNull
+    private Long depositId;
+
+    @NotNull
+    private Long customerId;
+
+    @Positive
+    private Double depositedAmount;
+
+    @Min(1)
+    private Integer depositedDuration;
+
+    @NotNull
     private Date depositMaturity;
 
     public DepositsAvailed(long depositAvailId, long depositId, long customerId, double depositedAmount, int depositedDuration, Date depositMaturity) {

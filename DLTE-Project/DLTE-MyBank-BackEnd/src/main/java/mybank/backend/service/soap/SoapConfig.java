@@ -12,10 +12,13 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+import java.util.ResourceBundle;
+
 @EnableWs
 @Configuration
 public class SoapConfig extends WsConfigurerAdapter {
     // conversion xsd to wsdl
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     @Bean
     public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -28,9 +31,9 @@ public class SoapConfig extends WsConfigurerAdapter {
     @Bean(name = "deposit")
     public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema) {
         DefaultWsdl11Definition defaultWsdl11Definition = new DefaultWsdl11Definition();
-        defaultWsdl11Definition.setPortTypeName("DepositsPort");
-        defaultWsdl11Definition.setTargetNamespace("http://deposits.services");
-        defaultWsdl11Definition.setLocationUri("/depositsrepo");
+        defaultWsdl11Definition.setPortTypeName(resourceBundle.getString("app.soap.port"));
+        defaultWsdl11Definition.setTargetNamespace(resourceBundle.getString("app.soap.namespace"));
+        defaultWsdl11Definition.setLocationUri(resourceBundle.getString("app.soap.uri"));
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
@@ -38,7 +41,7 @@ public class SoapConfig extends WsConfigurerAdapter {
     // identify the xsd
     @Bean
     public XsdSchema depositsSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("deposits.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource(resourceBundle.getString("app.soap.xsd")));
     }
 }
 
