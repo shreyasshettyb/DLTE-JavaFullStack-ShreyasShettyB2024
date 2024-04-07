@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -25,21 +24,20 @@ public class RepositoryMyBank implements MyBankRemote {
     JdbcTemplate jdbcTemplate;
 
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
-    Logger logger= LoggerFactory.getLogger(RepositoryMyBank.class);
+    Logger logger = LoggerFactory.getLogger(RepositoryMyBank.class);
 
     //Return All Deposits in Deposits Available Table
     @Override
     public List<DepositsAvailable> availableDeposits() throws SQLException, DepositsException {
-        List<DepositsAvailable> depositsAvailableList=null;
-        try{
-            depositsAvailableList=jdbcTemplate.query("select * from mybank_app_depositsavailable",new DepositsAvailableMapper());
+        List<DepositsAvailable> depositsAvailableList = null;
+        try {
+            depositsAvailableList = jdbcTemplate.query("select * from mybank_app_depositsavailable", new DepositsAvailableMapper());
             logger.info(resourceBundle.getString("app.execute.success"));
-        }
-        catch (DataAccessException sqlException){
+        } catch (DataAccessException sqlException) {
             logger.error(resourceBundle.getString("app.error.access"));
             throw new SQLException();
         }
-        if(depositsAvailableList.size()==0){
+        if (depositsAvailableList.size() == 0) {
             logger.error(resourceBundle.getString("app.error.empty"));
             throw new DepositsException(resourceBundle.getString("app.codes.empty"));
         }

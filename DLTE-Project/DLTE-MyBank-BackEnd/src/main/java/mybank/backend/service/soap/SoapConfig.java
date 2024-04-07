@@ -17,8 +17,9 @@ import java.util.ResourceBundle;
 @EnableWs
 @Configuration
 public class SoapConfig extends WsConfigurerAdapter {
-    // conversion xsd to wsdl
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+
+    // conversion xsd to wsdl
     @Bean
     public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();

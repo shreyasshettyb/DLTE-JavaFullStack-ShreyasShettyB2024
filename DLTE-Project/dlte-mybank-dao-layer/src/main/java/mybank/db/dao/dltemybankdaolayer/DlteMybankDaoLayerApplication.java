@@ -10,7 +10,7 @@ import java.sql.SQLSyntaxErrorException;
 @SpringBootApplication
 public class DlteMybankDaoLayerApplication {
 
-    public static void main(String[] args) throws DepositsException, SQLSyntaxErrorException {
+    public static void main(String[] args) {
         SpringApplication.run(DlteMybankDaoLayerApplication.class, args);
     }
 

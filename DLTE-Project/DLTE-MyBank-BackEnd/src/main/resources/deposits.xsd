@@ -23,8 +23,7 @@
     </xsd:complexType>
 
     <!--    Operation-->
-
-    <!--    List All-->
+    <!--    View All-->
     <xsd:element name="viewAllDepositsAvailableRequest">
         <xsd:complexType/>
     </xsd:element>

@@ -15,7 +15,6 @@ import services.deposits.ViewAllDepositsAvailableResponse;
 
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +33,7 @@ class ServiceApplicationTests {
     @InjectMocks
     SoapService soap;
 
+    //Endpoint Testing for testListAllDeposits -Pass
     @Test
     public void testListAllDeposits() throws DepositsException, SQLException {
         DepositsAvailable depositsAvailable1 = new DepositsAvailable(1000001, "FD", "Lump Sum", "Standard Fixed Deposit", 10.2);
@@ -51,6 +51,17 @@ class ServiceApplicationTests {
 
         assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
         assertTrue(depositsAvailableList.get(1).getDepositId() == response.getDepositsAvailable().get(1).getDepositId());
+    }
+
+    //DepositException Testing -Pass
+    @Test
+    public void testDepositException() throws DepositsException, SQLException {
+        when(soapService.availableDeposits()).thenThrow(DepositsException.class);
+
+        ViewAllDepositsAvailableRequest request = new ViewAllDepositsAvailableRequest();
+        ViewAllDepositsAvailableResponse response = soap.ViewAllDepositsAvailable(request);
+
+        assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
     }
 
 
