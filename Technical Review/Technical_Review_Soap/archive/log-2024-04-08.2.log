@@ -1,0 +1,75 @@
+10:27:41.142 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:27:41.157 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:28:06.557 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:28:06.557 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:29:46.264 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:30:02.111 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:30:02.111 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:30:40.469 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:30:40.469 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:32:24.242 [1;31m[pool-1-thread-2][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:32:24.243 [1;31m[pool-1-thread-2][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:34:21.601 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:34:44.203 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:35:01.263 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:35:01.263 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:35:53.865 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:35:58.906 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:35:58.907 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:36:00.350 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:36:00.350 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:37:48.961 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:37:52.922 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:37:52.922 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:37:54.929 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:37:54.929 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:37:55.959 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:37:55.959 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:37:56.706 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:37:56.706 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:33.919 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
+10:38:47.555 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:47.556 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:48.869 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:48.869 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:49.833 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:49.833 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:53.971 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:53.971 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:54.638 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:54.638 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:55.113 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:55.113 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:55.418 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:55.418 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:55.765 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:55.766 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:56.081 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:56.082 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:56.387 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:56.388 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  
+10:38:56.674 [1;31m[pool-1-thread-1][0;39m ERROR e.repository.DataBaseRepository - [1;31mORA-28000: the account is locked
+[0;39m  
+10:38:56.675 [1;31m[pool-1-thread-1][0;39m ERROR employee.webservice.EmployeeSoap - [1;31mCON-001: System Failureemployeebackend.exceptions.ConnectionException[0;39m  

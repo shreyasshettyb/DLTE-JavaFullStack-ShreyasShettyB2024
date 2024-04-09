@@ -51,7 +51,7 @@ public class MyBankRestController {
             myBankRemote.availDeposits(depositsAvailRequest);
             logger.info("Post Request Successful");
         }
-        catch (DepositsException depositsException){
+        catch (DepositsException | SQLException depositsException){
             logger.warn(depositsException.toString());
         }
         return ResponseEntity.ok(depositsAvailRequest);

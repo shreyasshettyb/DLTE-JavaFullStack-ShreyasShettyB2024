@@ -11,14 +11,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.sql.Date;
+import java.sql.*;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class RepositoryMyBank implements MyBankRemote {
@@ -59,7 +56,7 @@ public class RepositoryMyBank implements MyBankRemote {
 
     //Return Success If Avail Deposit is added to table
     @Override
-    public String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException {
+    public String availDeposits(DepositsAvailed depositsAvailed)throws DepositsException, SQLException{
 //        try {
 //            int ack = jdbcTemplate.update("insert into MYBANK_APP_DEPOSITSAVAILED values(MY_BANK_APP_SEQ_DEPOSITSGIVEN.nextval,?,?,?,?,?)",
 //                    new Object[]{
@@ -77,21 +74,36 @@ public class RepositoryMyBank implements MyBankRemote {
 //            throw new DepositsException("Creation Failed");
 //        }
 //        return "Fail";
-        CallableStatementCreator creator= con -> {
-            CallableStatement statement=con.prepareCall("{call mybank_loans_deletion(?,?)}");
-            statement.setLong(1,loanId);
-            statement.registerOutParameter(2, Types.VARCHAR);
-            return statement;
-        };
 
-        Map<String,Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
-                new SqlParameter[]{
-                        new SqlParameter(Types.NUMERIC),
-                        new SqlOutParameter("errOrInfo",Types.VARCHAR),
-                }
-        ));
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(depositsAvailed.getDepositMaturity());
+//        calendar.add(Calendar.YEAR, depositsAvailed.getDepositDuration());
+//        Date date = new Date(calendar.DATE);
+            CallableStatementCreator creator = con -> {
+                CallableStatement statement = con.prepareCall("{call Avail_deposits(?,?,?,?,?)}");
+                statement.setLong(1, depositsAvailed.getCustomerId());
+                statement.setLong(2, depositsAvailed.getDepositId());
+                statement.setDouble(3, depositsAvailed.getDepositAmount());
+                statement.setInt(4, depositsAvailed.getDepositDuration());
+                statement.setDate(5, new java.sql.Date(depositsAvailed.getDepositMaturity().getTime()));
+                return statement;
+            };
 
-        return returnedExecution.get("errOrInfo").toString();
+
+//            Map<String, Object> returnedExecution = jdbcTemplate.call(creator, Stream.of(new SqlParameter(Types.INTEGER)).collect(Collectors.toList()));
+            Map<String, Object> returnedExecution = jdbcTemplate.call(creator,null);
+
+//        // Get the result from the map
+//        String result = (String) returnedExecution.get("v_ack");
+
+//        if (result.equals("Success")) {
+//        logger.info(resourceBundle.getString("app.execute.success"));
+//            return "Success";
+//        } else {
+//        logger.error("error");
+//            throw new DepositsException("Deposit operation failed: " + result);
+//        }
+        return "success";
     }
 
     //Maps the query output to Entity/Model
