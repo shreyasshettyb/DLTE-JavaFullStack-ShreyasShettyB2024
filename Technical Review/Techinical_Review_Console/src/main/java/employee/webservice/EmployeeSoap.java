@@ -26,6 +26,29 @@ public interface EmployeeSoap {
 
     /**
      * 
+     * @param pincode
+     * @return
+     *     returns employee.webservice.GroupOfEmployee
+     */
+    @WebMethod
+    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
+    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeResponse")
+    public GroupOfEmployee readEmployeeByPincode(
+        @WebParam(name = "pincode", partName = "pincode")
+        int pincode);
+
+    /**
+     * 
+     * @return
+     *     returns employee.webservice.GroupOfEmployee
+     */
+    @WebMethod
+    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
+    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeResponse")
+    public GroupOfEmployee readEmployee();
+
+    /**
+     * 
      * @param employeeId
      * @return
      *     returns employee.webservice.Employee
@@ -49,28 +72,5 @@ public interface EmployeeSoap {
     public String createEmployee(
         @WebParam(name = "Employee", partName = "Employee")
         Employee employee);
-
-    /**
-     * 
-     * @return
-     *     returns employee.webservice.GroupOfEmployee
-     */
-    @WebMethod
-    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
-    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeResponse")
-    public GroupOfEmployee readEmployee();
-
-    /**
-     * 
-     * @param pincode
-     * @return
-     *     returns employee.webservice.GroupOfEmployee
-     */
-    @WebMethod
-    @WebResult(name = "GroupOfEmployee", partName = "GroupOfEmployee")
-    @Action(input = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeRequest", output = "http://webservice.employee/EmployeeSoap/readEmployeeByPincodeResponse")
-    public GroupOfEmployee readEmployeeByPincode(
-        @WebParam(name = "pincode", partName = "pincode")
-        int pincode);
 
 }

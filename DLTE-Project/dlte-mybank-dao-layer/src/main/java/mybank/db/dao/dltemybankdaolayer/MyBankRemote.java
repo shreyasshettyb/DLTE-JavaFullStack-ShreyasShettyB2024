@@ -17,5 +17,5 @@ public interface MyBankRemote {
 
     List<DepositsAvailable> findDepositsById(long deposits_id);
 
-    String availDeposits(DepositsAvailed depositsAvailed);
+    String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException;
 }

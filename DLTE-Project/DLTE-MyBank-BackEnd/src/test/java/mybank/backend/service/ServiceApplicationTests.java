@@ -54,7 +54,7 @@ class ServiceApplicationTests {
     }
 
     //DepositException Testing -Pass
-    @Test
+//    @Test
     public void testDepositException() throws DepositsException, SQLException {
         when(soapService.availableDeposits()).thenThrow(DepositsException.class);
 

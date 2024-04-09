@@ -7,17 +7,21 @@ import javax.validation.constraints.Positive;
 
 public class DepositsAvailable {
     @NotNull(message = "{deposit.bean.null}")
-   private long depositId;
+    private long depositId;
+
     @NotNull(message = "{deposit.bean.null}")
-   private String depositName;
+    private String depositName;
+
     @NotNull(message = "{deposit.bean.null}")
     private String depositType;
+
     @NotNull(message = "{deposit.bean.null}")
-    private  String depositDescription;
+    private String depositDescription;
+
     @NotNull(message = "{deposit.bean.null}")
     @Positive(message = "{deposit.bean.positive}")
     @Digits(integer = 3, fraction = 2, message = "{deposit.roi}")
-   private double depositRoi;
+    private double depositRoi;
 
     public DepositsAvailable() {
     }

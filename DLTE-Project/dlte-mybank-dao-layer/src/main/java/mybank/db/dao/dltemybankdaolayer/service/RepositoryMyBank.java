@@ -8,13 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 @Service
@@ -34,7 +37,7 @@ public class RepositoryMyBank implements MyBankRemote {
             depositsAvailableList = jdbcTemplate.query("select * from mybank_app_depositsavailable", new DepositsAvailableMapper());
             logger.info(resourceBundle.getString("app.execute.success"));
         } catch (DataAccessException sqlException) {
-            logger.error(resourceBundle.getString("app.error.access"));
+            logger.error(sqlException + resourceBundle.getString("app.error.access"));
             throw new SQLException();
         }
         if (depositsAvailableList.size() == 0) {
@@ -54,9 +57,41 @@ public class RepositoryMyBank implements MyBankRemote {
         return null;
     }
 
+    //Return Success If Avail Deposit is added to table
     @Override
-    public String availDeposits(DepositsAvailed depositsAvailed) {
-        return null;
+    public String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException {
+//        try {
+//            int ack = jdbcTemplate.update("insert into MYBANK_APP_DEPOSITSAVAILED values(MY_BANK_APP_SEQ_DEPOSITSGIVEN.nextval,?,?,?,?,?)",
+//                    new Object[]{
+//                            depositsAvailed.getCustomerId(),
+//                            depositsAvailed.getDepositId(),
+//                            depositsAvailed.getDepositAmount(),
+//                            depositsAvailed.getDepositDuration(),
+//                            depositsAvailed.getDepositMaturity(),
+//                    });
+//
+//            if (ack != 0)
+//                return "Success";
+//        } catch (DataAccessException e) {
+//            logger.error(e + resourceBundle.getString("app.error.access"));
+//            throw new DepositsException("Creation Failed");
+//        }
+//        return "Fail";
+        CallableStatementCreator creator= con -> {
+            CallableStatement statement=con.prepareCall("{call mybank_loans_deletion(?,?)}");
+            statement.setLong(1,loanId);
+            statement.registerOutParameter(2, Types.VARCHAR);
+            return statement;
+        };
+
+        Map<String,Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
+                new SqlParameter[]{
+                        new SqlParameter(Types.NUMERIC),
+                        new SqlOutParameter("errOrInfo",Types.VARCHAR),
+                }
+        ));
+
+        return returnedExecution.get("errOrInfo").toString();
     }
 
     //Maps the query output to Entity/Model

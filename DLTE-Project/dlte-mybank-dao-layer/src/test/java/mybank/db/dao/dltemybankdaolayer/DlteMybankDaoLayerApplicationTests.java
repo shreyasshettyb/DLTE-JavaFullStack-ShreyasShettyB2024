@@ -52,21 +52,21 @@ class DlteMybankDaoLayerApplicationTests {
     }
 
 //    //Fail deposit 5 is missing
-//    @Test
-//    void testFindAllDeposits2() throws DepositsException, SQLSyntaxErrorException {
-//        DepositsAvailable depositsAvailable1=new DepositsAvailable(1000001,"FD","Lump Sum","Standard Fixed Deposit",10.2);
-//        DepositsAvailable depositsAvailable2=new DepositsAvailable(1000002,"RD","Recurring","Standard Recurring Deposit",9.2);
-//        DepositsAvailable depositsAvailable3=new DepositsAvailable(1000003,"Senior Citizen FD","Lump Sum","Senior Citizen Fixed Deposit",11.5);
-//        DepositsAvailable depositsAvailable4=new DepositsAvailable(1000004,"Employee FD","Lump Sum","Employee Fixed Deposit",10.7);
-//        DepositsAvailable depositsAvailable5=new DepositsAvailable(1000005,"Women Empowerment RD","Recurring","Women Empowerment Recurring Deposit",10.2);
-//
-//        List<DepositsAvailable> depositsAvailableList= Stream.of(depositsAvailable1,depositsAvailable2,depositsAvailable3,depositsAvailable4,depositsAvailable5).collect(Collectors.toList());
-//
-//        when(jdbcTemplate.query(anyString(),any(RepositoryMyBank.DepositsAvailableMapper.class))).thenReturn(depositsAvailableList);
-//
-//        assertEquals(depositsAvailableList.subList(0,4),service.availableDeposits());
-//    }
-//
+    @Test
+    void testFindAllDeposits2() throws DepositsException, SQLException {
+        DepositsAvailable depositsAvailable1=new DepositsAvailable(1000001,"FD","Lump Sum","Standard Fixed Deposit",10.2);
+        DepositsAvailable depositsAvailable2=new DepositsAvailable(1000002,"RD","Recurring","Standard Recurring Deposit",9.2);
+        DepositsAvailable depositsAvailable3=new DepositsAvailable(1000003,"Senior Citizen FD","Lump Sum","Senior Citizen Fixed Deposit",11.5);
+        DepositsAvailable depositsAvailable4=new DepositsAvailable(1000004,"Employee FD","Lump Sum","Employee Fixed Deposit",10.7);
+        DepositsAvailable depositsAvailable5=new DepositsAvailable(1000005,"Women Empowerment RD","Recurring","Women Empowerment Recurring Deposit",10.2);
+
+        List<DepositsAvailable> depositsAvailableList= Stream.of(depositsAvailable1,depositsAvailable2,depositsAvailable3,depositsAvailable4,depositsAvailable5).collect(Collectors.toList());
+
+        when(jdbcTemplate.query(anyString(),any(RepositoryMyBank.DepositsAvailableMapper.class))).thenReturn(depositsAvailableList);
+
+        assertEquals(depositsAvailableList.subList(0,4),service.availableDeposits());
+    }
+
     // Pass DepositsException is thrown
     @Test
     void testDepositException(){

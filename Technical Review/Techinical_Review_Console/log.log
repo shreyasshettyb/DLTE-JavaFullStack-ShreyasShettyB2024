@@ -1,20 +1,14 @@
-06:44:47.577 [34m[main][0;39m INFO  e.webservice.EmployeeEndpoint - [34mEndpoint started[0;39m  
-06:47:28.188 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-06:56:56.661 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details Based On Pincode[0;39m  
-06:56:56.990 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details With Pincode as filter[0;39m  
-06:59:22.570 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='11', city='1', state='1', pincode=1, type='permanent'}
-
-firstName='1'
-middleName='1'
-lastName='1'
-phone=1
-email='1'
-employeeID=1
-permanentAddress: Address{employeeID=1, houseName='1', streetName='11', city='1', state='1', pincode=1, type='permanent'}
-temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m  
-06:59:22.915 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mFirst Name Validation Fail[0;39m  
-06:59:22.915 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-07:00:48.988 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
+09:39:09.088 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:42:06.740 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:43:07.556 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:44:13.440 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:44:48.003 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:46:59.374 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:48:09.786 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:49:15.763 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+09:53:57.523 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+10:03:03.682 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
+10:03:31.898 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
 
 firstName='1'
 middleName='1'
@@ -24,31 +18,4 @@ email='1'
 employeeID=1
 permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
 temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m  
-07:00:49.332 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mFirst Name Validation Fail[0;39m  
-07:00:49.332 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-07:00:49.332 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-07:00:49.463 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-09:43:33.066 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-09:50:29.317 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:02:29.833 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:20:04.399 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:26:50.304 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:27:25.353 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:56:06.255 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='', state='', pincode=1, type='permanent'}
-
-firstName='1'
-middleName='1'
-lastName='1'
-phone=1
-email='1'
-employeeID=1
-permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='', state='', pincode=1, type='permanent'}
-temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m  
-10:56:06.353 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mFirst Name Validation Fail[0;39m  
-10:56:06.355 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-10:56:06.508 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-10:56:08.298 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-10:56:09.240 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m  
-10:56:21.179 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
-10:57:38.352 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee details based on Id[0;39m  
-11:09:38.116 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m  
+10:03:41.301 [31m[main][0;39m WARN  employee.console.EmployeeConsole - [31mCON-001: System Failure[0;39m  
