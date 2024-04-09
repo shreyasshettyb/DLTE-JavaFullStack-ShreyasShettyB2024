@@ -1,6 +1,8 @@
 package employeebackend.service.entity;
 
-public class Address{
+import java.io.Serializable;
+
+public class Address implements Serializable {
         private Long employeeID;
         private String houseName;
         private String streetName;

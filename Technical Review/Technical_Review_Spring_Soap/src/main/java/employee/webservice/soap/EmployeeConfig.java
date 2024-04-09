@@ -21,23 +21,23 @@ public class EmployeeConfig  extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet=new MessageDispatcherServlet();
         servlet.setTransformWsdlLocations(true);
         servlet.setApplicationContext(applicationContext);
-        return new ServletRegistrationBean(servlet,"/loansrepo/*");
+        return new ServletRegistrationBean(servlet,"/employeerepo/*");
     }
 
     // wsdl properties
-    @Bean(name = "loans")
+    @Bean(name = "employee")
     public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema){
         DefaultWsdl11Definition defaultWsdl11Definition=new DefaultWsdl11Definition();
-        defaultWsdl11Definition.setPortTypeName("LoansPort");
-        defaultWsdl11Definition.setTargetNamespace("http://loans.services");
-        defaultWsdl11Definition.setLocationUri("/loansrepo");
+        defaultWsdl11Definition.setPortTypeName("employeePort");
+        defaultWsdl11Definition.setTargetNamespace("http://employee.services");
+        defaultWsdl11Definition.setLocationUri("/employeerepo");
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
 
     // identify the xsd
     @Bean
-    public XsdSchema loansSchema(){
-        return new SimpleXsdSchema(new ClassPathResource("loans.xsd"));
+    public XsdSchema employeeSchema(){
+        return new SimpleXsdSchema(new ClassPathResource("employee.xsd"));
     }
 }

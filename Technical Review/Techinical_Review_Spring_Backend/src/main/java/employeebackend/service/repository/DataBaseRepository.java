@@ -39,19 +39,31 @@ public class DataBaseRepository implements Operations {
         validation.validateEmployee(employee);
 
         try {
-            jdbcTemplate.update(INSERT_EMPLOYEE_QUERY,
+           int result= jdbcTemplate.update(INSERT_EMPLOYEE_QUERY,
                     employee.getFirstName(), employee.getMiddleName(), employee.getLastName(),
                     employee.getPhone(), employee.getEmail(), employee.getEmployeeID());
+            if (result == 0) {
+                logger.error("SQL-001");
+                return "SQL-001";
+            }
 
-            jdbcTemplate.update(INSERT_ADDRESS_QUERY,
+             result= jdbcTemplate.update(INSERT_ADDRESS_QUERY,
                     employee.getEmployeeID(), employee.getPermanentAddress().getHouseName(),
                     employee.getPermanentAddress().getStreetName(), employee.getPermanentAddress().getCity(),
                     employee.getPermanentAddress().getState(), employee.getPermanentAddress().getPincode(), "permanent");
+            if (result == 0) {
+                logger.error("SQL-002");
+                return "SQL-002";
+            }
 
-            jdbcTemplate.update(INSERT_ADDRESS_QUERY,
+            result=jdbcTemplate.update(INSERT_ADDRESS_QUERY,
                     employee.getEmployeeID(), employee.getTemporaryAddress().getHouseName(),
                     employee.getTemporaryAddress().getStreetName(), employee.getTemporaryAddress().getCity(),
                     employee.getTemporaryAddress().getState(), employee.getTemporaryAddress().getPincode(), "temporary");
+            if (result == 0) {
+                logger.error("SQL-003");
+                return "SQL-003";
+            }
 
             return "SQL-000";
         } catch (org.springframework.dao.DataIntegrityViolationException e) {

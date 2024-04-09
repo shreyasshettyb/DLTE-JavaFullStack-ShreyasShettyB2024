@@ -11,6 +11,7 @@
             <xsd:element name="city" type="xsd:string"/>
             <xsd:element name="state" type="xsd:string"/>
             <xsd:element name="pincode" type="xsd:int"/>
+            <xsd:element name="type" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -30,7 +31,7 @@
     <!--    Status-->
     <xsd:complexType name="serviceStatus">
         <xsd:sequence>
-            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="status" type="xsd:int"/>
             <xsd:element name="message" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
