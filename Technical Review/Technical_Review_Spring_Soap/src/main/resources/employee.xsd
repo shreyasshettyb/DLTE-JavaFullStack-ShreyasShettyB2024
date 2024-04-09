@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://loans.services"
-            xmlns:tns="http://loans.services"
+            targetNamespace="http://employee.services"
+            xmlns:tns="http://employee.services"
             elementFormDefault="qualified">
 
     <xsd:complexType name="Address">
@@ -43,12 +43,58 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-
     <xsd:element name="createResponse">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
-                <xsd:element name="result"
+                <xsd:element name="result" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="readRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="readResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="employee" type="tns:Employee" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="readByIdRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="id" type="xsd:long"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="readByIdResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="employee" type="tns:Employee"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="filterByPincodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="pincode" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="filterByPincodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="employee" type="tns:Employee" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

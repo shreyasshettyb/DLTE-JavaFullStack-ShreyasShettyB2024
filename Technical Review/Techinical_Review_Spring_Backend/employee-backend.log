@@ -1,0 +1,12 @@
+[31m2024-04-09 18:57:18,124[0;39m [32m[INFO][0;39m employeebackend.service.TechnicalReviewSpringBackendApplicationTests main [32mStarting TechnicalReviewSpringBackendApplicationTests using Java 1.8.0_292 on WPF45DE1T with PID 20356 (started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Techinical_Review_Spring_Backend)
+[0;39m[31m2024-04-09 18:57:18,124[0;39m [32m[INFO][0;39m employeebackend.service.TechnicalReviewSpringBackendApplicationTests main [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-09 18:57:18,550[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-04-09 18:57:18,565[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-04-09 18:57:19,339[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
+[0;39m[31m2024-04-09 18:57:19,357[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-04-09 18:57:19,970[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-04-09 18:57:19,970[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-04-09 18:57:20,270[0;39m [32m[INFO][0;39m employeebackend.service.TechnicalReviewSpringBackendApplicationTests main [32mStarted TechnicalReviewSpringBackendApplicationTests in 2.456 seconds (JVM running for 3.345)
+[0;39m[31m2024-04-09 18:57:20,616[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource SpringApplicationShutdownHook [32mHikariPool-1 - Shutdown initiated...
+[0;39m[31m2024-04-09 18:57:20,636[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource SpringApplicationShutdownHook [32mHikariPool-1 - Shutdown completed.
+[0;39m
