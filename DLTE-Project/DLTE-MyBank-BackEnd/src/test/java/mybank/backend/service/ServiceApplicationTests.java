@@ -1,20 +1,29 @@
 package mybank.backend.service;
 
+import mybank.backend.service.rest.MyBankRestController;
 import mybank.backend.service.soap.SoapService;
 import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.web.servlet.MockMvc;
 import services.deposits.ViewAllDepositsAvailableRequest;
 import services.deposits.ViewAllDepositsAvailableResponse;
 
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,9 +31,12 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
 class ServiceApplicationTests {
 
     @MockBean
@@ -32,6 +44,12 @@ class ServiceApplicationTests {
 
     @InjectMocks
     SoapService soap;
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @InjectMocks
+    MyBankRestController myBankRestController;
 
     //Endpoint Testing for testListAllDeposits -Pass
     @Test
@@ -62,6 +80,41 @@ class ServiceApplicationTests {
         ViewAllDepositsAvailableResponse response = soap.ViewAllDepositsAvailable(request);
 
         assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
+    }
+
+    @Test
+    @WithMockUser(username = "shreyas12")
+    public void testDepositAvailedSuccess() throws Exception {
+        String request = "{\n " +
+                "\"depositAvailId\": 2," +
+                "\n\"customerId\": 100002," +
+                "\n\"depositId\": 1000002," +
+                "\n\"depositAmount\": 40000.0," +
+                "\n\"depositDuration\": 13," +
+                "\n\"depositMaturity\": \"2024-06-09\"\n" +
+                "}";
+        mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isOk());
+    }
+
+    //EndPoint Test - Pass
+    @Test
+    @WithMockUser(username = "shreyas12")
+    public void testRestEndpoint() throws Exception {
+        String request = "{\n " +
+                "\"depositAvailId\": 2," +
+                "\n\"customerId\": 100002," +
+                "\n\"depositId\": 1000002," +
+                "\n\"depositAmount\": 40000.0," +
+                "\n\"depositDuration\": 13," +
+                "\n\"depositMaturity\": \"2024-06-09\"\n" +
+                "}";
+        mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isOk());
+    }
+
+    public void testBeanValidation(){
+        DepositsAvailed depositsAvailed = new DepositsAvailed(2L,100002L,1000002L,4000.0,1,new Date("13/04/2023"));
     }
 
 

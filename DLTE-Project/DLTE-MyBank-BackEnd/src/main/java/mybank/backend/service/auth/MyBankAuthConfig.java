@@ -41,14 +41,20 @@ public class MyBankAuthConfig {
         httpSecurity.csrf().disable();
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
+        httpSecurity.authorizeRequests().anyRequest().fullyAuthenticated();
 
-//        httpSecurity.authorizeRequests().antMatchers("/credit/view").hasAuthority("manager");
-//        httpSecurity.authorizeRequests().antMatchers("/credit/one/*").hasAnyAuthority("cashier", "clerk");
-//        httpSecurity.authorizeRequests().antMatchers(HttpMethod.POST).hasAuthority("admin");
-//        httpSecurity.authorizeRequests().antMatchers(HttpMethod.DELETE).hasAuthority("admin");
-//        httpSecurity.authorizeRequests().antMatchers(HttpMethod.PUT).hasAuthority("manager");
+//        httpSecurity.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/profile/register").permitAll()
+//                .anyRequest().authenticated() // Allow other requests without authentication
+//                .and()
+//                .httpBasic()
+//                .and()
+//                .formLogin().
+//                usernameParameter("username").
+//                failureHandler(customerFailureHandler).
+//                successHandler(customerSuccessHandler);
 
-        httpSecurity.authorizeRequests().anyRequest().authenticated();
 
 
         AuthenticationManagerBuilder builder = httpSecurity.

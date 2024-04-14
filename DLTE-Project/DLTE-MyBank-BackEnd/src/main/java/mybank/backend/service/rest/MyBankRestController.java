@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.UncategorizedSQLException;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,7 +27,7 @@ import java.util.ResourceBundle;
 
 @RestController
 @RequestMapping("/mybank/deposits")
-//@ComponentScan("mybank.db.dao.dltemybankdaolayer")
+@ComponentScan("mybank.db.dao.dltemybankdaolayer")
 public class MyBankRestController {
 
     Logger logger = LoggerFactory.getLogger(MyBankRestController.class);
