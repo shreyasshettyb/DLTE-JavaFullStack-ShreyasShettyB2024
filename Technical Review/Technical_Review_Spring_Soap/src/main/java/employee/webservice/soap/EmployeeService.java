@@ -1,5 +1,6 @@
 package employee.webservice.soap;
 
+import employeebackend.service.exceptions.ConnectionException;
 import employeebackend.service.exceptions.EmployeeExistException;
 import employeebackend.service.exceptions.NoEmployeeFoundException;
 import employeebackend.service.exceptions.ValidationException;
@@ -18,7 +19,6 @@ import services.employee.*;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,12 +28,13 @@ public class EmployeeService {
 
     private final String url = "http://employee.services";
     private Logger logger = LoggerFactory.getLogger(EmployeeService.class);
+
     @Autowired
     private Operations operations;
 
     @PayloadRoot(namespace = url, localPart = "readRequest")
     @ResponsePayload
-    public ReadResponse readEmployee(@RequestPayload ReadRequest readRequest) {
+    public ReadResponse readEmployee(@RequestPayload ReadRequest readRequest) throws NoEmployeeFoundException, ConnectionException {
         ReadResponse readEmployeeResponse = new ReadResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         List<Employee> returnEmployee = new ArrayList<>();
@@ -45,17 +46,23 @@ public class EmployeeService {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage("Failed To read Employee Details");
             logger.error(e.getMessage());
+            throw new ConnectionException();
         } catch (NoEmployeeFoundException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
             serviceStatus.setMessage("No Employee record is present");
             logger.error(e.getMessage());
+            throw new NoEmployeeFoundException();
         }
 
-        Iterator<employeebackend.service.entity.Employee> iterator = received.iterator();
-
-        while (iterator.hasNext()) {
+        for (employeebackend.service.entity.Employee each : received) {
             Employee currentEmployee = new Employee();
-            BeanUtils.copyProperties(iterator.next(), currentEmployee);
+            BeanUtils.copyProperties(each, currentEmployee);
+            Address temporaryAddress = new Address();
+            Address permanentAddress = new Address();
+            BeanUtils.copyProperties(each.getPermanentAddress(), permanentAddress);
+            BeanUtils.copyProperties(each.getTemporaryAddress(), temporaryAddress);
+            currentEmployee.setPermanentAddress(permanentAddress);
+            currentEmployee.setTemporaryAddress(temporaryAddress);
             returnEmployee.add(currentEmployee);
         }
 
@@ -64,13 +71,13 @@ public class EmployeeService {
 
         readEmployeeResponse.setServiceStatus(serviceStatus);
         readEmployeeResponse.getEmployee().addAll(returnEmployee);
-
+        logger.info("Employee Details Reading was Successful");
         return readEmployeeResponse;
     }
 
     @PayloadRoot(namespace = url, localPart = "readByIdRequest")
     @ResponsePayload
-    public ReadByIdResponse readById(@RequestPayload ReadByIdRequest readByIdRequest) {
+    public ReadByIdResponse readById(@RequestPayload ReadByIdRequest readByIdRequest) throws NoEmployeeFoundException, ConnectionException {
         ReadByIdResponse readByIdResponse = new ReadByIdResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         List<Employee> returnEmployee = new ArrayList<>();
@@ -79,22 +86,30 @@ public class EmployeeService {
         try {
             received = operations.read();
             received = received.stream().filter(employee -> employee.getEmployeeID().equals(readByIdRequest.getId())).collect(Collectors.toList());
+            if(received.size()==0){
+                throw new NoEmployeeFoundException();
+            }
         } catch (SQLException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage("Failed To read Employee Details");
             logger.error(e.getMessage());
+            throw new ConnectionException();
         } catch (NoEmployeeFoundException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
             serviceStatus.setMessage("No Employee record is present");
             logger.error(e.getMessage());
+            throw new NoEmployeeFoundException();
         }
 
-        //fix no need iterator
-        Iterator<employeebackend.service.entity.Employee> iterator = received.iterator();
-
-        while (iterator.hasNext()) {
+        for (employeebackend.service.entity.Employee each : received) {
             Employee currentEmployee = new Employee();
-            BeanUtils.copyProperties(iterator.next(), currentEmployee);
+            BeanUtils.copyProperties(each, currentEmployee);
+            Address temporaryAddress = new Address();
+            Address permanentAddress = new Address();
+            BeanUtils.copyProperties(each.getPermanentAddress(), permanentAddress);
+            BeanUtils.copyProperties(each.getTemporaryAddress(), temporaryAddress);
+            currentEmployee.setPermanentAddress(permanentAddress);
+            currentEmployee.setTemporaryAddress(temporaryAddress);
             returnEmployee.add(currentEmployee);
         }
 
@@ -103,13 +118,13 @@ public class EmployeeService {
 
         readByIdResponse.setServiceStatus(serviceStatus);
         readByIdResponse.setEmployee(returnEmployee.get(0));
-
+        logger.info("Employee Details Reading was Successful");
         return readByIdResponse;
     }
 
     @PayloadRoot(namespace = url, localPart = "filterByPincodeRequest")
     @ResponsePayload
-    public FilterByPincodeResponse filterByPincode(@RequestPayload FilterByPincodeRequest filterByPincodeRequest) {
+    public FilterByPincodeResponse filterByPincode(@RequestPayload FilterByPincodeRequest filterByPincodeRequest) throws NoEmployeeFoundException, ConnectionException {
         FilterByPincodeResponse filterByPincodeResponse = new FilterByPincodeResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         List<Employee> returnEmployee = new ArrayList<>();
@@ -121,17 +136,23 @@ public class EmployeeService {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             serviceStatus.setMessage("Failed To read Employee Details");
             logger.error(e.getMessage());
+            throw new ConnectionException();
         } catch (NoEmployeeFoundException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
             serviceStatus.setMessage("No Employee record is present");
             logger.error(e.getMessage());
+            throw new NoEmployeeFoundException();
         }
 
-        Iterator<employeebackend.service.entity.Employee> iterator = received.iterator();
-
-        while (iterator.hasNext()) {
+        for (employeebackend.service.entity.Employee each : received) {
             Employee currentEmployee = new Employee();
-            BeanUtils.copyProperties(iterator.next(), currentEmployee);
+            BeanUtils.copyProperties(each, currentEmployee);
+            Address temporaryAddress = new Address();
+            Address permanentAddress = new Address();
+            BeanUtils.copyProperties(each.getPermanentAddress(), permanentAddress);
+            BeanUtils.copyProperties(each.getTemporaryAddress(), temporaryAddress);
+            currentEmployee.setPermanentAddress(permanentAddress);
+            currentEmployee.setTemporaryAddress(temporaryAddress);
             returnEmployee.add(currentEmployee);
         }
 
@@ -140,13 +161,13 @@ public class EmployeeService {
 
         filterByPincodeResponse.setServiceStatus(serviceStatus);
         filterByPincodeResponse.getEmployee().addAll(returnEmployee);
-
+        logger.info("Employee Details Reading was Successful");
         return filterByPincodeResponse;
     }
 
     @PayloadRoot(namespace = url, localPart = "createRequest")
     @ResponsePayload
-    public CreateResponse addNewEmployee(@RequestPayload CreateRequest createRequest) {
+    public CreateResponse addNewEmployee(@RequestPayload CreateRequest createRequest) throws ValidationException, ConnectionException, EmployeeExistException {
         CreateResponse createResponse = new CreateResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
@@ -155,8 +176,8 @@ public class EmployeeService {
         employeebackend.service.entity.Address temporaryAddress = new employeebackend.service.entity.Address();
         employeebackend.service.entity.Address permanentAddress = new employeebackend.service.entity.Address();
         BeanUtils.copyProperties(actual, daoEmployee, "permanentAddress", "temporaryAddress");
-        BeanUtils.copyProperties(actual.getTemporaryAddress(),temporaryAddress);
-        BeanUtils.copyProperties(actual.getPermanentAddress(),permanentAddress);
+        BeanUtils.copyProperties(actual.getTemporaryAddress(), temporaryAddress);
+        BeanUtils.copyProperties(actual.getPermanentAddress(), permanentAddress);
         daoEmployee.setPermanentAddress(permanentAddress);
         daoEmployee.setTemporaryAddress(temporaryAddress);
         String result = "";
@@ -167,16 +188,19 @@ public class EmployeeService {
             createResponse.setResult(e.getMessage());
             serviceStatus.setMessage(actual.getEmployeeID() + " not inserted");
             logger.error(e.getMessage());
+            throw new ValidationException("ValidationException");
         } catch (SQLException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             createResponse.setResult("Error!!! Employee was not Inserted");
             serviceStatus.setMessage(actual.getEmployeeID() + " not inserted");
             logger.error(e.getMessage());
+            throw new ConnectionException();
         } catch (EmployeeExistException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
             createResponse.setResult("Error!!! Employee already exits");
             serviceStatus.setMessage(actual.getEmployeeID() + " is already present");
             logger.error(e.getMessage());
+            throw new EmployeeExistException("EmployeeExistException");
         }
 
         if (result == "SQL-000") {

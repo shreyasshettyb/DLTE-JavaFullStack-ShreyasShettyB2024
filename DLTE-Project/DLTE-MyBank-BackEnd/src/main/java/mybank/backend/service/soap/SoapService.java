@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -34,6 +35,7 @@ public class SoapService {
     MyBankRemote soapService;
 
     private Logger logger = LoggerFactory.getLogger(SoapService.class);
+
 
     //Payload for Getting lis of all Available deposits
     @PayloadRoot(namespace = url, localPart = "viewAllDepositsAvailableRequest")

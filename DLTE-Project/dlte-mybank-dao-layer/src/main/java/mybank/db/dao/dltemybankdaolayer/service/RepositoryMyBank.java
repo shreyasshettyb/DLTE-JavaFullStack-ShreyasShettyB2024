@@ -8,27 +8,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.sql.*;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 @Service
 public class RepositoryMyBank implements MyBankRemote {
 
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
     Logger logger = LoggerFactory.getLogger(RepositoryMyBank.class);
 
     //Return All Deposits in Deposits Available Table
     @Override
-    public List<DepositsAvailable> availableDeposits() throws SQLException, DepositsException {
+    public List<DepositsAvailable> availableDeposits() throws DepositsException, SQLException {
         List<DepositsAvailable> depositsAvailableList = null;
         try {
             depositsAvailableList = jdbcTemplate.query("select * from mybank_app_depositsavailable", new DepositsAvailableMapper());
@@ -56,54 +60,53 @@ public class RepositoryMyBank implements MyBankRemote {
 
     //Return Success If Avail Deposit is added to table
     @Override
-    public String availDeposits(DepositsAvailed depositsAvailed)throws DepositsException, SQLException{
-//        try {
-//            int ack = jdbcTemplate.update("insert into MYBANK_APP_DEPOSITSAVAILED values(MY_BANK_APP_SEQ_DEPOSITSGIVEN.nextval,?,?,?,?,?)",
-//                    new Object[]{
-//                            depositsAvailed.getCustomerId(),
-//                            depositsAvailed.getDepositId(),
-//                            depositsAvailed.getDepositAmount(),
-//                            depositsAvailed.getDepositDuration(),
-//                            depositsAvailed.getDepositMaturity(),
-//                    });
-//
-//            if (ack != 0)
-//                return "Success";
-//        } catch (DataAccessException e) {
-//            logger.error(e + resourceBundle.getString("app.error.access"));
-//            throw new DepositsException("Creation Failed");
-//        }
-//        return "Fail";
+    public String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException {
+        LocalDate nowDate = depositsAvailed.getDepositMaturity().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        nowDate = nowDate.plusYears(depositsAvailed.getDepositDuration());
+        depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTime(depositsAvailed.getDepositMaturity());
-//        calendar.add(Calendar.YEAR, depositsAvailed.getDepositDuration());
-//        Date date = new Date(calendar.DATE);
-            CallableStatementCreator creator = con -> {
-                CallableStatement statement = con.prepareCall("{call Avail_deposits(?,?,?,?,?)}");
-                statement.setLong(1, depositsAvailed.getCustomerId());
-                statement.setLong(2, depositsAvailed.getDepositId());
-                statement.setDouble(3, depositsAvailed.getDepositAmount());
-                statement.setInt(4, depositsAvailed.getDepositDuration());
-                statement.setDate(5, new java.sql.Date(depositsAvailed.getDepositMaturity().getTime()));
-                return statement;
-            };
+        CallableStatementCreator creator = con -> {
+            CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
+            statement.setLong(1, depositsAvailed.getCustomerId());
+            statement.setLong(2, depositsAvailed.getDepositId());
+            statement.setDouble(3, depositsAvailed.getDepositAmount());
+            statement.setInt(4, depositsAvailed.getDepositDuration());
+            statement.setDate(5, new java.sql.Date(depositsAvailed.getDepositMaturity().getDate()));
+            statement.registerOutParameter(6, Types.VARCHAR);
+            return statement;
+        };
 
+        try {
+            Map<String, Object> returnedExecution = jdbcTemplate.call(creator, Arrays.asList(
+                    new SqlParameter[]{
+                            new SqlParameter(Types.NUMERIC),
+                            new SqlParameter(Types.NUMERIC),
+                            new SqlParameter(Types.NUMERIC),
+                            new SqlParameter(Types.INTEGER),
+                            new SqlParameter(Types.DATE),
+                            new SqlOutParameter("p_result", Types.VARCHAR),
+                    }
+            ));
+            // Get the result from the map
+            String result = (String) returnedExecution.get("p_result");
 
-//            Map<String, Object> returnedExecution = jdbcTemplate.call(creator, Stream.of(new SqlParameter(Types.INTEGER)).collect(Collectors.toList()));
-            Map<String, Object> returnedExecution = jdbcTemplate.call(creator,null);
-
-//        // Get the result from the map
-//        String result = (String) returnedExecution.get("v_ack");
-
-//        if (result.equals("Success")) {
-//        logger.info(resourceBundle.getString("app.execute.success"));
-//            return "Success";
-//        } else {
-//        logger.error("error");
-//            throw new DepositsException("Deposit operation failed: " + result);
-//        }
-        return "success";
+            if (result.equals("Success")) {
+                logger.info(resourceBundle.getString("app.execute.success"));
+                return "Success";
+            } else {
+                logger.error("Fail");
+                throw new DepositsException("Deposit operation failed: " + result);
+            }
+        } catch (UncategorizedSQLException e) {
+            if (e.getSQLException().getErrorCode() == 20002) {
+                logger.error(e.getSQLException().toString());
+                throw new DepositsException(resourceBundle.getString("app.error.customerid"));
+            } else if (e.getSQLException().getErrorCode() == 20003) {
+                logger.error(e.getSQLException().toString());
+                throw new SQLException();
+            }
+        }
+        return "Fail";
     }
 
     //Maps the query output to Entity/Model

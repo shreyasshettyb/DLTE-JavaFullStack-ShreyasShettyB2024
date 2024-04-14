@@ -1,0 +1,288 @@
+[31m2024-04-12 06:21:02,433[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 14740 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:21:02,448[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:21:02,533[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:21:02,533[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:21:03,660[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$2ed9ed1e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:21:03,707[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:21:04,037[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:21:04,046[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:21:04,046[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:21:04,148[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:21:04,148[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1610 ms
+[0;39m[31m2024-04-12 06:21:04,195[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:21:04,352[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:21:04,747[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:21:04,794[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:21:04,794[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 3.032 seconds (JVM running for 4.66)
+[0;39m[31m2024-04-12 06:21:44,953[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 8916 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:21:44,953[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:21:45,032[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:21:45,032[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:21:45,880[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$752a6e77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:21:45,928[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:21:46,210[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:21:46,224[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:21:46,224[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:21:46,324[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:21:46,324[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1292 ms
+[0;39m[31m2024-04-12 06:21:46,384[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:21:46,479[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:21:46,762[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:21:46,794[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:21:46,809[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 2.43 seconds (JVM running for 3.92)
+[0;39m[31m2024-04-12 06:21:58,214[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details Based On Pincode
+[0;39m[31m2024-04-12 06:21:58,528[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener restartedMain [32m
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[0;39m[31m2024-04-12 06:21:58,560[0;39m [32m[ERROR][0;39m org.springframework.boot.SpringApplication restartedMain [32mApplication run failed
+[0;39mjava.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.main(TechnicalReviewSpringClientApplication.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.ws.soap.client.SoapFaultClientException: There were no Employee details found in the record
+	at org.springframework.ws.soap.client.core.SoapFaultMessageResolver.resolveFault(SoapFaultMessageResolver.java:38)
+	at org.springframework.ws.client.core.WebServiceTemplate.handleFault(WebServiceTemplate.java:787)
+	at org.springframework.ws.client.core.WebServiceTemplate.doSendAndReceive(WebServiceTemplate.java:601)
+	at org.springframework.ws.client.core.WebServiceTemplate.sendAndReceive(WebServiceTemplate.java:538)
+	at org.springframework.ws.client.core.WebServiceTemplate.marshalSendAndReceive(WebServiceTemplate.java:390)
+	at org.springframework.ws.client.core.WebServiceTemplate.marshalSendAndReceive(WebServiceTemplate.java:379)
+	at employee.client.soap.service.SOAPConnector.callWebService(SOAPConnector.java:10)
+	at employee.client.soap.service.SOAPService.filterByPincode(SOAPService.java:30)
+	at employee.client.soap.console.EmployeeConsole.displayEmployeeDetails(EmployeeConsole.java:187)
+	at employee.client.soap.console.EmployeeConsole.console(EmployeeConsole.java:309)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.lambda$lookup$0(TechnicalReviewSpringClientApplication.java:35)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:768)
+	... 10 common frames omitted
+[31m2024-04-12 06:23:53,941[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 2200 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:23:53,941[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:23:53,981[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:23:53,981[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:23:54,569[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$e64c810f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:23:54,600[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:23:54,804[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:23:54,804[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:23:54,804[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:23:54,900[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:23:54,900[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 912 ms
+[0;39m[31m2024-04-12 06:23:54,931[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:23:54,994[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:23:55,214[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:23:55,245[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:23:55,261[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.677 seconds (JVM running for 2.408)
+[0;39m[31m2024-04-12 06:24:06,629[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details Based On Pincode
+[0;39m[31m2024-04-12 06:24:06,707[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener restartedMain [32m
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[0;39m[31m2024-04-12 06:24:06,723[0;39m [32m[ERROR][0;39m org.springframework.boot.SpringApplication restartedMain [32mApplication run failed
+[0;39mjava.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.main(TechnicalReviewSpringClientApplication.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.ws.soap.client.SoapFaultClientException: There were no Employee details found in the record
+	at org.springframework.ws.soap.client.core.SoapFaultMessageResolver.resolveFault(SoapFaultMessageResolver.java:38)
+	at org.springframework.ws.client.core.WebServiceTemplate.handleFault(WebServiceTemplate.java:787)
+	at org.springframework.ws.client.core.WebServiceTemplate.doSendAndReceive(WebServiceTemplate.java:601)
+	at org.springframework.ws.client.core.WebServiceTemplate.sendAndReceive(WebServiceTemplate.java:538)
+	at org.springframework.ws.client.core.WebServiceTemplate.marshalSendAndReceive(WebServiceTemplate.java:390)
+	at org.springframework.ws.client.core.WebServiceTemplate.marshalSendAndReceive(WebServiceTemplate.java:379)
+	at employee.client.soap.service.SOAPConnector.callWebService(SOAPConnector.java:10)
+	at employee.client.soap.service.SOAPService.filterByPincode(SOAPService.java:30)
+	at employee.client.soap.console.EmployeeConsole.displayEmployeeDetails(EmployeeConsole.java:187)
+	at employee.client.soap.console.EmployeeConsole.console(EmployeeConsole.java:310)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.lambda$lookup$0(TechnicalReviewSpringClientApplication.java:35)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:768)
+	... 10 common frames omitted
+[31m2024-04-12 06:25:57,542[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 16672 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:25:57,543[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:25:57,583[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:25:57,583[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:25:58,150[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$91cb08bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:25:58,181[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:25:58,354[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:25:58,371[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:25:58,371[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:25:58,433[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:25:58,433[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 850 ms
+[0;39m[31m2024-04-12 06:25:58,465[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:25:58,527[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:25:58,751[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:25:58,763[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:25:58,779[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.575 seconds (JVM running for 2.316)
+[0;39m[31m2024-04-12 06:26:06,143[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details Based On Pincode
+[0;39m[31m2024-04-12 06:26:06,206[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener restartedMain [32m
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[0;39m[31m2024-04-12 06:26:06,222[0;39m [32m[ERROR][0;39m org.springframework.boot.SpringApplication restartedMain [32mApplication run failed
+[0;39mjava.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.main(TechnicalReviewSpringClientApplication.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.util.MissingResourceException: Can't find resource for bundle java.util.PropertyResourceBundle, key There were no Employee details found in the record
+	at java.util.ResourceBundle.getObject(ResourceBundle.java:450)
+	at java.util.ResourceBundle.getString(ResourceBundle.java:407)
+	at employee.client.soap.console.EmployeeConsole.displayEmployeeDetails(EmployeeConsole.java:192)
+	at employee.client.soap.console.EmployeeConsole.console(EmployeeConsole.java:311)
+	at employee.client.soap.TechnicalReviewSpringClientApplication.lambda$lookup$0(TechnicalReviewSpringClientApplication.java:35)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:768)
+	... 10 common frames omitted
+[31m2024-04-12 06:26:27,655[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 10324 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:26:27,655[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:26:27,733[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:26:27,733[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:26:29,252[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b0ae02a7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:26:29,362[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:26:29,833[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:26:29,849[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:26:29,849[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:26:30,022[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:26:30,022[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 2289 ms
+[0;39m[31m2024-04-12 06:26:30,100[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:26:30,226[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:26:30,635[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:26:30,682[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:26:30,698[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 3.524 seconds (JVM running for 4.29)
+[0;39m[31m2024-04-12 06:26:34,975[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details Based On Pincode
+[0;39m[31m2024-04-12 06:26:35,060[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 06:26:35,060[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details With Pincode as filter
+[0;39m[31m2024-04-12 06:28:17,693[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 7656 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:28:17,693[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:28:17,740[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:28:17,740[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:28:18,371[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$49324abc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:28:18,419[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:28:18,607[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:28:18,623[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:28:18,623[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:28:18,690[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:28:18,690[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 950 ms
+[0;39m[31m2024-04-12 06:28:18,717[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:28:18,779[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:28:19,015[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:28:19,047[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:28:19,063[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.741 seconds (JVM running for 2.519)
+[0;39m[31m2024-04-12 06:28:24,347[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 06:28:24,347[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details With Pincode as filter
+[0;39m[31m2024-04-12 06:29:46,626[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 3168 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:29:46,626[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:29:46,674[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:29:46,674[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:29:47,257[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$78971bbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:29:47,288[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:29:47,525[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:29:47,525[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:29:47,525[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:29:47,604[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:29:47,604[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 930 ms
+[0;39m[31m2024-04-12 06:29:47,650[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:29:47,713[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:29:47,934[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:29:47,965[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:29:47,981[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.68 seconds (JVM running for 2.378)
+[0;39m[31m2024-04-12 06:29:53,045[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 06:30:10,621[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32m200 : Employee Details were fetched
+[0;39m[31m2024-04-12 06:30:10,621[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details Based On Pincode
+[0;39m[31m2024-04-12 06:57:32,015[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 17108 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 06:57:32,028[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 06:57:32,063[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 06:57:32,063[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 06:57:32,677[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7049e8a7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 06:57:32,724[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 06:57:32,944[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 06:57:32,944[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 06:57:32,944[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 06:57:33,054[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 06:57:33,054[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 991 ms
+[0;39m[31m2024-04-12 06:57:33,102[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:57:33,181[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 06:57:33,463[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 06:57:33,494[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 06:57:33,513[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.808 seconds (JVM running for 2.565)
+[0;39m[31m2024-04-12 06:57:44,480[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mIndex: 0, Size: 0
+[0;39m[31m2024-04-12 06:57:44,480[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee details based on Id
+[0;39m[31m2024-04-12 07:03:06,233[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 07:03:06,233[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee details based on Id
+[0;39m[31m2024-04-12 07:03:41,034[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 11372 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 07:03:41,034[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 07:03:41,100[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 07:03:41,100[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 07:03:42,090[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$e36f2e09] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 07:03:42,153[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 07:03:42,594[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 07:03:42,623[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 07:03:42,624[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 07:03:42,767[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 07:03:42,767[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1667 ms
+[0;39m[31m2024-04-12 07:03:42,861[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:03:43,003[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:03:43,491[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 07:03:43,538[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 07:03:43,553[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 2.97 seconds (JVM running for 3.646)
+[0;39m[31m2024-04-12 07:03:48,369[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 07:04:47,828[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 10456 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 07:04:47,828[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 07:04:47,883[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 07:04:47,883[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 07:04:48,529[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$ba77db61] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 07:04:48,576[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 07:04:48,907[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 07:04:48,907[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 07:04:48,907[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 07:04:49,017[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 07:04:49,017[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1134 ms
+[0;39m[31m2024-04-12 07:04:49,065[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:04:49,143[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:04:49,457[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 07:04:49,504[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 07:04:49,504[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 2.045 seconds (JVM running for 2.767)
+[0;39m[31m2024-04-12 07:04:59,562[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 07:05:08,380[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mThere were no Employee details found in the record
+[0;39m[31m2024-04-12 07:06:09,936[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32m200 : Employee Details were fetched
+[0;39m[31m2024-04-12 07:06:09,937[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee details based on Id
+[0;39m[31m2024-04-12 07:15:20,016[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mCan't find resource for bundle java.util.PropertyResourceBundle, key SELECT_EMPLOYEE_QUERY
+[0;39m[31m2024-04-12 07:17:15,202[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mCan't find resource for bundle java.util.PropertyResourceBundle, key SELECT_EMPLOYEE_QUERY
+[0;39m[31m2024-04-12 07:24:43,225[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarting TechnicalReviewSpringClientApplication using Java 1.8.0_292 on WPF45DE1T with PID 12308 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\Technical Review\Technical_Review_Spring_Client)
+[0;39m[31m2024-04-12 07:24:43,225[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-12 07:24:43,252[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-04-12 07:24:43,252[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-04-12 07:24:43,995[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$ba77db61] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-04-12 07:24:44,042[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-04-12 07:24:44,263[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8083 (http)
+[0;39m[31m2024-04-12 07:24:44,278[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-04-12 07:24:44,278[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-12 07:24:44,365[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-12 07:24:44,365[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1113 ms
+[0;39m[31m2024-04-12 07:24:44,389[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:24:44,452[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory restartedMain [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-04-12 07:24:44,704[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-04-12 07:24:44,727[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8083 (http) with context path ''
+[0;39m[31m2024-04-12 07:24:44,735[0;39m [32m[INFO][0;39m employee.client.soap.TechnicalReviewSpringClientApplication restartedMain [32mStarted TechnicalReviewSpringClientApplication in 1.846 seconds (JVM running for 2.476)
+[0;39m[31m2024-04-12 07:24:51,055[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mCan't find resource for bundle java.util.PropertyResourceBundle, key select.employee.query
+[0;39m[31m2024-04-12 07:26:29,151[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mCan't find resource for bundle java.util.PropertyResourceBundle, key select.employee.query
+[0;39m[31m2024-04-12 07:28:54,253[0;39m [32m[ERROR][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mCan't find resource for bundle java.util.PropertyResourceBundle, key select.employee.query
+[0;39m[31m2024-04-12 07:29:20,820[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32m200 : Employee Details were fetched
+[0;39m[31m2024-04-12 07:29:20,824[0;39m [32m[INFO][0;39m employee.client.soap.console.EmployeeConsole restartedMain [32mDisplayed Employee Details
+[0;39m

@@ -1,6 +1,9 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -17,7 +20,6 @@ public class DepositsAvailed {
     private Long customerId;
 
     @NotNull(message = "{deposit.bean.null}")
-    @Positive
     private Double depositAmount;
 
     @NotNull(message = "{deposit.bean.null}")
@@ -25,9 +27,10 @@ public class DepositsAvailed {
     private Integer depositDuration;
 
     @NotNull(message = "{deposit.bean.null}")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date depositMaturity;
 
-    public DepositsAvailed(long depositAvailId, long depositId, long customerId, double depositAmount, int depositDuration, Date depositMaturity) {
+    public DepositsAvailed(Long depositAvailId, Long depositId, Long customerId, Double depositAmount, Integer depositDuration, Date depositMaturity) {
         this.depositAvailId = depositAvailId;
         this.depositId = depositId;
         this.customerId = customerId;
@@ -39,7 +42,7 @@ public class DepositsAvailed {
     public DepositsAvailed() {
     }
 
-    public long getDepositAvailId() {
+    public Long getDepositAvailId() {
         return depositAvailId;
     }
 
@@ -47,7 +50,7 @@ public class DepositsAvailed {
         this.depositAvailId = depositAvailId;
     }
 
-    public long getDepositId() {
+    public Long getDepositId() {
         return depositId;
     }
 
@@ -55,7 +58,7 @@ public class DepositsAvailed {
         this.depositId = depositId;
     }
 
-    public long getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
@@ -63,7 +66,7 @@ public class DepositsAvailed {
         this.customerId = customerId;
     }
 
-    public double getDepositAmount() {
+    public Double getDepositAmount() {
         return depositAmount;
     }
 
@@ -71,7 +74,7 @@ public class DepositsAvailed {
         this.depositAmount = depositAmount;
     }
 
-    public int getDepositDuration() {
+    public Integer getDepositDuration() {
         return depositDuration;
     }
 

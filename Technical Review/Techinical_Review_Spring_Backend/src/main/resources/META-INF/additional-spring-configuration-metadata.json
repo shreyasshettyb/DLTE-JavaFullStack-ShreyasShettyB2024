@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "insert.employee.query",
+      "type": "java.lang.String",
+      "description": "Description for insert.employee.query."
+  }
+] }
