@@ -27,7 +27,8 @@ import java.util.ResourceBundle;
 
 @RestController
 @RequestMapping("/mybank/deposits")
-@ComponentScan("mybank.db.dao.dltemybankdaolayer")
+@Validated
+//@ComponentScan("mybank.db.dao.dltemybankdaolayer")
 public class MyBankRestController {
 
     Logger logger = LoggerFactory.getLogger(MyBankRestController.class);

@@ -15,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -30,6 +31,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -40,13 +44,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ServiceApplicationTests {
 
     @MockBean
-    MyBankRemote soapService;
+    MyBankRemote service;
 
     @InjectMocks
     SoapService soap;
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @InjectMocks
     MyBankRestController myBankRestController;
@@ -62,7 +69,7 @@ class ServiceApplicationTests {
 
         List<DepositsAvailable> depositsAvailableList = Stream.of(depositsAvailable1, depositsAvailable2, depositsAvailable3, depositsAvailable4, depositsAvailable5).collect(Collectors.toList());
 
-        when(soapService.availableDeposits()).thenReturn(depositsAvailableList);
+        when(service.availableDeposits()).thenReturn(depositsAvailableList);
 
         ViewAllDepositsAvailableRequest request = new ViewAllDepositsAvailableRequest();
         ViewAllDepositsAvailableResponse response = soap.ViewAllDepositsAvailable(request);
@@ -74,7 +81,7 @@ class ServiceApplicationTests {
     //DepositException Testing -Pass
 //    @Test
     public void testDepositException() throws DepositsException, SQLException {
-        when(soapService.availableDeposits()).thenThrow(DepositsException.class);
+        when(service.availableDeposits()).thenThrow(DepositsException.class);
 
         ViewAllDepositsAvailableRequest request = new ViewAllDepositsAvailableRequest();
         ViewAllDepositsAvailableResponse response = soap.ViewAllDepositsAvailable(request);
@@ -82,25 +89,11 @@ class ServiceApplicationTests {
         assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
     }
 
-    @Test
-    @WithMockUser(username = "shreyas12")
-    public void testDepositAvailedSuccess() throws Exception {
-        String request = "{\n " +
-                "\"depositAvailId\": 2," +
-                "\n\"customerId\": 100002," +
-                "\n\"depositId\": 1000002," +
-                "\n\"depositAmount\": 40000.0," +
-                "\n\"depositDuration\": 13," +
-                "\n\"depositMaturity\": \"2024-06-09\"\n" +
-                "}";
-        mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
-                .andExpect(status().isOk());
-    }
 
     //EndPoint Test - Pass
     @Test
     @WithMockUser(username = "shreyas12")
-    public void testRestEndpoint() throws Exception {
+    public void testRestDepositAvailed() throws Exception {
         String request = "{\n " +
                 "\"depositAvailId\": 2," +
                 "\n\"customerId\": 100002," +
@@ -113,8 +106,20 @@ class ServiceApplicationTests {
                 .andExpect(status().isOk());
     }
 
-    public void testBeanValidation(){
-        DepositsAvailed depositsAvailed = new DepositsAvailed(2L,100002L,1000002L,4000.0,1,new Date("13/04/2023"));
+    //Fail Bean Validation
+//    @Test
+//    @WithMockUser(username = "shreyas12")
+    public void testBeanValidation() throws Exception {
+        String request = "{\n " +
+                "\"depositAvailId\": 2," +
+                "\n\"customerId\": 100002," +
+                "\n\"depositId\": null," +
+                "\n\"depositAmount\": 40000.0," +
+                "\n\"depositDuration\": 13," +
+                "\n\"depositMaturity\": \"2024-06-09\"\n" +
+                "}";
+        mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
+                .andExpect(status().isOk());
     }
 
 

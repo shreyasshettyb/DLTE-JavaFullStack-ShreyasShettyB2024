@@ -1,6 +1,6 @@
 package mybank.backend.service.auth;
 
-import mybank.db.dao.dltemybankdaolayer.auth.CustomerAuthService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,19 +42,6 @@ public class MyBankAuthConfig {
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().anyRequest().fullyAuthenticated();
-
-//        httpSecurity.csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/profile/register").permitAll()
-//                .anyRequest().authenticated() // Allow other requests without authentication
-//                .and()
-//                .httpBasic()
-//                .and()
-//                .formLogin().
-//                usernameParameter("username").
-//                failureHandler(customerFailureHandler).
-//                successHandler(customerSuccessHandler);
-
 
 
         AuthenticationManagerBuilder builder = httpSecurity.

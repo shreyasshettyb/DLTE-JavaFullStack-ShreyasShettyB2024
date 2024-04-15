@@ -1,15 +1,12 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.util.Date;
 
 public class DepositsAvailed {
+
     @NotNull(message = "{deposit.bean.null}")
     private Long depositAvailId;
 
@@ -27,10 +24,9 @@ public class DepositsAvailed {
     private Integer depositDuration;
 
     @NotNull(message = "{deposit.bean.null}")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date depositMaturity;
 
-    public DepositsAvailed(Long depositAvailId, Long depositId, Long customerId, Double depositAmount, Integer depositDuration, Date depositMaturity) {
+    public DepositsAvailed(@NotNull(message = "{deposit.bean.null}") Long depositAvailId, @NotNull(message = "{deposit.bean.null}") Long depositId, @NotNull(message = "{deposit.bean.null}") Long customerId, @NotNull(message = "{deposit.bean.null}") Double depositAmount, @NotNull(message = "{deposit.bean.null}") @Min(1) Integer depositDuration, @NotNull(message = "{deposit.bean.null}") Date depositMaturity) {
         this.depositAvailId = depositAvailId;
         this.depositId = depositId;
         this.customerId = customerId;
@@ -39,14 +35,11 @@ public class DepositsAvailed {
         this.depositMaturity = depositMaturity;
     }
 
-    public DepositsAvailed() {
-    }
-
     public Long getDepositAvailId() {
         return depositAvailId;
     }
 
-    public void setDepositAvailId(long depositAvailId) {
+    public void setDepositAvailId(Long depositAvailId) {
         this.depositAvailId = depositAvailId;
     }
 
@@ -54,7 +47,7 @@ public class DepositsAvailed {
         return depositId;
     }
 
-    public void setDepositId(long depositId) {
+    public void setDepositId(Long depositId) {
         this.depositId = depositId;
     }
 
@@ -62,7 +55,7 @@ public class DepositsAvailed {
         return customerId;
     }
 
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 
@@ -70,7 +63,7 @@ public class DepositsAvailed {
         return depositAmount;
     }
 
-    public void setDepositAmount(double depositAmount) {
+    public void setDepositAmount(Double depositAmount) {
         this.depositAmount = depositAmount;
     }
 
@@ -78,7 +71,7 @@ public class DepositsAvailed {
         return depositDuration;
     }
 
-    public void setDepositDuration(int depositDuration) {
+    public void setDepositDuration(Integer depositDuration) {
         this.depositDuration = depositDuration;
     }
 
@@ -88,17 +81,5 @@ public class DepositsAvailed {
 
     public void setDepositMaturity(Date depositMaturity) {
         this.depositMaturity = depositMaturity;
-    }
-
-    @Override
-    public String toString() {
-        return "DepositsAvailed{" +
-                "depositAvailId=" + depositAvailId +
-                ", depositId=" + depositId +
-                ", customerId=" + customerId +
-                ", depositAmount=" + depositAmount +
-                ", depositDuration=" + depositDuration +
-                ", depositMaturity=" + depositMaturity +
-                '}';
     }
 }

@@ -1,4 +1,4 @@
-package mybank.db.dao.dltemybankdaolayer.entity;
+package mybank.backend.service.auth;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
