@@ -1,6 +1,7 @@
 package mybank.db.dao.dltemybankdaolayer.service;
 
 import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
+import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -26,6 +29,9 @@ public class RepositoryMyBank implements MyBankRemote {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    CustomerAuthService customerAuthService;
 
     ResourceBundle resourceBundle = ResourceBundle.getBundle("database");
     Logger logger = LoggerFactory.getLogger(RepositoryMyBank.class);
@@ -64,14 +70,17 @@ public class RepositoryMyBank implements MyBankRemote {
         LocalDate nowDate = depositsAvailed.getDepositMaturity().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         nowDate = nowDate.plusYears(depositsAvailed.getDepositDuration());
         depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-
+        Date sqlDate = Date.valueOf(nowDate);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Long customerId=customerAuthService.findByUsername(authentication.getName()).getCustomerId();
+        depositsAvailed.setCustomerId(customerId);
         CallableStatementCreator creator = con -> {
             CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
             statement.setLong(1, depositsAvailed.getCustomerId());
             statement.setLong(2, depositsAvailed.getDepositId());
             statement.setDouble(3, depositsAvailed.getDepositAmount());
             statement.setInt(4, depositsAvailed.getDepositDuration());
-            statement.setDate(5, new java.sql.Date(depositsAvailed.getDepositMaturity().getDate()));
+            statement.setDate(5, sqlDate);
             statement.registerOutParameter(6, Types.VARCHAR);
             return statement;
         };
@@ -94,7 +103,7 @@ public class RepositoryMyBank implements MyBankRemote {
                 logger.info(resourceBundle.getString("app.execute.success"));
                 return "Success";
             } else {
-                logger.error("Fail");
+                logger.error("Fail: " + result);
                 throw new DepositsException("Deposit operation failed: " + result);
             }
         } catch (UncategorizedSQLException e) {
@@ -103,10 +112,12 @@ public class RepositoryMyBank implements MyBankRemote {
                 throw new DepositsException(resourceBundle.getString("app.error.customerid"));
             } else if (e.getSQLException().getErrorCode() == 20003) {
                 logger.error(e.getSQLException().toString());
-                throw new SQLException();
+                throw new DepositsException("Deposit Id Not Found");
+            } else {
+                logger.error(e.getSQLException().toString());
+                throw new DepositsException(resourceBundle.getString("app.error.customerid"));
             }
         }
-        return "Fail";
     }
 
     //Maps the query output to Entity/Model

@@ -4,7 +4,6 @@ import mybank.backend.service.rest.MyBankRestController;
 import mybank.backend.service.soap.SoapService;
 import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
-import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import services.deposits.ViewAllDepositsAvailableRequest;
@@ -24,16 +22,12 @@ import services.deposits.ViewAllDepositsAvailableResponse;
 
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -48,15 +42,12 @@ class ServiceApplicationTests {
 
     @InjectMocks
     SoapService soap;
-
-    @Autowired
-    private MockMvc mockMvc;
-
     @Autowired
     JdbcTemplate jdbcTemplate;
-
     @InjectMocks
     MyBankRestController myBankRestController;
+    @Autowired
+    private MockMvc mockMvc;
 
     //Endpoint Testing for testListAllDeposits -Pass
     @Test

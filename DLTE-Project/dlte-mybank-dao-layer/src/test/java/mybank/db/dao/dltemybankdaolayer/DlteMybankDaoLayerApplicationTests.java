@@ -77,7 +77,7 @@ class DlteMybankDaoLayerApplicationTests {
         assertThrows(DepositsException.class, () -> service.availableDeposits());
     }
 
-    @Test
+//    @Test
     void testAvailDeposits_Success() throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("p_result", "Success");

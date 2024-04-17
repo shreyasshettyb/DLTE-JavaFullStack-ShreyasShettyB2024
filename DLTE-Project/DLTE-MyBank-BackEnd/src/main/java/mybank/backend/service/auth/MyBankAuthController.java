@@ -1,5 +1,7 @@
 package mybank.backend.service.auth;
 
+import mybank.db.dao.dltemybankdaolayer.entity.Customer;
+import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
