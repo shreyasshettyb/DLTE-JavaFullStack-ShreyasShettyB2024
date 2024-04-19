@@ -121,7 +121,7 @@ public class EmployeeConsole {
     }
 
     //Translate Object into Backend Entities
-    static void translateAndSend(Employee employee) {
+    public static void translateAndSend(Employee employee) {
         BeanUtils.copyProperties(employee, employeeSend);
         BeanUtils.copyProperties(employee.getPermanentAddress(), permanentAddressSend);
         BeanUtils.copyProperties(employee.getTemporaryAddress(), temporaryAddressSend);
@@ -134,7 +134,7 @@ public class EmployeeConsole {
     }
 
     //Employee Details Are Displayed
-    static void displayEmployeeDetails() {
+    public static void displayEmployeeDetails() {
 //        operations = new DataBaseRepository();
         ArrayList<soap.webservice.Employee> employeeList = null;
         try {
@@ -182,7 +182,7 @@ public class EmployeeConsole {
     }
 
     //    Print Employee Based On Pincode
-    static void displayEmployeeDetails(Integer pincode) {
+   public static void displayEmployeeDetails(Integer pincode) {
 //        operations = new DataBaseRepository();
         ArrayList<soap.webservice.Employee> employeeList = null;
         try {
@@ -220,7 +220,7 @@ public class EmployeeConsole {
 
     }
 
-    static void displayEmployeeDetails(long employeeID) {
+    public static void displayEmployeeDetails(long employeeID) {
 //        operations = new DataBaseRepository();
         soap.webservice.Employee employee = new soap.webservice.Employee();
         try {
@@ -293,6 +293,7 @@ public class EmployeeConsole {
                                 } else if (e.getFaultStringOrReason().equalsIgnoreCase("EmployeeExistException")) {
                                     logger.warn(e.getFaultStringOrReason());
                                     System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+                                    break;
                                 } else {
                                     logger.warn(e.getFaultStringOrReason());
                                     System.out.println(resourceBundle.getString("app.error.systemFailure"));

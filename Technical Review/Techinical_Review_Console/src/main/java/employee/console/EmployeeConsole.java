@@ -26,6 +26,7 @@ public class EmployeeConsole {
     static Logger logger = LoggerFactory.getLogger(EmployeeConsole.class);
     static int count = 0;
     static Scanner scanner = new Scanner(System.in);
+
     private static EmployeeSoapService employeeSoapService = new EmployeeSoapService();
     private static EmployeeSoap operations = employeeSoapService.getEmployeeSoapPort();
     private static Validation validation = new Validation();
@@ -316,7 +317,7 @@ public class EmployeeConsole {
         try {
             employee =  operations.getEmployee(employeeID);
         } catch (SOAPFaultException e) {
-            logger.error(resourceBundleError.getString(e.getFault().getFaultString()));
+            logger.error(e.getFault().getFaultString());
         }
             System.out.println("Employee " + employee.getEmployeeID() + " Details:");
             System.out.println("  First Name: " + employee.getFirstName());

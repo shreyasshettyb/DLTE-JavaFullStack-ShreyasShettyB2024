@@ -10,7 +10,7 @@
     </parent>
     <groupId>employeebackend</groupId>
     <artifactId>service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>Technical_Review_Spring_Backend</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -43,6 +43,10 @@
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.4</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 

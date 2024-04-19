@@ -74,6 +74,7 @@ public class RepositoryMyBank implements MyBankRemote {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long customerId=customerAuthService.findByUsername(authentication.getName()).getCustomerId();
         depositsAvailed.setCustomerId(customerId);
+
         CallableStatementCreator creator = con -> {
             CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
             statement.setLong(1, depositsAvailed.getCustomerId());

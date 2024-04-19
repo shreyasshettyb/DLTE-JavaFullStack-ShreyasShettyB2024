@@ -10,8 +10,6 @@ public class SOAPConfig {
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        // this is the package name specified in the <generatePackage> specified in
-        // pom.xml
         marshaller.setContextPath("soap.webservice");
         return marshaller;
     }

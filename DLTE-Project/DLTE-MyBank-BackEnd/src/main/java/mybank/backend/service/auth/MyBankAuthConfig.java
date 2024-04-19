@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
 @EnableWebSecurity
@@ -45,9 +46,8 @@ public class MyBankAuthConfig  {
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
-        httpSecurity.authorizeRequests().anyRequest().fullyAuthenticated();
+        httpSecurity.authorizeRequests().anyRequest().authenticated();
 
-        httpSecurity.authorizeHttpRequests();
         AuthenticationManagerBuilder builder = httpSecurity.
                 getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(service);

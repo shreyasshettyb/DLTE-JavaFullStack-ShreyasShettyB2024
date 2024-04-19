@@ -1,21 +1,8 @@
-09:39:09.088 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:42:06.740 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:43:07.556 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:44:13.440 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:44:48.003 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:46:59.374 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:48:09.786 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:49:15.763 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-09:53:57.523 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee Details[0;39m 
-10:03:03.682 [31m[main][0;39m WARN  employee.validation.Validation - [31mInvalid Name Format[0;39m 
-10:03:31.898 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mAddress{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
-
-firstName='1'
-middleName='1'
-lastName='1'
-phone=1
-email='1'
-employeeID=1
-permanentAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='permanent'}
-temporaryAddress: Address{employeeID=1, houseName='1', streetName='1', city='1', state='1', pincode=1, type='temporary'}[0;39m 
-10:03:41.301 [31m[main][0;39m WARN  employee.console.EmployeeConsole - [31mCON-001: System Failure[0;39m 
+06:54:52.369 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee details based on Id[0;39m 
+06:55:04.675 [31m[main][0;39m WARN  employee.console.EmployeeConsole - [31mInvalid Option[0;39m 
+06:56:21.465 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mMethod Parameter: Employee cannot be null. This is BP 1.1 R2211 violation.[0;39m 
+06:56:21.465 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee details based on Id[0;39m 
+06:57:08.510 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mMethod Parameter: Employee cannot be null. This is BP 1.1 R2211 violation.[0;39m 
+06:57:08.510 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee details based on Id[0;39m 
+07:01:10.086 [1;31m[main][0;39m ERROR employee.console.EmployeeConsole - [1;31mMethod Parameter: Employee cannot be null. This is BP 1.1 R2211 violation.[0;39m 
+07:01:10.086 [34m[main][0;39m INFO  employee.console.EmployeeConsole - [34mDisplayed Employee details based on Id[0;39m 
