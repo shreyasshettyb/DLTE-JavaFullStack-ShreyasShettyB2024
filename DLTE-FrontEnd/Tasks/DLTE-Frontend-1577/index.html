@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+    
+</head>
+
+<body>
+  
+    <div class="container">
+        <div class="form">
+            <form id="chequebookForm" onsubmit="return validateForm()">
+                <h2>Chequebook Apply Form</h2>
+                <div class="input-group">
+                    <label>Account Number</label>
+                    <input type="number" id="acc_number" name="acc_number" maxlength="12">
+                    <span id="acc_number_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Account Holder</label>
+                    <input type="text" id="acc_holder" name="acc_holder">
+                    <span id="acc_holder_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Account type</label>
+                    <input type="radio" name="acc_type" value="savings">
+                    <input type="radio" name="acc_type" value="current">
+                    <span id="acc_type_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Chequebook Type</label>
+                    <select id="chequebook_type" name="chequebook_type">
+                        <option value="ecs">Ecs</option>
+                        <option value="non_ecs">Non Ecs</option>
+                    </select>
+                    <span id="chequebook_type_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Date</label>
+                    <input type="date" id="date" name="date">
+                    <span id="date_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Address</label>
+                    <textarea rows="3" cols="5" id="address" name="address"></textarea>
+                    <span id="address_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Signature</label>
+                    <input type="file" id="signature" name="signature">
+                    <span id="signature_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Contact Number</label>
+                    <input type="number" id="phone" name="phone">
+                    <span id="phone_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" name="email">
+                    <span id="email_error" class="error"></span>
+                </div>
+                <div class="input-group">
+                    <label>Accept terms and Conditions</label>
+                    <input type="checkbox" id="t_and_c" name="t_and_c">
+                    <span id="t_and_c_error" class="error"></span>
+                </div>
+                <div class="btn-group">
+                    <input type="submit" value="Apply"/>
+                    <input type="reset" value="Cancel"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./validation.js">     
+    </script>
+</body>
+
+</html>
