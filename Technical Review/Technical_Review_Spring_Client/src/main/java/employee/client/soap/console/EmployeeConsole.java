@@ -319,6 +319,7 @@ public class EmployeeConsole {
                     default:
                         System.out.println(resourceBundle.getString("app.error.invalidOption"));
                         logger.warn("Invalid Option");
+                        System.exit(0);
                 }
             }
         } catch (SoapFaultClientException e) {

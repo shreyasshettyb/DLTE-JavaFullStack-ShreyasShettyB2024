@@ -66,49 +66,46 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- tag::wsdl[] -->
-<!--            <plugin>-->
-<!--                <groupId>com.sun.xml.ws</groupId>-->
-<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
+            <plugin>
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--                <version>1.6</version>-->
 <!--                <executions>-->
 <!--                    <execution>-->
+<!--                        <id>xjc</id>-->
 <!--                        <goals>-->
-<!--                            <goal>wsimport</goal>-->
+<!--                            <goal>xjc</goal>-->
 <!--                        </goals>-->
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--                <configuration>-->
-<!--                    <packageName>employee.client.webservice.employee</packageName>-->
-<!--                    <wsdlUrls>-->
-<!--                        <wsdlUrl>http://localhost:8082/employeerepo/employee.wsdl</wsdlUrl>-->
-<!--                    </wsdlUrls>-->
-<!--                    <sourceDestDir>${sourcesDir}</sourceDestDir>-->
-<!--                    <destDir>${classesDir}</destDir>-->
-<!--                    <extension>true</extension>-->
+<!--                    <packageName>soap.webservice</packageName>-->
+<!--                    <wsdl>true</wsdl>-->
+<!--                    <xmlschema>false</xmlschema>-->
+<!--                    <schemaDirectory>src/main/resources</schemaDirectory>-->
+<!--                    <schemaFiles>employee.wsdl</schemaFiles>-->
+<!--                    <schemaDirectory>src/main/resources</schemaDirectory>-->
+<!--                    <outputDirectory>${project.build.directory}/generated-sources/</outputDirectory>-->
+<!--                    <clearOutputDir>false</clearOutputDir>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <packageName>soap.webservice</packageName>
-                    <wsdl>true</wsdl>
-                    <xmlschema>false</xmlschema>
-                    <schemaDirectory>src/main/resources</schemaDirectory>
-                    <schemaFiles>employee.wsdl</schemaFiles>
-                    <schemaDirectory>src/main/resources</schemaDirectory>
-                    <outputDirectory>src/main/java</outputDirectory>
-                    <clearOutputDir>false</clearOutputDir>
-                </configuration>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-maven-plugin</artifactId>
+            <version>2.3.7</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>wsimport</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>
+                <packageName>soap.webservice</packageName>
+                <sourceDestDir>
+                    ${project.build.directory}/generated-sources/
+                </sourceDestDir>
+            </configuration>
             </plugin>
         </plugins>
     </build>

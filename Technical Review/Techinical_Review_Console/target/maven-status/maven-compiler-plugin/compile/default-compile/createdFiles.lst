@@ -1,0 +1,12 @@
+employee\console\EmployeeConsole.class
+employee\webservice\ObjectFactory.class
+employee\entity\Employee.class
+employee\webservice\GroupOfEmployee.class
+employee\validation\Validation.class
+employee\webservice\Employee.class
+employee\console\SOAPHeaderPrinter.class
+employee\webservice\EmployeeSoap.class
+employee\webservice\package-info.class
+employee\entity\Address.class
+employee\webservice\EmployeeSoapService.class
+employee\webservice\Address.class
