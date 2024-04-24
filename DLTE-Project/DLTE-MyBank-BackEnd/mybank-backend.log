@@ -357,4 +357,13 @@
 [0;39m[31m2024-04-23 10:52:11,016[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-6 [32mRetrieved List of Available Deposits
 [0;39m[31m2024-04-23 10:52:30,658[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-8 [32mQuery Executed Successfully
 [0;39m[31m2024-04-23 10:52:30,658[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-8 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-04-23 11:19:55,936[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m40s173ms305µs700ns).
+[0;39m[31m2024-04-23 12:42:27,714[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-1 [32mQuery Executed Successfully
+[0;39m[31m2024-04-23 12:42:27,717[0;39m [32m[INFO][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-1 [32mPost Request Successful
+[0;39m[31m2024-04-23 12:49:26,150[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-4 [32mQuery Executed Successfully
+[0;39m[31m2024-04-23 12:49:26,151[0;39m [32m[INFO][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-4 [32mPost Request Successful
+[0;39m[31m2024-04-23 14:33:26,550[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m58s439ms947µs300ns).
+[0;39m[31m2024-04-23 16:07:56,424[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m58s363ms444µs600ns).
+[0;39m[31m2024-04-23 16:08:44,903[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s478ms484µs300ns).
+[0;39m[31m2024-04-23 17:09:46,837[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m31s101ms500µs600ns).
 [0;39m

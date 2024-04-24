@@ -101,6 +101,7 @@
             </executions>
             <configuration>
                 <wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>
+                
                 <packageName>soap.webservice</packageName>
                 <sourceDestDir>
                     ${project.build.directory}/generated-sources/
