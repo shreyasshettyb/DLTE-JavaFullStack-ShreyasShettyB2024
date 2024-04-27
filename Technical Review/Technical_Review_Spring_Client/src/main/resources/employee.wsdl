@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://employee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://employee.services" targetNamespace="http://employee.services">
   <wsdl:types>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://employee.services">
-
+<!--                <xsd:import namespace="http://employee.services" schemaLocation="employee.xsd"/>-->
     <xsd:complexType name="Address">
         <xsd:sequence>
             <xsd:element name="houseName" type="xsd:string"/>
