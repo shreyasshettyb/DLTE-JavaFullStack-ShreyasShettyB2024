@@ -1,4 +1,4 @@
-package task.jdbctemplate.demo.auth;
+package thymeleaf.transactions.demo.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,13 +19,6 @@ public class MyBankSecurity {
 
     AuthenticationManager manager;
 
-    @Autowired
-    CustomerFailureHandler customerFailureHandler;
-
-    @Autowired
-    CustomerSuccessHandler customerSuccessHandler;
-
-
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -36,12 +29,10 @@ public class MyBankSecurity {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable();
         httpSecurity.httpBasic();
-        httpSecurity.formLogin().loginPage("/login/").usernameParameter("username").
-                failureHandler(customerFailureHandler).
-                successHandler(customerSuccessHandler);
+        httpSecurity.formLogin();
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+        httpSecurity.authorizeRequests().anyRequest().authenticated();
 
         AuthenticationManagerBuilder builder=httpSecurity.
                 getSharedObject(AuthenticationManagerBuilder.class);

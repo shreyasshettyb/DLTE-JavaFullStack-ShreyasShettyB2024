@@ -1,4 +1,4 @@
-package task.jdbctemplate.demo.auth;
+package thymeleaf.transactions.demo.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -34,15 +34,5 @@ public class MyBankService implements UserDetailsService {
         if(users==null)
             throw new UsernameNotFoundException(username);
         return users;
-    }
-    public void updateStatus(MyBankUsers myBankUsers){
-        jdbcTemplate.update("update mybank_users_role set status='closed' where username=?",
-                new Object[]{myBankUsers.getUsername()});
-
-    }
-    public void updateAttempts(MyBankUsers myBankUsers){
-        jdbcTemplate.update("update mybank_users_role set attempts=? where username=?",
-                new Object[]{myBankUsers.getAttempts(),myBankUsers.getUsername()});
-
     }
 }

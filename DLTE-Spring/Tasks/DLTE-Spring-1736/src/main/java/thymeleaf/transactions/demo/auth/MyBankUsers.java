@@ -1,5 +1,4 @@
-
-package task.jdbctemplate.demo.auth;
+package thymeleaf.transactions.demo.auth;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,9 +10,6 @@ import java.util.Collection;
 public class MyBankUsers implements UserDetails {
     private String name, username, password, email,address,role;
     private long contact;
-    private int attempts;
-    private String status;
-
 
 
     @Override
@@ -89,22 +85,6 @@ public class MyBankUsers implements UserDetails {
         return role;
     }
 
-    public int getAttempts() {
-        return attempts;
-    }
-
-    public void setAttempts(int attempts) {
-        this.attempts = attempts;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public void setRole(String role) {
         this.role = role;
     }
@@ -130,4 +110,3 @@ public class MyBankUsers implements UserDetails {
                 '}';
     }
 }
-

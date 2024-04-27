@@ -1,27 +1,14 @@
-package task.jdbctemplate.demo.model;
+package thymeleaf.transactions.demo.model;
 
 import java.util.Date;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 
 public class Transaction {
-    private long transactionId;
-
-    @NotNull
-    private Date transactionDate;
-
-    @NotEmpty
-    private String sentTo;
-
-    @NotEmpty
-    private String receivedBy;
-
-    @Positive
-    private double amount;
-
-    @NotEmpty
-    private String remarks;
+        private long transactionId;
+        private Date transactionDate;
+        private String sentTo;
+        private String receivedBy;
+        private double amount;
+        private String remarks;
 
     public Transaction(long transactionId, Date transactionDate, String sentTo, String receivedBy, double amount, String remarks) {
         this.transactionId = transactionId;
