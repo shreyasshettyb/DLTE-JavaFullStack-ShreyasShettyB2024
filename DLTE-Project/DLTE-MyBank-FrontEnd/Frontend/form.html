@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         $(document).ready(() => {
             if (!sessionStorage.getItem("logged")) {
                  alert("User Is Not Logged In")
@@ -69,16 +69,16 @@
                 });
             });
         }});
-    </script>
-    <div class="container mt-2 ">
-        <div class="card p-4 ">
+    </script> -->
+    <div class="container mt-4 ">
+        <div class="card p-4 col-lg-6">
             <form id="depositForm">
                 <h2>Deposits Avail Form</h2>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label> Customer Id :</label>
                     <input class="form-control" type="number" id="customerId" name="customerId">
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                     <label>Deposit Type</label>
                     <select class="form-control">
                         <option id="depositType" value="1000001">FD</option>
@@ -87,7 +87,7 @@
                         <option id="depositType" value="1000004">Employee FD</option>
                         <option id="depositType" value="1000005">Women Empowerment RD</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label>Amount</label>
                     <input class="form-control" type="number" id="Amount" name="Amount">
@@ -104,8 +104,8 @@
                     <label class="form-check-label">Accept terms and Conditions</label>
                     <input class="form-check-inline" type="checkbox" name="t&c">
                 </div>
-                <button class="btn btn-primary btn-m" type="button" id="submit" value="Apply">Submit</button>
-                <button class="btn btn-info btn-m" type="button" id="reset" value="Cancel">Reset</button>
+                <button class="btn btn-m" type="button" id="submit" style="background-color: #182052; color: white;" value="Apply">Submit</button>
+                <button class="btn btn-m" type="button" id="reset" value="Cancel" style="background-color: #F25C19; color: white;">Reset</button>
             </form>
         </div>
     </div>

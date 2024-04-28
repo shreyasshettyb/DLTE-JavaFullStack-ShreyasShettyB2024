@@ -15,10 +15,75 @@
 </head>
 
 <body>
-<nav th:replace="nav :: navbar">
+<nav th:fragment="customerNav" class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-info display-6 text-uppercase" style="font-weight: bold;" href="#">MyBank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item m-2">
+                    <a th:href="@{'/web/findBySender'}" class="findBySender btn btn-outline-light rounded-5 me-2" data-bs-toggle="collapse" data-bs-target="#senderCollapse" aria-expanded="false" aria-controls="senderCollapse"><span class="bi bi-person-check"></span> Find by Sender</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a th:href="@{'/web/findByReceiver'}" class="findByReceiver btn btn-outline-light rounded-5 me-2" data-bs-toggle="collapse" data-bs-target="#receiverCollapse" aria-expanded="false" aria-controls="receiverCollapse"><span class="bi bi-person-plus"></span> Find by Receiver</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a th:href="@{'/web/findByAmount'}" class="findByAmount btn btn-outline-light rounded-5 me-2" data-bs-toggle="collapse" data-bs-target="#amountCollapse" aria-expanded="false" aria-controls="amountCollapse"><span class="bi bi-currency-dollar"></span> Find by Amount</a>
+                </li>
+                <li class="nav-item m-2">
+                    <button th:href="@{'/logout'}"  id=logout class="logout btn btn-outline-dark rounded-5 me-2 bg-info"><span
+                            class="bi bi-door-open"></span>
+                        Logout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
+<div class="collapse mt-2" id="senderCollapse">
+    <div class="card bg-success col-md-6 mx-auto">
+        <div class="card-body">
+            <h5 class="card-title text-white">Enter the Sender</h5>
+            <form action="/findBySender" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="sender" placeholder="Enter Sender" aria-label="Sender" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<div class="collapse mt-2" id="receiverCollapse">
+    <div class="card bg-success col-md-6 mx-auto">
+        <div class="card-body">
+            <h5 class="card-title text-white">Enter the Receiver</h5>
+            <form action="/findByReceiver" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="receiver" placeholder="Enter Receiver" aria-label="Receiver" aria-describedby="button-addon3">
+                    <button class="btn btn-outline-light" type="submit" id="button-addon3">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="collapse mt-2" id="amountCollapse">
+    <div class="card bg-success col-md-6 mx-auto">
+        <div class="card-body">
+            <h5 class="card-title text-white">Enter the Amount</h5>
+            <form action="/findByAmount" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="amount" placeholder="Enter Amount" aria-label="Amount" aria-describedby="button-addon4">
+                    <button class="btn btn-outline-light" type="submit" id="button-addon4">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 

@@ -15,25 +15,34 @@
 </head>
 
 <body>
-<nav th:replace="nav :: navbar"></nav>
-<div>
+<nav th:fragment="adminNav" class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-info display-6 text-uppercase" style="font-weight: bold;" href="#">MyBank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item m-2">
+                    <a th:href="@{'/add'}" class="new btn btn-outline-light rounded-5 me-2"><span
+                            class="bi bi-plus"></span> New Transaction</a>
+                </li>
+                <li class="nav-item m-2">
+                    <a th:href="@{'/delete'}" class="new btn btn-outline-light rounded-5 me-2"><span
+                            class="bi bi-plus"></span> Delete Transactions</a>
+                </li>
+                <li class="nav-item m-2">
+                    <button th:href="@{'/logout'}" id=logout class="logout btn btn-outline-dark rounded-5 me-2 bg-info"><span
+                            class="bi bi-door-open"></span>
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-</div>
-<div class="container">
-<div th:replace="newTransaction::newtransaction"></div>
-<div th:replace="deleteTransactions::removeCollapse"></div>
-</div>
 </body>
 
-<script>
-    function updateContainer() {
-        const selectedOption = document.querySelector('select').value;
-        const container = document.getElementById('container');
-
-        if (selectedOption === 'new') {
-            container.innerHTML = "th:replace='newTransaction::transaction'";
-        } else if (selectedOption === 'delete') {
-            container.innerHTML = "th:replace='deleteTransactions::transaction'";        }
-    }
-</script>
 </html>

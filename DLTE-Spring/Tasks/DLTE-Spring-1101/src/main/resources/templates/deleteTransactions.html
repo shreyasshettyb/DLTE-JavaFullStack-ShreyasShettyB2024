@@ -14,11 +14,12 @@
     <title>MyBank Internet Banking</title>
 </head>
 <body>
-<div th:fragment="removeCollapse" class="mt-2">
-    <div class="card bg-success col-md-6 mx-auto">
+<nav th:replace="adminDashboard::adminNav"></nav>
+<div class="mt-2" id="delete">
+    <div class="card bg-info col-md-6 mx-auto">
         <div class="card-body">
             <h5 class="card-title text-white">Enter the Dates</h5>
-            <form action="/web/removeBetweenDates" method="get">
+            <form action="/removeBetweenDates" method="get">
                 <div class="input-group">
                     <input type="text" class="form-control" name="startDate" placeholder="Enter Start-Date" aria-label="startDate" aria-describedby="button-addon5">
                     <input type="text" class="form-control" name="endDate" placeholder="Enter End-Date" aria-label="endDate" aria-describedby="button-addon5">

@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @Controller
@@ -34,6 +35,18 @@ public class MVCController {
     @GetMapping("/admin")
     public String admin(){
         return "adminDashboard";
+    }
+
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
+    public String addTransactions(Model model) {
+        model.addAttribute("transaction", new Transaction());
+        return "newTransaction";
+    }
+
+    @RequestMapping(value = "/delete",method = RequestMethod.GET)
+    public String deleteTransactions(Model model) {
+        model.addAttribute("transaction", new Transaction());
+        return "deleteTransactions";
     }
 
     @GetMapping("/removeBetweenDates")
@@ -70,6 +83,42 @@ public class MVCController {
             return "success";
         } catch (TransactionException exception) {
             redirectAttributes.addFlashAttribute("error", exception.getMessage());
+            return "error";
+        }
+    }
+
+    @GetMapping("/findBySender")
+    public String displayTransactionsBySender(@RequestParam("sender") String sender, Model model) {
+        try {
+            List<Transaction> transactions = transactionService.apiFindBySender(sender);
+            model.addAttribute("transactions", transactions);
+            return "displayTransaction"; // Return the name of the Thymeleaf template
+        } catch (TransactionException exception) {
+            model.addAttribute("error", exception.getMessage());
+            return "error";
+        }
+    }
+
+    @GetMapping("/findByReceiver")
+    public String displayTransactionsByReceiver(@RequestParam("receiver") String receiver, Model model) {
+        try {
+            List<Transaction> transactions = transactionService.apiFindByReceiver(receiver);
+            model.addAttribute("transactions", transactions);
+            return "displayTransaction";
+        } catch (TransactionException exception) {
+            model.addAttribute("error", exception.getMessage());
+            return "error";
+        }
+    }
+
+    @GetMapping("/findByAmount")
+    public String displayTransactionsByAmount(@RequestParam("amount") Double amount, Model model) {
+        try {
+            List<Transaction> transactions = transactionService.apiFindByAmount(amount);
+            model.addAttribute("transactions", transactions);
+            return "displayTransaction";
+        } catch (TransactionException exception) {
+            model.addAttribute("error", exception.getMessage());
             return "error";
         }
     }

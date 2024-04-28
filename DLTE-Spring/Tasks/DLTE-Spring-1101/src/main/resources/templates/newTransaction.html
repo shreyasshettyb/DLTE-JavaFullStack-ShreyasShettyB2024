@@ -14,10 +14,11 @@
     <title>MyBank Internet Banking</title>
 </head>
 <body>
-<div th:fragment="newtransaction" class="container  mt-5">
+<nav th:replace="adminDashboard::adminNav"></nav>
+<div class="container  mt-5">
 
-    <div class="row justify-content-center">
-        <div class="card  col col-6 bg-success-subtle ">
+    <div th:fragment="transaction" class="row justify-content-center">
+        <div class="card  col col-6 ">
             <div class="card-header">
                 <h2 class="card-title">New Transaction</h2>
             </div>
@@ -25,7 +26,7 @@
                 <div th:if="${error}" class="alert alert-danger" role="alert">
                     <strong>Error:</strong> <span th:text="${error}"></span>
                 </div>
-                <form th:action="@{/web/send}" th:object="${transaction}" method="post">
+                <form th:action="@{/new}" th:object="${transaction}" method="post">
                     <div class="mb-3">
                         <label for="transactionId" class="form-label">Transaction ID</label>
                         <p th:if="${#fields.hasErrors('transactionId')}" th:errors="*{transactionId}" class="text-danger"></p>
@@ -57,7 +58,7 @@
                         <input type="date" class="form-control" id="transactionDate" th:field="*{transactionDate}">
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-info">Submit</button>
                     </div>
                 </form>
             </div>

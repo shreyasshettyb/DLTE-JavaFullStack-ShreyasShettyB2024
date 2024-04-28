@@ -41,8 +41,10 @@ public class MyBankSecurity {
                 successHandler(customerSuccessHandler);
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-
+//        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/admin").hasAuthority("admin");
+        httpSecurity.authorizeRequests().antMatchers("/customer").hasAuthority("customer");
+        httpSecurity.logout().logoutUrl("/logout/");
         AuthenticationManagerBuilder builder=httpSecurity.
                 getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(service);
