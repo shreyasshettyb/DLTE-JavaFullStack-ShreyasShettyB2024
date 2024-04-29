@@ -71,6 +71,7 @@ public class RepositoryMyBank implements MyBankRemote {
         nowDate = nowDate.plusYears(depositsAvailed.getDepositDuration());
         depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         Date sqlDate = Date.valueOf(nowDate);
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Long customerId=customerAuthService.findByUsername(authentication.getName()).getCustomerId();
         depositsAvailed.setCustomerId(customerId);

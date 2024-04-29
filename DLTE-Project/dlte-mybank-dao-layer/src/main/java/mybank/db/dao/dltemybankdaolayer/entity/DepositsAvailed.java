@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DepositsAvailed {
 
-    @NotNull(message = "{deposit.bean.null}")
+//    @NotNull(message = "{deposit.bean.null}")
     private Long depositAvailId;
 
     @NotNull(message = "{deposit.bean.null}")

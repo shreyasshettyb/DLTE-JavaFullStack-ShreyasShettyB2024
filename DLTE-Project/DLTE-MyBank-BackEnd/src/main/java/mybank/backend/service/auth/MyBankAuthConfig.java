@@ -58,14 +58,15 @@ public class MyBankAuthConfig  {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
-        httpSecurity.formLogin().
+        httpSecurity.formLogin().loginPage("/login/").
                 usernameParameter("username").
                 failureHandler(customerFailureHandler).
                 successHandler(customerSuccessHandler);
-//                .loginPage("http://127.0.0.1:5500/login.html");
+
         httpSecurity.cors();
         httpSecurity.csrf().disable();
 
+        httpSecurity.authorizeRequests().antMatchers("/").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
