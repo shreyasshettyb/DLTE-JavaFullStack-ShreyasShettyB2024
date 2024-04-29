@@ -10,4 +10,7 @@ public class MVCController {
     public String index(){
         return "index";
     }
+
+    @GetMapping("/nav")
+    public String nav(){return "nav";}
 }

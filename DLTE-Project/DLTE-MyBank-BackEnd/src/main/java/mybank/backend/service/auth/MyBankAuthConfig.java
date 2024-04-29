@@ -67,6 +67,8 @@ public class MyBankAuthConfig  {
         httpSecurity.csrf().disable();
 
         httpSecurity.authorizeRequests().antMatchers("/").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/css/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
