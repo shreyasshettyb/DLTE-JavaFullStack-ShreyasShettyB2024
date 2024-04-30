@@ -5,6 +5,7 @@ import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -25,14 +26,15 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Customer customer = (Customer) authentication.getPrincipal();
         if (customer.getCustomerStatus().equalsIgnoreCase("active")) {
-            if (customer.getAttempts() >= 1) {
+            if (customer.getAttempts() > 1) {
                 customer.setAttempts(1);
                 service.updateAttempts(customer);
             }
-            super.setDefaultTargetUrl("/depositsrepo/deposit.wsdl");
+            logger.info("login successful");
+            super.setDefaultTargetUrl("/dashboard");
         } else {
-            logger.warn("Max attempts reached contact admin");
-            super.setDefaultTargetUrl("/login");
+            logger.error("Account suspended contact admin to redeem");
+            super.setDefaultTargetUrl("/?error="+new LockedException("Account suspended contact admin to redeem").getMessage());
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

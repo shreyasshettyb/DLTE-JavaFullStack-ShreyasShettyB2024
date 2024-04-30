@@ -1,8 +1,10 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 public class DepositsAvailed {
@@ -17,6 +19,7 @@ public class DepositsAvailed {
     private Long customerId;
 
     @NotNull(message = "{deposit.bean.null}")
+    @Positive
     private Double depositAmount;
 
     @NotNull(message = "{deposit.bean.null}")
@@ -26,7 +29,7 @@ public class DepositsAvailed {
     @NotNull(message = "{deposit.bean.null}")
     private Date depositMaturity;
 
-    public DepositsAvailed(@NotNull(message = "{deposit.bean.null}") Long depositAvailId, @NotNull(message = "{deposit.bean.null}") Long depositId, @NotNull(message = "{deposit.bean.null}") Long customerId, @NotNull(message = "{deposit.bean.null}") Double depositAmount, @NotNull(message = "{deposit.bean.null}") @Min(1) Integer depositDuration, @NotNull(message = "{deposit.bean.null}") Date depositMaturity) {
+    public DepositsAvailed(Long depositAvailId, @NotNull(message = "{deposit.bean.null}") Long depositId, @NotNull(message = "{deposit.bean.null}") Long customerId, @NotNull(message = "{deposit.bean.null}") @Positive Double depositAmount, @NotNull(message = "{deposit.bean.null}") @Min(1) Integer depositDuration, @NotNull(message = "{deposit.bean.null}") Date depositMaturity) {
         this.depositAvailId = depositAvailId;
         this.depositId = depositId;
         this.customerId = customerId;

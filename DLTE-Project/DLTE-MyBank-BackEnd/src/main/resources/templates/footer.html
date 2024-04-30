@@ -15,15 +15,15 @@
 </head>
 <body>
 <footer th:fragment="footer" class="text-center text-lg-start text-white" style="background-color: #182052; border-radius: 2rem 2rem 0 0">
-    <div class="container p-4 pb-0">
+    <div class="p-4 pb-0">
             <div class="row">
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../static/images/logo.png" class="static" style="width: 30px; height: 30px"/>
+                            <img th:src="@{'/images/logo.png'}" class="static" style="width: 30px; height: 30px"/>
                         </div>
                         <div class="col">
-                            <a class="navbar-brand display-6 fw-bold" style="font-weight: bold; font-family: 'Montserrat'; color: white" th:href="#">MyBank</a>
+                            <a class="navbar-brand display-6 fw-bold" style="font-weight: bold; font-family: 'Montserrat'; color: white" >My Bank</a>
                         </div>
                     </div>
                 </div>
@@ -67,12 +67,8 @@
                     <p>Terms & Conditions</p>
                 </div>
             </div>
-
         </section>
     </div>
 </footer>
-<!--</div>-->
-</body>
-</html>
 </body>
 </html>

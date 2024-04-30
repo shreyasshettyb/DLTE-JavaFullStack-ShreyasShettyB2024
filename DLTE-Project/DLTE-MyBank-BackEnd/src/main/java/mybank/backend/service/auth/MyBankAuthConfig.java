@@ -58,7 +58,7 @@ public class MyBankAuthConfig  {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
-        httpSecurity.formLogin().loginPage("/login/").
+        httpSecurity.formLogin().loginPage("/").loginProcessingUrl("/login/").
                 usernameParameter("username").
                 failureHandler(customerFailureHandler).
                 successHandler(customerSuccessHandler);

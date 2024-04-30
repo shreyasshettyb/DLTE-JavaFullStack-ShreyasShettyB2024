@@ -60,12 +60,11 @@ public class MyBankRestController {
             logger.info(resourceBundle.getString("app.rest.success"));
         } catch (DepositsException depositsException) {
             logger.error(depositsException.toString());
-            return ResponseEntity.status(HttpServletResponse.SC_NOT_FOUND).body(depositsException.getMessage());
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body("0xR001 "+depositsException.getMessage());
         } catch (SQLException e) {
             logger.error(e.toString());
             return ResponseEntity.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).body(resourceBundle.getString("app.rest.error.unknown"));
         }
-
         return ResponseEntity.ok(depositsAvailRequest);
     }
 

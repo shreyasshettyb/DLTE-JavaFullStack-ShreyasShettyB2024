@@ -32,16 +32,21 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
                     customer.setAttempts(customer.getAttempts() + 1);
                     service.updateAttempts(customer);
                     logger.warn("Invalid credentials and attempts taken");
-                    exception = new LockedException("Attempts are taken");
+                    exception = new LockedException("Invalid credentials "+(customer.getMaxAttempt()-customer.getAttempts()+1)+" attempts left");
                 } else {
+                    logger.error("Max Attempts reached");
                     service.updateStatus(customer);
                     exception = new LockedException("Max Attempts reached account is suspended");
                 }
             } else {
-                logger.warn("Account suspended contact admin to redeem");
+                logger.error("Account suspended contact admin to redeem");
+                exception = new LockedException("Account suspended contact admin to redeem");
             }
+        }else {
+            logger.error("Username not found/Does not Exist");
+            exception = new LockedException("Username not found/Does not Exist");
         }
-        super.setDefaultFailureUrl("/login?error=true");
+        super.setDefaultFailureUrl("/?error="+exception.getMessage());
         super.onAuthenticationFailure(request, response, exception);
     }
 }

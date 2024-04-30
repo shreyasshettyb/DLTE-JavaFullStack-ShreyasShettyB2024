@@ -11,6 +11,25 @@ public class MVCController {
         return "index";
     }
 
-    @GetMapping("/nav")
-    public String nav(){return "nav";}
+    @GetMapping("/login/")
+    public String redirectLogin(){
+        return "index";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard(){return "dashboard";}
+
+    @GetMapping("/view")
+    public String viewDeposits(){ return "viewDeposits";}
+
+    @GetMapping("/error")
+    public String error(){ return "exception";}
+
+    @GetMapping("/calculator")
+    public String calcultor(){return "calculator";}
+
+    @GetMapping("/apply")
+    public String availDeposit(){return "depositForm";}
+
+
 }

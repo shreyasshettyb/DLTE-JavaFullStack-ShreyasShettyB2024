@@ -59,8 +59,8 @@ public class SoapService {
             serviceStatus.setMessage(resourceBundle.getString("app.soap.error.access"));
             logger.error(e.toString());
         } catch (DepositsException e) {
-            serviceStatus.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            serviceStatus.setMessage(resourceBundle.getString("app.soap.error.empty"));
+            serviceStatus.setStatus(HttpServletResponse.SC_OK);
+            serviceStatus.setMessage("0xS001 "+resourceBundle.getString("app.soap.error.empty"));
             logger.error(e.toString());
         }
         viewAllDepositsAvailableResponse.setServiceStatus(serviceStatus);

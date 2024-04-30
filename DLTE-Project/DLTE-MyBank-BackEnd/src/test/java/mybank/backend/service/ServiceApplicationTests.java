@@ -78,7 +78,7 @@ class ServiceApplicationTests {
         ViewAllDepositsAvailableRequest request = new ViewAllDepositsAvailableRequest();
         ViewAllDepositsAvailableResponse response = soap.ViewAllDepositsAvailable(request);
 
-        assertEquals(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, response.getServiceStatus().getStatus());
+        assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
     }
 
 
@@ -87,7 +87,6 @@ class ServiceApplicationTests {
     @WithMockUser(username = "shreyas12")
     public void testRestDepositAvailed() throws Exception {
         String request = "{\n " +
-                "\"depositAvailId\": 2," +
                 "\n\"customerId\": 100002," +
                 "\n\"depositId\": 1000002," +
                 "\n\"depositAmount\": 40000.0," +
