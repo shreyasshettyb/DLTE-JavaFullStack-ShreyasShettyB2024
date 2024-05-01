@@ -17,56 +17,6 @@
 <header th:replace="nav::navbar"></header>
 <body>
 <script>
-    const form = document.getElementById('myForm');
-    const amountInput = document.getElementById('Amount');
-    const durationInput = document.getElementById('Duration');
-    const tAndCInput = document.getElementById('tAndC');
-    const amountError = document.getElementById('amountError');
-    const durationError = document.getElementById('durationError');
-    const tAndCError = document.getElementById('tAndCError');
-
-    form.addEventListener('submit', function(event) {
-        let isValid = true;
-
-        // Amount validation
-        if (amountInput.value.trim() === '') {
-            amountError.textContent = 'Amount is required';
-            isValid = false;
-        }
-        else if(amountInput.value<0){
-            amountError.textContent = 'Amount cannot be Zero or less than Zero';
-            isValid = false;
-        }
-        else {
-            amountError.textContent = '';
-        }
-
-        // Duration validation
-        if (durationInput.value.trim() === '') {
-            durationError.textContent = 'Duration is required';
-            isValid = false;
-        }
-        else if(durationInput.value<0){
-            durationError.textContent = 'Duration cannot be Zero or less than Zero';
-            isValid = false;
-        }
-        else {
-            durationError.textContent = '';
-        }
-
-        // Terms and Conditions validation
-        if (!tAndCInput.checked) {
-            tAndCError.textContent = 'You must accept the terms and conditions';
-            isValid = false;
-        } else {
-            tAndCError.textContent = '';
-        }
-
-        if (!isValid) {
-            event.preventDefault(); // Prevent form submission if not valid
-        }
-    });
-
     $(document).ready(() => {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -91,38 +41,82 @@
 
         $("#submit").click((event) => {
             event.preventDefault();
-            const depositId = $("#depositId").val();
-            const depositAmount = $("#Amount").val();
-            const depositDuration = $("#Duration").val();
-            const depositMaturity = $("#date").val();
+            if(validation()) {
+                const depositId = $("#depositId").val();
+                const depositAmount = $("#Amount").val();
+                const depositDuration = $("#Duration").val();
+                const depositMaturity = $("#date").val();
 
-            const request = {
-                "depositId": depositId,
-                "depositAmount": depositAmount,
-                "depositDuration": depositDuration,
-                "depositMaturity": depositMaturity
-            };
+                const request = {
+                    "depositId": depositId,
+                    "depositAmount": depositAmount,
+                    "depositDuration": depositDuration,
+                    "depositMaturity": depositMaturity
+                };
 
 
-
-
-            $.ajax({
-                url: "http://localhost:8082/mybank/deposits/avail",
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json;charset=utf-8",
-                data: JSON.stringify(request),
-                success: function (response) {
-                    alert(JSON.stringify(response));
-
-                },
-                error: function (err) {
-                    console.log(request)
-                    alert("Error: " + err.status);
-                }
-            });
+                $.ajax({
+                    url: "http://localhost:8082/mybank/deposits/avail",
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify(request),
+                    success: function (response) {
+                        const deposit=`<h4>Deposit Amount:<span>${response.depositAmount}</span></h4><h4>Deposit Duration:<span>${response.depositDuration}</span></h4><h4>Deposit Maturity:<span>${response.depositMaturity}</span></h4>`
+                        $("#depositDetails").html(deposit)
+                        $("#ackModal").show();
+                        // alert(JSON.stringify(response));
+                    },
+                    error: function (err) {
+                        console.log(request)
+                        alert("Error: " + err.status);
+                    }
+                });
+            }
         });
     });
+
+    function validation(){
+        const amountInput = $("#Amount").val();
+        const durationInput = $("#Duration").val();
+        let isValid = true;
+
+        // Amount validation
+        if (amountInput.trim() === '') {
+            $("#amountError").text("hello")
+            isValid = false;
+        }
+        else if(amountInput<0){
+            $("#amountError").text('Amount cannot be Zero or less than Zero');
+            isValid = false;
+        }
+        else {
+            $("#amountError").text('');
+        }
+
+        // Duration validation
+        if (durationInput.trim() === '') {
+            $("#durationError").text('Duration is required');
+            isValid = false;
+        }
+        else if(durationInput<0){
+            $("#durationError").text('Duration cannot be Zero or less than Zero');
+            isValid = false;
+        }
+        else {
+            $("#durationError").text('');
+        }
+
+        // Terms and Conditions validation
+        if (!$("#tAndC").is(':checked')) {
+            $("#tAndCError").text('You must accept the terms and conditions');
+            isValid = false;
+        } else {
+            $("#tAndCError").text('');
+        }
+
+        return isValid
+    };
 </script>
 <div class="container mt-4 ">
     <div class="card p-4 col-lg-6 mx-auto my-4">
@@ -136,12 +130,12 @@
             <div class="form-group my-2">
                 <label for="Amount">Amount</label>
                 <input class="form-control" type="number" id="Amount" name="Amount" required>
-                <div id="amountError" class="error"></div>
+                <span id="amountError" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
                 <label for="Duration">Duration</label>
                 <input class="form-control" type="number" id="Duration" name="Duration" required>
-                <div id="durationError" class="error"></div>
+                <span id="durationError" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
                 <label for="date">Deposit Date</label>
@@ -152,14 +146,35 @@
                     <input class="form-check-inline" type="checkbox" id="tAndC" name="t&c" required>
                     Accept terms and Conditions
                 </label>
-                <div id="tAndCError" class="error"></div>
+                <span id="tAndCError" class="text-danger"></span>
             </div>
             <button class="btn btn-m" type="button" id="submit" style="background-color: #182052; color: white;" value="Apply">Submit</button>
             <button class="btn btn-m" type="button" id="reset" value="Cancel" style="background-color: #F25C19; color: white;">Reset</button>
         </form>
     </div>
 </div>
-<div class=""
+<div class="modal" id="ackModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">Deposit Confirmation</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <h3 id="modalMessage">Your Deposit Details</h3>
+                <div id="depositDetails"></div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <a th:href="@{'/dashboard'}"> <button type="button" class="btn btn-primary" id="okButton" data-bs-dismiss="modal">OK</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <footer th:replace="footer::footer"></footer>
 

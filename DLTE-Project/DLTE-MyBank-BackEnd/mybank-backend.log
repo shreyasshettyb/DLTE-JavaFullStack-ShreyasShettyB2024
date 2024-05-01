@@ -2129,4 +2129,688 @@
 [0;39m[31m2024-05-01 18:40:23,941[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver http-nio-8082-exec-5 [32mResolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.Object> mybank.backend.service.rest.MyBankRestController.availDepositApi(mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed): [Field error in object 'depositsAvailed' on field 'depositAmount': rejected value [null]; codes [NotNull.depositsAvailed.depositAmount,NotNull.depositAmount,NotNull.java.lang.Double,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [depositsAvailed.depositAmount,depositAmount]; arguments []; default message [depositAmount]]; default message [Value Cannot be Null]] ]
 [0;39m[31m2024-05-01 19:00:28,792[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m3s470ms509µs200ns).
 [0;39m[31m2024-05-01 21:28:03,921[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=59m33s643ms922µs500ns).
+[0;39m[31m2024-05-01 21:31:01,324[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 3936 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 21:31:01,326[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 21:31:01,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 21:31:01,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 21:31:01,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 21:31:02,613[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 21:31:02,638[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 21:31:02,991[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$3bef8683] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:31:02,991[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$17f9ddc6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:31:03,038[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 21:31:03,521[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 21:31:03,535[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 21:31:03,535[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 21:31:03,677[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 21:31:03,677[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 2288 ms
+[0;39m[31m2024-05-01 21:31:04,129[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@210c292f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@606bb10f, org.springframework.security.web.context.SecurityContextPersistenceFilter@413876dc, org.springframework.security.web.header.HeaderWriterFilter@7736f5c7, org.springframework.web.filter.CorsFilter@3ceef73e, org.springframework.security.web.authentication.logout.LogoutFilter@15bccbb9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@c63d7c6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6922f646, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@200eb322, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22fd276e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@779eb8bb, org.springframework.security.web.session.SessionManagementFilter@27b507ea, org.springframework.security.web.access.ExceptionTranslationFilter@44a8d6c9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2be61d0f]
+[0;39m[31m2024-05-01 21:31:04,539[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 21:31:05,029[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 21:31:05,044[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 21:31:05,152[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 21:31:05,160[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 21:31:05,356[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 21:31:05,406[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 21:31:05,423[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 4.788 seconds (JVM running for 6.414)
+[0;39m[31m2024-05-01 21:31:05,482[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:31:05,482[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:31:05,482[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-05-01 21:31:16,132[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:31:16,211[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:31:16,761[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 21:31:16,925[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:31:16,927[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:31:21,783[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:31:21,783[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:31:21,784[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:31:21,786[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:31:21,790[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-1 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 21:31:21,811[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 27 ms
+[0;39m[31m2024-05-01 21:31:21,979[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-1 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 21:31:21,987[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-1 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 21:31:33,110[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:31:33,112[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:33:19,619[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 13048 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 21:33:19,619[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 21:33:19,788[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 21:33:19,791[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 21:33:19,793[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 21:33:23,870[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 21:33:23,917[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 26 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 21:33:24,470[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$22bb8f84] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:33:24,470[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$fec5e6c7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:33:24,533[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 21:33:25,071[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 21:33:25,078[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 21:33:25,078[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 21:33:25,214[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 21:33:25,214[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 5421 ms
+[0;39m[31m2024-05-01 21:33:25,578[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5feea7ce, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5473bb53, org.springframework.security.web.context.SecurityContextPersistenceFilter@3da65194, org.springframework.security.web.header.HeaderWriterFilter@35fa4b91, org.springframework.web.filter.CorsFilter@57c01ecb, org.springframework.security.web.authentication.logout.LogoutFilter@63b1a2be, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e8f3bed, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7840d62f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e16af64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52cb8c1b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@447a7859, org.springframework.security.web.session.SessionManagementFilter@1556241f, org.springframework.security.web.access.ExceptionTranslationFilter@73a58891, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@562ec48f]
+[0;39m[31m2024-05-01 21:33:26,414[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 21:33:27,619[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 21:33:27,620[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 21:33:27,836[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 21:33:27,858[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 21:33:28,241[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 21:33:28,347[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 21:33:28,387[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 9.68 seconds (JVM running for 10.675)
+[0;39m[31m2024-05-01 21:33:28,615[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:33:28,615[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:33:28,631[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 16 ms
+[0;39m[31m2024-05-01 21:33:43,887[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:33:43,935[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:33:44,472[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-10 [32mlogin successful
+[0;39m[31m2024-05-01 21:33:44,728[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:33:44,740[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:33:48,943[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:33:48,945[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:33:48,945[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:33:48,949[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:33:48,956[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-2 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 21:33:48,982[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 37 ms
+[0;39m[31m2024-05-01 21:33:49,101[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-2 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 21:33:49,117[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-2 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 21:33:53,296[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:33:53,306[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:38:19,196[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 24836 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 21:38:19,196[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 21:38:19,286[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 21:38:19,286[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 21:38:19,286[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 21:38:20,316[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 21:38:20,332[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 21:38:20,547[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$f4841030] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:38:20,563[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$d08e6773] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:38:20,600[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 21:38:20,944[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 21:38:21,018[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 21:38:21,019[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 21:38:21,191[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 21:38:21,191[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1904 ms
+[0;39m[31m2024-05-01 21:38:21,574[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59649a96, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25adf9e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@63f621a5, org.springframework.security.web.header.HeaderWriterFilter@9a378c0, org.springframework.web.filter.CorsFilter@3c1123d7, org.springframework.security.web.authentication.logout.LogoutFilter@27e3fd7b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d14ed1b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@13333ab2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79a9046c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5368332a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b0a5dad, org.springframework.security.web.session.SessionManagementFilter@28a8210d, org.springframework.security.web.access.ExceptionTranslationFilter@338a990a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d24d8ba]
+[0;39m[31m2024-05-01 21:38:22,092[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 21:38:22,756[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 21:38:22,762[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 21:38:22,872[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 21:38:22,872[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 21:38:23,045[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 21:38:23,108[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 21:38:23,124[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 4.596 seconds (JVM running for 5.713)
+[0;39m[31m2024-05-01 21:38:23,192[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:38:23,192[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:38:23,192[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-05-01 21:38:35,843[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:38:35,916[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:38:36,457[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 21:38:36,620[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:38:36,624[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:38:41,154[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:38:41,154[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:38:41,154[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:38:41,163[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:38:41,165[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-1 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 21:38:41,185[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 27 ms
+[0;39m[31m2024-05-01 21:38:41,294[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-1 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 21:38:41,294[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-1 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 21:38:44,558[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:38:44,567[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:56:20,066[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 26048 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 21:56:20,067[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 21:56:20,113[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 21:56:20,113[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 21:56:20,113[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 21:56:21,125[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 21:56:21,152[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 21:56:21,514[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$8be194ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:56:21,514[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$67ebec31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 21:56:21,577[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 21:56:22,256[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 21:56:22,272[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 21:56:22,272[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 21:56:22,429[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 21:56:22,429[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 2316 ms
+[0;39m[31m2024-05-01 21:56:22,854[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f223a01, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ac8e448, org.springframework.security.web.context.SecurityContextPersistenceFilter@63ef89e9, org.springframework.security.web.header.HeaderWriterFilter@f07c8c8, org.springframework.web.filter.CorsFilter@313f723d, org.springframework.security.web.authentication.logout.LogoutFilter@2c052313, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a070ed4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@65efe470, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47fba2e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33a09cea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c9fa0a3, org.springframework.security.web.session.SessionManagementFilter@7ebca074, org.springframework.security.web.access.ExceptionTranslationFilter@2eabc8d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d136186]
+[0;39m[31m2024-05-01 21:56:23,296[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 21:56:24,047[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 21:56:24,048[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 21:56:24,163[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 21:56:24,163[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 21:56:24,368[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 21:56:24,432[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 21:56:24,449[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 4.81 seconds (JVM running for 5.553)
+[0;39m[31m2024-05-01 21:56:32,982[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:56:32,996[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 21:56:32,997[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 1 ms
+[0;39m[31m2024-05-01 21:56:45,177[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:56:45,270[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:56:45,853[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-7 [32mlogin successful
+[0;39m[31m2024-05-01 21:56:45,995[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:56:45,998[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:56:49,169[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:56:49,169[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:56:49,169[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 21:56:49,180[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-2 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 21:56:49,180[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 21:56:49,210[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 41 ms
+[0;39m[31m2024-05-01 21:56:49,325[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-2 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 21:56:49,325[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-2 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 21:56:52,895[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 21:56:52,898[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:01:43,130[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 12528 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:01:43,130[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:01:43,189[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:01:43,189[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:01:43,189[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:01:43,995[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:01:44,008[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:01:44,213[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$43da4dd0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:01:44,213[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$1fe4a513] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:01:44,245[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:01:44,640[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:01:44,657[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:01:44,657[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:01:44,740[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:01:44,740[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1551 ms
+[0;39m[31m2024-05-01 22:01:45,121[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38069063, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75deb97e, org.springframework.security.web.context.SecurityContextPersistenceFilter@71ac1f6, org.springframework.security.web.header.HeaderWriterFilter@2a1ffcf, org.springframework.web.filter.CorsFilter@39903e44, org.springframework.security.web.authentication.logout.LogoutFilter@2ae10546, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c92dc2f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@9ee5d0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18385e75, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b99c6d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@cb2a92, org.springframework.security.web.session.SessionManagementFilter@5ffb23c7, org.springframework.security.web.access.ExceptionTranslationFilter@3d5f4579, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c8631c8]
+[0;39m[31m2024-05-01 22:01:45,471[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:01:45,866[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:01:45,866[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:01:45,961[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:01:45,961[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:01:46,120[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:01:46,202[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:01:46,211[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 3.523 seconds (JVM running for 4.282)
+[0;39m[31m2024-05-01 22:01:48,073[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:01:48,073[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:01:48,073[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-05-01 22:01:59,292[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:01:59,373[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:01:59,974[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 22:02:00,188[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:02:00,194[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:02:04,529[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:02:04,529[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:02:04,529[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:02:04,535[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:02:04,538[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-2 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:02:04,562[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 32 ms
+[0;39m[31m2024-05-01 22:02:04,705[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-2 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:02:04,705[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-2 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:02:07,908[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:02:07,942[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:20:17,762[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 22996 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:20:17,762[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:20:17,801[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:20:17,801[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:20:17,801[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:20:18,793[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:20:18,812[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:20:19,117[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$398b8b1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:20:19,117[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$1595e25f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:20:19,165[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:20:19,545[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:20:19,560[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:20:19,560[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:20:19,671[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:20:19,671[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1870 ms
+[0;39m[31m2024-05-01 22:20:19,971[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ccc4d6b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3595f222, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a1689f6, org.springframework.security.web.header.HeaderWriterFilter@209df341, org.springframework.web.filter.CorsFilter@7ac60c45, org.springframework.security.web.authentication.logout.LogoutFilter@14190ef7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@62e0b1f4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@473d33d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62ea67e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ada3552, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@617b8880, org.springframework.security.web.session.SessionManagementFilter@65c3e217, org.springframework.security.web.access.ExceptionTranslationFilter@28c780c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@921e74f]
+[0;39m[31m2024-05-01 22:20:20,289[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:20:20,747[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:20:20,747[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:20:20,836[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:20:20,840[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:20:20,953[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:20:21,000[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:20:21,015[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 3.736 seconds (JVM running for 4.903)
+[0;39m[31m2024-05-01 22:20:37,310[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:20:37,310[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:20:37,312[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 1 ms
+[0;39m[31m2024-05-01 22:20:49,533[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:20:49,596[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:20:50,082[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-1 [32mlogin successful
+[0;39m[31m2024-05-01 22:20:50,246[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:20:50,249[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:20:53,301[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-9 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:20:53,302[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-2 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:20:53,302[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-9 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:20:53,308[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-9 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:20:53,308[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-2 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:20:53,330[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-9 [32mCompleted initialization in 27 ms
+[0;39m[31m2024-05-01 22:20:53,434[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-9 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:20:53,458[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-9 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:20:57,194[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:20:57,196[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:41:12,926[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 17680 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:41:12,928[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:41:12,964[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:41:12,964[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:41:12,964[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:41:13,768[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:41:13,783[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:41:13,972[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$8a82780a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:41:13,972[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$668ccf4d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:41:14,021[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:41:14,308[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:41:14,320[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:41:14,320[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:41:14,415[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:41:14,415[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1451 ms
+[0;39m[31m2024-05-01 22:41:14,666[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5473bb53, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57c01ecb, org.springframework.security.web.context.SecurityContextPersistenceFilter@559504d0, org.springframework.security.web.header.HeaderWriterFilter@3e469508, org.springframework.web.filter.CorsFilter@447a7859, org.springframework.security.web.authentication.logout.LogoutFilter@56caba64, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6cdacbb1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@288a43a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@224747aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@98910e1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e8067cf, org.springframework.security.web.session.SessionManagementFilter@2bf7a1eb, org.springframework.security.web.access.ExceptionTranslationFilter@68829bd3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c74988e]
+[0;39m[31m2024-05-01 22:41:14,997[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:41:15,438[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:41:15,438[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:41:15,517[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:41:15,517[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:41:15,660[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:41:15,707[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:41:15,710[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 3.324 seconds (JVM running for 4.271)
+[0;39m[31m2024-05-01 22:41:25,317[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:41:25,317[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:41:25,329[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 12 ms
+[0;39m[31m2024-05-01 22:41:36,550[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:41:36,639[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:41:37,222[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 22:41:37,391[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:41:37,393[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:41:43,301[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:41:43,301[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:41:43,302[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:41:43,305[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:41:43,308[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-1 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:41:43,330[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 28 ms
+[0;39m[31m2024-05-01 22:41:43,450[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-1 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:41:43,461[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-1 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:41:46,501[0;39m [32m[ERROR][0;39m org.thymeleaf.TemplateEngine http-nio-8082-exec-2 [32m[THYMELEAF][http-nio-8082-exec-2] Exception processing template "depositForm": An error happened during template parsing (template: "class path resource [templates/depositForm.html]")
+[0;39morg.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/depositForm.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:645)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "@"{'/dashboard'}"" (template: "depositForm" - line 174, col 20)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 98 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@"{'/dashboard'}"" (template: "depositForm" - line 174, col 20)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 100 common frames omitted
+[31m2024-05-01 22:41:46,501[0;39m [32m[ERROR][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] http-nio-8082-exec-2 [32mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/depositForm.html]")] with root cause
+[0;39morg.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@"{'/dashboard'}"" (template: "depositForm" - line 174, col 20)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:645)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+[31m2024-05-01 22:42:34,393[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 1948 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:42:34,393[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:42:34,503[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:42:34,503[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:42:34,503[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:42:36,824[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:42:36,859[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:42:37,233[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$ef3b5304] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:42:37,233[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$cb45aa47] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:42:37,312[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:42:37,784[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:42:37,784[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:42:37,800[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:42:37,957[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:42:37,957[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 3454 ms
+[0;39m[31m2024-05-01 22:42:38,428[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@658cd789, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32c42dbf, org.springframework.security.web.context.SecurityContextPersistenceFilter@1556241f, org.springframework.security.web.header.HeaderWriterFilter@31cb23d3, org.springframework.web.filter.CorsFilter@5feea7ce, org.springframework.security.web.authentication.logout.LogoutFilter@6fbd7213, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@226a5b74, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@63e97853, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3da65194, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e16af64, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5473bb53, org.springframework.security.web.session.SessionManagementFilter@35fa4b91, org.springframework.security.web.access.ExceptionTranslationFilter@6992f6e2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@277f4567]
+[0;39m[31m2024-05-01 22:42:39,134[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:42:40,146[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:42:40,146[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:42:40,303[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:42:40,319[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:42:40,539[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:42:40,605[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:42:40,635[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 6.962 seconds (JVM running for 7.992)
+[0;39m[31m2024-05-01 22:42:40,839[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:42:40,839[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:42:40,839[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-05-01 22:42:52,235[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:42:52,315[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:42:52,827[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-4 [32mlogin successful
+[0;39m[31m2024-05-01 22:42:53,051[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:42:53,057[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:42:56,626[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:42:56,626[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:42:56,626[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:42:56,635[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-10 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:42:56,637[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-2 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:42:56,656[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 28 ms
+[0;39m[31m2024-05-01 22:42:56,746[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-2 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:42:56,761[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-2 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:42:59,294[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:42:59,296[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:43:39,230[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:43:39,230[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-7 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:43:39,466[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-7 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:43:39,466[0;39m [32m[INFO][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-7 [32mPost Request Successful
+[0;39m[31m2024-05-01 22:48:39,968[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 6956 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:48:39,969[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:48:40,000[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:48:40,000[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:48:40,000[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:48:40,695[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:48:40,712[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:48:40,917[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$ba3e1d0e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:48:40,917[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$96487451] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:48:40,948[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:48:41,216[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:48:41,232[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:48:41,232[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:48:41,326[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:48:41,326[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1326 ms
+[0;39m[31m2024-05-01 22:48:41,563[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c423760, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c577adf, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b99c6d, org.springframework.security.web.header.HeaderWriterFilter@71ac1f6, org.springframework.web.filter.CorsFilter@348d170f, org.springframework.security.web.authentication.logout.LogoutFilter@37937e16, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7f1fb20a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@76fc8ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a2bcadf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@686b4193, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dcb34b6, org.springframework.security.web.session.SessionManagementFilter@18385e75, org.springframework.security.web.access.ExceptionTranslationFilter@2a1ffcf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65a69064]
+[0;39m[31m2024-05-01 22:48:41,815[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:48:42,211[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:48:42,211[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:48:42,289[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:48:42,292[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:48:42,403[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:48:42,451[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:48:42,468[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 2.925 seconds (JVM running for 3.727)
+[0;39m[31m2024-05-01 22:48:49,304[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:48:49,304[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:48:49,304[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-05-01 22:49:05,986[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:06,065[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:49:06,679[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 22:49:06,818[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-5 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:06,821[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-5 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:49:10,544[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-3 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:49:10,545[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-3 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:49:10,545[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-2 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:10,549[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-2 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:49:10,550[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-3 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:49:10,563[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-3 [32mCompleted initialization in 18 ms
+[0;39m[31m2024-05-01 22:49:10,673[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-3 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:49:10,689[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-3 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:49:14,315[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:14,318[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:49:24,741[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-9 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:24,741[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-9 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:49:24,963[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-9 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:49:24,963[0;39m [32m[INFO][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-9 [32mPost Request Successful
+[0;39m[31m2024-05-01 22:49:36,126[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:49:36,131[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-8 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:52:32,308[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarting ServiceApplication using Java 1.8.0_292 on WPF45DE1T with PID 24836 (C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd\target\classes started by xxshetts in C:\Users\xxshetts\OneDrive - Tietoevry\Desktop\DLTE-JavaFullStack-ShreyasShettyB2024\DLTE-Project\DLTE-MyBank-BackEnd)
+[0;39m[31m2024-05-01 22:52:32,310[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-05-01 22:52:32,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxshetts\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxshetts/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-05-01 22:52:32,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-05-01 22:52:32,389[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-05-01 22:52:33,688[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-05-01 22:52:33,705[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-05-01 22:52:33,941[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'soapConfig' of type [mybank.backend.service.soap.SoapConfig$$EnhancerBySpringCGLIB$$54d9ec5a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:52:33,941[0;39m [32m[INFO][0;39m org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker restartedMain [32mBean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$30e4439d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[0;39m[31m2024-05-01 22:52:33,992[0;39m [32m[INFO][0;39m org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping restartedMain [32mSupporting [WS-Addressing August 2004, WS-Addressing 1.0]
+[0;39m[31m2024-05-01 22:52:34,496[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-05-01 22:52:34,502[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-05-01 22:52:34,502[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-05-01 22:52:34,735[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-05-01 22:52:34,735[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 2345 ms
+[0;39m[31m2024-05-01 22:52:35,224[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fe30bb0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69da5c9b, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ce8eb9b, org.springframework.security.web.header.HeaderWriterFilter@69133270, org.springframework.web.filter.CorsFilter@2784ee8d, org.springframework.security.web.authentication.logout.LogoutFilter@42f75299, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e535851, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@67435a11, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f07c8c8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ebca074, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@433ecc29, org.springframework.security.web.session.SessionManagementFilter@2eabc8d0, org.springframework.security.web.access.ExceptionTranslationFilter@2df68f1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74864791]
+[0;39m[31m2024-05-01 22:52:35,713[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping restartedMain [32mAdding welcome page template: index
+[0;39m[31m2024-05-01 22:52:36,489[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-05-01 22:52:36,493[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-05-01 22:52:36,667[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-05-01 22:52:36,673[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-05-01 22:52:37,003[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mLiveReload server is running on port 35729
+[0;39m[31m2024-05-01 22:52:37,060[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-05-01 22:52:37,077[0;39m [32m[INFO][0;39m mybank.backend.service.ServiceApplication restartedMain [32mStarted ServiceApplication in 5.368 seconds (JVM running for 6.331)
+[0;39m[31m2024-05-01 22:52:37,765[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:52:37,765[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-05-01 22:52:37,767[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 2 ms
+[0;39m[31m2024-05-01 22:52:52,897[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:52:52,960[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:52:53,512[0;39m [32m[INFO][0;39m mybank.backend.service.auth.CustomerSuccessHandler http-nio-8082-exec-6 [32mlogin successful
+[0;39m[31m2024-05-01 22:52:53,666[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:52:53,672[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-4 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:52:57,102[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-8 [32mInitializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:52:57,103[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-8 [32mInitializing Servlet 'messageDispatcherServlet'
+[0;39m[31m2024-05-01 22:52:57,105[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:52:57,110[0;39m [32m[INFO][0;39m org.springframework.ws.soap.saaj.SaajSoapMessageFactory http-nio-8082-exec-8 [32mCreating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+[0;39m[31m2024-05-01 22:52:57,111[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-1 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:52:57,139[0;39m [32m[INFO][0;39m org.springframework.ws.transport.http.MessageDispatcherServlet http-nio-8082-exec-8 [32mCompleted initialization in 34 ms
+[0;39m[31m2024-05-01 22:52:57,219[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-8 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:52:57,235[0;39m [32m[INFO][0;39m mybank.backend.service.soap.SoapService http-nio-8082-exec-8 [32mRetrieved List of Available Deposits
+[0;39m[31m2024-05-01 22:53:00,716[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:53:00,724[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:53:11,164[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-9 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:53:11,167[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-9 [32mfindByUser method called
+[0;39m[31m2024-05-01 22:53:11,401[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank http-nio-8082-exec-9 [32mQuery Executed Successfully
+[0;39m[31m2024-05-01 22:53:11,401[0;39m [32m[INFO][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-9 [32mPost Request Successful
+[0;39m[31m2024-05-01 22:53:40,636[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mlistAllCustomers method called
+[0;39m[31m2024-05-01 22:53:40,640[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-6 [32mfindByUser method called
 [0;39m
