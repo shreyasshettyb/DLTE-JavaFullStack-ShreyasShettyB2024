@@ -33,20 +33,6 @@ public class MyBankRestController {
     @Autowired
     MyBankRemote myBankRemote;
 
-
-//    @GetMapping("/")
-//    public List<DepositsAvailable> hai(){
-//        List<DepositsAvailable> depositList=null;
-//        try {
-//            depositList = myBankRemote.availableDeposits();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } catch (DepositsException e) {
-//            e.printStackTrace();
-//        }
-//        return depositList;
-//    }
-
     //Post Mapping for Avail Deposit
     @PostMapping("/avail")
     @ApiResponses(value = {

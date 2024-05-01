@@ -62,7 +62,6 @@ public class MyBankAuthConfig  {
                 usernameParameter("username").
                 failureHandler(customerFailureHandler).
                 successHandler(customerSuccessHandler);
-
         httpSecurity.cors();
         httpSecurity.csrf().disable();
 
