@@ -15,7 +15,7 @@ public class DepositsAvailed {
     @NotNull(message = "{deposit.bean.null}")
     private Long depositId;
 
-    @NotNull(message = "{deposit.bean.null}")
+//    @NotNull(message = "{deposit.bean.null}")
     private Long customerId;
 
     @NotNull(message = "{deposit.bean.null}")

@@ -17,28 +17,94 @@
 <header th:replace="nav::navbar"></header>
 <body>
 <script>
+    const form = document.getElementById('myForm');
+    const amountInput = document.getElementById('Amount');
+    const durationInput = document.getElementById('Duration');
+    const tAndCInput = document.getElementById('tAndC');
+    const amountError = document.getElementById('amountError');
+    const durationError = document.getElementById('durationError');
+    const tAndCError = document.getElementById('tAndCError');
+
+    form.addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Amount validation
+        if (amountInput.value.trim() === '') {
+            amountError.textContent = 'Amount is required';
+            isValid = false;
+        }
+        else if(amountInput.value<0){
+            amountError.textContent = 'Amount cannot be Zero or less than Zero';
+            isValid = false;
+        }
+        else {
+            amountError.textContent = '';
+        }
+
+        // Duration validation
+        if (durationInput.value.trim() === '') {
+            durationError.textContent = 'Duration is required';
+            isValid = false;
+        }
+        else if(durationInput.value<0){
+            durationError.textContent = 'Duration cannot be Zero or less than Zero';
+            isValid = false;
+        }
+        else {
+            durationError.textContent = '';
+        }
+
+        // Terms and Conditions validation
+        if (!tAndCInput.checked) {
+            tAndCError.textContent = 'You must accept the terms and conditions';
+            isValid = false;
+        } else {
+            tAndCError.textContent = '';
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Prevent form submission if not valid
+        }
+    });
+
     $(document).ready(() => {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        $("#date").val(today);
+
 
         $("#reset").click((event) => {
             event.preventDefault();
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+
             $("#Duration").val("");
-            $("#date").val("");
             $("#Amount").val("");
+            $("#date").val(today);
         });
 
         $("#submit").click((event) => {
             event.preventDefault();
-            const depositType = $("#depositType").val();
+            const depositId = $("#depositId").val();
             const depositAmount = $("#Amount").val();
             const depositDuration = $("#Duration").val();
             const depositMaturity = $("#date").val();
 
             const request = {
-                "depositId": depositType,
+                "depositId": depositId,
                 "depositAmount": depositAmount,
                 "depositDuration": depositDuration,
                 "depositMaturity": depositMaturity
             };
+
+
+
 
             $.ajax({
                 url: "http://localhost:8082/mybank/deposits/avail",
@@ -48,6 +114,7 @@
                 data: JSON.stringify(request),
                 success: function (response) {
                     alert(JSON.stringify(response));
+
                 },
                 error: function (err) {
                     console.log(request)
@@ -58,34 +125,41 @@
     });
 </script>
 <div class="container mt-4 ">
-    <div class="card p-4 col-lg-6">
+    <div class="card p-4 col-lg-6 mx-auto my-4">
         <form id="depositForm">
             <h2>Deposits Avail Form</h2>
-            <div class="form-group">
-                <label>Deposit Type</label>
-                <input class="form-control" type="text" id="depositName" name="depositName" value={depositname} readonly required>
+            <input type="hidden" id="depositId" th:value="${param.id}"/>
+            <div class="form-group my-2">
+                <label>Deposit Name</label>
+                <input class="form-control" type="text" id="depositName" name="depositName" th:value="${param.name}" readonly required>
             </div>
-            <div class="form-group">
-                <label>Amount</label>
+            <div class="form-group my-2">
+                <label for="Amount">Amount</label>
                 <input class="form-control" type="number" id="Amount" name="Amount" required>
+                <div id="amountError" class="error"></div>
             </div>
-            <div class="form-group">
-                <label>Duration</label>
+            <div class="form-group my-2">
+                <label for="Duration">Duration</label>
                 <input class="form-control" type="number" id="Duration" name="Duration" required>
+                <div id="durationError" class="error"></div>
             </div>
-            <div class="form-group">
-                <label>Deposit Date</label>
+            <div class="form-group my-2">
+                <label for="date">Deposit Date</label>
                 <input class="form-control" type="date" id="date" name="date" readonly>
             </div>
-            <div class="form-group">
-                <label class="form-check-label">Accept terms and Conditions</label>
-                <input class="form-check-inline" type="checkbox" name="t&c" required>
+            <div class="form-group my-2">
+                <label class="form-check-label">
+                    <input class="form-check-inline" type="checkbox" id="tAndC" name="t&c" required>
+                    Accept terms and Conditions
+                </label>
+                <div id="tAndCError" class="error"></div>
             </div>
             <button class="btn btn-m" type="button" id="submit" style="background-color: #182052; color: white;" value="Apply">Submit</button>
             <button class="btn btn-m" type="button" id="reset" value="Cancel" style="background-color: #F25C19; color: white;">Reset</button>
         </form>
     </div>
 </div>
+<div class=""
 </body>
 <footer th:replace="footer::footer"></footer>
 
