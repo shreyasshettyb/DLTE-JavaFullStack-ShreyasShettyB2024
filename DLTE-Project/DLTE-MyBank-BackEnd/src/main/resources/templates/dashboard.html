@@ -15,7 +15,7 @@
 </head>
 <header th:replace="nav::navbar"></header>
 <body>
-<div class="container">
+<div class="container my-2">
     <h1 style="font-weight: bolder;color:#182052">
         LANDING PAGE
     </h1>
@@ -45,11 +45,11 @@
         </button>
     </div>
 </div>
-<div class="container">
-    <button class="btn btn-lg btn-outline-dark rounded-5 ms-4"
+<div class="container my-2">
+   <a th:href="@{'/view'}"> <button class="btn btn-lg btn-outline-dark rounded-5 ms-4"
             style="background-color: #182052;color: white;font-weight: bolder;">
         Get Started
-    </button>
+   </button></a>
 </div>
 </body>
 <footer th:replace="footer::footer"></footer>

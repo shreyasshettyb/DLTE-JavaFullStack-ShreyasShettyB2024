@@ -72,6 +72,7 @@ public class MyBankAuthConfig  {
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
 
+        httpSecurity.logout().permitAll();
         AuthenticationManagerBuilder builder = httpSecurity.
                 getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(service);

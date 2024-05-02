@@ -16,7 +16,7 @@
         .buttons{
             display: none;
         }
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 768px) {
             .arrows {
                 display: none;
             }
@@ -24,17 +24,24 @@
                 display: block;!important;
             }
         }
+        @media only screen and (min-width:768px){
+            .footer{
+                position: absolute;
+                bottom:0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <header th:replace="nav::navbar"></header>
 <body>
-<div class="container">
+<div class="container my-5">
     <h1 class="text-center" style="color: #182052">Deposits Available</h1>
 </div>
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col arrows" >
-            <span id="pagination-prev" class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1) grayscale(100);"></span>
+            <span id="pagination-prev" class="carousel-control-prev-icon h-100" aria-hidden="true" style="filter: invert(1) grayscale(100);"></span>
         </div>
         <div class="col-10">
             <div  class="row" id="depositList">
@@ -42,7 +49,7 @@
             </div>
         </div>
         <div class="col arrows">
-            <span id="pagination-next" class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1) grayscale(100);"></span>
+            <span id="pagination-next" class="carousel-control-next-icon h-100" aria-hidden="true" style="filter: invert(1) grayscale(100);"></span>
         </div>
         <div class="col buttons" >
             <button id="pagination-prev-btn" class="btn btn-info" >Previous</button>

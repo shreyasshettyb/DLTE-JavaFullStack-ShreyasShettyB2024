@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="51a9a8bb-b184-49c1-8b46-a34e27e40909" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/mybank-backend.log.2024-05-01.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Design/DLTE-Deposits (2).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend-Task1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend-Task1/service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend-Task1/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend-Task2/Index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/listAllDeposits.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/mybank-backend.log" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/mybank-backend.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/java/mybank/backend/service/auth/MyBankAuthConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/java/mybank/backend/service/auth/MyBankAuthConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/java/mybank/backend/service/mvc/MVCController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/java/mybank/backend/service/mvc/MVCController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/exception.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/viewDeposits.html" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE-MyBank-BackEnd/src/main/resources/templates/viewDeposits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design/DLTE-Deposits (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend-Task1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend-Task1/service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend-Task1/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend-Task2/Index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/listAllDeposits.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/styles.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2ftjtCjUGwV89DK7rdaKd7SRlJJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="DepositsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="DLTE-MyBank-Frontend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="mybank.frontend.deposits.DepositsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51a9a8bb-b184-49c1-8b46-a34e27e40909" name="Default Changelist" comment="" />
+      <created>1714627480748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714627480748</updated>
+      <workItem from="1714627483381" duration="422000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="209" y="111" key="new project wizard" timestamp="1714627908190">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="111" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1714627908190" />
+  </component>
+</project>

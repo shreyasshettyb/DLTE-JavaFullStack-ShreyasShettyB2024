@@ -15,6 +15,7 @@ public class MVCController {
 
     @Autowired
     CustomerAuthService customerAuthService;
+
     @GetMapping("/")
     public String index(){
         return "index";
@@ -32,7 +33,7 @@ public class MVCController {
     public String viewDeposits(){ return "viewDeposits";}
 
     @GetMapping("/error")
-    public String error(){ return "exception";}
+    public String error(){ return "error";}
 
     @GetMapping("/calculator")
     public String calculator(){return "calculator";}
