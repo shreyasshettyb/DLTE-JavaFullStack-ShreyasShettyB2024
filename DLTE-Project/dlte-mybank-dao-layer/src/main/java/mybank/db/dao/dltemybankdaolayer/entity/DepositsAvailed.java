@@ -1,35 +1,34 @@
 package mybank.db.dao.dltemybankdaolayer.entity;
 
 
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.*;
 import java.util.Date;
 
 public class DepositsAvailed {
 
-//    @NotNull(message = "{deposit.bean.null}")
     private Long depositAvailId;
 
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
     private Long depositId;
 
-//    @NotNull(message = "{deposit.bean.null}")
     private Long customerId;
 
-    @NotNull(message = "{deposit.bean.null}")
-    @Positive
+    @NotNull(message = "{0xV001}")
+    @Positive(message = "{0xV002}")
     private Double depositAmount;
 
-    @NotNull(message = "{deposit.bean.null}")
-    @Min(1)
+    @NotNull(message = "{0xV001}")
+    @Digits(integer = 2,fraction = 0,message = "{0xV004}")
+    @Positive(message ="{0xV002}")
     private Integer depositDuration;
 
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
+    @Pattern(regexp = "^\\d{2}-\\d{2}-\\d{4}$", message = "{0xV003}")
     private Date depositMaturity;
 
-    public DepositsAvailed(Long depositAvailId, @NotNull(message = "{deposit.bean.null}") Long depositId, @NotNull(message = "{deposit.bean.null}") Long customerId, @NotNull(message = "{deposit.bean.null}") @Positive Double depositAmount, @NotNull(message = "{deposit.bean.null}") @Min(1) Integer depositDuration, @NotNull(message = "{deposit.bean.null}") Date depositMaturity) {
+    public DepositsAvailed(Long depositAvailId, @NotNull(message = "{0xV001}") Long depositId, Long customerId, @NotNull(message = "{0xV001}") @Positive(message = "{0xV002}") Double depositAmount, @NotNull(message = "{0xV001}") @Digits(integer = 2, fraction = 0, message = "{0xV004}") @Positive(message = "{0xV002}") Integer depositDuration, @NotNull(message = "{0xV001}") @Pattern(regexp = "^\\d{2}-\\d{2}-\\d{4}$", message = "{0xV003}") Date depositMaturity) {
         this.depositAvailId = depositAvailId;
         this.depositId = depositId;
         this.customerId = customerId;

@@ -1,5 +1,6 @@
 package mybank.db.dao.dltemybankdaolayer;
 
+import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
@@ -18,4 +19,5 @@ public interface MyBankRemote {
     List<DepositsAvailable> findDepositsById(long deposits_id);
 
     String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException;
+
 }

@@ -6,32 +6,24 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class DepositsAvailable {
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
     private long depositId;
 
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
     private String depositName;
 
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
     private String depositType;
 
-    @NotNull(message = "{deposit.bean.null}")
+    @NotNull(message = "{0xV001}")
     private String depositDescription;
 
-    @NotNull(message = "{deposit.bean.null}")
-    @Positive(message = "{deposit.bean.positive}")
-    @Digits(integer = 3, fraction = 2, message = "{deposit.roi}")
+    @NotNull(message = "{0xV001}")
+    @Positive
+    @Digits(integer = 3, fraction = 2)
     private double depositRoi;
 
     public DepositsAvailable() {
-    }
-
-    public DepositsAvailable(long depositId, String depositName, String depositType, String depositDescription, double depositRoi) {
-        this.depositId = depositId;
-        this.depositName = depositName;
-        this.depositType = depositType;
-        this.depositDescription = depositDescription;
-        this.depositRoi = depositRoi;
     }
 
     @Override

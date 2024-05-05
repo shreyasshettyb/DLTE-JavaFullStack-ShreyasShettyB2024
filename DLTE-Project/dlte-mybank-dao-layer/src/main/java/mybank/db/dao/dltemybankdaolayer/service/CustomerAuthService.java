@@ -1,5 +1,6 @@
 package mybank.db.dao.dltemybankdaolayer.service;
 
+import mybank.db.dao.dltemybankdaolayer.CustomerAuthInterface;
 import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerAuthService implements UserDetailsService {
+public class CustomerAuthService implements UserDetailsService , CustomerAuthInterface {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

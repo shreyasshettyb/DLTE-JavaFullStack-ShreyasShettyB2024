@@ -7,21 +7,21 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
 public class Customer implements UserDetails {
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private Long customerId;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private String customerName;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private String customerAddress;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private String customerStatus;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private Long customerContact;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private String username;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private String password;
-    @NotNull
+    @NotNull(message = "{0xV001}")
     private Integer attempts;
     private final int maxAttempt=3;
 

@@ -10,7 +10,6 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" th:href="@{'/css/form.css'}">
     <title>My Bank - Avail Deposit</title>
 </head>
 
@@ -42,7 +41,7 @@
         $("#submit").click((event) => {
             event.preventDefault();
             if(validation()) {
-                const depositId = $("#depositId").val();
+                const depositId = [[${depositId}]];
                 const depositAmount = $("#Amount").val();
                 const depositDuration = $("#Duration").val();
                 const depositMaturity = $("#date").val();
@@ -54,7 +53,7 @@
                     "depositMaturity": depositMaturity
                 };
 
-
+                console.log(request);
                 $.ajax({
                     url: "http://localhost:8082/mybank/deposits/avail",
                     type: "POST",
@@ -62,7 +61,10 @@
                     contentType: "application/json;charset=utf-8",
                     data: JSON.stringify(request),
                     success: function (response) {
-                        const deposit=`<h4>Deposit Amount:<span>${response.depositAmount}</span></h4><h4>Deposit Duration:<span>${response.depositDuration}</span></h4><h4>Deposit Maturity:<span>${response.depositMaturity}</span></h4>`
+                        var dateString = response.depositMaturity;
+                        var date = new Date(dateString);
+                        var formattedDate = date.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, "-");
+                        const deposit=`<h4>Deposit Amount:<span>${response.depositAmount}</span></h4><h4>Deposit Duration:<span>${response.depositDuration}</span></h4><h4>Deposit Maturity: <span>${formattedDate}</span></h4>`
                         $("#depositDetails").html(deposit)
                         $("#ackModal").show();
                         // alert(JSON.stringify(response));
@@ -99,6 +101,10 @@
             $("#durationError").text('Duration is required');
             isValid = false;
         }
+        else if (!Number.isInteger(Number(durationInput))) {
+            $("#durationError").text('Duration must be a whole number');
+            isValid = false;
+        }
         else if(durationInput<0){
             $("#durationError").text('Duration cannot be Zero or less than Zero');
             isValid = false;
@@ -122,10 +128,10 @@
     <div class="card p-4 col-lg-6 mx-auto my-4">
         <form id="depositForm">
             <h2>Deposits Avail Form</h2>
-            <input type="hidden" id="depositId" th:value="${param.id}"/>
+<!--            <input type="hidden" id="depositId" th:value="${deposit.id}"/>-->
             <div class="form-group my-2">
                 <label>Deposit Name</label>
-                <input class="form-control" type="text" id="depositName" name="depositName" th:value="${param.name}" readonly required>
+                <input class="form-control" type="text" id="depositName" name="depositName" th:value="${param.depositName}" readonly required>
             </div>
             <div class="form-group my-2">
                 <label for="Amount">Amount</label>

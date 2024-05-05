@@ -24,13 +24,6 @@
                 display: block;!important;
             }
         }
-        @media only screen and (min-width:768px){
-            .footer{
-                position: absolute;
-                bottom:0;
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <header th:replace="nav::navbar"></header>
@@ -114,7 +107,7 @@
                                                 <h5>${depositDescription}</h5>
                                             </div>
                                             <div class="modal-footer">
-                                               <a href="/apply?id=${depositId}&name=${depositName} "> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: #182052">Apply</button></a>
+                                               <a href="/apply?depositName=${depositName}"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="color: #182052">Apply</button></a>
                                                 <a href="/calculate?roi=${depositRoi}"><button type="button" class="btn btn-primary" style="color: #182052">Calculate returns</button></a>
                                             </div>
                                         </div>
