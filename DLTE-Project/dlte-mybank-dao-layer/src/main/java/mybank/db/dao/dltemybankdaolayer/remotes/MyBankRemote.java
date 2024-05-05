@@ -13,10 +13,6 @@ import java.util.List;
 public interface MyBankRemote {
     List<DepositsAvailable> availableDeposits() throws SQLException, DepositsException;
 
-    List<DepositsAvailable> findDepositsByRoi(double roi);
-
-    List<DepositsAvailable> findDepositsById(long deposits_id);
-
     String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException;
 
 }

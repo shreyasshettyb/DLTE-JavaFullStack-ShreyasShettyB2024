@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.*;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -43,7 +41,7 @@ public class RepositoryMyBank implements MyBankRemote {
             depositsAvailableList = jdbcTemplate.query("select * from mybank_app_depositsavailable", new DepositsAvailableMapper());
             logger.info(resourceBundle.getString("db.execute.success"));
         } catch (DataAccessException sqlException) {
-            logger.error(resourceBundle.getString("db.error.access")+": "+sqlException.getMessage());
+            logger.error(resourceBundle.getString("db.error.access") + ": " + sqlException.getMessage());
             throw new SQLException(resourceBundle.getString("db.error.access.code"));
         }
         if (depositsAvailableList.size() == 0) {
@@ -53,16 +51,6 @@ public class RepositoryMyBank implements MyBankRemote {
         return depositsAvailableList;
     }
 
-    @Override
-    public List<DepositsAvailable> findDepositsByRoi(double roi) {
-        return null;
-    }
-
-    @Override
-    public List<DepositsAvailable> findDepositsById(long deposits_id) {
-        return null;
-    }
-
     //Return Success If Avail Deposit is added to table
     @Override
     public String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException {
@@ -70,10 +58,6 @@ public class RepositoryMyBank implements MyBankRemote {
         nowDate = nowDate.plusYears(depositsAvailed.getDepositDuration());
         depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         Date sqlDate = Date.valueOf(nowDate);
-
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        Long customerId = customerAuthService.findByUsername(authentication.getName()).getCustomerId();
-//        depositsAvailed.setCustomerId(customerId);
 
         CallableStatementCreator creator = con -> {
             CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
@@ -109,17 +93,17 @@ public class RepositoryMyBank implements MyBankRemote {
             }
         } catch (UncategorizedSQLException e) {
             if (e.getSQLException().getErrorCode() == 20003) {
-                logger.error(resourceBundle.getString("db.error.notfound")+": "+e.getSQLException().getMessage());
+                logger.error(resourceBundle.getString("db.error.notfound") + ": " + e.getSQLException().getMessage());
                 throw new DepositsException(resourceBundle.getString("db.error.notfound.code"));
             } else {
-                logger.error(resourceBundle.getString("db.error.unknown")+": "+e.getSQLException().getMessage());
+                logger.error(resourceBundle.getString("db.error.unknown") + ": " + e.getSQLException().getMessage());
                 throw new SQLException(resourceBundle.getString("db.error.unknown.code"));
             }
         }
     }
 
     //Maps the query output to Entity/Model
-    public class DepositsAvailableMapper implements RowMapper<DepositsAvailable> {
+    public static class DepositsAvailableMapper implements RowMapper<DepositsAvailable> {
 
         @Override
         public DepositsAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {

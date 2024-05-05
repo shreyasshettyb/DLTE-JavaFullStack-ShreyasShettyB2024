@@ -26,13 +26,7 @@ public class DepositsAvailed {
 //    @DateTimeFormat(pattern= "yyyy-MM-dd")
     private Date depositMaturity;
 
-    public DepositsAvailed(Long depositAvailId, @NotNull(message = "{0xV001}") Long depositId, Long customerId, @NotNull(message = "{0xV001}") @Positive(message = "{0xV002}") Double depositAmount, @NotNull(message = "{0xV001}") @Positive(message = "{0xV002}") Integer depositDuration, @NotNull(message = "{0xV001}") Date depositMaturity) {
-        this.depositAvailId = depositAvailId;
-        this.depositId = depositId;
-        this.customerId = customerId;
-        this.depositAmount = depositAmount;
-        this.depositDuration = depositDuration;
-        this.depositMaturity = depositMaturity;
+    public DepositsAvailed() {
     }
 
     public Long getDepositAvailId() {
