@@ -729,4 +729,5 @@ ORA-06512: at "MYBANK.AVAIL_DEPOSITS", line 46
 ORA-06512: at line 1
 
 [0;39m[31m2024-05-05 11:56:33,009[0;39m [32m[ERROR][0;39m mybank.backend.service.rest.MyBankRestController http-nio-8082-exec-6 [32mmybank.db.dao.dltemybankdaolayer.exception.DepositsException: Deposit Id Details Not Found
+[0;39m[31m2024-05-05 16:04:41,813[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h26m26s464ms69µs500ns).
 [0;39m

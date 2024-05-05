@@ -29,21 +29,6 @@ public class Customer implements UserDetails {
     public Customer() {
     }
 
-    public Customer(@NotNull Long customerId, @NotNull String customerName, @NotNull String customerAddress, @NotNull String customerStatus, @NotNull Long customerContact, @NotNull String username, @NotNull String password, @NotNull Integer attempts) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerStatus = customerStatus;
-        this.customerContact = customerContact;
-        this.username = username;
-        this.password = password;
-        this.attempts = attempts;
-    }
-
-    public int getMaxAttempt() {
-        return maxAttempt;
-    }
-
     public Integer getAttempts() {
         return attempts;
     }

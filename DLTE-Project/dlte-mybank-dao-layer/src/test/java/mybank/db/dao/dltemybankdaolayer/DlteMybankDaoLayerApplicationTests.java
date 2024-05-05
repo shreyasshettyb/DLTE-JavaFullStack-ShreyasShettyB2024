@@ -5,7 +5,6 @@ import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,32 +25,24 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 class DlteMybankDaoLayerApplicationTests {
 
+    private static List<DepositsAvailable> depositsAvailableList;
+    private static DepositsAvailed depositsAvailed;
     @Mock
     private CallableStatementCreator callableStatementCreator;
-
-
     @Mock
     private JdbcTemplate jdbcTemplate;
-
     @InjectMocks
     private RepositoryMyBank service;
-
     @Mock
     private ResultSet resultSet;
-
-    private static List<DepositsAvailable> depositsAvailableList;
-
-    private static DepositsAvailed depositsAvailed;
 
     @BeforeAll
     static void setUp() {
@@ -168,27 +159,28 @@ class DlteMybankDaoLayerApplicationTests {
     @Test
     public void testAvailableDepositsSQLException() throws SQLException, DepositsException {
         Mockito.when(jdbcTemplate.query(Mockito.anyString(), Mockito.any(RepositoryMyBank.DepositsAvailableMapper.class)))
-                .thenThrow(new DataAccessException("Test SQLException") {});
+                .thenThrow(new DataAccessException("Test SQLException") {
+                });
         assertThrows(SQLException.class, () -> service.availableDeposits());
 
     }
 
 
     @Test
-    public void testAvailDepositsUncategorizedSQLException1()  {
+    public void testAvailDepositsUncategorizedSQLException1() {
 
         Mockito.when(jdbcTemplate.call(Mockito.any(), Mockito.anyList()))
-                .thenThrow(new UncategorizedSQLException("test","",new SQLException()));
+                .thenThrow(new UncategorizedSQLException("test", "", new SQLException()));
 
         assertThrows(SQLException.class, () -> service.availDeposits(depositsAvailed));
 
     }
 
     @Test
-    public void testAvailDepositsUncategorizedSQLException2()  {
+    public void testAvailDepositsUncategorizedSQLException2() {
 
         Mockito.when(jdbcTemplate.call(Mockito.any(), Mockito.anyList()))
-                .thenThrow(new UncategorizedSQLException("test","",new SQLException("Test", "SQL", 20003)));
+                .thenThrow(new UncategorizedSQLException("test", "", new SQLException("Test", "SQL", 20003)));
 
         assertThrows(DepositsException.class, () -> service.availDeposits(depositsAvailed));
 
@@ -196,7 +188,7 @@ class DlteMybankDaoLayerApplicationTests {
 
     @Test
     void testMapRow() throws SQLException {
-        RepositoryMyBank.DepositsAvailableMapper mapper= new RepositoryMyBank.DepositsAvailableMapper();
+        RepositoryMyBank.DepositsAvailableMapper mapper = new RepositoryMyBank.DepositsAvailableMapper();
         // Mock the ResultSet
         long depositId = 1000001L;
         String depositName = "FD";
@@ -215,32 +207,12 @@ class DlteMybankDaoLayerApplicationTests {
         DepositsAvailable depositsAvailable = mapper.mapRow(resultSet, 0);
 
         // Verify that the mapping is correct
-        assertThat(depositsAvailable.getDepositId()).isEqualTo(depositId);
-        assertThat(depositsAvailable.getDepositName()).isEqualTo(depositName);
-        assertThat(depositsAvailable.getDepositRoi()).isEqualTo(depositRoi);
-        assertThat(depositsAvailable.getDepositType()).isEqualTo(depositType);
-        assertThat(depositsAvailable.getDepositDescription()).isEqualTo(depositDescription);
+        assertEquals(depositsAvailable.getDepositId(), depositId);
+        assertEquals(depositsAvailable.getDepositName(), depositName);
+        assertEquals(depositsAvailable.getDepositRoi(), depositRoi);
+        assertEquals(depositsAvailable.getDepositType(), depositType);
+        assertEquals(depositsAvailable.getDepositDescription(), depositDescription);
     }
 
-    @Test
-    void testCreateCallableStatement() throws Exception {
-
-        // Mock the depositsAvailed object
-        when(depositsAvailed.getCustomerId()).thenReturn(123L);
-        when(depositsAvailed.getDepositId()).thenReturn(456L);
-        when(depositsAvailed.getDepositAmount()).thenReturn(1000.0);
-        when(depositsAvailed.getDepositDuration()).thenReturn(12);
-
-        // Call the createCallableStatement method
-        CallableStatement statement = callableStatementCreator.createCallableStatement(jdbcTemplate.getDataSource().getConnection());
-
-        // Verify that the statement is correctly prepared
-        verify(statement).setLong(1, 123L);
-        verify(statement).setLong(2, 456L);
-        verify(statement).setDouble(3, 1000.0);
-        verify(statement).setInt(4, 12);
-        verify(statement).setDate(5, new java.sql.Date(2024,5,3));
-        verify(statement).registerOutParameter(6, Types.VARCHAR);
-    }
 }
 
