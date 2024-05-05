@@ -1,9 +1,9 @@
 package mybank.db.dao.dltemybankdaolayer.service;
 
-import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,14 +41,14 @@ public class RepositoryMyBank implements MyBankRemote {
         List<DepositsAvailable> depositsAvailableList = null;
         try {
             depositsAvailableList = jdbcTemplate.query("select * from mybank_app_depositsavailable", new DepositsAvailableMapper());
-            logger.info(resourceBundle.getString("app.execute.success"));
+            logger.info(resourceBundle.getString("db.execute.success"));
         } catch (DataAccessException sqlException) {
-            logger.error(sqlException + resourceBundle.getString("app.error.access"));
-            throw new SQLException(resourceBundle.getString("app.error.access"));
+            logger.error(resourceBundle.getString("db.error.access")+": "+sqlException.getMessage());
+            throw new SQLException(resourceBundle.getString("db.error.access.code"));
         }
         if (depositsAvailableList.size() == 0) {
-            logger.error(resourceBundle.getString("app.error.empty"));
-            throw new DepositsException(resourceBundle.getString("app.codes.empty"));
+            logger.error(resourceBundle.getString("db.error.empty"));
+            throw new DepositsException(resourceBundle.getString("db.error.empty.code"));
         }
         return depositsAvailableList;
     }
@@ -71,9 +71,9 @@ public class RepositoryMyBank implements MyBankRemote {
         depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         Date sqlDate = Date.valueOf(nowDate);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Long customerId=customerAuthService.findByUsername(authentication.getName()).getCustomerId();
-        depositsAvailed.setCustomerId(customerId);
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        Long customerId = customerAuthService.findByUsername(authentication.getName()).getCustomerId();
+//        depositsAvailed.setCustomerId(customerId);
 
         CallableStatementCreator creator = con -> {
             CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
@@ -101,19 +101,19 @@ public class RepositoryMyBank implements MyBankRemote {
             String result = (String) returnedExecution.get("p_result");
 
             if (result.equals("Success")) {
-                logger.info(resourceBundle.getString("app.execute.success"));
+                logger.info(resourceBundle.getString("db.execute.success"));
                 return "Success";
             } else {
                 logger.error("Fail");
-                throw new DepositsException(resourceBundle.getString("app.error.fail"));
+                throw new DepositsException(resourceBundle.getString("db.error.fail.code"));
             }
         } catch (UncategorizedSQLException e) {
-             if (e.getSQLException().getErrorCode() == 20003) {
-                logger.error(e.getSQLException().toString());
-                throw new DepositsException(resourceBundle.getString("app.error.notfound"));
+            if (e.getSQLException().getErrorCode() == 20003) {
+                logger.error(resourceBundle.getString("db.error.notfound")+": "+e.getSQLException().getMessage());
+                throw new DepositsException(resourceBundle.getString("db.error.notfound.code"));
             } else {
-                logger.error(e.getSQLException().toString());
-                throw new DepositsException(resourceBundle.getString("app.error.unknown"));
+                logger.error(resourceBundle.getString("db.error.unknown")+": "+e.getSQLException().getMessage());
+                throw new SQLException(resourceBundle.getString("db.error.unknown.code"));
             }
         }
     }

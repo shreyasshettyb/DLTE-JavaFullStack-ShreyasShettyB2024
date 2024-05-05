@@ -1,7 +1,7 @@
 package mybank.backend.service.auth;
 
 import mybank.db.dao.dltemybankdaolayer.entity.Customer;
-import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
+import mybank.db.dao.dltemybankdaolayer.remotes.CustomerAuthInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.io.IOException;
 @Component
 public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     @Autowired
-    CustomerAuthService service;
+    CustomerAuthInterface service;
 
     Logger logger = LoggerFactory.getLogger(CustomerFailureHandler.class);
 

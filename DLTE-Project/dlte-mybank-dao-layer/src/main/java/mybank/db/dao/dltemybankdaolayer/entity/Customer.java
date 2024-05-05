@@ -23,11 +23,8 @@ public class Customer implements UserDetails {
     private String password;
     @NotNull(message = "{0xV001}")
     private Integer attempts;
-    private final int maxAttempt=3;
+    private final int maxAttempt = 3;
 
-    public int getMaxAttempt() {
-        return maxAttempt;
-    }
 
     public Customer() {
     }
@@ -41,6 +38,10 @@ public class Customer implements UserDetails {
         this.username = username;
         this.password = password;
         this.attempts = attempts;
+    }
+
+    public int getMaxAttempt() {
+        return maxAttempt;
     }
 
     public Integer getAttempts() {

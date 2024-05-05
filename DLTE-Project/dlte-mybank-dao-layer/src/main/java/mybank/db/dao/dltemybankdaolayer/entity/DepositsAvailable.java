@@ -26,6 +26,14 @@ public class DepositsAvailable {
     public DepositsAvailable() {
     }
 
+    public DepositsAvailable(@NotNull(message = "{0xV001}") long depositId, @NotNull(message = "{0xV001}") String depositName, @NotNull(message = "{0xV001}") String depositType, @NotNull(message = "{0xV001}") String depositDescription, @NotNull(message = "{0xV001}") @Positive @Digits(integer = 3, fraction = 2) double depositRoi) {
+        this.depositId = depositId;
+        this.depositName = depositName;
+        this.depositType = depositType;
+        this.depositDescription = depositDescription;
+        this.depositRoi = depositRoi;
+    }
+
     @Override
     public String toString() {
         return "DepositsAvailable{" +

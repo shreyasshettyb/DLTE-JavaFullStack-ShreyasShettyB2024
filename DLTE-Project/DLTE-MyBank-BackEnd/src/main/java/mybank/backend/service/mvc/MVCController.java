@@ -1,9 +1,9 @@
 package mybank.backend.service.mvc;
 
-import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

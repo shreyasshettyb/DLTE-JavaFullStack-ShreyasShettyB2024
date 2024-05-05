@@ -1,15 +1,14 @@
 package mybank.backend.service.soap;
 
 
-import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -60,7 +59,7 @@ public class SoapService {
             logger.error(e.toString());
         } catch (DepositsException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_OK);
-            serviceStatus.setMessage("0xS001 "+resourceBundle.getString("app.soap.error.empty"));
+            serviceStatus.setMessage("0xS001 " + resourceBundle.getString("app.soap.error.empty"));
             logger.error(e.toString());
         }
         viewAllDepositsAvailableResponse.setServiceStatus(serviceStatus);

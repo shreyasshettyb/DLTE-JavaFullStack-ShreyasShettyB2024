@@ -7,15 +7,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.List;
 
 public interface CustomerAuthInterface {
-     Customer signingUp(Customer customer);
+    Customer signingUp(Customer customer);
 
-     Customer findByUsername(String username);
+    Customer findByUsername(String username);
 
-     List<Customer> listAllCustomer();
+    List<Customer> listAllCustomer();
 
-     void updateAttempts(Customer customer);
+    void updateAttempts(Customer customer);
 
-     void updateStatus(Customer customer);
+    void updateStatus(Customer customer);
 
-     UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }
