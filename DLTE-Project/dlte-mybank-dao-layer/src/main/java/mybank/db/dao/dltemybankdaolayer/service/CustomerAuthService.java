@@ -28,20 +28,18 @@ public class CustomerAuthService implements UserDetailsService , CustomerAuthInt
                 customer.getCustomerAddress(),customer.getCustomerStatus(),customer.getCustomerContact(),
                 customer.getUsername(),customer.getPassword(),customer.getAttempts()
         });
-        logger.info("signingUp method called");
+        logger.info("SigningUp method called");
         return customer;
     }
 
     public Customer findByUsername(String username){
-//        Customer customer = jdbcTemplate.queryForObject("select * from MYBANK_APP_CUSTOMER where username=?",
-//                new Object[]{username},new BeanPropertyRowMapper<>(Customer.class));
         Customer customer = listAllCustomer().stream().filter(each->each.getUsername().equals(username)).findFirst().orElse(null);
-        logger.info("findByUser method called");
+        logger.info("FindByUser method called");
         return customer;
     }
 
     public List<Customer> listAllCustomer(){
-        logger.info("listAllCustomers method called");
+        logger.info("ListAllCustomers method called");
         return jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER",new BeanPropertyRowMapper<>(Customer.class));
     }
 
@@ -61,7 +59,7 @@ public class CustomerAuthService implements UserDetailsService , CustomerAuthInt
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Customer officials = findByUsername(username);
         if(officials==null) {
-            logger.error("customer not found");
+            logger.error("Customer not found");
             throw new UsernameNotFoundException(username);
         }
         return officials;

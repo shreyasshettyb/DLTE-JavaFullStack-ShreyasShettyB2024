@@ -1,7 +1,6 @@
 package mybank.db.dao.dltemybankdaolayer.service;
 
 import mybank.db.dao.dltemybankdaolayer.MyBankRemote;
-import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
@@ -45,7 +44,7 @@ public class RepositoryMyBank implements MyBankRemote {
             logger.info(resourceBundle.getString("app.execute.success"));
         } catch (DataAccessException sqlException) {
             logger.error(sqlException + resourceBundle.getString("app.error.access"));
-            throw new SQLException();
+            throw new SQLException(resourceBundle.getString("app.error.access"));
         }
         if (depositsAvailableList.size() == 0) {
             logger.error(resourceBundle.getString("app.error.empty"));
@@ -105,19 +104,16 @@ public class RepositoryMyBank implements MyBankRemote {
                 logger.info(resourceBundle.getString("app.execute.success"));
                 return "Success";
             } else {
-                logger.error("Fail: " + result);
-                throw new DepositsException("Deposit operation failed: " + result);
+                logger.error("Fail");
+                throw new DepositsException(resourceBundle.getString("app.error.fail"));
             }
         } catch (UncategorizedSQLException e) {
-            if (e.getSQLException().getErrorCode() == 20002) {
+             if (e.getSQLException().getErrorCode() == 20003) {
                 logger.error(e.getSQLException().toString());
-                throw new DepositsException(resourceBundle.getString("app.error.customerid"));
-            } else if (e.getSQLException().getErrorCode() == 20003) {
-                logger.error(e.getSQLException().toString());
-                throw new DepositsException("Deposit Id Not Found");
+                throw new DepositsException(resourceBundle.getString("app.error.notfound"));
             } else {
                 logger.error(e.getSQLException().toString());
-                throw new DepositsException(resourceBundle.getString("app.error.customerid"));
+                throw new DepositsException(resourceBundle.getString("app.error.unknown"));
             }
         }
     }
@@ -133,7 +129,6 @@ public class RepositoryMyBank implements MyBankRemote {
             depositsAvailable.setDepositRoi(rs.getDouble(3));
             depositsAvailable.setDepositType(rs.getString(4));
             depositsAvailable.setDepositDescription(rs.getString(5));
-            System.out.println(depositsAvailable.toString());
             return depositsAvailable;
         }
     }

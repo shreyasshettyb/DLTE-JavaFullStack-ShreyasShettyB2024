@@ -20,7 +20,7 @@
             text-align: center;
         }
 
-        h1 {
+        h1,h2 {
             color: #003870;
             font-size: 24px;
             margin-bottom: 20px;
@@ -59,8 +59,9 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${param.code}"></h1>
-    <p th:text="${param.msg}">&lt;&lt;  &gt;&gt;</p>
+    <h1 th:if="${param.code}" th:text="${param.code}"></h1>
+    <p th:if="${param.code}" th:text="${param.msg}">&lt;&lt;  &gt;&gt;</p>
+    <h2 th:unless="${param.code}">404 - Page not found</h2>
     <a th:href="@{'/dashboard'}"><button >BACK TO HOME<i class="bi bi-arrow-right-circle-fill"></i></button></a>
 </div>
 </body>
