@@ -1,4 +1,4 @@
-package mybank.db.dao.dltemybankdaolayer;
+package mybank.db.dao.dltemybankdaolayer.remotes;
 
 import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
