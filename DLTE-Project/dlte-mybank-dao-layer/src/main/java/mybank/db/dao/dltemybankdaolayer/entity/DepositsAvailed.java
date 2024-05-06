@@ -9,20 +9,20 @@ public class DepositsAvailed {
 
     private Long depositAvailId;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     private Long depositId;
 
     private Long customerId;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     @Positive(message = "{0xV002}")
     private Double depositAmount;
 
-    @NotNull(message = "{0xV001}")
-    @Positive(message = "{0xV002}")
+    @NotNull(message = "{value.null}")
+    @Positive(message = "{value.positive.zero}")
     private Integer depositDuration;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
 //    @DateTimeFormat(pattern= "yyyy-MM-dd")
     private Date depositMaturity;
 

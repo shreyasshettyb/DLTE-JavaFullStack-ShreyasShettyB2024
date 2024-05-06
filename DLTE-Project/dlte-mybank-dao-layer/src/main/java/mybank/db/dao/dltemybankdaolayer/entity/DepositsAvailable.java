@@ -6,19 +6,19 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 public class DepositsAvailable {
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     private long depositId;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     private String depositName;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     private String depositType;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     private String depositDescription;
 
-    @NotNull(message = "{0xV001}")
+    @NotNull(message = "{value.null}")
     @Positive
     @Digits(integer = 3, fraction = 2)
     private double depositRoi;

@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 @EnableWs
 @Configuration
 public class SoapConfig extends WsConfigurerAdapter {
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("backend");
 
     // conversion xsd to wsdl
     @Bean

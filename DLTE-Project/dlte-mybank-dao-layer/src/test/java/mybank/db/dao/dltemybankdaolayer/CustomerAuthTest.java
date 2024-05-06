@@ -2,7 +2,6 @@ package mybank.db.dao.dltemybankdaolayer;
 
 import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,18 +26,15 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class CustomerAuthTest {
+    private static Customer customer1, customer2;
+    private static List<Customer> customerList;
     @Mock
     private JdbcTemplate jdbcTemplate;
-
     @InjectMocks
     private CustomerAuthService authService;
 
-    private static Customer customer1,customer2;
-
-    private static List<Customer> customerList;
-
     @BeforeEach
-    void setUp(){
+    void setUp() {
         // Prepare test data
         customer1 = new Customer();
         customer1.setCustomerId(100001L);
@@ -85,7 +81,7 @@ public class CustomerAuthTest {
     @Test
     void testListAllCustomer() {
         lenient().when(jdbcTemplate.query("select * from MYBANK_APP_CUSTOMER", new BeanPropertyRowMapper<>(Customer.class))).thenReturn(customerList);
-        List<Customer> list= authService.listAllCustomer();
+        List<Customer> list = authService.listAllCustomer();
         assertEquals(2, list.size());
     }
 
@@ -104,7 +100,7 @@ public class CustomerAuthTest {
     void testUpdateStatus() {
         // Mock the behavior of jdbcTemplate.update()
         when(jdbcTemplate.update("update MYBANK_APP_CUSTOMER set CUSTOMER_STATUS='inactive' where username=?",
-        new Object[]{"shreyas12"})).thenReturn(1);
+                new Object[]{"shreyas12"})).thenReturn(1);
 
         authService.updateStatus(customer1);
 
@@ -114,7 +110,7 @@ public class CustomerAuthTest {
 
     @Test
     void testLoadUserByUsername_ExistingUsername() {
-       lenient().when(authService.listAllCustomer()).thenReturn(Collections.singletonList(customer1)); // Adjust this line
+        lenient().when(authService.listAllCustomer()).thenReturn(Collections.singletonList(customer1)); // Adjust this line
 
         UserDetails userDetails = authService.loadUserByUsername("shreyas12");
 
@@ -136,7 +132,7 @@ public class CustomerAuthTest {
     public void testFindByUsername() {
         lenient().when(authService.listAllCustomer()).thenReturn(customerList);
         Customer customer = authService.findByUsername("shreyas12");
-        assertEquals(customer,customer1);
+        assertEquals(customer, customer1);
     }
 
 }

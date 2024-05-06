@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @Component
 public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -21,6 +22,8 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
     CustomerAuthInterface service;
 
     Logger logger = LoggerFactory.getLogger(CustomerSuccessHandler.class);
+
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("backend");
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -30,11 +33,11 @@ public class CustomerSuccessHandler extends SimpleUrlAuthenticationSuccessHandle
                 customer.setAttempts(1);
                 service.updateAttempts(customer);
             }
-            logger.info("login successful");
+            logger.info(resourceBundle.getString("login.success"));
             super.setDefaultTargetUrl("/dashboard");
         } else {
-            logger.error("Account suspended contact admin to redeem");
-            super.setDefaultTargetUrl("/?error="+new LockedException("Account suspended contact admin to redeem").getMessage());
+            logger.error(resourceBundle.getString("account.suspended"));
+            super.setDefaultTargetUrl("/?error="+new LockedException(resourceBundle.getString("account.suspended")).getMessage());
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

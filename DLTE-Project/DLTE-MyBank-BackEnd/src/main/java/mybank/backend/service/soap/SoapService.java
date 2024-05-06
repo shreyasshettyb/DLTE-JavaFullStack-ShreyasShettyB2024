@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 @Endpoint
 public class SoapService {
 
-    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("backend");
     private final String url = "http://deposits.services";
 
     @Autowired
@@ -59,7 +59,7 @@ public class SoapService {
             logger.error(e.toString());
         } catch (DepositsException e) {
             serviceStatus.setStatus(HttpServletResponse.SC_OK);
-            serviceStatus.setMessage("0xS001 " + resourceBundle.getString("app.soap.error.empty"));
+            serviceStatus.setMessage("0xS001" + resourceBundle.getString("app.soap.error.empty"));
             logger.error(e.toString());
         }
         viewAllDepositsAvailableResponse.setServiceStatus(serviceStatus);

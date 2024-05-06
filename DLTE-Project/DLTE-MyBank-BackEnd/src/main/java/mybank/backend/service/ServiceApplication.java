@@ -11,8 +11,6 @@ import org.springframework.core.io.Resource;
 public class ServiceApplication {
 
     public static void main(String[] args) {
-//        Resource resource = new ClassPathResource("database.properties");
-//        System.setProperty("spring.config.location","classpath:/dlte-mybank-dao-layer/application.properties");
         SpringApplication.run(ServiceApplication.class, args);
     }
 

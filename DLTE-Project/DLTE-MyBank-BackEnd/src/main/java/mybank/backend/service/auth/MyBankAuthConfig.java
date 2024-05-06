@@ -21,6 +21,7 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 public class MyBankAuthConfig {
+
     @Autowired
     CustomerAuthService service;
 

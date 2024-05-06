@@ -23,6 +23,7 @@ import javax.validation.Valid;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 @RestController
@@ -35,7 +36,7 @@ public class MyBankRestController {
     CustomerAuthInterface customerAuthInterface;
 
     Logger logger = LoggerFactory.getLogger(MyBankRestController.class);
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("backend");
 
     @Autowired
     MyBankRemote myBankRemote;
@@ -48,36 +49,47 @@ public class MyBankRestController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     public ResponseEntity<Object> availDepositApi(@Valid @RequestBody DepositsAvailed depositsAvailRequest) {
+        Object[] responseOut = new Object[2];
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             Long customerId = customerAuthInterface.findByUsername(authentication.getName()).getCustomerId();
             depositsAvailRequest.setCustomerId(customerId);
 
             myBankRemote.availDeposits(depositsAvailRequest);
+            responseOut[0]= "Success";
+            responseOut[1]=depositsAvailRequest;
             logger.info(resourceBundle.getString("app.rest.success"));
         } catch (DepositsException depositsException) {
             logger.error(depositsException.toString());
-            return ResponseEntity.status(HttpServletResponse.SC_OK).body("0xR001 " + depositsException.getMessage());
+            responseOut[0]="Error";
+            responseOut[1]= resourceBundle.getString(depositsException.getMessage());
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(responseOut);
         } catch (SQLException e) {
-            logger.error(e.toString());
-            return ResponseEntity.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).body(resourceBundle.getString("app.rest.error.unknown"));
+            responseOut[0]="Error";
+            responseOut[1]= resourceBundle.getString(e.getMessage());
+            resourceBundle.getString("app.rest.error.unknown");
+            return ResponseEntity.status(HttpServletResponse.SC_OK).body(responseOut);
         }
-        return ResponseEntity.ok(depositsAvailRequest);
+        return ResponseEntity.ok(responseOut);
     }
 
-    //Exception Handler for BAD REQUEST
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    //fix
+    //Exception Handler for Bean Validation
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleValidationExceptions(
+    public Object handleValidationExceptions(
             MethodArgumentNotValidException ex) {
+        Object[] responseOut = new Object[2];
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
+            String errorMessage = resourceBundle.getString(Objects.requireNonNull(error.getDefaultMessage()));
             errors.put(fieldName, errorMessage);
             logger.error(errorMessage);
         });
-        return errors;
+        responseOut[0]="Error";
+        responseOut[1]=errors;
+        return responseOut;
     }
 
 }

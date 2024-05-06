@@ -5,6 +5,8 @@ import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
 import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
 import mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +26,8 @@ public class MVCController {
 
     @Autowired
     MyBankRemote myBankRemote;
+
+    Logger logger = LoggerFactory.getLogger(MVCController.class);
 
     @GetMapping("/")
     public String index(){
@@ -54,9 +58,11 @@ public class MVCController {
             DepositsAvailable depositsAvailable=deposits.stream().filter(each -> each.getDepositName().equals(depositName)).findAny().orElseThrow(()->new DepositsException("No Deposits found with the name "+depositName));
             model.addAttribute("depositId",depositsAvailable.getDepositId());
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            return "error?code=500&msg=Server Error";
         } catch (DepositsException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            return "error?code=404&msg=Could not find Deposit Information";
         }
         return "depositForm";
     }
