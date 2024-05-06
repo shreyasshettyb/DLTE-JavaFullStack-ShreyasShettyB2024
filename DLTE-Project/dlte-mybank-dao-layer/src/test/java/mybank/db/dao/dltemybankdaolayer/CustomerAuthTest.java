@@ -11,12 +11,15 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -133,6 +136,38 @@ public class CustomerAuthTest {
         lenient().when(authService.listAllCustomer()).thenReturn(customerList);
         Customer customer = authService.findByUsername("shreyas12");
         assertEquals(customer, customer1);
+    }
+
+
+    @Test
+    public void testIsAccountNonExpired() {
+        Customer user = new Customer();
+        assertTrue(user.isAccountNonExpired());
+    }
+
+    @Test
+    public void testIsAccountNonLocked() {
+        Customer user = new Customer();
+        assertTrue(user.isAccountNonLocked());
+    }
+
+    @Test
+    public void testIsCredentialsNonExpired() {
+        Customer user = new Customer();
+        assertTrue(user.isCredentialsNonExpired());
+    }
+
+    @Test
+    public void testIsEnabled() {
+        Customer user = new Customer();
+        assertTrue(user.isEnabled());
+    }
+
+    @Test
+    public void testGetAuthorities() {
+        Customer user = new Customer();
+        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
+        assertNull(authorities);
     }
 
 }

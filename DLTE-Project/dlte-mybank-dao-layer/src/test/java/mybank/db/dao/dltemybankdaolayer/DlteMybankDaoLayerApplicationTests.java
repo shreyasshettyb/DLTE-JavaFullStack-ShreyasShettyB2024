@@ -1,5 +1,6 @@
 package mybank.db.dao.dltemybankdaolayer;
 
+import mybank.db.dao.dltemybankdaolayer.entity.Customer;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
 import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
 import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
@@ -7,21 +8,19 @@ import mybank.db.dao.dltemybankdaolayer.service.RepositoryMyBank;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.core.GrantedAuthority;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,6 +42,9 @@ class DlteMybankDaoLayerApplicationTests {
     private RepositoryMyBank service;
     @Mock
     private ResultSet resultSet;
+    @Captor
+    private ArgumentCaptor<CallableStatementCreator> callableStatementCreatorCaptor;
+
 
     @BeforeAll
     static void setUp() {
@@ -121,14 +123,46 @@ class DlteMybankDaoLayerApplicationTests {
     //fix
     @Test
     void testAvailDeposits_Success() throws Exception {
+        // Mocking
+        DepositsAvailed depositsAvailed = new DepositsAvailed();
+        depositsAvailed.setCustomerId(1L);
+        depositsAvailed.setDepositId(2L);
+        depositsAvailed.setDepositAmount(1000.00);
+        depositsAvailed.setDepositDuration(2);
+        depositsAvailed.setDepositMaturity(java.sql.Date.valueOf(LocalDate.now()));
+
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("p_result", "Success");
-        Mockito.when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList()))
+
+        when(jdbcTemplate.call(any(CallableStatementCreator.class), anyList()))
                 .thenReturn(resultMap);
 
+        // Test
         String result = service.availDeposits(depositsAvailed);
 
+        // Verification
         assertEquals("Success", result);
+        verify(jdbcTemplate, times(1)).call(any(CallableStatementCreator.class), anyList());
+
+        // Capturing the CallableStatementCreator
+        verify(jdbcTemplate).call(callableStatementCreatorCaptor.capture(), anyList());
+        CallableStatementCreator capturedCreator = callableStatementCreatorCaptor.getValue();
+
+        // Mocking the connection and callable statement
+        Connection mockConnection = mock(Connection.class);
+        CallableStatement mockCallableStatement = mock(CallableStatement.class);
+        when(mockConnection.prepareCall(anyString())).thenReturn(mockCallableStatement);
+
+        // Creating the CallableStatement using the captured CallableStatementCreator
+        capturedCreator.createCallableStatement(mockConnection);
+
+        // Verifying the parameters are set correctly on the CallableStatement
+        verify(mockCallableStatement).setLong(1, depositsAvailed.getCustomerId());
+        verify(mockCallableStatement).setLong(2, depositsAvailed.getDepositId());
+        verify(mockCallableStatement).setDouble(3, depositsAvailed.getDepositAmount());
+        verify(mockCallableStatement).setInt(4, depositsAvailed.getDepositDuration());
+        verify(mockCallableStatement).setDate(5, any(java.sql.Date.class));
+        verify(mockCallableStatement).registerOutParameter(6, Types.VARCHAR);
     }
 
     @Test
@@ -169,7 +203,7 @@ class DlteMybankDaoLayerApplicationTests {
     @Test
     public void testAvailDepositsUncategorizedSQLException1() {
 
-        Mockito.when(jdbcTemplate.call(Mockito.any(), Mockito.anyList()))
+        Mockito.when(jdbcTemplate.call(any(CallableStatementCreator.class), Mockito.anyList()))
                 .thenThrow(new UncategorizedSQLException("test", "", new SQLException()));
 
         assertThrows(SQLException.class, () -> service.availDeposits(depositsAvailed));

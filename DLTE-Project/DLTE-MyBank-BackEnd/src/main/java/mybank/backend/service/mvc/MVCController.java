@@ -18,7 +18,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Controller
-@RequestMapping
 public class MVCController {
 
     @Autowired
