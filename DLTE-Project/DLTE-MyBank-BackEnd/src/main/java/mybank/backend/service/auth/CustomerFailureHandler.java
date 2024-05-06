@@ -30,11 +30,11 @@ public class CustomerFailureHandler extends SimpleUrlAuthenticationFailureHandle
         Customer customer = service.findByUsername(username);
         if (customer != null) {
             if (customer.getCustomerStatus().equalsIgnoreCase("active")) {
-                if (customer.getAttempts() < customer.getMaxAttempt()) {
+                if (customer.getAttempts() < 3) {
                     customer.setAttempts(customer.getAttempts() + 1);
                     service.updateAttempts(customer);
                     logger.warn(resourceBundle.getString("invalid.credentials"));
-                    exception = new LockedException("Invalid credentials "+(customer.getMaxAttempt()-customer.getAttempts()+1)+" attempts left");
+                    exception = new LockedException("Invalid credentials "+(3-customer.getAttempts()+1)+" attempts left");
                 } else {
                     logger.error(resourceBundle.getString("max.attempts"));
                     service.updateStatus(customer);

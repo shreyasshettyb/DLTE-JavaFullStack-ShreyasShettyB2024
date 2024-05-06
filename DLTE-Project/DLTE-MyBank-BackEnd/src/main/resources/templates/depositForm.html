@@ -60,17 +60,20 @@
                     dataType: "json",
                     contentType: "application/json;charset=utf-8",
                     data: JSON.stringify(request),
-                    success: function (response) {
-                        var dateString = response.depositMaturity;
-                        var date = new Date(dateString);
-                        var formattedDate = date.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, "-");
-                        const deposit=`<h4>Deposit Amount:<span>${response.depositAmount}</span></h4><h4>Deposit Duration:<span>${response.depositDuration}</span></h4><h4>Deposit Maturity: <span>${formattedDate}</span></h4>`
-                        $("#depositDetails").html(deposit)
-                        $("#ackModal").show();
-                        // alert(JSON.stringify(response));
+                    success: function(response) {
+                        if (response[0] === "Success") {
+                            var dateString = response[1].depositMaturity;
+                            var date = new Date(dateString);
+                            var formattedDate = date.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, "-");
+                            const deposit = `<h4>Deposit Amount:<span>${response[1].depositAmount}</span></h4><h4>Deposit Duration:<span>${response[1].depositDuration}</span></h4><h4>Deposit Maturity: <span>${formattedDate}</span></h4>`;
+                            $("#depositDetails").html(deposit);
+                            $("#ackModal").show();
+                        } else {
+                            alert("Error: " + response[1]); // Display error message
+                        }
                     },
-                    error: function (err) {
-                        console.log(request)
+                    error: function(err) {
+                        console.log(err);
                         alert("Error: " + err.status);
                     }
                 });

@@ -9,8 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -29,7 +32,8 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,42 +42,40 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class ServiceApplicationTests {
 
+    private static DepositsAvailable depositsAvailable1 = new DepositsAvailable();
+    private static DepositsAvailable depositsAvailable2 = new DepositsAvailable();
+    private static DepositsAvailable depositsAvailable3 = new DepositsAvailable();
+    private static List<DepositsAvailable> depositsAvailableList = Stream.of(depositsAvailable1, depositsAvailable2, depositsAvailable3).collect(Collectors.toList());
     @MockBean
     MyBankRemote service;
-
     @InjectMocks
     SoapService soap;
     @Autowired
     JdbcTemplate jdbcTemplate;
     @InjectMocks
     MyBankRestController myBankRestController;
-
     @Autowired
     private MockMvc mockMvc;
-
-    private static DepositsAvailable depositsAvailable1 = new DepositsAvailable();
-    private static DepositsAvailable depositsAvailable2 = new DepositsAvailable();
-    private static DepositsAvailable depositsAvailable3 = new DepositsAvailable();
-    private static List<DepositsAvailable> depositsAvailableList = Stream.of(depositsAvailable1, depositsAvailable2, depositsAvailable3).collect(Collectors.toList());
-
+    @Mock
+    private SpringApplicationBuilder springApplicationBuilder;
 
     @BeforeEach
-    public void setup(){
-         depositsAvailable1 = new DepositsAvailable();
+    public void setup() {
+        depositsAvailable1 = new DepositsAvailable();
         depositsAvailable1.setDepositId(1000001);
         depositsAvailable1.setDepositName("FD");
         depositsAvailable1.setDepositType("Lump Sum");
         depositsAvailable1.setDepositDescription("Standard Fixed Deposit");
         depositsAvailable1.setDepositRoi(10.2);
 
-         depositsAvailable2 = new DepositsAvailable();
+        depositsAvailable2 = new DepositsAvailable();
         depositsAvailable2.setDepositId(1000002);
         depositsAvailable2.setDepositName("RD");
         depositsAvailable2.setDepositType("Recurring");
         depositsAvailable2.setDepositDescription("Standard Recurring Deposit");
         depositsAvailable2.setDepositRoi(9.2);
 
-         depositsAvailable3 = new DepositsAvailable();
+        depositsAvailable3 = new DepositsAvailable();
         depositsAvailable3.setDepositId(1000003);
         depositsAvailable3.setDepositName("Senior Citizen FD");
         depositsAvailable3.setDepositType("Lump Sum");
@@ -106,7 +108,6 @@ class ServiceApplicationTests {
         assertEquals(HttpServletResponse.SC_OK, response.getServiceStatus().getStatus());
     }
 
-
     //EndPoint Test - Pass
     @Test
     @WithMockUser(username = "shreyas12")
@@ -121,7 +122,6 @@ class ServiceApplicationTests {
         mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
                 .andExpect(status().isOk());
     }
-
 
     //Fail Bean Validation
     @Test
@@ -139,5 +139,26 @@ class ServiceApplicationTests {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    public void testConfigure() {
+        // Initialize mocks
+        openMocks(this);
+
+        // Create an instance of ServletInitializer
+        ServletInitializer servletInitializer = new ServletInitializer();
+
+        // Mock the sources() method call
+        Class<ServiceApplication> applicationClass = ServiceApplication.class;
+        when(springApplicationBuilder.sources(applicationClass)).thenReturn(springApplicationBuilder);
+
+        // Call the configure method
+        SpringApplicationBuilder returnedBuilder = servletInitializer.configure(springApplicationBuilder);
+
+        // Verify that sources() method was called with correct argument
+        verify(springApplicationBuilder).sources(applicationClass);
+
+        // Verify that the returned builder is the same as the mock
+        assert returnedBuilder == springApplicationBuilder;
+    }
 
 }
