@@ -154,24 +154,5 @@ public class SpringSecurityTests {
         verify(authService).updateStatus(customer);
     }
 
-
-//    @Test
-//    void onAuthenticationFailureTest() throws Exception {
-//        customerFailureHandler.setUseForward(false); // Disable the use of forward for testing
-//        Customer customer = new Customer();
-//        customer.setCustomerStatus("active");
-//        customer.setUsername("testUser");
-//        customer.setPassword("password");
-//        customer.setAttempts(2); // Assuming previous failed attempts
-//        when(customerAuthInterface.findByUsername("testUser")).thenReturn(customer);
-//
-//        // Mocking the request parameters
-//        mockMvc.perform(MockMvcRequestBuilders.post("/login/")
-//                .param("username", "testUser")
-//                .param("password", "password"))
-//                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/?error=Username not found/Does not Exist"));
-//
-//    }
 }
 

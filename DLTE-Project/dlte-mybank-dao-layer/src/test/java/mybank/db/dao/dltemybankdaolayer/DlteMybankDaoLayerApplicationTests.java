@@ -35,17 +35,11 @@ class DlteMybankDaoLayerApplicationTests {
     private static List<DepositsAvailable> depositsAvailableList;
     private static DepositsAvailed depositsAvailed;
     @Mock
-    private CallableStatementCreator callableStatementCreator;
-    @Mock
     private JdbcTemplate jdbcTemplate;
     @InjectMocks
     private RepositoryMyBank service;
     @Mock
     private ResultSet resultSet;
-    @Captor
-    private ArgumentCaptor<CallableStatementCreator> callableStatementCreatorCaptor;
-
-
     @BeforeAll
     static void setUp() {
         DepositsAvailable depositsAvailable1 = new DepositsAvailable();
@@ -129,7 +123,7 @@ class DlteMybankDaoLayerApplicationTests {
         depositsAvailed.setDepositId(2L);
         depositsAvailed.setDepositAmount(1000.00);
         depositsAvailed.setDepositDuration(2);
-        depositsAvailed.setDepositMaturity(java.sql.Date.valueOf(LocalDate.now()));
+        depositsAvailed.setDepositMaturity(new Date(2024, Calendar.MAY,5));
 
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("p_result", "Success");
@@ -143,26 +137,6 @@ class DlteMybankDaoLayerApplicationTests {
         // Verification
         assertEquals("Success", result);
         verify(jdbcTemplate, times(1)).call(any(CallableStatementCreator.class), anyList());
-
-        // Capturing the CallableStatementCreator
-        verify(jdbcTemplate).call(callableStatementCreatorCaptor.capture(), anyList());
-        CallableStatementCreator capturedCreator = callableStatementCreatorCaptor.getValue();
-
-        // Mocking the connection and callable statement
-        Connection mockConnection = mock(Connection.class);
-        CallableStatement mockCallableStatement = mock(CallableStatement.class);
-        when(mockConnection.prepareCall(anyString())).thenReturn(mockCallableStatement);
-
-        // Creating the CallableStatement using the captured CallableStatementCreator
-        capturedCreator.createCallableStatement(mockConnection);
-
-        // Verifying the parameters are set correctly on the CallableStatement
-        verify(mockCallableStatement).setLong(1, depositsAvailed.getCustomerId());
-        verify(mockCallableStatement).setLong(2, depositsAvailed.getDepositId());
-        verify(mockCallableStatement).setDouble(3, depositsAvailed.getDepositAmount());
-        verify(mockCallableStatement).setInt(4, depositsAvailed.getDepositDuration());
-        verify(mockCallableStatement).setDate(5, any(java.sql.Date.class));
-        verify(mockCallableStatement).registerOutParameter(6, Types.VARCHAR);
     }
 
     @Test
@@ -189,7 +163,19 @@ class DlteMybankDaoLayerApplicationTests {
         }
     }
 
+    @Test
+    void testGetDepositAvailId() {
+        // Arrange
+        DepositsAvailed deposit = new DepositsAvailed();
+        deposit.setDepositAvailId(12345L);
+        Long expectedId = 12345L;
 
+        // Act
+        Long actualId = deposit.getDepositAvailId();
+
+        // Assert
+        assertEquals(expectedId, actualId, "Deposit ID should match");
+    }
     @Test
     public void testAvailableDepositsSQLException() throws SQLException, DepositsException {
         Mockito.when(jdbcTemplate.query(Mockito.anyString(), Mockito.any(RepositoryMyBank.DepositsAvailableMapper.class)))

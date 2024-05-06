@@ -170,4 +170,6 @@ public class CustomerAuthTest {
         assertNull(authorities);
     }
 
+
+
 }
