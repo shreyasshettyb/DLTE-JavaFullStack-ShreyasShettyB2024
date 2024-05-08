@@ -73,6 +73,8 @@ const listAll = (page) => {
     });
 }
 $(document).ready(() => {
+    $('#pagination-prev').disabled(true);
+    $('#pagination-prev-btn').disabled(true);
     $('#page').text(currentPage);
     listAll(currentPage); // Initially load the first page
 });
@@ -80,6 +82,8 @@ $(document).ready(() => {
 // Function to handle next and previous pagination
 $('#pagination-next').on('click', function (event) {
     event.preventDefault();
+    $('#pagination-prev').disabled(false);
+    $('#pagination-prev-btn').disabled(false);
     if (currentPage < 2) {
         currentPage++;
         listAll(currentPage);
@@ -88,6 +92,8 @@ $('#pagination-next').on('click', function (event) {
 });
 $('#pagination-next-btn').on('click', function (event) {
     event.preventDefault();
+    $('#pagination-prev').disabled(false);
+    $('#pagination-prev-btn').disabled(false);
     if (currentPage < 2) {
         currentPage++;
         listAll(currentPage);
@@ -97,6 +103,10 @@ $('#pagination-next-btn').on('click', function (event) {
 
 $('#pagination-prev').on('click',function (event) {
     event.preventDefault();
+    if(currentPage==1){
+        $('#pagination-prev').disabled(true);
+        $('#pagination-prev-btn').disabled(true);
+    }
     if (currentPage > 1) {
         currentPage--;
         listAll(currentPage);
@@ -105,6 +115,10 @@ $('#pagination-prev').on('click',function (event) {
 });
 $('#pagination-prev-btn').on('click',function (event) {
     event.preventDefault();
+    if(currentPage==1){
+        $('#pagination-prev').disabled(true);
+        $('#pagination-prev-btn').disabled(true);
+    }
     if (currentPage > 1) {
         currentPage--;
         listAll(currentPage);
