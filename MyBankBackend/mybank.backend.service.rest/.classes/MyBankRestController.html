@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MyBankRestController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">mybank.backend.service.rest</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MyBankRestController (mybank.backend.service.rest)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyBankRestController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    73%
+  </span>
+  <span class="absValue">
+    (27/ 37)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MyBankRestController$$EnhancerBySpringCGLIB$$ab3138aa</td>
+  </tr>
+  <tr>
+    <td class="name">MyBankRestController$$EnhancerBySpringCGLIB$$ab3138aa$$FastClassBySpringCGLIB$$ec0ada04</td>
+  </tr>
+  <tr>
+    <td class="name">MyBankRestController$$EnhancerBySpringCGLIB$$ab3138aa_2</td>
+  </tr>
+  <tr>
+    <td class="name">MyBankRestController$$FastClassBySpringCGLIB$$11fe6959</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    73%
+  </span>
+  <span class="absValue">
+    (27/ 37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package mybank.backend.service.rest;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse;
+<i>4</i>&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponses;
+<i>5</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
+<i>6</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+<i>7</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.remotes.CustomerAuthInterface;
+<i>8</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
+<i>9</i>&nbsp;import org.slf4j.Logger;
+<i>10</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>11</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>12</i>&nbsp;import org.springframework.http.HttpStatus;
+<i>13</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i>14</i>&nbsp;import org.springframework.security.core.Authentication;
+<i>15</i>&nbsp;import org.springframework.security.core.context.SecurityContextHolder;
+<i>16</i>&nbsp;import org.springframework.validation.FieldError;
+<i>17</i>&nbsp;import org.springframework.validation.annotation.Validated;
+<i>18</i>&nbsp;import org.springframework.web.bind.MethodArgumentNotValidException;
+<i>19</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;import javax.servlet.http.HttpServletResponse;
+<i>22</i>&nbsp;import javax.validation.Valid;
+<i>23</i>&nbsp;import java.sql.SQLException;
+<i>24</i>&nbsp;import java.util.HashMap;
+<i>25</i>&nbsp;import java.util.Map;
+<i>26</i>&nbsp;import java.util.Objects;
+<i>27</i>&nbsp;import java.util.ResourceBundle;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;@RestController
+<i>30</i>&nbsp;@RequestMapping(&quot;/mybank/deposits&quot;)
+<i>31</i>&nbsp;@Validated
+<i>32</i>&nbsp;//@ComponentScan(&quot;mybank.db.dao.dltemybankdaolayer&quot;)
+<b class="fc"><i>33</i>&nbsp;public class MyBankRestController {</b>
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    @Autowired
+<i>36</i>&nbsp;    CustomerAuthInterface customerAuthInterface;
+<i>37</i>&nbsp;
+<b class="fc"><i>38</i>&nbsp;    Logger logger = LoggerFactory.getLogger(MyBankRestController.class);</b>
+<b class="fc"><i>39</i>&nbsp;    ResourceBundle resourceBundle = ResourceBundle.getBundle(&quot;backend&quot;);</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @Autowired
+<i>42</i>&nbsp;    MyBankRemote myBankRemote;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    //Post Mapping for Avail Deposit
+<i>45</i>&nbsp;    @PostMapping(&quot;/avail&quot;)
+<i>46</i>&nbsp;    @ApiResponses(value = {
+<i>47</i>&nbsp;            @ApiResponse(responseCode = &quot;200&quot;, description = &quot;Deposit added successfully&quot;),
+<i>48</i>&nbsp;            @ApiResponse(responseCode = &quot;403&quot;, description = &quot;Customer is Inactive&quot;),
+<i>49</i>&nbsp;            @ApiResponse(responseCode = &quot;500&quot;, description = &quot;Internal server error&quot;)
+<i>50</i>&nbsp;    })
+<i>51</i>&nbsp;    public ResponseEntity&lt;Object&gt; availDepositApi(@Valid @RequestBody DepositsAvailed depositsAvailRequest) {
+<b class="fc"><i>52</i>&nbsp;        Object[] responseOut = new Object[2];</b>
+<i>53</i>&nbsp;        try {
+<b class="fc"><i>54</i>&nbsp;            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
+<b class="fc"><i>55</i>&nbsp;            Long customerId = customerAuthInterface.findByUsername(authentication.getName()).getCustomerId();</b>
+<b class="fc"><i>56</i>&nbsp;            depositsAvailRequest.setCustomerId(customerId);</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;            Double depositRoi = Objects.requireNonNull(myBankRemote.availableDeposits().stream().filter(each -&gt; each.getDepositId() == depositsAvailRequest.getDepositId()).findAny().orElse(null)).getDepositRoi();</b>
+<b class="fc"><i>59</i>&nbsp;            Double maturityAmount = depositsAvailRequest.getDepositAmount() * (1 + (depositRoi * depositsAvailRequest.getDepositDuration()) / 100);</b>
+<b class="fc"><i>60</i>&nbsp;            depositsAvailRequest.setDepositMaturityAmt(maturityAmount);</b>
+<b class="fc"><i>61</i>&nbsp;            myBankRemote.availDeposits(depositsAvailRequest);</b>
+<b class="fc"><i>62</i>&nbsp;            responseOut[0]= &quot;Success&quot;;</b>
+<b class="fc"><i>63</i>&nbsp;            responseOut[1]=depositsAvailRequest;</b>
+<b class="fc"><i>64</i>&nbsp;            logger.info(resourceBundle.getString(&quot;app.rest.success&quot;));</b>
+<b class="nc"><i>65</i>&nbsp;        } catch (DepositsException depositsException) {</b>
+<b class="nc"><i>66</i>&nbsp;            logger.error(depositsException.toString());</b>
+<b class="nc"><i>67</i>&nbsp;            responseOut[0]=&quot;Error&quot;;</b>
+<b class="nc"><i>68</i>&nbsp;            responseOut[1]= resourceBundle.getString(depositsException.getMessage());</b>
+<b class="nc"><i>69</i>&nbsp;            return ResponseEntity.status(HttpServletResponse.SC_OK).body(responseOut);</b>
+<b class="nc"><i>70</i>&nbsp;        } catch (SQLException e) {</b>
+<b class="nc"><i>71</i>&nbsp;            responseOut[0]=&quot;Error&quot;;</b>
+<b class="nc"><i>72</i>&nbsp;            responseOut[1]= resourceBundle.getString(e.getMessage());</b>
+<b class="nc"><i>73</i>&nbsp;            resourceBundle.getString(&quot;app.rest.error.unknown&quot;);</b>
+<b class="nc"><i>74</i>&nbsp;            return ResponseEntity.status(HttpServletResponse.SC_OK).body(responseOut);</b>
+<b class="fc"><i>75</i>&nbsp;        }</b>
+<b class="fc"><i>76</i>&nbsp;        return ResponseEntity.ok(responseOut);</b>
+<i>77</i>&nbsp;    }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    //Exception Handler for Bean Validation
+<i>82</i>&nbsp;    @ResponseStatus(HttpStatus.OK)
+<i>83</i>&nbsp;    @ExceptionHandler(MethodArgumentNotValidException.class)
+<i>84</i>&nbsp;    public Object handleValidationExceptions(
+<i>85</i>&nbsp;            MethodArgumentNotValidException ex) {
+<b class="fc"><i>86</i>&nbsp;        Object[] responseOut = new Object[2];</b>
+<b class="fc"><i>87</i>&nbsp;        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>88</i>&nbsp;        ex.getBindingResult().getAllErrors().forEach((error) -&gt; {</b>
+<b class="fc"><i>89</i>&nbsp;            String fieldName = ((FieldError) error).getField();</b>
+<b class="fc"><i>90</i>&nbsp;            String errorMessage = resourceBundle.getString(Objects.requireNonNull(error.getDefaultMessage()));</b>
+<b class="fc"><i>91</i>&nbsp;            errors.put(fieldName, errorMessage);</b>
+<b class="fc"><i>92</i>&nbsp;            logger.error(errorMessage);</b>
+<b class="fc"><i>93</i>&nbsp;        });</b>
+<b class="fc"><i>94</i>&nbsp;        responseOut[0]=&quot;Error&quot;;</b>
+<b class="fc"><i>95</i>&nbsp;        responseOut[1]=errors;</b>
+<b class="fc"><i>96</i>&nbsp;        return responseOut;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-08 11:48</div>
+</div>
+</body>
+</html>

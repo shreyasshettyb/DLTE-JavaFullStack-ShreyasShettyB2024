@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MyBankRemote</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">mybank.db.dao.dltemybankdaolayer.remotes</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MyBankRemote (mybank.db.dao.dltemybankdaolayer.remotes)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">MyBankRemote</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package mybank.db.dao.dltemybankdaolayer.remotes;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+<i>4</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
+<i>5</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+<i>6</i>&nbsp;import org.springframework.stereotype.Repository;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.sql.SQLException;
+<i>9</i>&nbsp;import java.util.List;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;//Interface of Dao
+<i>12</i>&nbsp;@Repository
+<i>13</i>&nbsp;public interface MyBankRemote {
+<i>14</i>&nbsp;    List&lt;DepositsAvailable&gt; availableDeposits() throws SQLException, DepositsException;
+<i>15</i>&nbsp;    String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-08 11:48</div>
+</div>
+</body>
+</html>

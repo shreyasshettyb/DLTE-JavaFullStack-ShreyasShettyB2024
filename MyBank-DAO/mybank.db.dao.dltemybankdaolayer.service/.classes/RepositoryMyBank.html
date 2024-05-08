@@ -1,0 +1,231 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RepositoryMyBank</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">mybank.db.dao.dltemybankdaolayer.service</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RepositoryMyBank (mybank.db.dao.dltemybankdaolayer.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RepositoryMyBank</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78%
+  </span>
+  <span class="absValue">
+    (32/ 41)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RepositoryMyBank$$EnhancerBySpringCGLIB$$ef68ff44</td>
+  </tr>
+  <tr>
+    <td class="name">RepositoryMyBank$DepositsAvailableMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    81.6%
+  </span>
+  <span class="absValue">
+    (40/ 49)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package mybank.db.dao.dltemybankdaolayer.service;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailable;
+<i>4</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.entity.DepositsAvailed;
+<i>5</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.exception.DepositsException;
+<i>6</i>&nbsp;import mybank.db.dao.dltemybankdaolayer.remotes.MyBankRemote;
+<i>7</i>&nbsp;import org.slf4j.Logger;
+<i>8</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>9</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>10</i>&nbsp;import org.springframework.dao.DataAccessException;
+<i>11</i>&nbsp;import org.springframework.jdbc.UncategorizedSQLException;
+<i>12</i>&nbsp;import org.springframework.jdbc.core.*;
+<i>13</i>&nbsp;import org.springframework.stereotype.Service;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import java.sql.*;
+<i>16</i>&nbsp;import java.sql.Date;
+<i>17</i>&nbsp;import java.time.LocalDate;
+<i>18</i>&nbsp;import java.time.ZoneId;
+<i>19</i>&nbsp;import java.util.*;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;@Service
+<b class="fc"><i>22</i>&nbsp;public class RepositoryMyBank implements MyBankRemote {</b>
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Autowired
+<i>26</i>&nbsp;    JdbcTemplate jdbcTemplate;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @Autowired
+<i>29</i>&nbsp;    CustomerAuthService customerAuthService;
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;    ResourceBundle resourceBundle = ResourceBundle.getBundle(&quot;database&quot;);</b>
+<b class="fc"><i>32</i>&nbsp;    Logger logger = LoggerFactory.getLogger(RepositoryMyBank.class);</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    //Return All Deposits in Deposits Available Table
+<i>35</i>&nbsp;    @Override
+<i>36</i>&nbsp;    public List&lt;DepositsAvailable&gt; availableDeposits() throws DepositsException, SQLException {
+<b class="fc"><i>37</i>&nbsp;        List&lt;DepositsAvailable&gt; depositsAvailableList = null;</b>
+<i>38</i>&nbsp;        try {
+<b class="fc"><i>39</i>&nbsp;            depositsAvailableList = jdbcTemplate.query(&quot;select * from mybank_app_depositsavailable&quot;, new DepositsAvailableMapper());</b>
+<b class="fc"><i>40</i>&nbsp;            logger.info(resourceBundle.getString(&quot;db.execute.success&quot;));</b>
+<b class="fc"><i>41</i>&nbsp;        } catch (DataAccessException sqlException) {</b>
+<b class="fc"><i>42</i>&nbsp;            logger.error(resourceBundle.getString(&quot;db.error.access&quot;) + &quot;: &quot; + sqlException.getMessage());</b>
+<b class="fc"><i>43</i>&nbsp;            throw new SQLException(resourceBundle.getString(&quot;db.error.access.code&quot;));</b>
+<b class="fc"><i>44</i>&nbsp;        }</b>
+<b class="fc"><i>45</i>&nbsp;        if (depositsAvailableList.size() == 0) {</b>
+<b class="fc"><i>46</i>&nbsp;            logger.error(resourceBundle.getString(&quot;db.error.empty&quot;));</b>
+<b class="fc"><i>47</i>&nbsp;            throw new DepositsException(resourceBundle.getString(&quot;db.error.empty.code&quot;));</b>
+<i>48</i>&nbsp;        }
+<b class="fc"><i>49</i>&nbsp;        return depositsAvailableList;</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    //Return Success If Avail Deposit is added to table
+<i>53</i>&nbsp;    @Override
+<i>54</i>&nbsp;    public String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException {
+<b class="fc"><i>55</i>&nbsp;        LocalDate nowDate = depositsAvailed.getDepositMaturity().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();</b>
+<b class="fc"><i>56</i>&nbsp;        nowDate = nowDate.plusYears(depositsAvailed.getDepositDuration());</b>
+<b class="fc"><i>57</i>&nbsp;        depositsAvailed.setDepositMaturity(Date.from(nowDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));</b>
+<b class="fc"><i>58</i>&nbsp;        Date sqlDate = Date.valueOf(nowDate);</b>
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;        CallableStatementCreator creator = con -&gt; {</b>
+<b class="nc"><i>61</i>&nbsp;            CallableStatement statement = con.prepareCall(&quot;{call avail_deposits(?,?,?,?,?,?,?)}&quot;);</b>
+<b class="nc"><i>62</i>&nbsp;            statement.setLong(1, depositsAvailed.getCustomerId());</b>
+<b class="nc"><i>63</i>&nbsp;            statement.setLong(2, depositsAvailed.getDepositId());</b>
+<b class="nc"><i>64</i>&nbsp;            statement.setDouble(3, depositsAvailed.getDepositAmount());</b>
+<b class="nc"><i>65</i>&nbsp;            statement.setInt(4, depositsAvailed.getDepositDuration());</b>
+<b class="nc"><i>66</i>&nbsp;            statement.setDate(5, sqlDate);</b>
+<b class="nc"><i>67</i>&nbsp;            statement.setDouble(6,depositsAvailed.getDepositMaturityAmt());</b>
+<b class="nc"><i>68</i>&nbsp;            statement.registerOutParameter(7, Types.VARCHAR);</b>
+<b class="nc"><i>69</i>&nbsp;            return statement;</b>
+<i>70</i>&nbsp;        };
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;        try {
+<b class="fc"><i>73</i>&nbsp;            Map&lt;String, Object&gt; returnedExecution = jdbcTemplate.call(creator, Arrays.asList(</b>
+<i>74</i>&nbsp;                    new SqlParameter[]{
+<i>75</i>&nbsp;                            new SqlParameter(Types.NUMERIC),
+<i>76</i>&nbsp;                            new SqlParameter(Types.NUMERIC),
+<i>77</i>&nbsp;                            new SqlParameter(Types.NUMERIC),
+<i>78</i>&nbsp;                            new SqlParameter(Types.INTEGER),
+<i>79</i>&nbsp;                            new SqlParameter(Types.DATE),
+<i>80</i>&nbsp;                            new SqlParameter(Types.DOUBLE),
+<i>81</i>&nbsp;                            new SqlOutParameter(&quot;p_result&quot;, Types.VARCHAR),
+<i>82</i>&nbsp;                    }
+<i>83</i>&nbsp;            ));
+<i>84</i>&nbsp;            // Get the result from the map
+<b class="fc"><i>85</i>&nbsp;            String result = (String) returnedExecution.get(&quot;p_result&quot;);</b>
+<i>86</i>&nbsp;
+<b class="fc"><i>87</i>&nbsp;            if (result.equals(&quot;Success&quot;)) {</b>
+<b class="fc"><i>88</i>&nbsp;                logger.info(resourceBundle.getString(&quot;db.execute.success&quot;));</b>
+<b class="fc"><i>89</i>&nbsp;                return &quot;Success&quot;;</b>
+<i>90</i>&nbsp;            } else {
+<b class="fc"><i>91</i>&nbsp;                logger.error(&quot;Fail&quot;);</b>
+<b class="fc"><i>92</i>&nbsp;                throw new DepositsException(resourceBundle.getString(&quot;db.error.fail.code&quot;));</b>
+<i>93</i>&nbsp;            }
+<b class="fc"><i>94</i>&nbsp;        } catch (UncategorizedSQLException e) {</b>
+<b class="fc"><i>95</i>&nbsp;            if (e.getSQLException().getErrorCode() == 20003) {</b>
+<b class="fc"><i>96</i>&nbsp;                logger.error(resourceBundle.getString(&quot;db.error.notfound&quot;) + &quot;: &quot; + e.getSQLException().getMessage());</b>
+<b class="fc"><i>97</i>&nbsp;                throw new DepositsException(resourceBundle.getString(&quot;db.error.notfound.code&quot;));</b>
+<i>98</i>&nbsp;            } else {
+<b class="fc"><i>99</i>&nbsp;                logger.error(resourceBundle.getString(&quot;db.error.unknown&quot;) + &quot;: &quot; + e.getSQLException().getMessage());</b>
+<b class="fc"><i>100</i>&nbsp;                throw new SQLException(resourceBundle.getString(&quot;db.error.unknown.code&quot;));</b>
+<i>101</i>&nbsp;            }
+<i>102</i>&nbsp;        }
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    //Maps the query output to Entity/Model
+<b class="fc"><i>106</i>&nbsp;    public static class DepositsAvailableMapper implements RowMapper&lt;DepositsAvailable&gt; {</b>
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;        @Override
+<i>109</i>&nbsp;        public DepositsAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
+<b class="fc"><i>110</i>&nbsp;            DepositsAvailable depositsAvailable = new DepositsAvailable();</b>
+<b class="fc"><i>111</i>&nbsp;            depositsAvailable.setDepositId(rs.getLong(1));</b>
+<b class="fc"><i>112</i>&nbsp;            depositsAvailable.setDepositName(rs.getString(2));</b>
+<b class="fc"><i>113</i>&nbsp;            depositsAvailable.setDepositRoi(rs.getDouble(3));</b>
+<b class="fc"><i>114</i>&nbsp;            depositsAvailable.setDepositType(rs.getString(4));</b>
+<b class="fc"><i>115</i>&nbsp;            depositsAvailable.setDepositDescription(rs.getString(5));</b>
+<b class="fc"><i>116</i>&nbsp;            return depositsAvailable;</b>
+<i>117</i>&nbsp;        }
+<i>118</i>&nbsp;    }
+<i>119</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-08 11:48</div>
+</div>
+</body>
+</html>

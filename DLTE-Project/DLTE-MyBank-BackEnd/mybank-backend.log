@@ -725,4 +725,6 @@
 [0;39m[31m2024-05-08 16:48:09,181[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mListAllCustomers method called
 [0;39m[31m2024-05-08 16:48:09,185[0;39m [32m[INFO][0;39m mybank.db.dao.dltemybankdaolayer.service.CustomerAuthService http-nio-8082-exec-3 [32mFindByUser method called
 [0;39m[31m2024-05-08 17:56:29,308[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m18s988ms806µs800ns).
+[0;39m[31m2024-05-08 18:03:25,433[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource SpringApplicationShutdownHook [32mHikariPool-1 - Shutdown initiated...
+[0;39m[31m2024-05-08 18:03:25,442[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource SpringApplicationShutdownHook [32mHikariPool-1 - Shutdown completed.
 [0;39m
