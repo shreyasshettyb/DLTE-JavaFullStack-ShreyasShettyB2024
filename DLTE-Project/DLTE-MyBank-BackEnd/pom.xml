@@ -10,7 +10,7 @@
     </parent>
     <groupId>mybank.backend</groupId>
     <artifactId>service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>service</name>
     <description>Demo project for Spring Boot</description>
@@ -22,10 +22,6 @@
             <groupId>mybank.db.dao</groupId>
             <artifactId>dlte-mybank-dao-layer</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
         <dependency>
             <groupId>wsdl4j</groupId>
@@ -46,12 +42,6 @@
 <!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
 <!--                </exclusion>-->
 <!--            </exclusions>-->
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.ws</groupId>
@@ -92,18 +82,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-        </dependency>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

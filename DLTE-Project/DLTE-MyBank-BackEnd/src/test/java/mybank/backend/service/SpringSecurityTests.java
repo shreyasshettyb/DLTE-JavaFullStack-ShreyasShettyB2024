@@ -13,15 +13,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.CallableStatementCreator;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -30,7 +28,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
-public class SpringSecuritySuccessTests {
+public class SpringSecurityTests {
     @Mock
     HttpSession session;
     @Mock
@@ -40,10 +38,10 @@ public class SpringSecuritySuccessTests {
 
     @InjectMocks
     private MyBankAuthController authController;
-
-    private MockHttpServletRequest request;
-
-    private MockHttpServletResponse response;
+    @Mock
+    private HttpServletRequest request;
+    @Mock
+    private HttpServletResponse response;
     @Mock
     private Authentication authentication;
     @InjectMocks
@@ -54,11 +52,6 @@ public class SpringSecuritySuccessTests {
     private CustomerFailureHandler customerFailureHandler;
     @Captor
     private ArgumentCaptor<CallableStatementCreator> callableStatementCreatorCaptor;
-    //fail
-    @Mock
-    private CustomerAuthService myBankOfficialsService;
-    @InjectMocks
-    private CustomerFailureHandler failureHandler;
 
     @BeforeEach
     public void setUp() {
@@ -117,5 +110,5 @@ public class SpringSecuritySuccessTests {
     }
 
 
-}
 
+}

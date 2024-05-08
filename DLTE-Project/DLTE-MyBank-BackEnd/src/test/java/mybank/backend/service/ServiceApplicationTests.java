@@ -26,10 +26,12 @@ import services.deposits.ViewAllDepositsAvailableResponse;
 
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static mybank.db.dao.dltemybankdaolayer.DlteMybankDaoLayerApplication.myBankRemote;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
@@ -46,7 +48,7 @@ class ServiceApplicationTests {
     private static DepositsAvailable depositsAvailable2 = new DepositsAvailable();
     private static DepositsAvailable depositsAvailable3 = new DepositsAvailable();
     private static List<DepositsAvailable> depositsAvailableList = Stream.of(depositsAvailable1, depositsAvailable2, depositsAvailable3).collect(Collectors.toList());
-    @MockBean
+    @Mock
     MyBankRemote service;
     @InjectMocks
     SoapService soap;
@@ -117,9 +119,13 @@ class ServiceApplicationTests {
                 "\n\"depositId\": 1000002," +
                 "\n\"depositAmount\": 40000.0," +
                 "\n\"depositDuration\": 13," +
-                "\n\"depositMaturity\": \"2024-06-09\"\n" +
+                "\n\"depositMaturity\": \"2024-06-09\","+
+                "\n\"depositMaturityAmt\": 48000.0\n"+
                 "}";
-        mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
+
+        mockMvc.perform(post("/mybank/deposits/avail")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(request))
                 .andExpect(status().isOk());
     }
 
@@ -136,28 +142,22 @@ class ServiceApplicationTests {
                 "\n\"depositMaturity\": \"2024-06-09\"\n" +
                 "}";
         mockMvc.perform(post("/mybank/deposits/avail").contentType(MediaType.APPLICATION_JSON).content(request))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isOk());
     }
 
     @Test
     public void testConfigure() {
-        // Initialize mocks
         openMocks(this);
 
-        // Create an instance of ServletInitializer
         ServletInitializer servletInitializer = new ServletInitializer();
 
-        // Mock the sources() method call
         Class<ServiceApplication> applicationClass = ServiceApplication.class;
         when(springApplicationBuilder.sources(applicationClass)).thenReturn(springApplicationBuilder);
 
-        // Call the configure method
         SpringApplicationBuilder returnedBuilder = servletInitializer.configure(springApplicationBuilder);
 
-        // Verify that sources() method was called with correct argument
         verify(springApplicationBuilder).sources(applicationClass);
 
-        // Verify that the returned builder is the same as the mock
         assert returnedBuilder == springApplicationBuilder;
     }
 

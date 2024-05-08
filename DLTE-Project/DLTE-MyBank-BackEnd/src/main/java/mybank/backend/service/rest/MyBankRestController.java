@@ -55,6 +55,9 @@ public class MyBankRestController {
             Long customerId = customerAuthInterface.findByUsername(authentication.getName()).getCustomerId();
             depositsAvailRequest.setCustomerId(customerId);
 
+            Double depositRoi = Objects.requireNonNull(myBankRemote.availableDeposits().stream().filter(each -> each.getDepositId() == depositsAvailRequest.getDepositId()).findAny().orElse(null)).getDepositRoi();
+            Double maturityAmount = depositsAvailRequest.getDepositAmount() * (1 + (depositRoi * depositsAvailRequest.getDepositDuration()) / 100);
+            depositsAvailRequest.setDepositMaturityAmt(maturityAmount);
             myBankRemote.availDeposits(depositsAvailRequest);
             responseOut[0]= "Success";
             responseOut[1]=depositsAvailRequest;
@@ -73,7 +76,8 @@ public class MyBankRestController {
         return ResponseEntity.ok(responseOut);
     }
 
-    //fix
+
+
     //Exception Handler for Bean Validation
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)

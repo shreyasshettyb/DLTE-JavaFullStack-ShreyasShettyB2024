@@ -26,6 +26,16 @@ public class DepositsAvailed {
 //    @DateTimeFormat(pattern= "yyyy-MM-dd")
     private Date depositMaturity;
 
+    private Double depositMaturityAmt;
+
+    public Double getDepositMaturityAmt() {
+        return depositMaturityAmt;
+    }
+
+    public void setDepositMaturityAmt(Double depositMaturityAmt) {
+        this.depositMaturityAmt = depositMaturityAmt;
+    }
+
     public DepositsAvailed() {
     }
 

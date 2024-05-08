@@ -13,12 +13,10 @@ import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 @Service
 public class RepositoryMyBank implements MyBankRemote {
@@ -60,13 +58,14 @@ public class RepositoryMyBank implements MyBankRemote {
         Date sqlDate = Date.valueOf(nowDate);
 
         CallableStatementCreator creator = con -> {
-            CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?)}");
+            CallableStatement statement = con.prepareCall("{call avail_deposits(?,?,?,?,?,?,?)}");
             statement.setLong(1, depositsAvailed.getCustomerId());
             statement.setLong(2, depositsAvailed.getDepositId());
             statement.setDouble(3, depositsAvailed.getDepositAmount());
             statement.setInt(4, depositsAvailed.getDepositDuration());
             statement.setDate(5, sqlDate);
-            statement.registerOutParameter(6, Types.VARCHAR);
+            statement.setDouble(6,depositsAvailed.getDepositMaturityAmt());
+            statement.registerOutParameter(7, Types.VARCHAR);
             return statement;
         };
 
@@ -78,6 +77,7 @@ public class RepositoryMyBank implements MyBankRemote {
                             new SqlParameter(Types.NUMERIC),
                             new SqlParameter(Types.INTEGER),
                             new SqlParameter(Types.DATE),
+                            new SqlParameter(Types.DOUBLE),
                             new SqlOutParameter("p_result", Types.VARCHAR),
                     }
             ));

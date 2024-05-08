@@ -1,5 +1,5 @@
 body {
-    background-image:url('/images/login-image.jpg');
+    background-image:url('/images/login-image.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -15,7 +15,7 @@ img{
     margin-left: 10px;
 }
 .login-container {
-    background-color: rgba(194, 195, 221, 0.8);
+    background-color: rgba(194, 195, 221, 0.4);
     padding: 20px;
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -32,7 +32,7 @@ img{
 }
 
 .login-info {
-    color: white; /* Changed text color to black */
+    color: white;
     text-align: left;
     padding-left: 20px;
     padding-bottom: 40px;

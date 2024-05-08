@@ -176,6 +176,39 @@ class DlteMybankDaoLayerApplicationTests {
         // Assert
         assertEquals(expectedId, actualId, "Deposit ID should match");
     }
+
+    @Test
+    public void testDepositMaturityAmt() {
+        DepositsAvailed deposit = new DepositsAvailed();
+        Double expectedMaturityAmt = 1000.0;
+        deposit.setDepositMaturityAmt(expectedMaturityAmt);
+        assertEquals(expectedMaturityAmt, deposit.getDepositMaturityAmt());
+    }
+
+    @Test
+    public void testDepositId() {
+        DepositsAvailed deposit = new DepositsAvailed();
+        Long expectedDepositId = 12345L;
+        deposit.setDepositId(expectedDepositId);
+        assertEquals(expectedDepositId, deposit.getDepositId());
+    }
+
+    @Test
+    public void testCustomerId() {
+        DepositsAvailed deposit = new DepositsAvailed();
+        Long expectedCustomerId = 67890L;
+        deposit.setCustomerId(expectedCustomerId);
+        assertEquals(expectedCustomerId, deposit.getCustomerId());
+    }
+
+    @Test
+    public void testDepositAmount() {
+        DepositsAvailed deposit = new DepositsAvailed();
+        Double expectedDepositAmount = 5000.0;
+        deposit.setDepositAmount(expectedDepositAmount);
+        assertEquals(expectedDepositAmount, deposit.getDepositAmount());
+    }
+
     @Test
     public void testAvailableDepositsSQLException() throws SQLException, DepositsException {
         Mockito.when(jdbcTemplate.query(Mockito.anyString(), Mockito.any(RepositoryMyBank.DepositsAvailableMapper.class)))

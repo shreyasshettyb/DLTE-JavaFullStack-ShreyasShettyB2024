@@ -12,7 +12,6 @@ import java.util.List;
 @Repository
 public interface MyBankRemote {
     List<DepositsAvailable> availableDeposits() throws SQLException, DepositsException;
-
     String availDeposits(DepositsAvailed depositsAvailed) throws DepositsException, SQLException;
 
 }

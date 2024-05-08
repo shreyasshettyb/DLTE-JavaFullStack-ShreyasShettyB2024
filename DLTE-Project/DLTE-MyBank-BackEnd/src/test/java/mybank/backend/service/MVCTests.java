@@ -29,8 +29,7 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -107,27 +106,35 @@ public class MVCTests {
         assertEquals("error?code=404&msg=Could not find Deposit Information", result);
     }
 
-//    @Test
+    @Test
+    @WithMockUser(username = "shreyas12")
+    public void testAvailDepositError2View() {
+        Model model = mock(Model.class);
+        String result = mvcController.availDeposit("", model);
+        assertEquals("error?code=404&msg=Could not find Deposit Information", result);
+    }
+
+    @Test
     void testCustomerName() throws Exception {
         Customer customer = new Customer();
-        customer.setCustomerId(123L);
-        customer.setCustomerName("Akash");
+        customer.setCustomerId(5120L);
+        customer.setCustomerName("shreyas");
         customer.setCustomerAddress("banglore");
         customer.setCustomerStatus("active");
         customer.setCustomerContact(8277263396L);
-        customer.setUsername("user");
-        customer.setPassword("1234");
+        customer.setUsername("shreyas12");
+        customer.setPassword("shreyas123");
         customer.setAttempts(1);
 
         Authentication authentication = Mockito.mock(Authentication.class);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        when(authentication.getName()).thenReturn("username");
+        when(authentication.getName()).thenReturn("shreyas12");
 
-        when(customerAuthService.findByUsername("username")).thenReturn(customer);
+        lenient().when(customerAuthService.findByUsername("shreyas12")).thenReturn(customer);
 
         mockMvc2.perform(get("/name"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Akash"));
+                .andExpect(content().string("shreyas"));
     }
 
     @Test

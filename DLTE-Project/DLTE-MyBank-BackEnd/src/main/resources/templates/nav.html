@@ -18,7 +18,7 @@
     <script th:src="@{'/scripts/nav.js'}"></script>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{'/dashboard'}">
                 <img th:src="@{'/images/logo.png'}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                <b>My Bank</b>
             </a>
@@ -52,7 +52,7 @@
                             Amount
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
                             Cards
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -88,7 +88,7 @@
                             Loans
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -97,7 +97,7 @@
                             Investments
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -106,7 +106,7 @@
                             Insurance
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Action</a></li>
+                            <li><a class="dropdown-item " th:href="@{'/error?code=404&msg=Page Not Found'}">Action</a></li>
                         </ul>
                     </li>
                 </ul>

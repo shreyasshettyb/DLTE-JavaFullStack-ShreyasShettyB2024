@@ -15,7 +15,7 @@
 
 <header th:replace="nav::navbar"></header>
 <body>
-<script>
+<script >
     $(document).ready(() => {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -65,11 +65,14 @@
                             var dateString = response[1].depositMaturity;
                             var date = new Date(dateString);
                             var formattedDate = date.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, "-");
-                            const deposit = `<h4>Deposit Amount:<span>${response[1].depositAmount}</span></h4><h4>Deposit Duration:<span>${response[1].depositDuration}</span></h4><h4>Deposit Maturity: <span>${formattedDate}</span></h4>`;
+                            const deposit = `<h4>Deposit Amount:<span>${response[1].depositAmount}</span></h4><h4>Deposit Duration:<span>${response[1].depositDuration}</span></h4><h4>Deposit Maturity Date: <span>${formattedDate}</span></h4><h4>Deposit Maturity Amount: <span>${response[1].depositMaturityAmt}</span></h4>`;
                             $("#depositDetails").html(deposit);
                             $("#ackModal").show();
                         } else {
-                            alert("Error: " + response[1]); // Display error message
+                            const deposit = `<h4>Error:<span>${response[1]}</span></h4>`;
+                            $("#depositDetails").html(deposit);
+                            $("#ackModal").show();
+                            // alert("Error: " + response[1]); // Display error message
                         }
                     },
                     error: function(err) {
@@ -88,11 +91,11 @@
 
         // Amount validation
         if (amountInput.trim() === '') {
-            $("#amountError").text("hello")
+            $("#amountError").text("Amount Cannot be Empty")
             isValid = false;
         }
-        else if(amountInput<0){
-            $("#amountError").text('Amount cannot be Zero or less than Zero');
+        else if(amountInput<100){
+            $("#amountError").text('Amount cannot be less than 100');
             isValid = false;
         }
         else {
@@ -109,7 +112,7 @@
             isValid = false;
         }
         else if(durationInput<0){
-            $("#durationError").text('Duration cannot be Zero or less than Zero');
+            $("#durationError").text('Duration Cannot Be less than 1 Year');
             isValid = false;
         }
         else {
@@ -123,36 +126,41 @@
         } else {
             $("#tAndCError").text('');
         }
-
         return isValid
-    };
+    }
 </script>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-left">
+            <i class="bi bi-arrow-left-circle-fill ml-1 " style="color: #182052; font-size: 2rem;" onclick="window.history.back()"></i>
+        </div>
+    </div>
+</div>
 <div class="container mt-4 ">
     <div class="card p-4 col-lg-6 mx-auto my-4">
         <form id="depositForm">
             <h2>Deposits Avail Form</h2>
-<!--            <input type="hidden" id="depositId" th:value="${deposit.id}"/>-->
             <div class="form-group my-2">
                 <label>Deposit Name</label>
-                <input class="form-control" type="text" id="depositName" name="depositName" th:value="${param.depositName}" readonly required>
+                <input class="form-control" type="text" id="depositName" name="depositName" th:value="${param.depositName}" style="background-color: gray" readonly required>
+            </div>
+            <div class="form-group my-2">
+                <label for="date">Deposit Date</label>
+                <input style="background-color: gray" class="form-control" type="date" id="date" name="date" readonly>
             </div>
             <div class="form-group my-2">
                 <label for="Amount">Amount</label>
-                <input class="form-control" type="number" id="Amount" name="Amount" required>
+                <input class="form-control" type="number" id="Amount" name="Amount" placeholder="Enter Amount Minimum 100" required>
                 <span id="amountError" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
                 <label for="Duration">Duration</label>
-                <input class="form-control" type="number" id="Duration" name="Duration" required>
+                <input class="form-control" type="number" id="Duration" name="Duration" placeholder="Enter Duration in Years" required>
                 <span id="durationError" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
-                <label for="date">Deposit Date</label>
-                <input class="form-control" type="date" id="date" name="date" readonly>
-            </div>
-            <div class="form-group my-2">
                 <label class="form-check-label">
-                    <input class="form-check-inline" type="checkbox" id="tAndC" name="t&c" required>
+                    <input class="form-check-inline" type="checkbox" id="tAndC" name="t&c" placeholder="Need To Abide All Terms And Conditions" required>
                     Accept terms and Conditions
                 </label>
                 <span id="tAndCError" class="text-danger"></span>
